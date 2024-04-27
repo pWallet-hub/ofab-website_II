@@ -1,0 +1,26 @@
+.header-container{
+    background-color: #239E36;
+    color: #FFFFFF;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+}
+
+.header-log{
+ height: 2.5rem;
+ border-radius: 50%;   
+}
+
+.header-contact{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+
+
+.icon {
+    color: #FFFFFF;
+}
