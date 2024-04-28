@@ -1,0 +1,153 @@
+/* Header.css */
+.header {
+  background-color: #f8f9fa;
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed; /* Set header position to fixed */
+  top: 0; /* Align header to the top of the viewport */
+  width: 100%; /* Ensure the header spans the full width */
+  z-index: 1000; /* Ensure the header stays above other content */
+}
+
+.Header-body {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+}
+.Header-body img{
+  width: 3rem;
+  height: 3rem;
+
+}
+
+.Header-log {
+  margin-right: 10px;
+}
+
+.Header-cont {
+  display: flex;
+  align-items: center;
+}
+
+.Header-cont h4 {
+  color: #1d466f;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.Header-cont p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+.Header-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  color: #1d466f;
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.Header-logo {
+  background-color: #0C9444;
+  color: #f8f9fa;
+  padding: 10px;
+  text-align: center;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+  margin-left: 25px;
+  padding-top: 25px;
+  padding-bottom: 30px;
+  height: 60px; /* Set a fixed height */
+  margin-bottom: -30px; /* Half of the height */
+  position: relative;
+  z-index: 1; /* Ensure it's above the section below */
+}
+
+.nav-list li {
+  margin-right: 20px;
+}
+
+.nav-list a {
+  color: #f8f9fa;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.nav-list a:hover {
+  color: #06529e;
+}
+
+.nav-list a:active {
+  color: #1d466f;
+}
+
+.social-media {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 0;
+}
+
+.social-media li {
+  margin-right: 20px;
+}
+
+.menu {
+  color: aliceblue;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  font-weight: bolder;
+  margin-right: 15rem;
+}
+
+@media (max-width: 900px) {
+  .Header-logo {
+    background-color: #0C9444;
+    color: #f8f9fa;
+    padding: 10px;
+    text-align: left;
+    border-radius: 12px;
+    height: 60px; /* Set a fixed height */
+    margin-bottom: -30px; /* Half of the height */
+    position: relative;
+    z-index: 1; /* Ensure it's above the section below */
+  }
+  .Header-body {
+    display: none;
+  }
+
+  .nav-list {
+    display: none;
+  }
+  .menu {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    display: block;
+  }
+  .navbar {
+    display: none;
+  }
+}
