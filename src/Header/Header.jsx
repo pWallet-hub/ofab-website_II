@@ -30,21 +30,18 @@ function Header() {
         <div className='Header-cont'>
            <FaMobileScreenButton className='Header-icon' />
            <div>
-            <h4>Give Us A Call</h4>
             <p>+250 785 855 080</p>
            </div>
         </div>
         <div className='Header-cont'>
            <HiOutlineMailOpen className='Header-icon' />
            <div>
-            <h4>Send Us A Message</h4>
             <p>ofabrwanda@ofabrwanda.info</p>
            </div>
         </div>
         <div className='Header-cont'>
            <FaLocationDot className='Header-icon' />
            <div>
-            <h4>RAB Headquarters</h4>
             <p>Rubirizi, Kigali.</p>
            </div>
         </div>
@@ -65,13 +62,7 @@ function Header() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/who-we-are">Who we are</Link></li>
           <li><Link to="/activities">Activities</Link></li>
-          <li><Link to="/outreachEvents">Outreach & Events</Link></li>
           <li><Link to="/information-hub">Information Hub</Link></li>
-          <ul className='social-media'>
-            <li><Link to="/"><FaFacebookF /></Link></li>
-            <li><Link to="/"><FaTwitter /></Link></li>
-            <li><Link to="/"><FaInstagram /></Link></li>
-          </ul>
         </ul>
         
       </nav>
