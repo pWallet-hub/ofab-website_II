@@ -1,0 +1,58 @@
+import { Link } from 'react-router-dom';
+import './Footer.css';
+// import '@fortawesome/fontawesome-free/css/all.min.css';
+import image from "../assets/ofab.jpg";
+
+const Footer = () => {
+  return (
+    <footer>
+      
+      <div className="left-section">
+        <div className="logo">
+          <img src={image} alt="Logo" />
+        </div>
+        <p>For a food-secure Rwanda <br />where agricultural biotechnology <br />is making significant contributions.</p>
+        <div className="social-media-icons">
+         
+          <i className="fab fa-facebook"></i>
+          <i className="fab fa-twitter"></i>
+          <i className="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div className="middle-section">
+        <ul>
+          {/* Use Link component for navigation */}
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/who-we-are">Who We Are</Link></li>
+          <li><Link to="/activities">Activities</Link></li>
+          <li><Link to="/outreachEvents">Outreach & Events</Link></li>
+          <li><Link to="/information-hub">Information Hub</Link></li>
+        </ul>
+      </div>
+      <div className="right-section">
+        <div className="contact2">
+          <div className='fone'>
+          <i className="fas fa-phone"></i>
+          <div className='phone1'>
+          <h1>call to us:</h1>
+          <p>+250 785855080</p> 
+          </div>
+          </div>
+          <div className='email1'>
+          <i className="fas fa-envelope"></i> 
+          <div className='email'>
+            <h1>email us:</h1>
+            <p>ofabrwanda@ofabrwanda.info</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* <div className='copyright'><Link to ='https://ofab-dashboard.vercel.app/' className='link
+      '>Made by OfabRwanda with <span>&#10084;</span> </Link></div>  */}
+    </footer>
+    
+  );
+}
+
+export default Footer;

@@ -1,0 +1,102 @@
+/* BlogPost.css */
+
+.blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.back-button {
+    background-color: #fff;
+    color: #000;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    /* margin-bottom: 1px; */
+    margin-top: 10px;
+}
+
+.back-button:hover {
+    background-color: #b4c2d0;
+}
+
+.blog-post h2 {
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #0C9444;
+    text-transform: capitalize;
+    margin-top: 125px;
+}
+
+.blog-image {
+    /* max-width: 100%; */
+    height: auto; /* Set height to auto to maintain aspect ratio */
+    margin-bottom: 20px;
+}
+
+.additional-photos {
+    display: flex;
+    flex-wrap: wrap; /* Ensure flex items wrap to the next line if needed */
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+
+}
+
+.additional-photos img {
+    flex: 0 0 calc(50% - 10px); /* Adjust image width to fit within half of container with margin */
+    max-width: calc(50% - 10px); /* Set maximum width for images */
+    height: auto; /* Set height to auto to maintain aspect ratio */
+
+}
+
+.blog-post p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.blog-post img {
+    max-width: 100%;
+    height: 600px;
+    margin-bottom: 20px;
+}
+
+.blog-image1 {
+    width: 100%; /* Adjust width to fill container */
+    height: auto; /* Set height to auto to maintain aspect ratio */
+}
+
+.blog-post p.author {
+    font-weight: bold;
+}
+
+.blog-post p.created-at {
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .blog-post {
+        padding: 10px;
+    }
+
+    .blog-post h2 {
+        font-size: 20px;
+    }
+
+    .back-button {
+        padding: 8px 16px;
+        margin-bottom: 10px;
+    }
+
+    .additional-photos img {
+        flex-basis: calc(50% - 10px); /* Adjust image width to fit within half of container with margin */
+        max-width: calc(50% - 10px); /* Set maximum width for images */
+    }
+}
