@@ -1,7 +1,7 @@
 /* Default styles */
 .story-card {
   width: 30%;
-  background-color: #0C9444;
+  /* background-color: #0C9444; */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
