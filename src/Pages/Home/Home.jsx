@@ -18,8 +18,7 @@ import nutrition from '../../assets/nutritio.jpg'
 import { FaFlask } from "react-icons/fa";
 import { FaVideo } from "react-icons/fa";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
-import { FaArrowRight } from "react-icons/fa";
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 
@@ -125,38 +124,34 @@ export default function Home() {
           <div className='log'><FaFlask /></div>
           <h1>Biotech Research Outreach</h1>
           <p>We play an important role in raising awareness and understanding of different Agricultural Biotechnology solutions.</p>
-          <span className='read-more'>Read More <FaArrowRight /></span>
         </div>
         <div className='card1'>
           <div className='log1'><FaVideo /></div>
           <h1>Media Engagement</h1>
           <p>We work with the media to promote accurate, fact-based, and scientific reporting. The forum also demystifies misinformation about Agriculture Biotechnology.</p>
-          <span className='read-more'>Read More <FaArrowRight /></span>
         </div>
         <div className='card'>
           <div className='log'><HiOutlineSpeakerphone /></div>
           <h1>Public Engagement & Awareness</h1>
           <p>We engage stakeholders, including Policymakers, Farmers, Civil Society Organizations, and others, to raise awareness and appreciation of Agriculture Biotechnology's benefits to Rwanda's food system.</p>
-          <span className='read-more'>Read More <FaArrowRight /></span>
         </div>
       </div>
       <div className='about-goals'>
-        <h1>ABOUT US</h1>
+        <h1 className='section-title'>ABOUT US</h1>
 
         <div className='about'>
-          <img className='about-img' src={group} alt="Description of image" />
+
           <div className='about-text'>
             <p>OFAB is an informative platform that brings together <br /> stakeholders in the field of Biotechnology <br /> and the public to enable interactions, sharing, <br />and exchange of knowledge, experiences, contacts,<br /> and exploring new avenues of bringing the <br /> benefits of biotechnology to the Agricultural sector.</p>
+          </div>
+           <div className="image-container">
+            <img className='about-img' src={group} alt="Description of image" />
           </div>
         </div >
       </div>
       <div className='about1'>
-        <h1>OUR PROMISE</h1>
+        <h1 className='section-title'>OUR PROMISE</h1>
         <div className='about'>
-          <div className='about-text'>
-
-            <p>We believe that use of appropriate technology can improve <br /> agricultural productivity in Africa. We support farmers <br /> in Africa and especially smallholder farmers in their <br /> quest  for access to the best agricultural technology. <br /> Better access to agricultural technologies will boost <br /> the productivity of smallholder farmers</p>
-          </div>
           <iframe
             className='about-video'
             src="https://www.youtube.com/embed/BBWriPCPzOA"
@@ -165,18 +160,22 @@ export default function Home() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen>
           </iframe>
+          <div className='about-text'>
+
+            <p>We believe that use of appropriate technology can improve <br /> agricultural productivity in Africa. We support farmers <br /> in Africa and especially smallholder farmers in their <br /> quest  for access to the best agricultural technology. <br /> Better access to agricultural technologies will boost <br /> the productivity of smallholder farmers</p>
+          </div>
         </div>
       </div>
       <div className='success-story'>
-        <h1>SUCCESS STORIES</h1>
+        <h1 className='success-title'>SUCCESS STORIES</h1>
         <div className='story-container'>
           {stories.map((story, index) => (
-            <SuccessStoryCard key={index} story={story} />
+            <SuccessStoryCard key={index} story={story} className={index % 2 === 0 ? 'white-background' : 'green-background'} />
           ))}
         </div>
       </div>
-      <div className='success-story'>
-        <h1>LATEST NEWS & UPDATES</h1>
+      <div className='success-story1'>
+        <h1 className='section-title'>LATEST NEWS & UPDATES</h1>
         <div className='story-container1'>
         {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
@@ -201,26 +200,29 @@ export default function Home() {
       )}
         </div>
       </div>
-      <div className='success-story1'>
-        <h1>OUR GOAL</h1>
-        <SlideShow images={goals} />
-      </div>
       <div className='contact-disp'>
-        <h1>Contact Us</h1>
+        <h1 className='section-title'>Contact Us</h1>
         <div className='contact1'>
         <div className='contact'>
-          <h1> contact us</h1>
+          <h4 className='contact-title'>Send Us A Message</h4>
           <form>
             <label>
-              <input type="text" name="name" placeholder='Enter your name' />
+              <span className='form-name'>Name</span>
+              <input type="text" name="name"/>
             </label>
             <label>
-              <input type="email" name="email" placeholder='your@email.com' />
+              Email
+              <input type="email" name="email" />
             </label>
             <label>
-              <textarea name="message" placeholder='Enter your message here'></textarea>
+              Subject
+              <input type="text" name="subject"/>
             </label>
-            <input type="submit" value="Send" id='button' />
+            <label>
+              Message
+              <textarea name="message"></textarea>
+            </label>
+            <input type="submit" value="Send Message" id='button' />
           </form>
         </div>
 
