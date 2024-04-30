@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 import closeup from '../../assets/closeup.jpg';
