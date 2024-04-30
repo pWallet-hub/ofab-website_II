@@ -1,14 +1,12 @@
 
-/* Footer.css */
-
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #fff;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.5) url('../../src/assets/2400_kcjgpd_img_866df235472197bbe4f267950c51c60e.jpg') no-repeat center center fixed; /* Background image full screen with transparency */
-  background-size: cover; 
+  background: #239E36;
+  overflow-x: hidden;
 
 }
 
@@ -30,6 +28,7 @@ footer {
 }
 .logo  img{
   width: 80px;
+  border-radius: 50%;
   
 }
 .middle-section ul {
@@ -46,6 +45,7 @@ footer {
 }
 .middle-section ul li a {
   color: #fff;
+  text-decoration: none;
 }
 .middle-section ul li a:hover{
   color: #0C9444;
@@ -184,4 +184,4 @@ footer {
   .contact2{
     margin-top: 2rem;
   }
-}
+} 
