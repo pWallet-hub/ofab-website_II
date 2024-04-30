@@ -1,43 +1,43 @@
-/* CSS for devices with width 768px and above */
+
 .About {
   display: grid;
   position: relative;
   z-index: 0;
 }
 
-.About-img {
-  /* width: 100%;
-  height: 50px;
-  object-fit: cover; */
+.About img{
+ width: 100%;
+ height: 50vh;
+ object-fit: cover;
 }
 
 .story-head {
   color: #0C9444;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 3rem;
-  text-align: center;
+  text-align: right;
 }
 .team {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Display team cards in a grid layout with a minimum width of 300px */
-  gap: 20px; /* Add gap between team cards */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  gap: 20px; 
 }
 
 .board,
 .assistants,
 .partners,
 .worker {
-  margin-top: 20px; /* Add margin above each team section */
+  margin-top: 20px; 
 }
 
-/* Adjust card styling */
+
 .TeamCard,
 .Partner {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 
@@ -62,20 +62,23 @@
 }
 
 .mission {
-  background-color: #0C9444;
+  background-color: #522A0E;
   color: #ffffff;
   text-align: left;
-  padding: 1rem;
+  padding: 1rem 1.5rem 1.5rem 2rem;
   font-size: 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 1rem;
-  width: 50%;
-  border-radius: 30px;
-  box-shadow: 15px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  width: 100%;
+  border-radius: 10px;
+  /* box-shadow: 15px 10px 5px 0px rgba(0, 0, 0, 0.75); */
 }
 .visionmission{
-  margin-right: 1.5rem;
-  margin-left: 1.5rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
 
 
@@ -94,7 +97,6 @@
   padding: 20px;
 }
 
-/* General Styles */
 .story-head {
   color: #00d56d;
   font-size: 2.5rem;
@@ -104,14 +106,15 @@
 }
 
 .team-section-title {
-  color: #0C9444;
+  color: #fff;
+  background: #239E36;
   font-size: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 1rem;
   text-align: center;
+  margin-bottom: 0.6rem;
 }
 
-/* Team Layout */
 .board,
 .assistants,
 .workers {
@@ -155,7 +158,7 @@
 }
 
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
   .team-row {
     flex-wrap: wrap;
@@ -166,101 +169,15 @@
   }
 }
 
-/* Additional Styles */
-.About {
-  display: grid;
-  position: relative;
-  z-index: 0;
-}
+
+
 
 .visionmission{
   display: flex;
 }
-.About-img {
-  width: 100%;
-  height: 95vh;
-  object-fit: cover;
-}
 
-.story-text,
-.story-text2 {
-  color: #000;
-  font-size: 1.3rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 3rem;
-  text-align: center;
-  line-height: 1.5;
-}
 
-.mission {
-  background-color: #0C9444;
-  color: #ffffff;
-  text-align: left;
-  padding: 1rem;
-  font-size: 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 1rem;
-  width: 50%;
-  border-radius: 30px;
-  box-shadow: 15px 10px 5px 0px rgba(0, 0, 0, 0.75);
-}
 
-.vision {
-  color: #0C9444;
-  background-color: #ffffff;
-  text-align: left;
-  padding: 1rem;
-  font-size: 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 1rem;
-  width: 50%;
-  border-radius: 30px;
-  box-shadow: -13px 10px 5px 0px rgba(0, 0, 0, 0.75);
-}
 
-/* Media Queries */
-@media (max-width: 768px) {
-  .About {
-    display: block;
-    margin: 1rem;
-  }
 
-  .About-img {
-    height: 50vh;
-    width: 66vh;
-  }
 
-  .story-head,
-  .story-text,
-  .mission,
-  .vision,
-  .story-text2 {
-    padding: 1rem;
-    text-align: left;
-  }
-  .story-text2 {
-    margin-left: -1rem;
-    width: 100%;
-  }
-  .story-text{
-    width: 100%;
-  }
-
-  .mission,
-  .vision {
-    width: 100%;
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 1.6rem;
-    padding: 1rem;
-  }
-  .visionmission{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-radius: 3px;
-    font-size: 10px;
-    margin-left: 4px;
-    margin-right: 1.5rem;
-  }
-}

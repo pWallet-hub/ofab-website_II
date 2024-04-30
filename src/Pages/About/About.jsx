@@ -8,6 +8,7 @@ import rab from '../../assets/Rab.jpg'
 import aatf from '../../assets/AATF.jpg';
 import rmc from '../../assets/rmc.jpg';
 import virca from '../../assets/virca.jpg';
+import { FaArrowCircleRight } from "react-icons/fa";
 import './About.css'
 
 export default function Hub() {
@@ -78,7 +79,7 @@ export default function Hub() {
     <div>
       <div className='About'>
       <img className='About-img' src={happy} alt="Description of image" />
-      <h1 className='story-head'>BACKGROUND</h1>
+      <h1 className='story-head'>Transformed Agriculture</h1>
       <p className='story-text'>
         OFAB is an informative platform that brings together stakeholders in the field of Biotechnology and the public to enable interactions, sharing, and exchange of knowledge, experiences, contacts, and exploring new avenues of bringing the benefits of biotechnology to the Agricultural sector.
         <p className='story-text2'>
@@ -88,12 +89,13 @@ export default function Hub() {
 
       <div className='mission'>
         <h1>MISSION</h1>
+        <FaArrowCircleRight />
         <p>To enhance knowledge sharing and awareness on agricultural biotechnology that would raise understanding and appreciation of the technology and contribute to building an enabling environment for informed and timely decision-making.</p>
       </div>
       <div className='mission'>
         <h1>VISION</h1>
-        <p>To be the leading organization in the field of agricultural biotechnology in Rwanda, to promote the development of
-          agricultural biotechnology and to foster a culture of innovation and entrepreneurship amongst the agricultural
+        <FaArrowCircleRight />
+        <p>To be the leading organization in the field of agricultural biotechnology in Rwanda, to promote the development of agricultural biotechnology and to foster a culture of innovation and entrepreneurship amongst the agricultural
          </p> 
        </div>  
       </div>
@@ -166,7 +168,7 @@ export default function Hub() {
           ))}
         </div>
       </div>
-      <h1 className='story-head'>PARTNERS</h1>
+      <h1 className='team-section-title'>PARTNERS</h1>
    <div className='team'>
    <Partner 
    logo={virca} 

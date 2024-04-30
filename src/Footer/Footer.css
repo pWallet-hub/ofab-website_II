@@ -17,12 +17,6 @@ footer {
   align-items: center;
   text-align: left;
 }
-.copyright{
-  background: rgba(0, 0, 0, 0.5) url('../../src/assets/2400_kcjgpd_img_866df235472197bbe4f267950c51c60e.jpg') no-repeat center center fixed; 
-  justify-content: center;
-  
-
-}
 .link{
   margin-left: 2rem;
 }
