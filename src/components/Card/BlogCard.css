@@ -2,7 +2,8 @@
 /* BlogCard.css */
 .blog-card {
   width: 400px;
-  background: #0C9444;
+  background:#239E36A1;
+;
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
