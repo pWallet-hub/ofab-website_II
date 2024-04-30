@@ -1,0 +1,34 @@
+
+.hub {
+ display: grid;
+ position: relative;
+  z-index: 0;
+}
+
+.hub-img{
+    width: 100%;
+    height: 95vh;
+    object-fit: cover;
+}
+.hub-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 1.5rem;
+  margin-right: 1.7rem;
+}
+
+.hub-title{
+  font-size: 3rem;
+text-align: center;
+margin: 1rem;
+}
+
+.blog-card {
+  flex-basis: calc(33.3333% - 20px); /* Three cards per row, with 20px gap */
+  margin-bottom: 20px; /* Add some vertical spacing */
+}
+
+.x{
+  color: #000020
+}

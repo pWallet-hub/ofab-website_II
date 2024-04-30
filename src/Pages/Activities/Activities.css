@@ -1,0 +1,71 @@
+
+.hub {
+ display: grid;
+ position: relative;
+  z-index: 0;
+}
+
+.active-img{
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+}
+.active-content{
+    background-color: #D7F0C8;
+    
+}
+
+.active-content p{
+    color: #000;
+    font-size: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 3rem;
+    text-align: left;
+    line-height: 1.5;
+}
+.active-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+.blog-card {
+  flex-basis: calc(33.3333% - 20px); /* Three cards per row, with 20px gap */
+  margin-bottom: 20px; /* Add some vertical spacing */
+}
+@media only screen and (max-width: 768px) {
+  .hub{
+    margin: 1rem;
+  }
+  .active-img {
+    height: 50vh; /* Reduce height of active image on smaller screens */
+  }
+
+  .active-content p {
+    font-size: 1.5rem; /* Decrease font size of paragraph in active content */
+    padding: 1.5rem; /* Adjust padding for smaller screens */
+  }
+
+  .active-info {
+    margin: 1rem; /* Adjust margin for smaller screens */
+    font-size: 1.5rem;
+  }
+
+  .blog-card {
+    flex-basis: calc(50% - 10px); /* Two cards per row, with 10px gap */
+    
+  }
+}
+@media only screen and (max-width: 430px) {
+  .active-info {
+    margin: 1rem; /* Adjust margin for smaller screens */
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .active-content{
+    text-align: center;
+    margin: 1rem;
+  }
+}

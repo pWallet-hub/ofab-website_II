@@ -1,0 +1,15 @@
+.goal{
+    color: 'white'; 
+    font-Size: '3rem'; 
+    padding: '1rem'; 
+    background:rgba(0, 0, 0, 0.5);
+    width: '100%';
+    height: '100%'; 
+    display: 'flex'; 
+    flex-Direction: 'column'; 
+    justify-Content: 'center'; 
+    text-Align: 'center';
+    border-Radius: '1rem';
+    text-Transform: 'uppercase';  
+      
+}
