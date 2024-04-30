@@ -28,7 +28,11 @@ const text = (
       <h3 >OFAB RWANDA CHAPTER</h3>
     </div>
     <div className='story-content'>
-      <p>OFAB Rwanda Chapter is committed to promoting public understanding of agricultural biotechnology science and its potential to increase farmers' productivity, protect the environment, improve nutrition, and enhance food security.
+      <p className='story-content'>OFAB RWANDA CHAPTER is committed to promoting public under
+        standing of Agricultural Biotechnology Science and its potential to  
+increase farmer’s productivity,protect the environment,improve nut
+rition and enhance security.
+
       </p>
     </div>
   </div>
