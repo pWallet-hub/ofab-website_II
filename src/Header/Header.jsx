@@ -6,9 +6,6 @@ import Sidebar from './Sidebar'
 import { FaMobileScreenButton } from "react-icons/fa6";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { FaLocationDot } from "react-icons/fa6";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
 import { MdMenu } from "react-icons/md";
 import image from "../assets/ofab.jpg";
 
