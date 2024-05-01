@@ -10,10 +10,7 @@
     height: 70vh;
     object-fit: cover;
 }
-.active-content{
-    /* background-color: #D7F0C8; */
-    
-}
+
 
 
 .active-content h3{
@@ -29,22 +26,104 @@
 .active-info h4{
   margin-top: 2rem;
   align-items: center;
-  margin-left: 337px;
+  margin-left: 600px;
   color: #239E36;
   margin-bottom: 1.2rem;
+  font-size: 28px;
 
 }
+.active-info h5 {
+  margin-top: 2rem;
+  align-items: center;
+  margin-left: 630px;
+  color: #239E36;
+  margin-bottom: 1.2rem;
+  font-size: 18px;
+
+}
+
 .active-info p{
   margin-left: 30px;
+  font-size: 20px;
 }
-.active-info .vid1{
-background-image: url(https://www.youtube.com/shorts/JLBW2hSD3D0);
+.Active-videos .vid1{
 
+height: 0px;
+
+}
+.Active-videos{
+  display: flex;
+  height: 300px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  
+  
+}
+.Active-videos1 {
+  display: flex;
+  height: 300px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+
+
+}
+.vidone{
+  flex: 1;
+    /* border: 1px solid black; */
+    margin-left: 30px;
+    padding: 10px;
+    border-radius: 15px;
+    margin-right: 30px;
+    background: url(../../assets/pic.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+}
+.vidthree {
+  flex: 1;
+  margin-left: 30px;
+  padding: 10px;
+  border-radius: 15px;
+  margin-right: 30px;
+  background: url(../../assets/pic.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 30px;
+}
+.vidtwo{
+  flex: 1.5;
+    margin: 5px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 30px;
+    background: url(../../assets/pic2.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: 340px; */
+    margin-bottom: 30px;
+     
+} 
+.YWexplanation p{
+  flex: 1;
+  font-size: 20px;
+  margin-left: 80px;
+}
+.expl-pic{
+  background: url(../../assets/sec.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex: 1.2;
+    width: 40px;
 }
 
 .blog-card {
   flex-basis: calc(33.3333% - 20px); /* Three cards per row, with 20px gap */
   margin-bottom: 20px; /* Add some vertical spacing */
+}
+FaLongArrowAltRight{
+  margin-top: 10px;
+  color: black;
 }
 @media only screen and (max-width: 768px) {
   .hub{

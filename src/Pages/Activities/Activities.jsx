@@ -4,6 +4,8 @@ import { BeatLoader } from 'react-spinners';
 import closeup from '../../assets/closeup.jpg';
 import BlogCard from '../../components/Card/BlogCard';
 import './Activities.css';
+import { FaLongArrowAltRight } from "react-icons/fa";
+
 
 export default function Hub() {
   const [blogs, setBlogs] = useState([]);
@@ -42,11 +44,33 @@ export default function Hub() {
          <h4>CAPACITY BUILDING</h4>
          <p>OFAB Rwanda Chapter's capacity-building initiatives in agricultural biotechnology encompass a wide array of activities, including educational workshops, training programs, technology transfer, policy advocacy, research and development support, networking, communication materials development, and monitoring and evaluation. These efforts aim to enhance understanding, skills, and resources related to biotechnology among farmers, policymakers, and the public.</p>
          <div className="Active-videos">
-          <div className="vid1"></div>
-          <div className="vid2"></div>
-          <div className="vid3"></div>
+          <div className="vidone " >
+          </div>
+          <div className="vidtwo"></div>
+          <div className="vidthree"></div>
          </div>
+         <h5>Learn More <FaLongArrowAltRight /></h5>
+         <div className="secdiv">
+          <h4>YOUTH AND WOMEN</h4>
+          <div className="Active-videos">
+            <div className="YWexplanation">
+              <p>OFAB Rwanda Chapter focuses  tailored building efforts to promote <br /> understanding of agricultural  biotechnology among youth, women. <br /> For youth, this includes educational campaigns and entrepreneurship <br /> training. For women, it involves biotechnology training,<br /> empowerment workshops, and <br /> improved resource access.</p>
+            </div>
+            <div className="expl-pic"></div>
+          </div>
+         </div>
+         <h5>Learn More <FaLongArrowAltRight /></h5>
+         <h4>MEDIA</h4>
+         <p>OFAB Rwanda Chapter's capacity-building initiatives in agricultural biotechnology encompass a wide array of activities, including educational workshops, training programs, technology transfer, policy advocacy, research and development support, networking, communication materials development, and monitoring and evaluation. These efforts aim to enhance understanding, skills, and resources related to biotechnology among farmers, policymakers, and the public.</p>
+         <div className="Active-videos1">
+          <div className="vidone " >
+          </div>
+          <div className="vidtwo"></div>
+          <div className="vidthree "></div>
+         </div>
+         <h5>Learn More <FaLongArrowAltRight /></h5>
         </div>
+        
         
       )}
     </div>
