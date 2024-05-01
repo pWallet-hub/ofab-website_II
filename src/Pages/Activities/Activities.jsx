@@ -30,7 +30,7 @@ export default function Hub() {
       <div className='active-hub'>
         <div className='active-content'>
           <img className='active-img' src={closeup} alt="Description of image" />
-          <p>"We seek to empower the public to make informed decisions about the adoption of biotech solutions in agriculture. We believe that informed decision-making will lead to more sustainable, equitable, and resilient food systems in Rwanda."</p>
+          <h3>ACTIVITIES</h3>
         </div>
       </div>
       {loading ? (
@@ -39,20 +39,15 @@ export default function Hub() {
       </div>
       ) : (
         <div className='active-info'>
-          {blogs && blogs
-            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-            .slice(0, 3)
-            .map((blog, index) => (
-              <BlogCard
-                key={index}
-                image={blog?.image}
-                date={blog?.createdAt}
-                title={blog?.title}
-                excerpt={blog?.content}
-                link={`/blog-post/${blog?._id}`}
-              />
-            ))}
+         <h4>CAPACITY BUILDING</h4>
+         <p>OFAB Rwanda Chapter's capacity-building initiatives in agricultural biotechnology encompass a wide array of activities, including educational workshops, training programs, technology transfer, policy advocacy, research and development support, networking, communication materials development, and monitoring and evaluation. These efforts aim to enhance understanding, skills, and resources related to biotechnology among farmers, policymakers, and the public.</p>
+         <div className="Active-videos">
+          <div className="vid1"></div>
+          <div className="vid2"></div>
+          <div className="vid3"></div>
+         </div>
         </div>
+        
       )}
     </div>
   );
