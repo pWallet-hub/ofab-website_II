@@ -4,6 +4,7 @@ import BlogPost from '../BlogPost/BlogPost';
 
 function BlogCard({ image, date, title, excerpt, link, id }) {
   return (
+    <div>
     <div className='blog-card'>
       <img src={image} alt={title} className='blog-card-img' />
       <div className='blog-card-content'>
@@ -12,6 +13,7 @@ function BlogCard({ image, date, title, excerpt, link, id }) {
         <p className='blog-card-excerpt'>{excerpt}</p>
         <Link to={link} className='blog-card-readmore'>Read more</Link>
       </div>
+    </div>
     </div>
   );
 }

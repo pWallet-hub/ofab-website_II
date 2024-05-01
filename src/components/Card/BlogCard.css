@@ -3,7 +3,7 @@
 .blog-card {
   width: 400px;
   background:#239E36A1;
-;
+  padding: 20px;
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
@@ -21,6 +21,7 @@
 
 .blog-card-content {
   padding: 15px;
+  
 }
 
 .blog-card-date {
@@ -44,6 +45,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 16px;
+  text-align: left;
 }
 
 .blog-card-readmore {
@@ -83,8 +85,8 @@
   }
 
   .blog-card-content {
-    font-size: 1.5rem; /* Adjust content font size */
-    width: 100%; /* Ensure content takes full width */
+    font-size: 1.5rem; 
+    width: 100%; 
   }
 
   .blog-card-date {
