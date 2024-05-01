@@ -11,23 +11,35 @@
     object-fit: cover;
 }
 .active-content{
-    background-color: #D7F0C8;
+    /* background-color: #D7F0C8; */
     
 }
 
-.active-content p{
-    color: #000;
-    font-size: 1.5rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 3rem;
-    text-align: left;
-    line-height: 1.5;
+
+.active-content h3{
+  font-size: 32px;
+  margin-top: -200px;
+  position: absolute;
+  margin-left: 44px;
+  color: white;
+
+  
+
 }
-.active-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 2rem;
+.active-info h4{
+  margin-top: 2rem;
+  align-items: center;
+  margin-left: 337px;
+  color: #239E36;
+  margin-bottom: 1.2rem;
+
+}
+.active-info p{
+  margin-left: 30px;
+}
+.active-info .vid1{
+background-image: url(https://www.youtube.com/shorts/JLBW2hSD3D0);
+
 }
 
 .blog-card {
