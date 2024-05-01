@@ -13,6 +13,7 @@ import empower from '../../assets/empower.jpg'
 import increase from '../../assets/increase.jpg'
 import market from '../../assets/market.jpg'
 import pest from '../../assets/pest.jpg'
+import aboutz from '../../assets/about-z.jpg'
 import protection from '../../assets/protection.jpg'
 import nutrition from '../../assets/nutritio.jpg'
 import { FaFlask } from "react-icons/fa";
@@ -27,8 +28,8 @@ const text = (
     <div className='story-head'>
       <h3 >OFAB RWANDA CHAPTER</h3>
     </div>
-    <div className='story-content'>
-      <p className='story-content'>OFAB RWANDA CHAPTER is committed to promoting public under
+    <div className='story-content1'>
+      <p>OFAB RWANDA CHAPTER is committed to promoting public under
         standing of Agricultural Biotechnology Science and its potential to  
 increase farmer’s productivity,protect the environment,improve nut
 rition and enhance security.
@@ -150,6 +151,7 @@ export default function Home() {
           </div>
            <div className="image-container">
             <img className='about-img' src={group} alt="Description of image" />
+            {/* <img className='about-image' src= {aboutz} alt="" /> */}
           </div>
         </div >
       </div>
@@ -180,7 +182,7 @@ export default function Home() {
       </div>
       <div className='success-story1'>
         <h1 className='section-title'>LATEST NEWS & UPDATES</h1>
-        <div className='story-container1'>
+        <div className='story-container12'>
         {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
         <BeatLoader color="#0C9444" size={40} />
