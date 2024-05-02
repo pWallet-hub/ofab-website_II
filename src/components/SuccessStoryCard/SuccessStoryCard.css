@@ -17,16 +17,16 @@
 }
 
 .story-content {
-  margin-top: 20px;
-  text-align: center;
+  margin-top: -22px;
+  text-align: left;
   background: #522A0EB2;
   
 }
 
 .story-content h2 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin: 1rem;
+  margin-top: 1.5rem;
   color: #fff;
   text-transform: uppercase;
   text-align: center;
@@ -39,6 +39,7 @@
   color: #fff;
   text-align: left;
   padding: 2rem;
+  margin-top: -31px;
   
   
 }
@@ -55,7 +56,7 @@
   }
 
   .story-content p {
-    font-size: 1.5rem; 
+    /* font-size: 1.5rem;  */
   }
   .story-img{
     height: 420px;

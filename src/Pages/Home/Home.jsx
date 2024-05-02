@@ -22,6 +22,10 @@ import { HiOutlineSpeakerphone } from "react-icons/hi";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
+import { MdOutlineMyLocation } from "react-icons/md";
+import { FaPhone } from "react-icons/fa6";
+import { IoTime } from "react-icons/io5";
+
 
 const text = (
   <div className='style' >
@@ -231,12 +235,14 @@ export default function Home() {
             <input type="submit" value="Send Message" id='button' />
           </form>
         </div>
+        <div className="vertical-line"></div>
 
         <div className='address'>
           <div className='location'>
             <div className='icon'>
               <a href="https://goo.gl/maps/YOUR_GOOGLE_MAPS_LOCATION">
-                <i className="fa fa-map-marker"></i>
+              <MdOutlineMyLocation />
+
               </a>
             </div>
             <div className='item'>
@@ -247,7 +253,7 @@ export default function Home() {
           </div>
           <div className='phone'>
             <div className='icon'>
-              <i className="fa fa-mobile"></i>
+            <FaPhone />
             </div>
             <div className='item'>
               <h2>Phone number</h2>
@@ -258,7 +264,7 @@ export default function Home() {
           </div>
           <div className='time'>
             <div className='icon'>
-              <i className="fa fa-clock"></i>
+            <IoTime />
             </div>
             <div className='item'>
               <h2>Opening time</h2>
