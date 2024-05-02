@@ -28,6 +28,10 @@
   font-size: 14px;
   color: #2b2145;
 }
+.blog-card-container{
+ background: #fff;
+}
+
 
 .blog-card-title {
   margin: 0;
