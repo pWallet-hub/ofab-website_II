@@ -26,6 +26,11 @@
   
 
 }
+.active-info{
+  display: flex;
+  flex-direction: row;
+  
+}
 .active-info h4{
   margin-top: 2rem;
   align-items: center;
