@@ -26,13 +26,13 @@ function Capacity() {
                 <h1>capacity building</h1>
                 <div className='image-page'>
                 <div className='image1'>
-                   <img src={group} alt="" />
+                   <img src={buy} alt="" />
                    <div className='image12'>
                    <img src={pest} alt="" />
                    <img src={truck} alt="" />
                    </div>
                 </div>
-                <div className='image2'><img src={buy} alt="" /></div>
+                <div className='image2'><img src={group} alt="" /></div>
                 <div className='image3'>
                     <img src={busy} alt="" />
                     <img src={girl} alt="" />

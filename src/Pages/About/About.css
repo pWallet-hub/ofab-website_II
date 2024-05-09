@@ -5,12 +5,11 @@
   z-index: 0;
 }
 
-.About img{
- width: 100%;
+ .About img{
+  width: 500%;
  height: 50vh;
- object-fit: cover;
-}
 
+} 
 .story-head {
   color: #0C9444;
   font-size: 2rem;
@@ -18,13 +17,6 @@
   padding: 3rem;
   text-align: right;
 }
-/* .team {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-  gap: 20px; 
-  width: 20px;
-} */
-
 .board,
 .assistants,
 .partners,
