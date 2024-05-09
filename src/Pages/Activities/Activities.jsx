@@ -70,7 +70,7 @@ export default function Hub() {
           <div className="vidtwo"></div>
           <div className="vidthree "></div>
          </div>
-         <h5>Learn More <FaLongArrowAltRight /></h5>
+         <h5><Link to="/Media">Learn More <FaLongArrowAltRight /></Link></h5>
         </div>
         
         
