@@ -26,19 +26,19 @@ function Header() {
         <div className='Header-log'><Link to="/"> <img src={image} alt="" /></Link></div>
         <div className='Header-cont'>
            <FaMobileScreenButton className='Header-icon' />
-           <div>
+           <div className='para'>
             <p>+250 785 855 080</p>
            </div>
         </div>
         <div className='Header-cont'>
            <HiOutlineMailOpen className='Header-icon' />
-           <div>
+           <div className='para'>
             <p>ofabrwanda@ofabrwanda.info</p>
            </div>
         </div>
         <div className='Header-cont'>
            <FaLocationDot className='Header-icon' />
-           <div>
+           <div className='para'>
             <p>Rubirizi, Kigali.</p>
            </div>
         </div>

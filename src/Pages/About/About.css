@@ -1,13 +1,14 @@
 
 .About {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   position: relative;
   z-index: 0;
 }
 
  .About img{
-  width: 500%;
- height: 50vh;
+  width: 100%;
+  object-fit: cover;
 
 } 
 .story-head {
@@ -100,6 +101,17 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 3rem;
   text-align: center;
+}
+.partene{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.partene img{
+  width: 100%;
+  height: 63%;
+  object-fit: cover;
 }
 
 .team-section-title {
