@@ -23,6 +23,10 @@
   
 
 }
+a{
+  color: #522A0E;
+  align-items: center;
+}
 .active-info{
   display: flex;
   flex-direction: row;
