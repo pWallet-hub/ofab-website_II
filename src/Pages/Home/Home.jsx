@@ -151,11 +151,11 @@ export default function Home() {
         <div className='about'>
 
           <div className='about-text'>
-            <p>OFAB is an informative platform that brings together <br /> stakeholders in the field of Biotechnology <br /> and the public to enable interactions, sharing, <br />and exchange of knowledge, experiences, contacts,<br /> and exploring new avenues of bringing the <br /> benefits of biotechnology to the Agricultural sector.</p>
+            <p>OFAB is an informative platform that brings together  stakeholders in the field of Biotechnology  and the public to enable interactions, sharing, and exchange of knowledge, experiences, contacts, and exploring new avenues of bringing the  benefits of biotechnology to the Agricultural sector.</p>
           </div>
            <div className="image-container">
             <img className='about-img' src={group} alt="Description of image" />
-            {/* <img className='about-image' src= {aboutz} alt="" /> */}
+            
           </div>
         </div >
       </div>

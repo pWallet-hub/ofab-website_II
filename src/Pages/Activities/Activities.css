@@ -23,12 +23,16 @@
   
 
 }
+a{
+  color: #522A0E;
+  align-items: center;
+}
 .active-info{
   display: flex;
   flex-direction: row;
   
 }
-.active-info h4{
+.active-info1 h4{
   margin-top: 2rem;
   align-items: center;
   margin-left: 600px;
@@ -37,7 +41,7 @@
   font-size: 28px;
 
 }
-.active-info h5 {
+.active-info1 h5 {
   margin-top: 2rem;
   align-items: center;
   margin-left: 630px;
@@ -47,12 +51,12 @@
 
 }
 
-.active-info p{
+.active-info1 p{
   margin-left: 30px;
   font-size: 20px;
 }
 .Active-videos .vid1{
-
+  margin-left: 20px;
 height: 0px;
 
 }
@@ -61,6 +65,8 @@ height: 0px;
   height: 300px;
   margin-top: 30px;
   margin-bottom: 40px;
+  margin-left: 20px;
+  justify-content: space-around;
   
   
 }
@@ -69,6 +75,7 @@ height: 0px;
   height: 300px;
   margin-top: 30px;
   margin-bottom: 40px;
+justify-content: space-between;
 
 
 }
@@ -111,8 +118,9 @@ height: 0px;
 } 
 .YWexplanation p{
   flex: 1;
-  font-size: 20px;
+  font-size: 19px;
   margin-left: 80px;
+  margin-right: 20px;
 }
 .expl-pic{
   background: url(../../assets/sec.png);
@@ -120,6 +128,7 @@ height: 0px;
     background-repeat: no-repeat;
     flex: 1.2;
     width: 40px;
+    margin-left: 100px;
 }
 
 .blog-card {

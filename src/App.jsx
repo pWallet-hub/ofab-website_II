@@ -7,6 +7,9 @@ import Activities from './Pages/Activities/Activities';
 import Events from './Pages/Events/Events';
 import Hub from './Pages/Hub/Hub';
 import BlogPost from './components/BlogPost/BlogPost';
+import Capacity from '../src/Pages/Capacity/Capacity';
+import Youth from '../src/Pages/Youth/Youth';
+import Media from '../src/Pages/Media/Media';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
         <Route path="/outreachEvents" element={<Events/>} />
         <Route path="/information-hub" element={<Hub/>} />
         <Route path="/blog-post/:id" element={<BlogPost/>} />
+        <Route path="/Capacity" element={<Capacity/>} />
+        <Route path="/Youth" element={<Youth/>} />
+        <Route path="/Media" element={<Media/>} />
       </Routes>
       <Footer />
     </Router>

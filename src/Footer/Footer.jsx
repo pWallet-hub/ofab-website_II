@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 import image from "../assets/ofab.jpg";
+import { FaArrowRight } from "react-icons/fa";
+
 
 const Footer = () => {
   return (
@@ -21,12 +23,17 @@ const Footer = () => {
       </div>
       <div className="middle-section">
         <ul>
-          {/* Use Link component for navigation */}
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/who-we-are">Who We Are</Link></li>
-          <li><Link to="/activities">Activities</Link></li>
-          <li><Link to="/outreachEvents">Outreach & Events</Link></li>
-          <li><Link to="/information-hub">Information Hub</Link></li>
+          
+          <li><FaArrowRight />
+          <Link to="/" className='pl'>Home</Link></li>
+          <li><FaArrowRight />
+          <Link to="/who-we-are" className='pl'>Who We Are</Link></li>
+          <li><FaArrowRight />
+          <Link to="/activities"className='pl'>Activities</Link></li>
+          <li><FaArrowRight />
+          <Link to="/outreachEvents" className='pl'>Outreach & Events</Link></li>
+          <li>< FaArrowRight />
+          <Link to="/information-hub" className='pl'>Information Hub</Link></li>
         </ul>
       </div>
       <div className="right-section">
