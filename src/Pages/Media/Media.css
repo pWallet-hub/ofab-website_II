@@ -1,0 +1,55 @@
+.media-content {
+   
+    padding: 10rem; 
+    background-image: url(../../assets/closeup.jpg);
+    height: 200%;
+    background-size: cover; 
+    background-position: center; 
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); 
+    background-color: #2F2F2F61;
+  
+  }
+  .media-content h1 {
+    font-size: 3rem;
+    color: #fff; 
+    text-transform: uppercase;
+    margin-left: -6rem;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .media-gallery h1{
+    color: #239E36;
+    margin: 1rem;
+
+  }
+  .media-images{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .media-images img{
+    height: 320px;
+    width: 49%;
+  }
+  .media-images1{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    margin-bottom: 1rem;
+  }
+  .media-images1 img{
+    height: 200px;
+    width: 33%;
+  }
+  .media-images2{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    margin-bottom: 1rem;
+  }
+  .media-images2 img{
+    height: 380px;
+    width: 49.5%;
+  }

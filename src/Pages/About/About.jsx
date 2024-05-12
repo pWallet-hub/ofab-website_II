@@ -170,6 +170,7 @@ export default function Hub() {
       </div>
       <h1 className='team-section-title'>PARTNERS</h1>
    <div className='team'>
+    <div className='partene'>
    <Partner 
    logo={virca} 
    link="https://example.com"/>
@@ -185,6 +186,7 @@ export default function Hub() {
    <Partner 
    logo={Allance} 
    link="https://allianceforscience.org/"/>
+   </div>
    </div>
     </div>
   )
