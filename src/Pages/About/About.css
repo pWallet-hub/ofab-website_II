@@ -18,11 +18,12 @@
   padding: 3rem;
   text-align: right;
 }
-.team {
+/* .team {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
   gap: 20px; 
-}
+  width: 20px;
+} */
 
 .board,
 .assistants,
@@ -39,6 +40,7 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
+
 
 
 .story-text,.story-text2 {
@@ -88,7 +90,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 2rem;
+ 
 }
+
 
 .team-card {
   margin: 10px;
