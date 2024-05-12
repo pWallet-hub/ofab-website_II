@@ -5,6 +5,7 @@ import closeup from '../../assets/closeup.jpg';
 import BlogCard from '../../components/Card/BlogCard';
 import './Activities.css';
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 export default function Hub() {
@@ -40,7 +41,7 @@ export default function Hub() {
         <BeatLoader color="#0C9444" size={40} />
       </div>
       ) : (
-        <div className='active-info'>
+        <div className='active-info1'>
          <h4>CAPACITY BUILDING</h4>
          <p>OFAB Rwanda Chapter's capacity-building initiatives in agricultural biotechnology encompass a wide array of activities, including educational workshops, training programs, technology transfer, policy advocacy, research and development support, networking, communication materials development, and monitoring and evaluation. These efforts aim to enhance understanding, skills, and resources related to biotechnology among farmers, policymakers, and the public.</p>
          <div className="Active-videos">
@@ -49,7 +50,8 @@ export default function Hub() {
           <div className="vidtwo"></div>
           <div className="vidthree"></div>
          </div>
-         <h5>Learn More <FaLongArrowAltRight /></h5>
+         <h5><Link to="/Capacity">Learn More <FaLongArrowAltRight /></Link></h5>
+        
          <div className="secdiv">
           <h4>YOUTH AND WOMEN</h4>
           <div className="Active-videos">
@@ -59,7 +61,7 @@ export default function Hub() {
             <div className="expl-pic"></div>
           </div>
          </div>
-         <h5>Learn More <FaLongArrowAltRight /></h5>
+         <h5><Link to="/Youth">Learn More <FaLongArrowAltRight /></Link></h5>
          <h4>MEDIA</h4>
          <p>OFAB Rwanda Chapter's capacity-building initiatives in agricultural biotechnology encompass a wide array of activities, including educational workshops, training programs, technology transfer, policy advocacy, research and development support, networking, communication materials development, and monitoring and evaluation. These efforts aim to enhance understanding, skills, and resources related to biotechnology among farmers, policymakers, and the public.</p>
          <div className="Active-videos1">
@@ -68,7 +70,7 @@ export default function Hub() {
           <div className="vidtwo"></div>
           <div className="vidthree "></div>
          </div>
-         <h5>Learn More <FaLongArrowAltRight /></h5>
+         <h5><Link to="/Media">Learn More <FaLongArrowAltRight /></Link></h5>
         </div>
         
         
