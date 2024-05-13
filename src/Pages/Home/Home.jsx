@@ -192,7 +192,7 @@ export default function Home() {
         <BeatLoader color="#0C9444" size={40} />
       </div>
       ) : (
-        <div className='active-info'>
+        <div className='active-info3'>
           {blogs && blogs
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
             .slice(0, 3)
