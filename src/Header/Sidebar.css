@@ -2,14 +2,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px;
+  width: 250px; /* Initial width */
   height: 100%;
   background-color: #0C9444;
   padding: 20px;
   box-sizing: border-box;
   transition: transform 0.3s ease-in-out;
   transform: translateX(-100%);
-  
 }
 
 .sidebar.open {
@@ -19,8 +18,7 @@
 .sidebar ul {
   list-style-type: none;
   padding: 0;
-  
-  
+  margin: 0;
 }
 
 .sidebar ul li {
@@ -40,7 +38,34 @@
   font-size: 1rem;
 }
 
-.sidebar image{
-    width: 100%;
-    margin-bottom: 1rem;
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    width: 50%; 
+    height: 55vh; 
+    padding: 20px 10px; 
+    
+  }
+
+  .sidebar button {
+    top: 20px; /* Adjust top position */
+    right: 20px; /* Adjust right position */
+  }
+
+  .sidebar ul li {
+    margin-bottom: 8px; /* Reduce margin between list items */
+    padding: 8px 12px; /* Add some padding to list
+  }
+
+  .sidebar ul.social-media {
+    margin-top: 20px; /* Add top margin to social media list */
+  }
+  .sidebar ul li a{
+    color: aliceblue;
+    text-decoration: none;
+  }
+
+  .sidebar ul.social-media li {
+    margin-bottom: 8px; /* Reduce margin between social media icons */
+  }
 }
