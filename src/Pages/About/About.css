@@ -40,9 +40,9 @@
   color: #000;
   font-size: 1.3rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 3rem;
+  padding: 4rem;
   text-align: left;
-  line-height: 1.5;
+  line-height: 2;
 
 }
 .story-text2{
@@ -102,11 +102,11 @@
   padding: 3rem;
   text-align: center;
 }
-.partene{
+.partener{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1rem;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 .partene img{
   width: 100%;
