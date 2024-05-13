@@ -210,7 +210,7 @@ export default function Home() {
       )}
         </div>
       </div>
-      <div className='contact-disp'>
+      <div className='c'>
         <h1 className='section-title'>Contact Us</h1>
         <div className='contact1'>
         <div className='contact'>

@@ -49,16 +49,19 @@
   .story-card {
     width: 100%;
     margin: 10px 0; 
+
   }
 
   .story-content h2 {
     font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
   }
 
   .story-content p {
-    /* font-size: 1.5rem;  */
+    font-size: 1.2rem; 
   }
   .story-img{
-    height: 420px;
+    height: 300px;
   }
 }

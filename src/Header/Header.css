@@ -78,17 +78,14 @@ justify-content: center;
 
 @media only screen and (max-width: 768px) {
   .Header-body {
-    padding-left: 0.5rem; /* Adjust padding */
+    padding-left: 1rem; /* Adjust padding */
     flex-direction: column; /* Stack items vertically */
     align-items: flex-start; 
   }
 
   .Header-menu {
     margin-right: 0;
-    display: flex;
-    flex-direction: column;
-  align-items: flex-start;
-    padding: 1rem;
+    display: none;
   }
 
   .Header-log img {

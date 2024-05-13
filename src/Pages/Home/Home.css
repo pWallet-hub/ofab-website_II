@@ -201,12 +201,6 @@ margin-right: 10rem;
 line-height: 2rem;
 
 }
-/* .story-container1{
-display: flex;
-flex-direction: column;
-
-} */
-
 
 .card {
 width: 30%;
@@ -268,16 +262,6 @@ text-align: left;
  color: #239E36;
  font-size: 4rem;
 }
-
-
-
-
-
-
-
-
-
-
 .about-video{
 width: 40%;
 height: 200px;
@@ -413,10 +397,12 @@ background-color: inherit;
 }
 .contact1{
 display: flex;
+flex-direction: row;
 margin-top: 2rem;
 margin-bottom: 2rem;
 margin-left: 5%;
 margin-right: 5%;
+
 }
 
 .contact form {
@@ -778,14 +764,6 @@ border: none;
 border-bottom: 4px solid #ffffff;
 background-color: inherit;
 }
-.contact1{
-display: flex;
-margin-top: 2rem;
-margin-bottom: 2rem;
-margin-left: 5%;
-margin-right: 5%;
-}
-
 .contact form {
 display: flex;
 flex-direction: column;
@@ -937,7 +915,22 @@ background-size: cover;
 .story-card {
   margin-top: 1rem;
 }
+.contact1{
+  display: flex;
+flex-direction: column;
+align-items: center;
+  margin-top: 2rem;
+  gap: 0.6rem;
 
+}
+.contact{
+  width: 100%;
+  padding: 1.5rem;
+}
+.address{
+  width: 100%;
+  padding: 1.5rem;
+}
 }
 
 

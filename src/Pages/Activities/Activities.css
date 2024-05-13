@@ -62,11 +62,13 @@ height: 0px;
 }
 .Active-videos{
   display: flex;
+ flex-wrap: wrap;
   height: 300px;
   margin-top: 30px;
   margin-bottom: 40px;
   margin-left: 20px;
   justify-content: space-around;
+  object-fit: cover;
   
   
 }
@@ -140,37 +142,17 @@ FaLongArrowAltRight{
   color: black;
 }
 @media only screen and (max-width: 768px) {
-  .hub{
-    margin: 1rem;
-  }
   .active-img {
-    height: 50vh; /* Reduce height of active image on smaller screens */
-  }
-
-  .active-content p {
-    font-size: 1.5rem; /* Decrease font size of paragraph in active content */
-    padding: 1.5rem; /* Adjust padding for smaller screens */
-  }
-
-  .active-info {
-    margin: 1rem; /* Adjust margin for smaller screens */
-    font-size: 1.5rem;
-  }
-
-  .blog-card {
-    flex-basis: calc(50% - 10px); /* Two cards per row, with 10px gap */
-    
-  }
-}
-@media only screen and (max-width: 430px) {
-  .active-info {
-    margin: 1rem; /* Adjust margin for smaller screens */
-    font-size: 1.5rem;
-    display: flex;
-    flex-direction: column;
-  }
-  .active-content{
-    text-align: center;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
     margin: 1rem;
+  }
+  .active-info1{
+    margin: 1rem;
+  }
+  .active-info1 p {
+    font-size: 18px;
+    margin-left: 1rem;
   }
 }
