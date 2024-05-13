@@ -1,5 +1,5 @@
 
-.hub {
+.active-hub {
  display: grid;
  position: relative;
   z-index: 0;
@@ -25,7 +25,9 @@
 }
 a{
   color: #522A0E;
-  align-items: center;
+ text-align:left ;
+  margin-left: 1rem;
+
 }
 .active-info{
   display: flex;
@@ -38,7 +40,7 @@ a{
   margin-left: 600px;
   color: #239E36;
   margin-bottom: 1.2rem;
-  font-size: 28px;
+  font-size: 18px;
 
 }
 .active-info1 h5 {
@@ -55,11 +57,11 @@ a{
   margin-left: 30px;
   font-size: 20px;
 }
-.Active-videos .vid1{
+/* .Active-videos .vid1{
   margin-left: 20px;
 height: 0px;
 
-}
+} */
 .Active-videos{
   display: flex;
  flex-wrap: wrap;
@@ -72,51 +74,40 @@ height: 0px;
   
   
 }
-.Active-videos1 {
-  display: flex;
-  height: 300px;
-  margin-top: 30px;
-  margin-bottom: 40px;
-justify-content: space-between;
+.active-info1 h5 {
+  margin-top: 1rem;
+  /* align-items: center; */
+  margin-left: 0; /* Reset margin left */
+  color: #239E36;
+  margin-bottom: 1.2rem;
+  font-size: 18px;
+}
 
+.active-info1 h5 a {
+  display: flex; 
+  margin-left: 0; 
+  justify-content: center;
+ 
+}
 
+.Active-videos h5 a{
+  color: #239E36;
+  font-size: 18px;
 }
 .vidone{
-  flex: 1;
-    /* border: 1px solid black; */
-    margin-left: 30px;
-    padding: 10px;
-    border-radius: 15px;
-    margin-right: 30px;
-    background: url(../../assets/pic.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 225px;
+  margin: 1rem;
+  object-fit: cover;
+
+   
 }
-.vidthree {
-  flex: 1;
-  margin-left: 30px;
-  padding: 10px;
-  border-radius: 15px;
-  margin-right: 30px;
-  background: url(../../assets/pic.jpeg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-bottom: 30px;
-}
-.vidtwo{
-  flex: 1.5;
-    margin: 5px;
-    border-radius: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 30px;
-    background: url(../../assets/pic2.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* height: 340px; */
-    margin-bottom: 30px;
-     
+.active-img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
 } 
 .YWexplanation p{
   flex: 1;
@@ -124,13 +115,15 @@ justify-content: space-between;
   margin-left: 80px;
   margin-right: 20px;
 }
-.expl-pic{
-  background: url(../../assets/sec.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    flex: 1.2;
-    width: 40px;
-    margin-left: 100px;
+.YWexplanation{
+  display: flex;
+  margin: 1rem;
+  justify-content: space-between;
+}
+.YWexplanation img{
+  width: 50%;
+  object-fit: cover;
+  height: 250px;
 }
 
 .blog-card {
@@ -148,11 +141,50 @@ FaLongArrowAltRight{
     object-fit: cover;
     margin: 1rem;
   }
+  .vidone{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .vidone img{
+    width: 30%;
+    height: 139px;
+    object-fit: cover;
+  }
   .active-info1{
     margin: 1rem;
+  }
+  .active-info1 h4{
+    font-size: 18px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: #239E36;
   }
   .active-info1 p {
     font-size: 18px;
     margin-left: 1rem;
+    margin-right: -5rem;
+  }
+ .Active-videos{
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+  }
+
+  .active-img {
+    height: 50vh; /* Adjust the height for smaller devices */
+  }
+  .YWexplanation{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+   
+  }
+  .YWexplanation img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
   }
 }
