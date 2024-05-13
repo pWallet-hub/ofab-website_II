@@ -24,12 +24,13 @@ function Header() {
       <div className='Header-body'>
        
         <div className='Header-log'><Link to="/"> <img src={image} alt="" /></Link></div>
+        <div className='Header-menu'>
         <div className='Header-cont'>
            <FaMobileScreenButton className='Header-icon' />
            <div className='para'>
             <p>+250 785 855 080</p>
            </div>
-        </div>
+        </div >
         <div className='Header-cont'>
            <HiOutlineMailOpen className='Header-icon' />
            <div className='para'>
@@ -41,6 +42,7 @@ function Header() {
            <div className='para'>
             <p>Rubirizi, Kigali.</p>
            </div>
+           </div>
         </div>
 
       </div>
@@ -49,10 +51,7 @@ function Header() {
         <div className='menu' onClick={handleMenuClick}>
         <MdMenu />
       {SidebarOpener && <Sidebar setSidebarOpen={setSidebarOpener} className='open' />}
-            {/* <Link to="/"><FaFacebookF /></Link>
-            <Link to="/"><FaTwitter /></Link>
-            <Link to="/"><FaInstagram /></Link> */}
-          
+           
       </div> 
         <ul className='nav-list'>
           
