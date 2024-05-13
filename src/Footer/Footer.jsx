@@ -7,7 +7,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className='footer'>
       
       <div className="left-section">
         <div className="logo">

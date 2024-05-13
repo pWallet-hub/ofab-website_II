@@ -1,12 +1,13 @@
 
-footer {
+.footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #fff;
   padding: 20px;
   background: #239E36;
-  overflow-x: hidden;
+  overflow: hidden;
+  width: 100%;
 
 }
 
