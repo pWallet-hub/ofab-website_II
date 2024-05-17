@@ -53,3 +53,25 @@ justify-content: space-between;
   object-fit: cover;
   padding: 1rem;
 }
+@media only screen and (max-width: 768px){
+  .youth-page{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .youth-page img{
+    width: 49%;
+    height: 140px;
+    object-fit: cover;
+  }
+  .youth-gallery{
+    display: flex;
+    flex-direction: column;
+  }
+  .youth-gallery img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    padding-right: 3rem;
+  }
+}
