@@ -157,7 +157,16 @@
 
   .left-section, .middle-section, .right-section {
     margin-bottom: 10px; 
-    text-align: left;
+    /* text-align: left; */
+  }
+  .left-section{
+    display: flex;
+    flex-direction: row;
+  }
+  .left-section p{
+    margin-right: -6.5rem;
+    margin-left: 2rem;
+
   }
   .email{
     margin-bottom: 20px;
