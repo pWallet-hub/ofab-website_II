@@ -42,7 +42,7 @@
 @media only screen and (max-width: 768px) {
   .sidebar {
     width: 54%;
-    height: 45vh;
+    height: 100%;
     padding: 20px 10px; 
     
   }
