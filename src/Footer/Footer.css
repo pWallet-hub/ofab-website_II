@@ -64,6 +64,11 @@
   color: rgb(236, 243, 243);
   font-size: 26px;
 }
+.social-media{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .social-media-icons:hover{
   color: #9991ef;
 }
@@ -191,5 +196,11 @@
   }
   .contact2{
     margin-top: 2rem;
+  }
+  .social-media{
+    display: flex;
+    flex-direction: row;
+   margin-top: 2rem;
+    justify-content: space-between;
   }
 } 
