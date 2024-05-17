@@ -63,13 +63,15 @@ export default function Hub() {
             <div className="YWexplanation">
               <p>OFAB Rwanda Chapter focuses  tailored building efforts to promote  understanding of agricultural  biotechnology among youth, women.  For youth, this includes educational campaigns and entrepreneurship  training. For women, it involves biotechnology training, empowerment workshops, and  improved resource access.</p>
               <img src={empower} alt="" />
+              
             </div>
-            <h5><Link to="/Youth">Learn More <FaLongArrowAltRight /></Link></h5>
-          </div>
+            <div><h5><Link to="/Youth">Learn More <FaLongArrowAltRight /></Link></h5></div>
+          
          </div>
 
-         
+         <div className="media-items">
          <h4>MEDIA</h4>
+         <div className='media-container'>
          <p>OFAB Rwanda Chapter's capacity-building initiatives in agricultural biotechnology encompass a wide array of activities, including educational workshops, training programs, technology transfer, policy advocacy, research and development support, networking, communication materials development, and monitoring and evaluation. These efforts aim to enhance understanding, skills, and  <br /> resources related to biotechnology among farmers, policymakers, and the public.</p>
          <div className="Active-videos">
           <div className="vidone " >
@@ -77,11 +79,12 @@ export default function Hub() {
           <img src={increase} alt="" />
           <img src={market} alt="" />
           </div>
-         
+          </div>
          </div>
          <h5><Link to="/Media">Learn More <FaLongArrowAltRight /></Link></h5>
         </div>
-        
+        </div>
+        </div>
         
       )}
     </div>
