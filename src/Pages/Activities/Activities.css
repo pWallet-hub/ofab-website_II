@@ -117,6 +117,7 @@ height: 0px;
   flex-direction: row;
   margin: 1rem;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .YWexplanation img{
   width: 50%;
@@ -133,6 +134,42 @@ height: 0px;
 FaLongArrowAltRight{
   margin-top: 10px;
   color: black;
+}
+.omas-container{
+  font-family: 'Raleway', sans-serif;
+}
+.omas-container h2{
+  font-size: 30px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #239E36;
+  display: flex;
+  justify-content: center;
+}
+.omas-content{
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  flex-wrap: wrap;
+}
+.omas-items{
+
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.omas-items img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.omas-items p{
+  font-size: 18px;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 @media only screen and (max-width: 768px) {
   .active-img {
