@@ -7,13 +7,13 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className='footer'>
       
       <div className="left-section">
         <div className="logo">
           <img src={image} alt="Logo" />
         </div>
-        <p>For a food-secure Rwanda <br />where agricultural biotechnology <br />is making significant contributions.</p>
+        <p>For a food-secure Rwanda where <br /> agricultural biotechnology  is making significant contributions.</p>
         <div className="social-media-icons">
          
           <i className="fab fa-facebook"></i>
