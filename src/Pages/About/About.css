@@ -15,7 +15,7 @@
   color: #0C9444;
   font-size: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 3rem;
+  padding: 0rem;
   text-align: right;
 }
 .board,
@@ -41,6 +41,7 @@
   font-size: 1.3rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 4rem;
+  padding-top: 0rem;
   text-align: left;
   line-height: 2;
 
