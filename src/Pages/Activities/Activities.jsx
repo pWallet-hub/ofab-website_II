@@ -4,6 +4,9 @@ import { BeatLoader } from 'react-spinners';
 import closeup from '../../assets/closeup.jpg';
 import empower from '../../assets/empower.jpg'
 import pest from '../../assets/pest.jpg'
+import award from '../../assets/_72A2638.jpg';
+import award2 from '../../assets/_72A2747.jpg';
+import award3 from '../../assets/_72A2607.jpg';
 
 import increase from '../../assets/increase.jpg'
 import market from '../../assets/market.jpg'
@@ -87,15 +90,15 @@ export default function Hub() {
             <h2>OFAB MEDIA AWARDS</h2>
             <div  className='omas-content'>
             <div className='omas-items'>
-                <img src={increase} alt="" />
+                <img src={award} alt="" />
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eveniet deleniti amet facilis magnam incidunt? Cumque dolorem debitis hic blanditiis vero inventore eaque illo delectus recusandae nihil, dolor aspernatur atque.</p>
               </div>
               <div className='omas-items'>
-                <img src={pest} alt="" />
+                <img src={award2} alt="" />
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit consequuntur mollitia non? Doloribus et perferendis, pariatur aliquid quo ea. Eum, ipsum! Explicabo ipsa et tempore velit nobis! Nam, ipsa quam!</p>
               </div>
               <div className='omas-items'>
-                <img src={market} alt="" />
+                <img src={award3} alt="" />
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, cumque recusandae eos fugiat numquam minus sit suscipit laboriosam autem et voluptatem expedita esse facere, itaque delectus eius, asperiores totam sapiente?</p>
               </div>
               </div>

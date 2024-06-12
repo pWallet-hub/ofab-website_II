@@ -117,6 +117,7 @@ height: 0px;
   flex-direction: row;
   margin: 1rem;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .YWexplanation img{
   width: 50%;
@@ -149,6 +150,7 @@ FaLongArrowAltRight{
   display: flex;
   justify-content: space-between;
   margin: 1rem;
+  flex-wrap: wrap;
 }
 .omas-items{
 
