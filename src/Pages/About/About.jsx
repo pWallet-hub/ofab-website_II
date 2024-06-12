@@ -171,10 +171,8 @@ export default function Hub() {
    <div className='team'>
     <div className='partener'>
   <div>
+    
     <Partner 
-    <div className='partener'>
-      <div>
-      <Partner 
    logo={rab} 
    link="https://www.rab.gov.rw/"/>
     <Partner 
