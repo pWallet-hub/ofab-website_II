@@ -81,8 +81,9 @@ export default function Hub() {
       <img className='About-img' src={happy} alt="Description of image" />
       <h1 className='story-head'>Transformed Agriculture</h1>
       <p className='story-text'>
-          On the 27th of October, 2021, African Agricultural Technology Foundation (AATF) in partnership with the Ministry of Agriculture and Animal Resources and Rwanda Agriculture and Animal Resources Development Board (RAB), launched OFAB-Rwanda Chapter with a mission to enhance knowledge sharing and awareness on Agricultural Biotechnology that would raise understanding and appreciation of the technology. OFAB-Rwanda Chapter is hosted by RAB and implements its activities through the partnership of  Rwanda Media Commission and  Alliance for Science Rwanda in the efforts to achieve its vision and mission. OFAB Rwanda informs and sensitizes the role of biotechnology in transforming agriculture from subsistence into modern, market, and profitable farming among others.
-      </p>
+        OFAB is an informative platform that brings together stakeholders in the field of Biotechnology and the public to enable interactions, sharing, and exchange of knowledge, experiences, contacts, and exploring new avenues of bringing the benefits of biotechnology to the Agricultural sector.      
+          On the 27th of October, 2021, African Agricultural Technology Foundation (AATF) in partnership with the Ministry of Agriculture and Animal Resources and Rwanda Agriculture and Animal Resources Development Board (RAB), launched OFAB-Rwanda Chapter with a mission to enhance knowledge sharing and awareness on Agricultural Biotechnology that would raise understanding and appreciation of the technology. OFAB-Rwanda Chapter is hosted by RAB and implements its activities through the partnership of  Rwanda Media Commission and  Alliance for Science Rwanda in the efforts to achieve its vision and mission. OFAB Rwanda informs and sensitizes the role of biotechnology in transforming agriculture from subsistence into modern, market, and profitable farming among others.</p>
+    
       <div className="visionmission" >
 
       <div className='mission'>
@@ -171,9 +172,12 @@ export default function Hub() {
     <div className='partener'>
   <div>
     <Partner 
+    <div className='partener'>
+      <div>
+      <Partner 
    logo={rab} 
    link="https://www.rab.gov.rw/"/>
-   <Partner 
+    <Partner 
    logo={Allance} 
    link="https://allianceforscience.org/"/>
    <Partner 
@@ -185,6 +189,18 @@ export default function Hub() {
    logo={rmc} 
    link="http://rmc.org.rw/"/>
    <Partner 
+   logo={virca} 
+   link="https://example.com"/>
+   </div>
+   <Partner 
+   logo={aatf} 
+   link="https://www.aatf-africa.org/"/>
+   </div>
+   <div>
+   <Partner 
+   logo={rmc} 
+   link="http://rmc.org.rw/"/>
+  <Partner 
    logo={virca} 
    link="https://example.com"/>
    </div>

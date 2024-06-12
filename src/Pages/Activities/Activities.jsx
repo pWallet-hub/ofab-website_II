@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 import closeup from '../../assets/closeup.jpg';
-import BlogCard from '../../components/Card/BlogCard';
+import empower from '../../assets/empower.jpg'
+import pest from '../../assets/pest.jpg'
+
+import increase from '../../assets/increase.jpg'
+import market from '../../assets/market.jpg'
 import './Activities.css';
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
@@ -45,10 +49,11 @@ export default function Hub() {
          <h4>CAPACITY BUILDING</h4>
          <p>OFAB Rwanda Chapter's capacity-building initiatives in agricultural biotechnology encompass a wide array of activities, including educational workshops, training programs, technology transfer, policy advocacy, research and development support, networking, communication materials development, and monitoring and evaluation. These efforts aim to enhance understanding, skills, and resources related to biotechnology among farmers, policymakers, and the public.</p>
          <div className="Active-videos">
-          <div className="vidone " >
+          <div className="vidone " > 
+          <img src={pest} alt="" />
+          <img src={increase} alt="" />
+          <img src={market} alt="" />
           </div>
-          <div className="vidtwo"></div>
-          <div className="vidthree"></div>
          </div>
          <h5><Link to="/Capacity">Learn More <FaLongArrowAltRight /></Link></h5>
         
@@ -56,23 +61,30 @@ export default function Hub() {
           <h4>YOUTH AND WOMEN</h4>
           <div className="Active-videos">
             <div className="YWexplanation">
-              <p>OFAB Rwanda Chapter focuses  tailored building efforts to promote <br /> understanding of agricultural  biotechnology among youth, women. <br /> For youth, this includes educational campaigns and entrepreneurship <br /> training. For women, it involves biotechnology training,<br /> empowerment workshops, and <br /> improved resource access.</p>
+              <p>OFAB Rwanda Chapter focuses  tailored building efforts to promote  understanding of agricultural  biotechnology among youth, women.  For youth, this includes educational campaigns and entrepreneurship  training. For women, it involves biotechnology training, empowerment workshops, and  improved resource access.</p>
+              <img src={empower} alt="" />
+              
             </div>
-            <div className="expl-pic"></div>
-          </div>
+            <div><h5><Link to="/Youth">Learn More <FaLongArrowAltRight /></Link></h5></div>
+          
          </div>
-         <h5><Link to="/Youth">Learn More <FaLongArrowAltRight /></Link></h5>
+
+         <div className="media-items">
          <h4>MEDIA</h4>
-         <p>OFAB Rwanda Chapter's capacity-building initiatives in agricultural biotechnology encompass a wide array of activities, including educational workshops, training programs, technology transfer, policy advocacy, research and development support, networking, communication materials development, and monitoring and evaluation. These efforts aim to enhance understanding, skills, and resources related to biotechnology among farmers, policymakers, and the public.</p>
-         <div className="Active-videos1">
+         <div className='media-container'>
+         <p>OFAB Rwanda Chapter's capacity-building initiatives in agricultural biotechnology encompass a wide array of activities, including educational workshops, training programs, technology transfer, policy advocacy, research and development support, networking, communication materials development, and monitoring and evaluation. These efforts aim to enhance understanding, skills, and  <br /> resources related to biotechnology among farmers, policymakers, and the public.</p>
+         <div className="Active-videos">
           <div className="vidone " >
+          <img src={pest} alt="" />
+          <img src={increase} alt="" />
+          <img src={market} alt="" />
           </div>
-          <div className="vidtwo"></div>
-          <div className="vidthree "></div>
+          </div>
          </div>
          <h5><Link to="/Media">Learn More <FaLongArrowAltRight /></Link></h5>
         </div>
-        
+        </div>
+        </div>
         
       )}
     </div>
