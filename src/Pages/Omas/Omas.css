@@ -1,0 +1,114 @@
+.awards-container {
+   display: flex;
+   flex-direction: column;
+    padding: 40px;
+    background-color: #f4f4f4;
+    min-height: 100vh; 
+    align-items: center;
+  }
+  .awards-content1 {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    min-height: 100vh;
+    align-items: center;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    max-width: 100%; 
+    margin: 0 auto;
+  
+   
+  }
+  
+  .awards-content1 h1 {
+    font-size: 2.5em;
+    margin-top: 2rem;
+    margin-bottom: 20px;
+    color: #00d56d;
+  }
+  .awards-content1 p {
+    margin-top: 2rem;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  .awards-content1 h5{
+    font-size: 16px;
+    margin-top: 2rem;
+    margin-bottom: 20px;
+    color: #555;
+    line-height: normal;
+  }
+  .awards-content1 img{
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  .awards-content1 h2{
+    font-size: 20px;
+ margin-bottom: 1rem;
+  }
+  .awards-content1 h3{
+    font-size: 20px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  .awards-content1 p{
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  .awards-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+   justify-content: space-between;
+    
+
+  }
+  .awards-content div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .awards-content img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  
+  .awards-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+  }
+  .objectives ul li{
+    font-size: 16px;
+    line-height: 1.6;
+    list-style:decimal;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  .award-categories{
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .award-categories ul li{
+    list-style: circle;
+    padding-left: 1rem;
+    margin-left: 2rem;
+    font-size: 16px;
+    
+  }
+  
