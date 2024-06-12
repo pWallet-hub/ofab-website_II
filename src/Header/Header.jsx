@@ -28,7 +28,7 @@ function Header() {
         <div className='Header-cont'>
            <FaMobileScreenButton className='Header-icon' />
            <div className='para'>
-            <p>+250 785 855 080</p>
+            <p>+250 788 772 201</p>
            </div>
         </div >
         <div className='Header-cont'>

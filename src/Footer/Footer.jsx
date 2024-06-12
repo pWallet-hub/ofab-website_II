@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="logo">
           <img src={image} alt="Logo" />
         </div>
-        <p>For a food-secure Rwanda where <br /> agricultural biotechnology  is making significant contributions.</p>
+        <p>For a food-secure Rwanda where <br /> agricultural biotechnology  is making <br /> significant contributions.</p>
         <div className="social-media-icons">
 
           <i className="fab fa-facebook"></i>
@@ -42,7 +42,7 @@ const Footer = () => {
             <i className="fas fa-phone"></i>
             <div className='phone1'>
               <h1>call to us:</h1>
-              <p>+250 785855080</p>
+              <p>+250 788 772 201</p>
             </div>
           </div>
           <div className='email1'>
