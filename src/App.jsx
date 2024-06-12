@@ -10,6 +10,7 @@ import BlogPost from './components/BlogPost/BlogPost';
 import Capacity from '../src/Pages/Capacity/Capacity';
 import Youth from '../src/Pages/Youth/Youth';
 import Media from '../src/Pages/Media/Media';
+import Omas from './Pages/Omas/Omas';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Capacity" element={<Capacity/>} />
         <Route path="/Youth" element={<Youth/>} />
         <Route path="/Media" element={<Media/>} />
+        <Route path="/Omas" element={<Omas/>} />
       </Routes>
       <Footer />
     </Router>
