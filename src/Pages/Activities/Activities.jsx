@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BeatLoader } from 'react-spinners';
 import closeup from '../../assets/activity.jpg';
-import empower from '../../assets/empower.jpg'
-import pest from '../../assets/pest.jpg'
 import award from '../../assets/_72A2638.jpg';
 import award2 from '../../assets/_72A2747.jpg';
 import award3 from '../../assets/_72A2607.jpg';
@@ -13,34 +10,15 @@ import cap3 from '../../assets/cap3.jpg'
 import bul1 from '../../assets/bul1.jpg'
 import bul2 from '../../assets/bul2.jpg'
 import bul3 from '../../assets/bul3.jpg'
-
-import increase from '../../assets/increase.jpg'
-import market from '../../assets/market.jpg'
 import './Activities.css';
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 
 export default function Hub() {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(false);
+ 
 
-  const GetBlogs = async () => {
-    try {
-      const response = await axios.get('https://ofab-bn.onrender.com/api/v1/posts/');
-      const blogs = response.data;
-      setBlogs(blogs);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    GetBlogs();
-  }, []);
-
+ 
   return (
     <div>
       <div className='active-hub'>
