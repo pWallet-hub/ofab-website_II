@@ -1,20 +1,21 @@
 import React from 'react'
 import './Capacity.css'
 import Header from '../../Header/Header'
-import group from '../../assets/group.jpg'
-import buy from '../../assets/buy.jpg'
-import busy from '../../assets/busy.jpg'
-import about1 from '../../assets/about1.jpg'
-import info from '../../assets/info.jpg'
-import empower from '../../assets/empower.jpg'
-import nutrition from '../../assets/nutritio.jpg'
-import hallowen from '../../assets/hallowenbg.jpg'
-import happy from '../../assets/happy.jpg'
-import increase from '../../assets/increase.jpg'
-import market from '../../assets/market.jpg'
-import pest from '../../assets/pest.jpg'
-import truck from '../../assets/truck.jpg'
-import girl from '../../assets/girl.jpg'
+import group from '../../assets/DSC_2210.jpg'
+import buy from '../../assets/DSC_2072.jpg'
+import busy from '../../assets/DSC_1850.jpg'
+import about1 from '../../assets/_72A2576.jpg'
+import info from '../../assets/DSC_2123 copy.jpg'
+import empower from '../../assets/DSC_2232.jpg'
+import nutrition from '../../assets/DSC_3576 copy.jpg'
+import hallowen from '../../assets/DSC_2083.jpg'
+import happy from '../../assets/DSC_3691 copy.jpg'
+import increase from '../../assets/_72A2607.jpg'
+import market from '../../assets/DSC_3699 copy.jpg'
+import pest from '../../assets/DSC_1826 copy.jpg'
+import truck from '../../assets/cap2.jpg'
+import girl from '../../assets/_72A2747.jpg'
+import boy from '../../assets/DSC_2077 copy.jpg'
 function Capacity() {
     return (
         <div>
@@ -28,6 +29,7 @@ function Capacity() {
                         <div className='image1'>
                             <div className='img2'>
                                 <img src={buy} alt="" />
+                                <img src={boy} alt="" />
                             </div>
                             <div className='image12'>
                                 <img src={pest} alt="" />
