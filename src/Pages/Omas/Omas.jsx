@@ -92,7 +92,7 @@ function Omas() {
                 </div>
                 <div className='submission-deadline'>
                     <h2>Submission Deadline</h2>
-                    <p>Entries should be submitted by Friday, 2nd September 2024, using the following OFAB Rwanda OMA 2024 submission link</p>
+                    <p>Entries should be submitted by Friday, 15th August 2024, using the following OFAB Rwanda OMA 2024 submission link</p>
                 </div>
             </div>
             <div className='how-to-apply'>

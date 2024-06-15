@@ -1,21 +1,22 @@
 
 import './Home.css'
 import SlideShow from '../../components/Slide/Slide'
-import Goal from '../../components/Goal/Goal'
 import SuccessStoryCard from '../../components/SuccessStoryCard/SuccessStoryCard'
 import BlogCard from '../../components/Card/BlogCard'
-import happy from '../../assets/happy.jpg'
-import woman from '../../assets/fontView.jpg'
-import info from '../../assets/info.jpg'
-import group from '../../assets/group.jpg'
-import buy from '../../assets/buy.jpg'
-import empower from '../../assets/empower.jpg'
-import increase from '../../assets/increase.jpg'
-import market from '../../assets/market.jpg'
-import pest from '../../assets/pest.jpg'
-import aboutz from '../../assets/about-z.jpg'
-import protection from '../../assets/protection.jpg'
-import nutrition from '../../assets/nutritio.jpg'
+import TwitterProfileCard from '../../components/TwitterCard/TwitterProfileCard';
+import LinkedInProfileCard from '../../components/LinkedInCard/LinkedinCard';
+import AdButton from '../../components/AdButton/AdButton';
+
+
+import happy from '../../assets/slide2.jpeg'
+import woman from '../../assets/slide1.jpeg'
+import info from '../../assets/slide3.jpeg'
+import group from '../../assets/group.jpeg'
+
+import suc1 from '../../assets/suc1.jpeg'
+import suc2 from '../../assets/suc2.jpeg'
+import suc3 from '../../assets/suc3.png'
+
 import { FaFlask } from "react-icons/fa";
 import { FaVideo } from "react-icons/fa";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
@@ -25,6 +26,8 @@ import { BeatLoader } from 'react-spinners';
 import { MdOutlineMyLocation } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
+
+import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 
 const text = (
@@ -49,35 +52,18 @@ const images = [
   { url: info, text: text },
 ];
 
-const goalText = [
-  "Better Nutrition",
-  "Reduction of Pesticide",
-  "Climate change Adaption",
-  "Food security ",
-  "Environmental protection",
-  "Increase farm productivity & income",
-  "Women and Youth Empowerment "
-]
 
-const goals = [
-  { url: buy, text: <Goal goal={goalText[0]} /> },
-  { url: empower, text: <Goal goal={goalText[6]} /> },
-  { url: increase, text: <Goal goal={goalText[2]} /> },
-  { url: market, text: <Goal goal={goalText[3]} /> },
-  { url: pest, text: <Goal goal={goalText[2]} /> },
-  { url: protection, text: <Goal goal={goalText[4]} /> },
-  { url: nutrition, text: <Goal goal={goalText[0]} /> },
-];
+
 
 
 const stories = [
   {
-    image: happy,
+    image: suc1,
     title: 'Jean Claude NIYOMUGABO',
     description: '“The objective of @OfabRwanda is to enhance understanding and acceptance of agriculture-biotechnology and contribute to building an enabling environment for decision making” @nduwath , Roots and Tubers Program coordinator at @RwandaAgriBoard and @OfabRwanda chapter coordinator.',
   },
   {
-    image: woman,
+    image: suc2,
     title: 'Uwera DESANGE',
     description: `Agriculture land will not increase,
 
@@ -86,7 +72,7 @@ but people will. I'm excited to be a part of the National Youth Ambassadorship p
 @OfabRwanda`,
   },
   {
-    image: info,
+    image: suc3,
     title: 'Mireille KAZUNGU',
     description: `Exciting news! In partnership with
 
@@ -128,6 +114,7 @@ export default function Home() {
   return (
     <div className='home'>
       <SlideShow images={images} />
+       <AdButton />
       <div className='card-container'>
         <div className='card'>
           <div className='log'><FaFlask /></div>
@@ -171,8 +158,7 @@ export default function Home() {
             allowFullScreen>
           </iframe>
           <div className='about-text'>
-
-            <p>We believe that use of appropriate technology can improve <br /> agricultural productivity in Africa. We support farmers <br /> in Africa and especially smallholder farmers in their <br /> quest  for access to the best agricultural technology. <br /> Better access to agricultural technologies will boost <br /> the productivity of smallholder farmers</p>
+            <p className="justified-text">We believe that use of appropriate technology can improve <br /> agricultural productivity in Africa. We support farmers <br /> in Africa and especially smallholder farmers in their <br /> quest  for access to the best agricultural technology. <br /> Better access to agricultural technologies will boost <br /> the productivity of smallholder farmers</p>
           </div>
         </div>
       </div>
@@ -209,6 +195,19 @@ export default function Home() {
         </div>
       )}
         </div>
+      </div>
+      <div className='media'>
+          <h1 className='section-title'>Update on our Social Media</h1>
+          <div className='media-view'>
+            <div>
+              <TwitterProfileCard username="OfabRwanda" />
+            </div>
+           <div>
+              <LinkedInProfileCard url="https://www.linkedin.com/posts/ofab-rwanda_google-forms-sign-in-activity-6942942714795540480-VhQ2/?trk=public_profile" />
+           </div>
+           
+          </div>
+          
       </div>
       <div className='c'>
         <h1 className='section-title'>Contact Us</h1>

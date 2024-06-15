@@ -1,10 +1,7 @@
 /* Default styles */
 .story-card {
-
   width: 30%;
-  /* background-color: #0C9444; */
-  padding: 20px;
-  border-radius: 10px;
+  border-radius: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   margin: 20px;
 }
@@ -13,12 +10,10 @@
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 .story-content {
-  margin-top: -22px;
-  text-align: left;
+  text-align: justify;
   background: #522A0EB2;
   
 }
@@ -26,7 +21,7 @@
 .story-content h2 {
   font-size: 1rem;
   font-weight: 600;
-  margin-top: 1.5rem;
+  padding: 1rem 0;
   color: #fff;
   text-transform: uppercase;
   text-align: center;
@@ -37,9 +32,9 @@
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
   color: #fff;
-  text-align: left;
+  text-align: justify;
   padding: 2rem;
-  margin-top: -31px;
+  height: 100%;
   
   
 }
