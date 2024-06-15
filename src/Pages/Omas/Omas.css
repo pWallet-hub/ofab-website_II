@@ -8,7 +8,10 @@
   .awards-content1 {
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding-left: 40px;
+    padding-top: 0px;
+    padding-right: 40px;
+   padding-bottom: 0px;
     align-items: center;
     background-size: cover; 
     background-position: center; 
@@ -22,6 +25,7 @@
   .awards-content1 h1 {
     font-size: 2.5em;
     color: #00d56d;
+    padding-bottom: 1rem;
   }
   .awards-content1 p {
     font-size: 16px;
@@ -32,8 +36,8 @@
   }
   .awards-content1 h5{
     font-size: 16px;
-    margin-top: 2rem;
-    margin-bottom: 20px;
+    margin-top: 0rem;
+    margin-bottom: 9px;
     color: #555;
     line-height: 1.6rem;
     text-align: justify;
