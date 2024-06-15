@@ -1,4 +1,3 @@
-
 .About {
   display: flex;
   flex-direction: column;
@@ -6,48 +5,45 @@
   z-index: 0;
 }
 
- .About img{
+.About img {
   width: 100%;
+  margin-top: 3rem;
+  height: 60vh;
   object-fit: cover;
-
-} 
-.story-head {
-  color: #0C9444;
-  font-size: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 0rem;
-  text-align: right;
 }
 
-
+.story-head {
+  color: #00d56d;
+  font-size: 2.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 3rem;
+  text-align: center;
+}
 
 .TeamCard,
 .Partner {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.story-text,.story-text2 {
+.story-text, .story-text2 {
   color: #000;
   font-size: 1.3rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 4rem;
   padding-top: 0rem;
-  text-align: left;
+  text-align: justify;
   line-height: 2;
-
 }
-.story-text2{
+
+.story-text2 {
   margin-top: 2rem;
-  line-height: 1.7
- 
+  line-height: 1.7;
 }
 
-.story-text2 p{
+.story-text2 p {
   display: flex;
   text-align: left;
 }
@@ -62,9 +58,9 @@
   margin: 1rem;
   width: 100%;
   border-radius: 10px;
-  /* box-shadow: 15px 10px 5px 0px rgba(0, 0, 0, 0.75); */
 }
-.visionmission{
+
+.visionmission {
   margin-right: 1rem;
   margin-left: 1rem;
   display: flex;
@@ -72,37 +68,55 @@
   width: 90%;
 }
 
-.story-head {
-  color: #00d56d;
-  font-size: 2.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 3rem;
-  text-align: center;
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
 }
-.team-member{
+
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.team-card {
+  margin: 10px;
+}
+
+.our-team {
+  padding: 20px;
+}
+
+.team-member {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
-.team-item{
+
+.team-item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.team-item img{
+
+.team-item img {
   width: 50%;
   height: 63%;
   object-fit: cover;
 }
-.partener{
+
+.partener {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-.partene img{
+
+.partener img {
   width: 100%;
-  height: 63%;
+  height: 40px;
   object-fit: cover;
 }
 
@@ -158,8 +172,6 @@
   margin-bottom: 5px;
 }
 
-
-
 @media (max-width: 768px) {
   .team-row {
     flex-wrap: wrap;
@@ -168,17 +180,21 @@
   .TeamCard {
     margin: 1rem;
   }
+
+  .About img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+  }
+
+  .visionmission {
+    display: flex;
+  }
+
+  .partener {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
-
-
-
-
-.visionmission{
-  display: flex;
-}
-
-
-
-
-
-

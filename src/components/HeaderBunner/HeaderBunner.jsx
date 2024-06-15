@@ -13,11 +13,11 @@ function HeaderBunner() {
         </div>
         <div className="header-contact">
             <span>
-                <IoIosPhonePortrait className="icon" /> +250 785 855 080
+                <IoIosPhonePortrait className="icon" />+250 785 855 080
             </span>
             <span>
                 <IoIosGlobe />
-                ofabrwanda@ofabrwanda.info
+                ofabrwanda@gmail.com
             </span>
             <span>
                 <FaLocationDot />RUBIRIZI,KIGALI

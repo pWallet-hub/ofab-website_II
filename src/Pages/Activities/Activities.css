@@ -64,10 +64,7 @@ height: 0px;
 } */
 .Active-videos{
   display: flex;
- flex-direction: column;
   height: 300px;
-  margin-top: 30px;
-  margin-bottom: 40px;
   margin-left: 20px;
   justify-content: space-around;
   object-fit: cover;
@@ -94,11 +91,10 @@ height: 0px;
 .vidone{
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
   object-fit: cover; 
 }
 .vidone img{
-  width: 33%;
+  width: 45%;
   height: 200px;
   object-fit: cover;
 }
@@ -198,14 +194,12 @@ FaLongArrowAltRight{
     color: #239E36;
   }
   .vidone{
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     width: 100%;
     margin: 0rem;
-    object-fit: cover;
-  
-     
+    object-fit: cover;  
   }
+  
   .active-info1 p {
     font-size: 18px;
     margin-left: 1rem;
