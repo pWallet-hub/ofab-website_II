@@ -1,4 +1,3 @@
-import React from 'react';
 import { LinkedInEmbed } from 'react-social-media-embed';
 
 const LinkedInProfileCard = ({ url }) => {
