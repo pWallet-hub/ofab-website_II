@@ -1,7 +1,6 @@
 .awards-container {
    display: flex;
    flex-direction: column;
-    padding: 40px;
     background-color: #f4f4f4;
     min-height: 100vh; 
     align-items: center;
@@ -10,27 +9,24 @@
     display: flex;
     flex-direction: column;
     padding: 40px;
-    min-height: 100vh;
     align-items: center;
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
-    max-width: 100%; 
-    margin: 0 auto;
+    width: 100%; 
+    
   
    
   }
   
   .awards-content1 h1 {
     font-size: 2.5em;
-    margin-top: 2rem;
-    margin-bottom: 20px;
     color: #00d56d;
   }
   .awards-content1 p {
-    margin-top: 2rem;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.6rem;
+    text-align: justify;
     color: #555;
     margin-bottom: 20px;
   }
@@ -39,7 +35,8 @@
     margin-top: 2rem;
     margin-bottom: 20px;
     color: #555;
-    line-height: normal;
+    line-height: 1.6rem;
+    text-align: justify;
   }
   .awards-content1 img{
     width: 100%;

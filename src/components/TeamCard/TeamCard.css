@@ -36,13 +36,17 @@ box-shadow: 9px 13px 5px 0px rgba(0,0,0,0.75);
 .team-card-role {
   margin: 0;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 0.6rem;
   color: #646464;
 }
 
 .team-card-bio {
   margin: 0;
   color: #646464;
+   display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 @media only screen and (max-width: 768px) {
   .team-card {
@@ -53,16 +57,5 @@ box-shadow: 9px 13px 5px 0px rgba(0,0,0,0.75);
   .team-card-image {
     height: 200px; /* Reduce image height */
   }
-  .team-card-content{
-    font-size: 1.5rem;
-  }
-  .team-card-role{
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: rgb(40, 81, 178);
-  }
-  .team-card-name{
-    font-size: 1.8rem;
-    
-  }
+  
 }
