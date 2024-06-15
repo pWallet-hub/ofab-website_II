@@ -34,7 +34,7 @@ function Header() {
         <div className='Header-cont'>
            <HiOutlineMailOpen className='Header-icon' />
            <div className='para'>
-            <p>ofabrwanda@ofabrwanda.info</p>
+            <p>ofabrwanda@gmail.com</p>
            </div>
         </div>
         <div className='Header-cont'>
