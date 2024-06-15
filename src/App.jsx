@@ -12,6 +12,7 @@ import Youth from '../src/Pages/Youth/Youth';
 import Media from '../src/Pages/Media/Media';
 import Omas from './Pages/Omas/Omas';
 
+
 function App() {
   return (
     <Router>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/Youth" element={<Youth/>} />
         <Route path="/Media" element={<Media/>} />
         <Route path="/Omas" element={<Omas/>} />
+      
       </Routes>
       <Footer />
     </Router>
