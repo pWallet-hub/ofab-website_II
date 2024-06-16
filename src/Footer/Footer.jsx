@@ -23,15 +23,12 @@ const Footer = () => {
       </div>
       <div className="middle-section">
         <ul>
-
           <li><FaArrowRight />
             <Link to="/" className='pl'>Home</Link></li>
           <li><FaArrowRight />
             <Link to="/who-we-are" className='pl'>Who We Are</Link></li>
           <li><FaArrowRight />
             <Link to="/activities" className='pl'>Activities</Link></li>
-          <li><FaArrowRight />
-            <Link to="/outreachEvents" className='pl'>Outreach & Events</Link></li>
           <li>< FaArrowRight />
             <Link to="/information-hub" className='pl'>Information Hub</Link></li>
         </ul>
