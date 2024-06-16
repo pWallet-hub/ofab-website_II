@@ -6,23 +6,35 @@ export default defineConfig({
   plugins: [
     react(),
     commonjs({
-      include: /node_modules/,
       requireReturnsDefault: 'auto',
+      include: [
+        /node_modules/,
+        /react-twitter-embed/,
+        /react-social-media-embed/
+      ]
     })
   ],
   optimizeDeps: {
-    include: ['react-twitter-embed']
+    include: ['react-twitter-embed', 'react-social-media-embed']
   },
   build: {
     commonjsOptions: {
-      include: [/react-twitter-embed/, /node_modules/]
+      include: [/node_modules/, /react-twitter-embed/, /react-social-media-embed/]
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-twitter-embed': ['react-twitter-embed']
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         }
       }
+    }
+  },
+  resolve: {
+    alias: {
+      'react-twitter-embed': 'react-twitter-embed/dist/index.es.js',
+      'react-social-media-embed': 'react-social-media-embed/dist/index.es.js'
     }
   }
 });
