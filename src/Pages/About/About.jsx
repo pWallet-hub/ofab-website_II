@@ -181,7 +181,7 @@ export default function Hub() {
             <h1>MISSION</h1>
             <p> <FaArrowCircleRight />  OFAB Rwanda Chapter seeks to enhance knowledge sharing and awareness on agricultural biotechnology that would raise understanding and appreciation of the technology and contribute to building an enabling environment for informed and timely decision-making.</p>
           </div>
-          <div className='vision'>
+          <div className='mission'>
             <h1>VISION</h1>
             <p> <FaArrowCircleRight /> The Forum intends to be the leading organization in the field of agricultural biotechnology in Rwanda, to promote the development of agricultural biotechnology and to foster a culture of innovation and entrepreneurship amongst the agricultural
             </p>

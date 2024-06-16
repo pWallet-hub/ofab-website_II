@@ -155,7 +155,7 @@ export default function Home() {
             allowFullScreen>
           </iframe>
           <div className='about-text'>
-            <p className="justified-text">We believe that use of appropriate technology can improve <br /> agricultural productivity in Africa. We support farmers <br /> in Africa and especially smallholder farmers in their <br /> quest  for access to the best agricultural technology. <br /> Better access to agricultural technologies will boost <br /> the productivity of smallholder farmers</p>
+            <p className="justified-text">We believe that use of appropriate technology can improve agricultural productivity in Africa. We support farmers  in Africa and especially smallholder farmers in their  quest  for access to the best agricultural technology.  Better access to agricultural technologies will boost  the productivity of smallholder farmers</p>
           </div>
         </div>
       </div>
