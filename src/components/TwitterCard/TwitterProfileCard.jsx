@@ -1,17 +1,25 @@
-import React, { lazy, Suspense } from 'react';
-
-const TwitterTimelineEmbed = lazy(() => import('react-twitter-embed').then(module => ({ default: module.TwitterTimelineEmbed })));
+import React, { useState, useEffect } from 'react';
 
 const TwitterProfileCard = ({ username }) => {
+  const [TwitterTimelineEmbed, setTwitterTimelineEmbed] = useState(null);
+
+  useEffect(() => {
+    import('react-twitter-embed').then(module => {
+      setTwitterTimelineEmbed(() => module.TwitterTimelineEmbed);
+    });
+  }, []);
+
+  if (!TwitterTimelineEmbed) {
+    return <div>Loading Twitter timeline...</div>;
+  }
+
   return (
     <div style={{ width: '300px', margin: '20px auto' }}>
-      <Suspense fallback={<div>Loading Twitter timeline...</div>}>
-        <TwitterTimelineEmbed
-          sourceType="profile"
-          screenName={username}
-          options={{height: 400}}
-        />
-      </Suspense>
+      <TwitterTimelineEmbed
+        sourceType="profile"
+        screenName={username}
+        options={{height: 400}}
+      />
     </div>
   );
 };
