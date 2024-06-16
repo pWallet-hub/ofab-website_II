@@ -100,6 +100,7 @@ body {
   margin-left: 3rem;
   text-align: justify;
   line-height: 1.3rem;
+  margin-right: 1rem;
 }
 
 .justified-text {
@@ -321,7 +322,8 @@ body {
   .about-text p {
     font-size: 1.1rem;
     padding-top: 2rem;
-    margin: -2rem -6rem 0 -2rem;
+    margin: -2rem -6rem 0 -4rem;
+    padding-right: 1rem;
     line-height: 1.4rem;
     text-align: justify;
   }
