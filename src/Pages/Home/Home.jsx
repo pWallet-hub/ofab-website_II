@@ -4,7 +4,6 @@ import SlideShow from '../../components/Slide/Slide'
 import SuccessStoryCard from '../../components/SuccessStoryCard/SuccessStoryCard'
 import BlogCard from '../../components/Card/BlogCard'
 import TwitterProfileCard from '../../components/TwitterCard/TwitterProfileCard';
-import LinkedInProfileCard from '../../components/LinkedInCard/LinkedinCard';
 import AdButton from '../../components/AdButton/AdButton';
 
 
@@ -27,7 +26,6 @@ import { MdOutlineMyLocation } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
 
-import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 
 const text = (
@@ -203,7 +201,7 @@ export default function Home() {
               <TwitterProfileCard username="OfabRwanda" />
             </div>
            <div>
-              <LinkedInProfileCard url="https://www.linkedin.com/posts/ofab-rwanda_google-forms-sign-in-activity-6942942714795540480-VhQ2/?trk=public_profile" />
+              {/* <LinkedInProfileCard url="https://www.linkedin.com/posts/ofab-rwanda_google-forms-sign-in-activity-6942942714795540480-VhQ2/?trk=public_profile" /> */}
            </div>
            
           </div>
