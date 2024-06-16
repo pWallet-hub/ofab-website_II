@@ -3,7 +3,6 @@ import './Home.css'
 import SlideShow from '../../components/Slide/Slide'
 import SuccessStoryCard from '../../components/SuccessStoryCard/SuccessStoryCard'
 import BlogCard from '../../components/Card/BlogCard'
-import TwitterProfileCard from '../../components/TwitterCard/TwitterProfileCard';
 import AdButton from '../../components/AdButton/AdButton';
 
 
@@ -194,19 +193,19 @@ export default function Home() {
       )}
         </div>
       </div>
-      <div className='media'>
+      {/* <div className='media'>
           <h1 className='section-title'>Update on our Social Media</h1>
           <div className='media-view'>
             <div>
               <TwitterProfileCard username="OfabRwanda" />
             </div>
            <div>
-              {/* <LinkedInProfileCard url="https://www.linkedin.com/posts/ofab-rwanda_google-forms-sign-in-activity-6942942714795540480-VhQ2/?trk=public_profile" /> */}
+              <LinkedInProfileCard url="https://www.linkedin.com/posts/ofab-rwanda_google-forms-sign-in-activity-6942942714795540480-VhQ2/?trk=public_profile" />
            </div>
            
           </div>
           
-      </div>
+      </div> */}
       <div className='c'>
         <h1 className='section-title'>Contact Us</h1>
         <div className='contact1'>
