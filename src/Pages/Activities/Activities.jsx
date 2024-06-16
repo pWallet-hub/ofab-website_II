@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import closeup from '../../assets/activity.jpg';
 import award from '../../assets/_72A2638.jpg';
 import award2 from '../../assets/_72A2747.jpg';
