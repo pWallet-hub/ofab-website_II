@@ -22,6 +22,7 @@
     "react-twitter-embed": "^4.0.4"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
