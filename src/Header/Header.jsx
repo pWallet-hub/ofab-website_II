@@ -58,7 +58,7 @@ function Header() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/who-we-are">Who we are</Link></li>
           <li><Link to="/activities">Activities</Link></li>
-          <li><Link to="/information-hub">Information Hub</Link></li>
+          <li><Link to="/information-hub">Gallery</Link></li>
         </ul>
         
       </nav>
