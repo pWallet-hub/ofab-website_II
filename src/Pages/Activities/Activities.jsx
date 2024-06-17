@@ -40,9 +40,9 @@ export default function Hub() {
         <p >Every year, the OMAs highlight the vital role played by the media in fostering constructive dialogue on modern biotechnology through responsible, professional, ethical, and effective reporting.<br />
           The 1st and 2nd editions of OMAs got success and two Journalists were also awarded on the Continental level. The Rwanda Chapter Forum is excited to announce the 3rd Edition of OMAs to start accepting entries from Rwandan-based journalists who reported on the use, benefits, and other positive aspects of agricultural biotechnology.
         </p>
-
-      </div>
       <h5><Link to="/Omas">Learn More and Apply <FaLongArrowAltRight /></Link></h5>
+      </div>
+      
 
       <div className='awards-content1'>
         <h1>Capacity building </h1>
