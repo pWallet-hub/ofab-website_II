@@ -13,7 +13,7 @@ function Sidebar({className,setSidebarOpen }) {
          <li><Link to="/">Home</Link></li>
           <li><Link to="/who-we-are">Who we are</Link></li>
           <li><Link to="/activities">Activities</Link></li>
-          <li><Link to="/information-hub">Information Hub</Link></li>
+          <li><Link to="/information-hub">Gallery</Link></li>
           <ul className='social-media'>
             <li><Link to="/"><FaFacebookF /></Link></li>
             <li><Link to="/"><FaTwitter /></Link></li>
