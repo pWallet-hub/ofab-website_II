@@ -5,17 +5,25 @@ import award from '../../assets/_72A2638.jpg';
 import award2 from '../../assets/_72A2747.jpg';
 import award3 from '../../assets/_72A2607.jpg';
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import '../Activities/Activities.css'
 
 
 function Omas() {
     return (
         <div className='awards-container'>
+            <div className='active-hub'>
+        <div className='active-content'>
+          <img className='active-img' src={award} alt="Description of image" />
+          <h3>ACTIVITIES</h3>
+        </div>
+      </div>
+
             <div className='awards-content1'>
                 <h1>Ofab Media Awards</h1>
-                <h5>Introduction
+                <p>Introduction
                     Since its global inception in September 2006, the Open Forum on Agricultural Biotechnology in Africa (OFAB) project continues to enhance knowledge-sharing and awareness on agricultural biotechnology in Africa and facilitates quality engagement on safety and benefits of modern agricultural biotechnology among stakeholders.
                     The Project, which is a partnership between the African Agricultural Technology Foundation (AATF) and other like-minded organizations, is implemented at the country level mostly through government bodies forming OFAB chapters serving as secretariats in those countries. Currently, OFAB is operational in ten countries namely, Kenya, Uganda, Tanzania, Ethiopia, Nigeria, Ghana, Burkina Faso, Rwanda, Mozambique, and Malawi.
-                </h5>
+                </p>
                 <p>The OFAB Media Awards (OMAs) are aimed at recognizing exemplary journalism that exhibits best practices in credible science reporting that is crucial to better public understanding and acceptance of sciences, technologies, and innovations that are needed to transform African agriculture for food security, sustainable development, and poverty eradication.
                     Annually, the OMAs recognize the critical roles played by the media in promoting constructive dialogue on modern biotechnology through responsible, professional, ethical, and effective reporting.
                     For the 2nd edition in Rwanda, the OFAB Media Awards were organized and implemented to recognize and promote Rwandan-based journalists who were reported reporting on the use, benefits, and other constructive information on agriculture biotechnology.
@@ -97,20 +105,21 @@ function Omas() {
             </div>
             <div className='how-to-apply'>
                 <div className='how-to-apply-content'>
-                    <h2>How Apply</h2>
+                    <p className='title-how'>How to Apply</p>
                     <Link to="https://docs.google.com/forms/d/e/1FAIpQLSe9x9CS2706-3oEK46sLnVw02RdpqUU0sGpTtkyft4r7mXatg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">
       <button>
         Apply <FaArrowUpRightFromSquare className='icon21' />
       </button>
     </Link>
                 </div>
-                <p>Rrwanda interest in applying for the OFAB Media Awards 2024 can access the application link on OFAB Rwanda website and other social media platforms of forums.</p>
+                <p>Rwanda interest in applying for the OFAB Media Awards 2024 can access the application link on OFAB Rwanda website and other social media platforms of forums.</p>
 
                 <p>We look forward to receiving your submission and celebrating the outstanding contributions of Rwanda  journalists in promoting informed dialogue on agricultural biotechnology</p>
 
                 <p>for more information, please contact:</p>
                 <p>OFAB Rwanda Secretary</p>
                 <p>Email : ofabrwanda@gmail.com</p>
+                <p>Phone number: +250 785 855 080</p>
             </div>
 
         </div>
