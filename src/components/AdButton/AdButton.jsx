@@ -30,12 +30,12 @@ const AdButton = () => {
   return (
     <div className="ad-button-container">
       <div className="ad-button" onClick={handleButtonClick}>
-        <span className="ad-text">Apply to the OMAS 2024<br/>
-        no later than 15/8/2024</span><br/>
-        (<Countdown 
+        <span className="ad-text">Apply for OMAS 2024 before <br/>
+       </span>
+        <Countdown 
           date={targetDate} 
           renderer={countdownRenderer} 
-        />)
+        />
       </div>
     </div>
   );
