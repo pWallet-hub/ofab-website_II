@@ -1,264 +1,247 @@
-.awards-container {
-   display: flex;
-   flex-direction: column;
-    background-color: #f4f4f4;
-    min-height: 100vh; 
-    align-items: center;
-  }
-  .awards-content1 {
-    display: flex;
-    flex-direction: column;
-    padding-left: 40px;
-    padding-top: 0px;
-    padding-right: 40px;
-   padding-bottom: 0px;
-    align-items: center;
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    width: 100%; 
-    
-  
-   
-  }
-  
-  .awards-content1 h1 {
-    font-size: 28px;
-    color: #00d56d;
-    padding-bottom: 1rem;
-  }
-  .awards-content1 p {
-    font-size: 16px;
-    line-height: 1.6rem;
-    text-align: justify;
-    color: #555;
-    margin-bottom: 20px;
-  }
-  .awards-content1 h5{
-    font-size: 16px;
-    margin-top: 0rem;
-    margin-bottom: 9px;
-    color: #555;
-    line-height: 1.6rem;
-    text-align: justify;
-  }
-  .awards-content1 img{
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border-radius: 10px;
-  }
-  .awards-content1 h2{
-    font-size: 20px;
- margin-bottom: 1rem;
-  }
-  .awards-content1 h3{
-    font-size: 20px;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-  }
-  .awards-content1 p{
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 20px;
-  }
-  .awards-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 100%;
-    text-align: center;
-    display: flex;
-   justify-content: space-between;
-    
-
-  }
-  .awards-content h1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .awards-content img {
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  .participants-list ul li{
-    color: #555;
-    margin-left: 2rem;
-    
-  }
-  
-  .awards-content p {
-    font-size: 16px;
-    text-align: left;
-    line-height: 1.6;
-    color: #555;
-    padding: 1rem;
-  }
-  .objectives ul li{
-    font-size: 16px;
-    line-height: 1.6;
-    list-style:decimal;
-    color: #555;
-    margin-bottom: 20px;
-  }
-  .award-categories{
-    margin-top: 1rem;
-    flex-wrap: wrap;
-  }
-  .award-categories ul li{
-    list-style: circle;
-    padding-left: 1rem;
-    margin-left: 2rem;
-    font-size: 16px;
-    
-  }
-  .participants{
-    /* background-color: #fff; */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    max-width: 100%;
-    text-align: left;
-    background-color: #00d56d;
-  }
-  .participants h1{
-    font-size: 20px;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    text-align: center;
-    color: #f4f4f4;
-    
-  }
-  .participants p{
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 20px;
-  }
-  .mission1{
-     background-color: #522A0E;
-  color: #ffffff;
-  text-align: left;
-  padding: 1rem 1.5rem 1.5rem 2rem;
-  font-size: 1rem;
+/* General Styles */
+body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 1rem;
-  width: 100%;
-  border-radius: 10px;
+  line-height: 1.6;
+  color: #333;
 }
-.mission1 p{
-    font-size: 16px;
-    line-height: 1.6;
-    color: #fff;
-    margin-bottom: 20px;
-  }
-  .award-eligibility{
-    background-color: #522A0E;
-  color: #ffffff;
-  text-align: left;
-  padding: 1rem 1.5rem 1.5rem 2rem;
-  border-radius: 10px;
-  }
-  .award-eligibility p{
 
-    font-size: 16px;
-    line-height: 1.6;
-    color: #fff;
-    margin-bottom: 20px;
+.awards-container {
+  background-color: #f8f8f8;
+  padding: 2rem;
+}
+
+.awards-content1 {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  color: #00d56d;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* Mission, Eligibility, Submission */
+.mission1,
+.award-eligibility,
+.submission-guidelines,
+.submission-deadline {
+  background-color: #f2f2f2;
+  border-left: 4px solid #00d56d;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.mission1 h2,
+.award-eligibility h2,
+.submission-guidelines h2,
+.submission-deadline h2 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Objectives */
+.objectives ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.objectives ul li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.objectives ul li::before {
+  content: counter(item) ".";
+  counter-increment: item;
+  position: absolute;
+  left: 0;
+  font-weight: 600;
+  color: #00d56d;
+}
+
+/* Award Categories */
+.award-categories ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.award-categories ul li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.award-categories ul li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  color: #00d56d;
+}
+
+/* Participants */
+.participants {
+  background-color: #00d56d;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.participants h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.participants-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.participants-list ul li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.participants-list ul li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* Awards Content */
+.awards-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  margin-top: 2rem;
+}
+
+.awards-content div {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.awards-content img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Submission */
+.submission {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* How to Apply */
+.how-to-apply {
+  background-color: #00d56d;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.how-to-apply h2 {
+  margin-bottom: 1.5rem;
+}
+
+.how-to-apply p {
+  text-align: left;
+}
+
+.how-to-apply-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.how-to-apply-content button {
+  display: inline-flex;
+  align-items: left;
+  background-color: #fff;
+  color: #00d56d;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.title-how{
+  font-size: 3rem;
+  margin-right: 4rem;
+  font-weight: 900;
+}
+
+.how-to-apply-content button:hover {
+  background-color: #522a0e;
+  color: #fff;
+}
+
+.icon21 {
+  margin-left: 0.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .awards-content {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
-  .submission{
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
+
+  .submission {
+    grid-template-columns: 1fr;
   }
-  .submission-guidelines{
-    background-color: #522A0E;
-    color: #ffffff;
-    text-align: left;
-    padding: 1rem 1.5rem 1.5rem 2rem;
-    border-radius: 10px;
-  }
-  .submission-deadline{
-    background-color: #522A0E;
-    color: #ffffff;
-    text-align: left;
-    padding: 1rem 1.5rem 1.5rem 2rem;
-    border-radius: 10px;
-  }
-  .submission h2{
-    font-size: 20px;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    text-align: center;
-    color: #f4f4f4;
-  }
-  .submission h4{
-    font-size: 16px;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    text-align: left;
-    color: #f4f4f4;
-  }
-  .how-to-apply{
-    background-color: #00d56d;
-    color: #ffffff;
-    text-align: left;
-    padding: 1rem 1.5rem 1.5rem 2rem;
-    border-radius: 10px;
-    margin-top: 2rem;
-  }
-  .how-to-apply-content{
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem;
-    
-  }
-  .how-to-apply-content button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 1.5rem 1.5rem 2rem;
-    border-radius:10px;
-    width: 100%;
-    height: 3rem;
-    color: #00d56d;
-    text-align: left;
-    border: #522A0E;
-    font-size: 20px;
-    gap: 1rem;
-   
-  }
-  .how-to-apply-content button :hover{
-    background-color: #522A0E;
-    color: #ffffff;
-    border-radius: 10px;
-    font-size: 20px;
-   
-    cursor: pointer;
-  }
-  .icon21{
-    font-size: 20px;
-    color: #522A0E;
-    margin-right: 1rem;
-    display: flex;
-    gap: 1rem;
-  }
-  .how-to-apply p{
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 20px;
-  }
- 
+  .title-how{
+  display:none;
+}
+}

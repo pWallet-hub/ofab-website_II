@@ -46,7 +46,7 @@ const Footer = () => {
             <i className="fas fa-envelope"></i>
             <div className='email'>
               <h1>email us:</h1>
-              <p>ofabrwanda@ofabrwanda.info</p>
+              <p>ofabrwanda@gmail.com</p>
             </div>
           </div>
         </div>
