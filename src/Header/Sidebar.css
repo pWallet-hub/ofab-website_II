@@ -63,9 +63,15 @@
   .sidebar ul li a{
     color: aliceblue;
     text-decoration: none;
+    font-weight: 00;
+    font-size: 25px;
   }
 
   .sidebar ul.social-media li {
     margin-bottom: 8px; /* Reduce margin between social media icons */
+  }
+  .social-media {
+    display: flex;
+
   }
 }
