@@ -182,8 +182,8 @@ export default function Home() {
             .map((blog, index) => (
               <BlogCard
                 key={index}
-                image={blog?.image}
-                date={blog?.createdAt}
+                image={blog?.mainPhoto}
+                date={blog?.publicationDate}
                 title={blog?.title}
                 excerpt={blog?.content}
                 link={`/blog-post/${blog?._id}`}
