@@ -19,7 +19,7 @@ function Omas() {
       </div>
 
             <div className='awards-content1'>
-                <h1>Ofab Media Awards</h1>
+                <h1>OFAB Media Awards</h1>
                 <p>Introduction
                     Since its global inception in September 2006, the Open Forum on Agricultural Biotechnology in Africa (OFAB) project continues to enhance knowledge-sharing and awareness on agricultural biotechnology in Africa and facilitates quality engagement on safety and benefits of modern agricultural biotechnology among stakeholders.
                     The Project, which is a partnership between the African Agricultural Technology Foundation (AATF) and other like-minded organizations, is implemented at the country level mostly through government bodies forming OFAB chapters serving as secretariats in those countries. Currently, OFAB is operational in ten countries namely, Kenya, Uganda, Tanzania, Ethiopia, Nigeria, Ghana, Burkina Faso, Rwanda, Mozambique, and Malawi.

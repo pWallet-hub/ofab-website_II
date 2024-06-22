@@ -8,13 +8,13 @@ import esperance from '../../assets/esperance.jpeg'
 import pazzo from '../../assets/pazzo.jpg'
 import niragire from '../../assets/niragire.jpeg'
 import piere from '../../assets/jpierre.jpg'
-import pacc from '../../assets/pacc.jpg'
+import pacy from '../../assets/pacy.jpg'
 import mboni from '../../assets/mboni.jpeg'
 import claude from '../../assets/claude.jpeg'
 import athanas from '../../assets/Athanase.jpeg'
-import habiman from '../../assets/habiman.jpeg'
 import nopic from '../../assets/nopic.jpg'
 import robert from '../../assets/Robert.jpg'
+import agape from '../../assets/agape.jpg'
 
 
 import TeamCard from '../../components/TeamCard/TeamCard'
@@ -119,33 +119,48 @@ export default function Hub() {
   const assistants = [
     {
       name: 'Dr Athanase Nduwumuremyi',
+      Institution: 'Rwanda Agriculture and Animal Resource Development Board (RAB)',
       role: 'Project coordinator',
       bio: 'Coordinator of Roots & Tubers Program/ Senior Scientist at Rwanda Agriculture and Animal Resource Development Board (RAB), VIRCA Plus Rwanda Project coordinator and OFAB Rwanda Chapter Chairperson',
       image: athanas,
     },
     {
-      name: 'Mr Habimana Jean Claude',
-      role: 'Communication specialist',
-      bio: 'Jean Claude HABIMANA leads the development and implementation of communications strategies of International Union for Conservation of Nature- IUCN in Rwanda. Jean Claude’ career in international development spans decade ago. He worked with the United Nations Food and Agriculture (FAO), USAID and several other international nongovernmental organizations, providing strategy development, writing and editing, media relations, positioning and branding guidance, and communication tools development.',
-      image: habiman,
+      name: 'Jean Claude Habimana',
+      Institution: ' Africa Food Systems(AFS)',
+      role: 'Programme Manager',
+      bio: 'Mr. Jean Claude is an award winning science communicator and alumnus of the Cornell University Global Leadership Program. Jean Claude supports the Forum in the capacity building of media personnel and advises on issues related to science and fact-based journalism.',
+      image:claude,
     },
     {
       name: 'Mr Charles Semahoro ',
       role: 'Finance support',
-      bio: 'David is an assistant director overseeing human resources.',
+      bio: 'Mr. SEMAHORO, is the Forum finance advisor. He deals with financial reporting, budgeting and human resources facilitation on behind of the Forum after his role at RAB. ',
       image: nopic,
     },
     {
       name: 'MR Emmanuel Mugisha Muvunyi',
       role: 'Mass Media Mobilization Outreach Advisor',
-      bio: 'MANAGING DIRECTOR at RWANDA BROADCASTERS AND SOCIAL MEDIA AWARDS',
+      bio: 'Mr. Emmanuel serves as the advisor for mass media and outreach programs for the Forum. Among his duties, Mugisha support capacity building of media personnel around the issues of debunking miss information and disinformation activities around the use of agricultural technologies.',
       image: nopic,
     },
     {
       name: 'MR Pacific Nshimiyimana',
+      Institution: 'Rwanda Agriculture and Animal Resource Development Board (RAB)',
       role: 'Biotechnology and Science Communication Advisor',
-      bio: 'Pacifique Nshimiyimana is a young agripreneur from Rwanda. As a business person, he founded and currently runs Real Green Gold Ltd, a social enterprise which does farming of tropical fruits and vegetables and smallholder farmers’ extension services.Pacifique graduated from the University of Rwanda with a Bachelor’s degree in biotechnology. He has worked with different organizations like Digital Opportunity Trust, where he was a startup facilitator and business coach, and Mastercard Foundation, where he served as a youth engagement consultant and researcher. This experience grew his passion in community and peer-to-peer based leadership and led him to join the Young Professionals for Agriculture Development and become a founding member of Rwanda Youth in Agribusiness Forum. As a farmer and a biotechnologist, he views the GLFP as an opportunity to learn and build science and fact-based communications around the solutions for our future agri-food systems',
-      image: pacc,
+      bio: 'Mr. Pacifique is a biotechnologist, and a social entrepreneur with an extensive experience in market systems development. He is an alumnus of the Cornell University Global Leadership Program in areas of science and agriculture communication. As a farmer, Mr. Pacifique is also a member of the Global Farmer Network (GFN).',
+      image: pacy,
+    },
+    {
+      name: 'Ms. Gisele NDIZEYE ',
+      role: ' OFAB Rwanda Chapter Secretary. ',
+      bio: 'Gisele is form journalist at TV7 Rwanda and an alumnus of the Cornell University Global Leadership Program. She is serving the Forum as well as the VircaPlus project communication, a project working on the 1st virus resistant cassava variety in Rwanda.',
+      image: nopic,
+    },
+    {
+      name: 'Ms. Agape NDUWAMUNGU ',
+      role: 'overseeing all IT-related services for the forum',
+      bio: 'Ms. Agape NDUWAMUNGU holds a Bachelor of Science degree in Computer Science from Daystar University, Kenya. In her current role, she assumes responsibility for overseeing all IT-related services for the forum, in addition to administrative duties. Furthermore, she plays a pivotal role as an Administrative Assistant in the VIRCA Deployment Project in Rwanda.',
+      image: agape,
     },
     
   ];
@@ -233,6 +248,7 @@ export default function Hub() {
             <TeamCard
               key={index}
               name={member.name}
+              Institution={member.Institution}
               role={member.role}
               bio={member.bio}
               image={member.image}
