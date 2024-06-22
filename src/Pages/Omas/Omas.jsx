@@ -80,15 +80,18 @@ function Omas() {
             <div className='awards-content'>
                 <div>
                     <img src={award} alt="Award" />
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam pariatur eligendi dolores, molestias incidunt ea minima natus nobis dolorum! Eaque ea neque eum provident voluptatum enim ab similique delectus saepe.</p>
+                    <p>The second runners-up in each category were awarded $200 USD. Winners in each category received $300 USD along with a prestigious trophy. The overall winner of the competition earned $500 USD, a magnificent trophy, and a stylish laptop bag as part of their well-deserved accolades.</p>
                 </div>
                 <div>
                     <img src={award2} alt="Award" />
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam pariatur eligendi dolores, molestias incidunt ea minima natus nobis dolorum! Eaque ea neque eum provident voluptatum enim ab similique delectus saepe.</p>
+                    <h3>Mr. Emmanuel Ntirenganya</h3>
+                    <p>Mr. Emmanuel Ntirenganya clinched the top honor as the inaugural winner of the OFAB Media Awards in 2022, excelling in the distinguished writing category.
+                    excelling in the distinguished writing category with the "How agricultural biotechnology could boost food security"
+.                    </p>
                 </div>
                 <div>
                     <img src={award3} alt="Award" />
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam pariatur eligendi dolores, molestias incidunt ea minima natus nobis dolorum! Eaque ea neque eum provident voluptatum enim ab similique delectus saepe.</p>
+                    <p>The OFAB Rwanda Chapter Media Award ceremony and gala dinner celebrated the achievements of three distinguished top winners and recognized three accomplished second runners-up across all categories. These individuals were honored for their unwavering dedication to reporting on advancements in agricultural biotechnology.</p>
                 </div>
             </div>
 
