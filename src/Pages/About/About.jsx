@@ -14,6 +14,7 @@ import athanas from '../../assets/Athanase.jpeg'
 import nopic from '../../assets/nopic.jpg'
 import robert from '../../assets/Robert.jpg'
 import agape from '../../assets/agape.jpg'
+import gisele from '../../assets/gisele.jpg'
 
 
 import TeamCard from '../../components/TeamCard/TeamCard'
@@ -150,13 +151,13 @@ export default function Hub() {
       image: pacy,
     },
     {
-      name: 'Ms. Gisele NDIZEYE ',
+      name: 'Ms. Gisele Ndizeye ',
       role: ' OFAB Rwanda Chapter Secretary. ',
       bio: 'Gisele is form journalist at TV7 Rwanda and an alumnus of the Cornell University Global Leadership Program. She is serving the Forum as well as the VircaPlus project communication, a project working on the 1st virus resistant cassava variety in Rwanda.',
-      image: nopic,
+      image: gisele,
     },
     {
-      name: 'Ms. Agape NDUWAMUNGU ',
+      name: 'Ms. Agape Nduwamungu ',
       role: 'overseeing all IT-related services for the forum',
       bio: 'Ms. Agape NDUWAMUNGU holds a Bachelor of Science degree in Computer Science from Daystar University, Kenya. In her current role, she assumes responsibility for overseeing all IT-related services for the forum, in addition to administrative duties. Furthermore, she plays a pivotal role as an Administrative Assistant in the VIRCA Deployment Project in Rwanda.',
       image: agape,
