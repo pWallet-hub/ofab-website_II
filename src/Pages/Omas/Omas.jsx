@@ -49,7 +49,7 @@ function Omas() {
                         <h1>Eligibility</h1>
                         <p>Rwandan journalists who have been reporting on agricultural biotechnology and other important stories in the area of science, technology, and innovation.</p>
                         <h3>Entry period</h3>
-                        <p>The entry period is for one year, from 31st August 2023 to 31st August 2024</p>
+                        <p>The entry period is for one year, from 31st August 2023 to 05th August 2024</p>
                     </div>
                     <div className='award-categories'>
                         <h1>Categories for the Award and Contestants</h1>
@@ -103,7 +103,7 @@ function Omas() {
                 </div>
                 <div className='submission-deadline'>
                     <h2>Submission Deadline</h2>
-                    <p>Entries should be submitted by Friday, 15th August 2024, using the following OFAB Rwanda OMA 2024 submission link</p>
+                    <p>Entries should be submitted by Monday, 05th August 2024, using the following OFAB Rwanda OMA 2024 submission link</p>
                 </div>
             </div>
             <div className='how-to-apply'>
