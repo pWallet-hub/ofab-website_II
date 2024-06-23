@@ -1,7 +1,6 @@
 
 import happy from '../../assets/newAsset.jpeg'
 import woman from '../../assets/fontView.jpg'
-
 import Ndabamye from '../../assets/NDABAMYE.jpg'
 import jean from '../../assets/jean1.jpeg'
 import esperance from '../../assets/esperance.jpeg'
@@ -108,7 +107,7 @@ export default function Hub() {
     },
     {
       name: 'Jean Claude Habimana',
-      Institution: ' Africa Food Systems(AFS)',
+      Institution: ' Alliance for Science Rwanda (AFS)',
       role: 'Programme Manager',
       bio: 'Jean Claude HABIMANA is a communications expert leading IUCN strategies in Rwanda, with extensive experience in international development since 2017. His work spans global issues like environment and agriculture, with a background in various international organizations and a focus on advancing his education in Agricultural Communications.',
       image:claude,
@@ -126,7 +125,7 @@ export default function Hub() {
     },
     {
       name: 'Jean Claude Habimana',
-      Institution: ' Africa Food Systems(AFS)',
+      Institution: ' Alliance for Science Rwanda (AFS)',
       role: 'Programme Manager',
       bio: 'Mr. Jean Claude is an award winning science communicator and alumnus of the Cornell University Global Leadership Program. Jean Claude supports the Forum in the capacity building of media personnel and advises on issues related to science and fact-based journalism.',
       image:claude,
