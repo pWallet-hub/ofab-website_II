@@ -185,7 +185,7 @@ export default function Home() {
                 image={blog?.mainPhoto}
                 date={blog?.publicationDate}
                 title={blog?.title}
-                excerpt={blog?.content}
+                excerpt={blog?.articleSummary}
                 link={`/blog-post/${blog?._id}`}
               />
             ))}
