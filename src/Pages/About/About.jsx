@@ -265,7 +265,7 @@ export default function Hub() {
       <h1 className='team-section-title'>PARTNERS</h1>
       <div className='team'>
         <div className='partner-section'>
-          <Partner logo={rab} link="https://www.rab.gov.rw/" />
+          <Partner logo={rab} link="https://www.rab.gov.rw/"  className="rab"/>
           <Partner logo={Allance} link="https://allianceforscience.org/" />
           <Partner logo={aatf} link="https://www.aatf-africa.org/" />
           <Partner logo={rmc} link="http://rmc.org.rw/" />
