@@ -6,7 +6,7 @@ const AdButton = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   // Target date: 15th August 2024, 00:00:00
-  const targetDate = new Date('2024-08-15T00:00:00');
+  const targetDate = new Date('2024-08-05T00:00:00');
 
   const handleButtonClick = () => {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSe9x9CS2706-3oEK46sLnVw02RdpqUU0sGpTtkyft4r7mXatg/viewform', '_blank');
