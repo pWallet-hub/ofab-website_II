@@ -63,7 +63,7 @@ export default function Hub() {
       name: 'Mr. Emmanuel Mugisha Muvunyi',
       Institution: 'Rwanda Media Commission (RMC)',
       role: 'Executive secretary - Member',
-      bio: 'Emmanuel Mugisha Muvunyi is the Managing Director at Rwanda Broadcasters and Social Media Awards and serves as a Mass Media Mobilization Outreach Advisor. He specializes in media outreach and recognition within the broadcasting and social media sectors in Rwanda.',
+      bio: 'Mr. Emmanuel serves as the advisor for mass media and outreach programs for the Forum. Among his duties, Mugisha support capacity building of media personnel around the issues of debunking miss information and disinformation activities around the use of agricultural technologies.',
       image: emmanuel,
     },
     {
