@@ -35,8 +35,7 @@ const text = (
     <div className='story-content1'>
       <p>OFAB RWANDA CHAPTER is committed to promoting public under
         standing of Agricultural Biotechnology Science and its potential to  
-increase farmer’s productivity,protect the environment,improve nut
-rition and enhance security.
+increase farmer’s productivity,protect the environment,improve nutrition and enhance security.
 
       </p>
     </div>
