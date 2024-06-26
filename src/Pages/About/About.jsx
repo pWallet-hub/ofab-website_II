@@ -63,7 +63,7 @@ export default function Hub() {
       name: 'Mr. Emmanuel Mugisha Muvunyi',
       Institution: 'Rwanda Media Commission (RMC)',
       role: 'Executive secretary - Member',
-      bio: 'Mr. Emmanuel serves as the advisor for mass media and outreach programs for the Forum. Among his duties, Mugisha support capacity building of media personnel around the issues of debunking miss information and disinformation activities around the use of agricultural technologies.',
+      bio: 'Mr. Emmanuel serves as the Executive Secretary of the Rwanda Media Commission, a Journalist autoregulatory institution. Among his duties, Mugisha support capacity building of media personnel around the issues of debunking miss information and disinformation activities around the use of agricultural technologies.',
       image: emmanuel,
     },
     {
