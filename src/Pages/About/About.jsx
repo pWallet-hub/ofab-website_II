@@ -16,6 +16,7 @@ import robert from '../../assets/Robert.jpg'
 import agape from '../../assets/agape.jpg'
 import gisele from '../../assets/gisele.jpg'
 import emmanuel from '../../assets/emmanuel.jpeg'
+import mediatrice from '../../assets/mediatrice.jpg'
 
 
 import TeamCard from '../../components/TeamCard/TeamCard'
@@ -167,6 +168,13 @@ export default function Hub() {
       role: 'Digital Communications Assistant',
       bio: 'Ms. Agape NDUWAMUNGU holds a Bachelor of Science degree in Computer Science from Daystar University, Kenya. In her current role, she assumes responsibility for overseeing all IT-related services for the forum, in addition to administrative duties. Furthermore, she plays a pivotal role as an Administrative Assistant in the VIRCA Deployment Project in Rwanda.',
       image: agape,
+    },
+    {
+      name: 'Ms. Mediatrice Hatungimana ',
+      Institution: 'Rwanda Agriculture and Animal Resources Development Board (RAB)',
+      role: 'Microbiologist A.Research Fellow ',
+      bio: 'Mediatrice holds a Master of Science degree in Agriculture Microbiology and serves as an Agricultural Scientist with the Forum in promoting agriculture biotechnology, contributing to the creation of enabling the environment of biotechnology research,development and enhancing food security.',
+      image: mediatrice,
     },
     
   ];
