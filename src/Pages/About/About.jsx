@@ -150,7 +150,7 @@ export default function Hub() {
     },
     {
       name: 'Mr. Pacifique Nshimiyimana',
-      Institution: 'Rwanda Agriculture and Animal Resource Development Board (RAB)',
+      Institution: ' Alliance for Science Rwanda (AfS-Rwanda)',
       role: 'Biotechnology and Science Communication Advisor',
       bio: 'Mr. Pacifique is a biotechnologist, and a social entrepreneur with an extensive experience in market systems development. He is an alumnus of the Cornell University Global Leadership Program in areas of science and agriculture communication. As a farmer, Mr. Pacifique is also a member of the Global Farmer Network (GFN).',
       image: pacy,
@@ -159,7 +159,7 @@ export default function Hub() {
       name: 'Ms. Gisele Ndizeye ',
       Institution: 'VIRCA Plus',
       role: ' OFAB Rwanda Chapter Secretary. ',
-      bio: 'Gisele is form journalist at TV7 Rwanda and an alumnus of the Cornell University Global Leadership Program. She is serving the Forum as well as the VircaPlus project communication, a project working on the 1st virus resistant cassava variety in Rwanda.',
+      bio: 'Gisele is former journalist at TV7 Rwanda and an alumnus of the Cornell University Global Leadership Program. She is serving the Forum as well as the VircaPlus project communication, a project working on the 1st virus resistant cassava variety in Rwanda.',
       image: gisele,
     },
     {
