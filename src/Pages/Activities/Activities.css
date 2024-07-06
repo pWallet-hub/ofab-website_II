@@ -61,6 +61,10 @@ a {
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
+  transition: transform 1000ms;
+}
+.vidone img:hover {
+  transform: scale(1.1);
 }
 
 h5 {

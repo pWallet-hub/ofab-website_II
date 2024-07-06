@@ -12,6 +12,10 @@
   height: 100px;
   vertical-align: middle;
   object-fit: contain;
+  transition: transform 1000ms;
+}
+.partner-logo:hover{
+  transform: scale(1.1);
 }
 @media screen and (max-width: 768px) {
   .partner-logo {
