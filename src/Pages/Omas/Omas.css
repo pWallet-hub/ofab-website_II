@@ -39,7 +39,6 @@
   margin-bottom: 1rem;
 }
 
-/* Mission, Eligibility, Submission */
 .mission1,
 .award-eligibility,
 .submission-guidelines,
@@ -160,6 +159,10 @@ p{
   height: auto;
   border-radius: 5px;
   margin-bottom: 1rem;
+  transition: transform 1000ms;
+}
+.awards-content img:hover {
+  transform: scale(1.1);
 }
 
 /* Submission */
