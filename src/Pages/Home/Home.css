@@ -120,6 +120,10 @@ body {
   height: 50%;
   margin-left: 4rem;
   border-radius: 1rem;
+  transition: transform 1000ms;
+}
+.about-img:hover{
+  transform: scale(1.1);
 }
 
 .about-video {
