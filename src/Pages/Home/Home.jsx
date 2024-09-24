@@ -26,6 +26,39 @@ import { FaPhone } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
 
 
+// const [timer, setTimer] = useState({
+//   days: 0,
+//   hours: 0,
+//   minutes: 0,
+//   seconds: 0,
+// });
+// useEffect(() => {
+//   const countdownDate = new Date('September 27, 2024 15:00:00').getTime();
+
+//   const interval = setInterval(() => {
+//     const now = new Date().getTime();
+//     const distance = countdownDate - now;
+
+//     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+//     setTimer({ days, hours, minutes, seconds });
+
+//     if (distance < 0) {
+//       clearInterval(interval);
+//       setTimer({
+//         days: 0,
+//         hours: 0,
+//         minutes: 0,
+//         seconds: 0,
+//       });
+//     }
+//   }, 1000);
+
+//   return () => clearInterval(interval);
+// }, []);
 
 const text = (
   <div className='style' >
@@ -35,8 +68,8 @@ const text = (
     <div className='story-content1'>
       <p>OFAB RWANDA CHAPTER is committed to promoting public under
         standing of Agricultural Biotechnology Science and its potential to  
-increase farmer’s productivity,protect the environment,improve nutrition and enhance security.
-
+        increase farmer’s productivity,protect the environment,improve nutrition and enhance security.
+        
       </p>
     </div>
   </div>
@@ -117,6 +150,7 @@ export default function Home() {
           <h1>Biotech Research Outreach</h1>
           <p>We play an important role in raising awareness and understanding of different Agricultural Biotechnology solutions.</p>
         </div>
+    
         <div className='card1'>
           <div className='log1'><FaVideo /></div>
           <h1>Media Engagement</h1>
