@@ -4,12 +4,14 @@ import SlideShow from '../../components/Slide/Slide'
 import SuccessStoryCard from '../../components/SuccessStoryCard/SuccessStoryCard'
 import BlogCard from '../../components/Card/BlogCard'
 import AdButton from '../../components/AdButton/AdButton';
+import EventPopup from '../../components/EventPopUp/EventPopUp';
 
 
 import happy from '../../assets/slide2.jpeg'
 import woman from '../../assets/slide1.jpeg'
 import info from '../../assets/slide3.jpeg'
 import group from '../../assets/group.jpeg'
+import event from '../../assets/shitjob.jpg'
 
 import suc1 from '../../assets/suc1.jpeg'
 import suc2 from '../../assets/suc2.jpeg'
@@ -66,9 +68,7 @@ const text = (
       <h3 >OFAB RWANDA CHAPTER</h3>
     </div>
     <div className='story-content1'>
-      <p>OFAB RWANDA CHAPTER is committed to promoting public under
-        standing of Agricultural Biotechnology Science and its potential to  
-        increase farmer’s productivity,protect the environment,improve nutrition and enhance security.
+      <p>OFAB RWANDA CHAPTER is committed to promoting public understanding of Agricultural Biotechnology and its potential to increase farmer’s productivity,protect the environment,improve nutrition and enhance security.
         
       </p>
     </div>
@@ -123,6 +123,7 @@ export default function Home() {
 
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+   const [showPopup, setShowPopup] = useState(true); // State to control popup visibility
 
   const GetBlogs = async () => {
     try {
@@ -140,8 +141,19 @@ export default function Home() {
     GetBlogs();
   }, []);
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
     <div className='home'>
+      {showPopup && (
+        <EventPopup
+          eventDate="September 27, 2024 15:00:00"
+          eventImage={event} 
+          onClose={handleClosePopup}
+        />
+      )}
       <SlideShow images={images} />
        <AdButton />
       <div className='card-container'>
