@@ -62,7 +62,7 @@ import { IoTime } from "react-icons/io5";
 //   return () => clearInterval(interval);
 // }, []);
 
-const text = (
+const text1 = (
   <div className='style' >
     <div className='story-head'>
       <h3 >OFAB RWANDA CHAPTER</h3>
@@ -75,10 +75,36 @@ const text = (
   </div>
 );
 
+const text2 = (
+  <div className='style' >
+    <div className='story-head'>
+      <h3 >OFAB RWANDA CHAPTER</h3>
+    </div>
+    <div className='story-content1'>
+      <p>OFAB RWANDA CHAPTER help in establish and manage a range of platforms to enhance understanding of biotechnology in agriculture productivity in Rwanda.
+        
+      </p>
+    </div>
+  </div>
+);
+
+const text3 = (
+  <div className='style' >
+    <div className='story-head'>
+      <h3 >OFAB RWANDA CHAPTER</h3>
+    </div>
+    <div className='story-content1'>
+      <p>OFAB RWANDA CHAPTER inform policy decision making processes on matter of agricultural biotechnology thought provision of factual well researched and scientific information .
+        
+      </p>
+    </div>
+  </div>
+);
+
 const images = [
-  { url: happy, text: text },
-  { url: woman, text: text },
-  { url: info, text: text },
+  { url: happy, text: text1 },
+  { url: woman, text: text2 },
+  { url: info, text: text3 },
 ];
 
 
