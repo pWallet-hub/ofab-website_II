@@ -11,7 +11,7 @@ import happy from '../../assets/slide2.jpeg'
 import woman from '../../assets/slide1.jpeg'
 import info from '../../assets/slide3.jpeg'
 import group from '../../assets/group.jpeg'
-import event from '../../assets/shitjob.jpg'
+import event from '../../assets/Poster.jpg'
 
 import suc1 from '../../assets/suc1.jpeg'
 import suc2 from '../../assets/suc2.jpeg'
