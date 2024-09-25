@@ -4,12 +4,14 @@ import SlideShow from '../../components/Slide/Slide'
 import SuccessStoryCard from '../../components/SuccessStoryCard/SuccessStoryCard'
 import BlogCard from '../../components/Card/BlogCard'
 import AdButton from '../../components/AdButton/AdButton';
+import EventPopup from '../../components/EventPopUp/EventPopUp';
 
 
 import happy from '../../assets/slide2.jpeg'
 import woman from '../../assets/slide1.jpeg'
 import info from '../../assets/slide3.jpeg'
 import group from '../../assets/group.jpeg'
+import event from '../../assets/shitjob.jpg'
 
 import suc1 from '../../assets/suc1.jpeg'
 import suc2 from '../../assets/suc2.jpeg'
@@ -26,26 +28,83 @@ import { FaPhone } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
 
 
+// const [timer, setTimer] = useState({
+//   days: 0,
+//   hours: 0,
+//   minutes: 0,
+//   seconds: 0,
+// });
+// useEffect(() => {
+//   const countdownDate = new Date('September 27, 2024 15:00:00').getTime();
 
-const text = (
+//   const interval = setInterval(() => {
+//     const now = new Date().getTime();
+//     const distance = countdownDate - now;
+
+//     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+//     setTimer({ days, hours, minutes, seconds });
+
+//     if (distance < 0) {
+//       clearInterval(interval);
+//       setTimer({
+//         days: 0,
+//         hours: 0,
+//         minutes: 0,
+//         seconds: 0,
+//       });
+//     }
+//   }, 1000);
+
+//   return () => clearInterval(interval);
+// }, []);
+
+const text1 = (
   <div className='style' >
     <div className='story-head'>
       <h3 >OFAB RWANDA CHAPTER</h3>
     </div>
     <div className='story-content1'>
-      <p>OFAB RWANDA CHAPTER is committed to promoting public under
-        standing of Agricultural Biotechnology Science and its potential to  
-increase farmer’s productivity,protect the environment,improve nutrition and enhance security.
+      <p>OFAB RWANDA CHAPTER is committed to promoting public understanding of Agricultural Biotechnology and its potential to increase farmer’s productivity,protect the environment,improve nutrition and enhance security.
+        
+      </p>
+    </div>
+  </div>
+);
 
+const text2 = (
+  <div className='style' >
+    <div className='story-head'>
+      <h3 >OFAB RWANDA CHAPTER</h3>
+    </div>
+    <div className='story-content1'>
+      <p>OFAB RWANDA CHAPTER help in establish and manage a range of platforms to enhance understanding of biotechnology in agriculture productivity in Rwanda.
+        
+      </p>
+    </div>
+  </div>
+);
+
+const text3 = (
+  <div className='style' >
+    <div className='story-head'>
+      <h3 >OFAB RWANDA CHAPTER</h3>
+    </div>
+    <div className='story-content1'>
+      <p>OFAB RWANDA CHAPTER inform policy decision making processes on matter of agricultural biotechnology thought provision of factual well researched and scientific information .
+        
       </p>
     </div>
   </div>
 );
 
 const images = [
-  { url: happy, text: text },
-  { url: woman, text: text },
-  { url: info, text: text },
+  { url: happy, text: text1 },
+  { url: woman, text: text2 },
+  { url: info, text: text3 },
 ];
 
 
@@ -90,6 +149,7 @@ export default function Home() {
 
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+   const [showPopup, setShowPopup] = useState(true); // State to control popup visibility
 
   const GetBlogs = async () => {
     try {
@@ -107,8 +167,19 @@ export default function Home() {
     GetBlogs();
   }, []);
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
     <div className='home'>
+      {showPopup && (
+        <EventPopup
+          eventDate="September 27, 2024 15:00:00"
+          eventImage={event} 
+          onClose={handleClosePopup}
+        />
+      )}
       <SlideShow images={images} />
        <AdButton />
       <div className='card-container'>
@@ -117,6 +188,7 @@ export default function Home() {
           <h1>Biotech Research Outreach</h1>
           <p>We play an important role in raising awareness and understanding of different Agricultural Biotechnology solutions.</p>
         </div>
+    
         <div className='card1'>
           <div className='log1'><FaVideo /></div>
           <h1>Media Engagement</h1>
