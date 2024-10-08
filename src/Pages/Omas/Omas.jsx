@@ -10,7 +10,11 @@ import breakimage from '../../assets/break.jpg';
 import rab from '../../assets/Rab.jpg';
 import alliance from '../../assets/alliance.jpg';
 import rmc from '../../assets/rmc.png';
+import dataimage from '../../assets/data.jpg';
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { MdGroups } from "react-icons/md";
+import { FaBuildingUser } from "react-icons/fa6";
+import { IoEyeOffOutline } from "react-icons/io5";
 import '../Activities/Activities.css'
 
 
@@ -72,6 +76,36 @@ function Omas() {
                         policy discussions, educates the public, and supports Rwanda's goals for sustainable agricultural development.</p>
 
                 </div>
+                <div className='shape1'>
+                    <MdGroups />
+                    <div className='shape-content'>
+                        <h1>Shaping Rwanda’s Agricultural Future:</h1>
+                        <p>By encouraging informed dialogue on biotechnology</p>
+                    </div>
+                </div>
+                <div className='shape'>
+                    <FaBuildingUser />
+                    <div className='shape-content'>
+                        <h1>Engaging the Private Sector and Civil Society:</h1>
+                        <p>With the participation of government, business leaders, and civil society,
+                            this year’s OMA emphasizes the multi-stakeholder approach necessary
+                            to create an enabling environment for the commercialization of biotech
+                            products that are currently at advanced stages of research.</p>
+                    </div>
+                </div>
+                <div className='shape'>
+                <IoEyeOffOutline />
+                    <div className='shape-content'>
+                       
+                        <p>Let us continue fostering a community that supports innovative journalism and,
+                            in turn, transforms the future of agriculture in Rwanda. We look forward to your
+                            continued collaboration and support as we celebrate Rwanda’s agricultural
+                            revolution through biotechnology—one story at a time!
+                            Thank you for being part of this journey. Let’s take this opportunity to honor
+                            our journalists, celebrate their contributions, and commit to advancing agricultural
+                            innovation through media excellence.</p>
+                    </div>
+                </div>
                 <div className='mission1'>
                     <h1>Mission:</h1>
                     <p>OMA 2024 aims to recognize and promote Rwandan-based journalists who are creating and reporting on the use, benefits, and other constructive information on agricultural biotechnology. The awards seek to highlight the critical roles played by the media in promoting constructive dialogue on modern biotechnology through responsible, professional, ethical, and effective reporting.</p>
@@ -100,9 +134,9 @@ function Omas() {
                         <p>Thirty-seven contestants from different media houses applied in this competition.</p>
                         <h3>The categories of the Awards were:</h3>
                         <ul>
-                            <li>Print Media and Online Media (combined)</li>
-                            <li>Radio</li>
-                            <li>Television</li>
+                            <li>Print and Online Media: Including newspapers, magazines, and online platforms.</li>
+                            <li>Radio: For radio journalists or broadcasters who report on biotech-related topics.</li>
+                            <li>Television: For TV journalists and stations covering biotechnology stories.</li>
                         </ul>
                         <p>Then, the overall winner from either category combined the award for his/her category and the overall award.</p>
                     </div>
@@ -119,7 +153,12 @@ function Omas() {
                     </div>
                     <p>Participants were limited to seventy attendees. Participants were encouraged to share their experiences in the Agriculture Biotechnology story</p>
                 </div>
+                <div className='contest'>
+                <h1>Distribution of Contest Categories by Media House</h1>
+                <img src={dataimage} alt="" />
             </div>
+            </div>
+            
 
             <div className='awards-content'>
                 <div>
