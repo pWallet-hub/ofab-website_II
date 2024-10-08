@@ -119,6 +119,44 @@ text-align: left;
   object-fit: contain;
   margin-bottom: 1rem;
  }
+ .shape{
+  display: flex;
+  justify-content: flex-start;
+ gap: 2rem;
+ }
+ .shape h1{
+  font-size: 18px;
+  margin-bottom: 1rem;
+  text-align: justify;
+  font-weight: 800;
+ }
+ .shape p{
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+  
+ }
+ .shape svg{
+  
+  font-size: 150px;
+  color: #00d56d;
+ }
+ .shape1{
+  display: flex;
+margin-left: -24rem;
+ gap: 2rem;
+ }
+ .shape1 h1{
+  font-size: 18px;
+  margin-bottom: 1rem;
+  margin-left: -3rem;
+  /* text-align: justify; */
+  font-weight: 800;
+ }
+ .shape1 svg{
+  font-size: 80px;
+  color: #00d56d;
+ }
 
 .mission1,
 .award-eligibility,
@@ -178,6 +216,14 @@ text-align: left;
   left: 0;
   font-size: 1.5rem;
   color: #00d56d;
+}
+.contest h1{
+  font-size: 28px;
+  background: #00d56d;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-align: justify;
+  padding-left: 1rem;
 }
 
 /* Participants */
@@ -325,5 +371,44 @@ p{
   .awards-content div {
     text-align: justify;
 
+  }
+  .welcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background: white;
+    text-align: justify;
+    padding: 1rem;
+  }
+  .welcome img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .images img{
+    width: 35%;
+    height: auto;
+    object-fit: contain;
+  }
+  .shape1{
+    margin-left: -1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  .shape svg{
+    font-size: 150px;
+
+   
+  }
+  .contest h1{
+    font-size: 18px;
+    padding: 1rem;
+  }
+  .award-categories h1{
+    font-size: 18px;
+  }
+  .awards-content1 h1, .awards-content1 h2, .awards-content1 h3, .awards-content1 h4, .awards-content1 h5{
+    font-size: 18px;
   }
 }
