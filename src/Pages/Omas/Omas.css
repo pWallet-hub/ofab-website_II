@@ -3,7 +3,50 @@
   background-color: #f8f8f8;
   padding: 2rem;
 }
+.active-content{
+  margin-top: 1rem;
+  padding-top: 2rem;
+  
+}
+.active-content img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.welcome{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: white;
+  text-align: justify;
+  padding: 1rem;
 
+}
+.welcome img{
+  width: 14%;
+  height: auto;
+  object-fit: cover;
+  
+}
+.welcome h1{
+  font-size: 28px;
+  color: #10b364;
+ font-family: popins;
+
+}
+
+.welcome h4{
+  font-size: 25px;
+  color: #0b0f0d;
+ font-family: 'Times New Roman', Times, serif;
+ margin-top: 1rem;
+}
+.breake img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+}
 /* Awards Content 1 */
 .awards-content1 {
   max-width: 900px;
@@ -34,10 +77,48 @@
   margin-bottom: 1.5rem;
   text-align: justify;
 }
+.awards-content1 img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 .awards-content h3{
   font-size: 18px;
   margin-bottom: 1rem;
 }
+.change h2{
+  font-size: 28px;
+  margin-bottom: 1rem;
+  color: #00d56d;
+  text-align: left;
+
+}
+.change h1{
+  font-size: 28px;
+  margin-bottom: 1rem;
+  color: #2fdbca;
+text-align: left;
+
+}
+.change p{
+  font-size: 18px;
+  margin-bottom: 1rem;
+  text-align: justify;
+  font-weight: 800;
+}
+ .images{
+  display: flex;
+  justify-content: flex-start;
+ flex-direction: row;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+ }
+ .images img{
+  width: 15%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+ }
 
 .mission1,
 .award-eligibility,
