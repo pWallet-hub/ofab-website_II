@@ -19,7 +19,7 @@ function Omas() {
         <div className='awards-container'>
             <div className='active-hub'>
                 <div className='active-content'>
-                    <img className='active-img' src={eventimage} alt="Description of image" />
+                    {/* <img className='active-img' src={eventimage} alt="Description of image" /> */}
                     {/* <h3>ACTIVITIES</h3> */}
                 </div>
                 <div className='welcome'>
