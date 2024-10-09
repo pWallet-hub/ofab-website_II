@@ -1,60 +1,67 @@
+
+
 /* Awards Container */
 .awards-container {
-  background-color: #f8f8f8;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 2rem;
 }
-.active-content{
-  margin-top: 1rem;
-  padding-top: 2rem;
-  
-}
-.active-content img{
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-.welcome{
+
+/* Welcome section */
+.welcome {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  background: white;
-  text-align: justify;
-  padding: 1rem;
+  align-items: center;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
-}
-.welcome img{
-  width: 14%;
-  height: auto;
+.welcome img {
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  
+  border-radius: 50%;
+  margin-right: 2rem;
 }
-.welcome h1{
-  font-size: 28px;
+
+.welcome-content {
+  flex: 1;
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
   color: #10b364;
- font-family: popins;
-
+  margin-bottom: 0.5rem;
 }
 
-.welcome h4{
-  font-size: 25px;
+.welcome h4 {
+  font-size: 1.2rem;
   color: #0b0f0d;
- font-family: 'Times New Roman', Times, serif;
- margin-top: 1rem;
+  font-family: 'Times New Roman', Times, serif;
 }
-.breake img{
+
+/* Active content */
+.active-content {
+  margin-top: 2rem;
+}
+
+.active-content img {
   width: 100%;
   height: auto;
   object-fit: cover;
-
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
 /* Awards Content 1 */
 .awards-content1 {
-  max-width: 900px;
-  margin: 0 auto;
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 2rem;
+  margin-bottom: 2rem;
 }
 
 .awards-content1 h1,
@@ -62,7 +69,6 @@
 .awards-content1 h3,
 .awards-content1 h4,
 .awards-content1 h5 {
-  font-weight: 600;
   color: #00d56d;
   margin-bottom: 1rem;
 }
@@ -70,6 +76,7 @@
 .awards-content1 h1 {
   font-size: 2.5rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .awards-content1 p {
@@ -77,49 +84,52 @@
   margin-bottom: 1.5rem;
   text-align: justify;
 }
-.awards-content1 img{
+
+.awards-content1 img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
 }
-.awards-content h3{
-  font-size: 18px;
-  margin-bottom: 1rem;
-}
-.change h2{
-  font-size: 28px;
-  margin-bottom: 1rem;
+
+/* Change section */
+.change h2 {
+  font-size: 2rem;
   color: #00d56d;
-  text-align: left;
-
 }
-.change h1{
-  font-size: 28px;
-  margin-bottom: 1rem;
+
+.change h1 {
+  font-size: 2.2rem;
   color: #2fdbca;
-text-align: left;
+}
 
+.change p {
+  font-size: 1.1rem;
+  font-weight: 600;
 }
-.change p{
-  font-size: 18px;
-  margin-bottom: 1rem;
-  text-align: justify;
-  font-weight: 800;
-}
- .images{
+
+/* Images section */
+.images {
   display: flex;
-  justify-content: flex-start;
- flex-direction: row;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
- }
- .images img{
-  width: 15%;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.images img {
+  width: calc(20% - 1rem);
   height: auto;
   object-fit: contain;
-  margin-bottom: 1rem;
- }
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
 
+.images img:hover {
+  transform: scale(1.05);
+}
+
+/* Sections with colored border */
 .mission1,
 .award-eligibility,
 .submission-guidelines,
@@ -129,23 +139,26 @@ text-align: left;
   padding: 1.5rem;
   border-radius: 5px;
   margin-bottom: 2rem;
+  transition: box-shadow 0.3s ease;
 }
 
-.mission1 h2,
-.award-eligibility h2,
-.submission-guidelines h2,
-.submission-deadline h2 {
-  color: #333;
-  margin-bottom: 0.5rem;
+.mission1:hover,
+.award-eligibility:hover,
+.submission-guidelines:hover,
+.submission-deadline:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Objectives */
-.objectives ul {
+/* Objectives and Award Categories */
+.objectives ul,
+.award-categories ul {
   list-style-type: none;
   padding-left: 0;
+  counter-reset: item;
 }
 
-.objectives ul li {
+.objectives ul li,
+.award-categories ul li {
   position: relative;
   padding-left: 2rem;
   margin-bottom: 1rem;
@@ -160,18 +173,6 @@ text-align: left;
   color: #00d56d;
 }
 
-/* Award Categories */
-.award-categories ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.award-categories ul li {
-  position: relative;
-  padding-left: 2rem;
-  margin-bottom: 1rem;
-}
-
 .award-categories ul li::before {
   content: "\2022";
   position: absolute;
@@ -182,32 +183,29 @@ text-align: left;
 
 /* Participants */
 .participants {
-  background-color: #00d56d;
+  background: linear-gradient(135deg, #00d56d, #00a85a);
   color: #fff;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 15px;
   margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .participants h2 {
   text-align: center;
   margin-bottom: 1.5rem;
-}
-p{
-  text-align: justify;
+  font-size: 2rem;
 }
 
 .participants-list ul {
   list-style-type: none;
   padding-left: 0;
-  text-align: justify;
 }
 
 .participants-list ul li {
   position: relative;
   padding-left: 2rem;
   margin-bottom: 1rem;
-  text-align: justify;
 }
 
 .participants-list ul li::before {
@@ -222,79 +220,72 @@ p{
 .awards-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 2rem;
+  gap: 2rem;
   margin-top: 2rem;
 }
 
 .awards-content div {
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  text-align: justify;
+  transition: transform 0.3s ease;
+}
+
+.awards-content div:hover {
+  transform: translateY(-5px);
 }
 
 .awards-content img {
   width: 100%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 5px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
   margin-bottom: 1rem;
-  transition: transform 1000ms;
-}
-.awards-content img:hover {
-  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
-/* Submission */
-.submission {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 2rem;
-  margin-top: 2rem;
+.awards-content img:hover {
+  transform: scale(1.05);
 }
 
 /* How to Apply */
 .how-to-apply {
-  background-color: #00d56d;
+  background: linear-gradient(135deg, #00d56d, #00a85a);
   color: #fff;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 15px;
   margin-top: 2rem;
-  text-align: justify;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .how-to-apply h2 {
   margin-bottom: 1.5rem;
-}
-
-.how-to-apply p {
-  text-align: justify;
+  font-size: 2rem;
 }
 
 .how-to-apply-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
 }
 
+.title-how {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
 .how-to-apply-content button {
-  display: inline-flex;
-  align-items: left;
   background-color: #fff;
   color: #00d56d;
   padding: 1rem 2rem;
+  border: none;
   border-radius: 5px;
   font-size: 1.2rem;
   font-weight: 600;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.title-how {
-  font-size: 3rem;
-  margin-right: 4rem;
-  font-weight: 900;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .how-to-apply-content button:hover {
@@ -309,21 +300,33 @@ p{
 /* Responsive Styles */
 @media (max-width: 768px) {
   .awards-content {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
   }
 
-  .submission {
-    grid-template-columns: 1fr;
+  .welcome {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .welcome img {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .images img {
+    width: calc(33.33% - 1rem);
   }
 
   .title-how {
     display: none;
   }
-  .objectives ul li{
-    text-align: justify;
-  }
-  .awards-content div {
-    text-align: justify;
 
+  .how-to-apply-content {
+    flex-direction: column;
+  }
+
+  .how-to-apply-content button {
+    margin-top: 1rem;
   }
 }
+</style>
