@@ -21,7 +21,7 @@ export default function Hub() {
     <div>
       <div className='active-hub'>
         <div className='active-content'>
-          <img className='active-img' src={closeup} alt="Description of image" />
+          {/* <img className='active-img' src={closeup} alt="Description of image" /> */}
           <h3>ACTIVITIES</h3>
         </div>
       </div>

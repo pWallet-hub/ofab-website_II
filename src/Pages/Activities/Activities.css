@@ -7,7 +7,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('../../assets/activity.jpg') center/cover no-repeat;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+  url('../../assets/activity.jpg') center/cover no-repeat;
+background-size: cover; /* Ensures the image covers the entire container */
+background-position: center; /* Centers the image */
+background-repeat: no-repeat; /* Prevents repeating */
+background-attachment: scroll; /* Keeps the background fixed during scrolling (optional) */
+min-height: 100vh; /* Ensures the container has enough height to display the background */
+padding: 20px;
+color: #fff; /* Text color to contrast with the background */
   color: #fff;
 }
 
@@ -15,8 +23,7 @@
   text-align: center;
   max-width: 600px;
   padding: 20px;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  
 }
 
 .active-content h3 {
@@ -54,7 +61,8 @@
 .awards-content1 h1, .awards-content2 h1 {
   font-size: 32px;
   margin-bottom: 15px;
-  color: #444;
+  color: #00d56d;
+  text-align: center;
 }
 
 .para, .para1 {
@@ -99,7 +107,7 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Links and navigation styles */
+
 h5 {
   font-size: 20px;
   text-align: center;
