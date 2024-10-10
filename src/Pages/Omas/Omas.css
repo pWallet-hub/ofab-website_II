@@ -49,13 +49,11 @@
 
   background: linear-gradient(to bottom right, #000000, #1e3a8a);
     color: white;
-    /* padding: 2rem; */
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     height: 100vh;
     text-align: center;
 
@@ -134,7 +132,6 @@
   align-items: center;
   width: 50%;
   height: auto;
-  /* margin-left: 18rem; */
   gap: 1rem;
   background-color: #ffff;
   border-radius: 10px ;
@@ -257,7 +254,6 @@
 
 .image-content {
   display: flex;
-  /* flex-direction: column; */
  justify-content: space-between;
  margin-top: 1rem;
  gap: 2rem;
@@ -266,12 +262,10 @@
 }
 .omas-content-award{
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
   padding: 1rem;
-  /* background-color: #f0f0f0; */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -351,12 +345,9 @@
 }
 .contest-list{
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  /* padding: 1rem; */
-  /* background-color: #f0f0f0; */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -370,7 +361,7 @@
 .omas-content {
   display: flex;
   justify-content: space-between;
-  /* margin-bottom: 40px; */
+  
 }
 
 .omas-content > div {
@@ -464,16 +455,11 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    /* padding: 1rem; */
-    /* background-color: #f0f0f0; */
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   .omas-content-award{
     display: flex;
-    flex-direction: column;
-    /* align-items: center;
-    justify-content: center; */
-    
+    flex-direction: column;  
   }
 }
