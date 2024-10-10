@@ -79,7 +79,10 @@ function Omas() {
                     government officials, and civil society stakeholders. Together, we celebrate the exceptional
                     contributions of journalists who have reported insightful, accurate, and impactful stories on
                     the application of modern biotechnology in agriculture.</p>
+                    <div className='omas-content-award'>
                 <img src={award} alt="" />
+                <img src={award} alt="" />
+                </div>
                 <div className='change'>
                     <h2>since 2021</h2>
                     <h1>OFAB Media Awards (OMAs)</h1>
@@ -96,18 +99,20 @@ function Omas() {
                     contribute to advancing public understanding of agricultural innovations. </p>
                 <div className='image-content'>
                     <img src={award2} alt="" />
-                    <p>By uniting key stakeholders from media, science, and agriculture,the OMAs aim to elevate journalism that informs
-                        policy discussions, educates the public, and supports Rwanda's goals for sustainable agricultural development.</p>
+                    <img src={award2} alt="" />
+                    
                 </div>
+                <p>By uniting key stakeholders from media, science, and agriculture,the OMAs aim to elevate journalism that informs
+                        policy discussions, educates the public, and supports Rwanda's goals for sustainable agricultural development.</p>
                 <div className='shape1'>
-                    <MdGroups />
+                    {/* <MdGroups /> */}
                     <div className='shape-content'>
                         <h1>Shaping Rwanda's Agricultural Future:</h1>
                         <p>By encouraging informed dialogue on biotechnology</p>
                     </div>
                 </div>
                 <div className='shape'>
-                    <FaBuildingUser />
+                    {/* <FaBuildingUser /> */}
                     <div className='shape-content'>
                         <h1>Engaging the Private Sector and Civil Society:</h1>
                         <p>With the participation of government, business leaders, and civil society,
@@ -117,7 +122,7 @@ function Omas() {
                     </div>
                 </div>
                 <div className='shape'>
-                    <IoEyeOffOutline />
+                    {/* <IoEyeOffOutline /> */}
                     <div className='shape-content'>
                         <p>Let us continue fostering a community that supports innovative journalism and,
                             in turn, transforms the future of agriculture in Rwanda. We look forward to your
@@ -132,8 +137,9 @@ function Omas() {
                     <h1>Mission:</h1>
                     <p>OMA 2024 aims to recognize and promote Rwandan-based journalists who are creating and reporting on the use, benefits, and other constructive information on agricultural biotechnology. The awards seek to highlight the critical roles played by the media in promoting constructive dialogue on modern biotechnology through responsible, professional, ethical, and effective reporting.</p>
                 </div>
-                <h1>Specific Objectives</h1>
-                <h2>The specific objectives of the Awards are:</h2>
+
+                <h1 className='specific-award'>Specific Objectives</h1>
+                <h2 className='specific-award'>The specific objectives of the Awards are:</h2>
                 <div className='objectives'>
                     <ul>
                         <li>Promote excellence in science journalism and appreciate the contribution
@@ -177,7 +183,10 @@ function Omas() {
                 </div>
                 <div className='contest'>
                     <h1>Distribution of Contest Categories by Media House</h1>
+                    <div className='contest-list'>
                     <img src={dataimage} alt="" />
+                    <img src={dataimage} alt="" />
+                    </div>
                 </div>
             </div>
 
@@ -196,37 +205,6 @@ function Omas() {
                     <p>The OFAB Rwanda Chapter Media Award ceremony and gala dinner celebrated the achievements of three distinguished top winners and recognized three accomplished second runners-up across all categories. These individuals were honored for their unwavering dedication to reporting on advancements in agricultural biotechnology.</p>
                 </div>
             </div>
-
-            {/* <div className='submission'>
-                <div className='submission-guidelines'>
-                    <h2>Submission Guidelines :</h2>
-                    <h4>Contestant journalists are encouraged to submit their entries by sharing:</h4>
-                    <p>Links to published articles. The URL should be from a media house and not YouTube and SoundCloud links to TV and Radio stories respectively; and, Links to 3 of their best self-appraised articles or stories.</p>
-                </div>
-                <div className='submission-deadline'>
-                    <h2>Submission Deadline</h2>
-                    <p>Entries should be submitted by Monday, 05th August 2024, using the following OFAB Rwanda OMA 2024 submission link</p>
-                </div>
-            </div>
-
-            <div className='how-to-apply'>
-                <div className='how-to-apply-content'>
-                    <p className='title-how'>How to Apply</p>
-                    <Link to="https://docs.google.com/forms/d/e/1FAIpQLSe9x9CS2706-3oEK46sLnVw02RdpqUU0sGpTtkyft4r7mXatg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">
-                        <button>
-                            Apply <FaArrowUpRightFromSquare className='icon21' />
-                        </button>
-                    </Link>
-                </div>
-                <p>Rwandans interested in applying for the OFAB Media Awards 2024 can access the application link on the OFAB Rwanda website and other social media platforms.</p>
-
-                <p>We look forward to receiving your submission and celebrating the outstanding contributions of Rwandan journalists in promoting informed dialogue on agricultural biotechnology.</p>
-
-                <p>For more information, please contact:</p>
-                <p>OFAB Rwanda Secretary</p>
-                <p>Email: ofabrwanda@gmail.com</p>
-                <p>Phone number: +250 785 855 080</p>
-            </div> */}
 
         </div>
     );
