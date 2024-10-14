@@ -213,7 +213,7 @@
 .omas-content1 img {
   width: 100%;
   max-height: 400px;
-  object-fit: contain;
+  object-fit: cover;
   margin-bottom: 20px;
 }
 
@@ -265,9 +265,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  padding: 1rem;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 .omas-content-award img{
   width: 100%;

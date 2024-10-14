@@ -10,6 +10,11 @@ import aatf from '../../assets/AATF.jpg';
 import rab from '../../assets/Rab.jpg';
 import alliance from '../../assets/alliance.jpg';
 import rmc from '../../assets/rmc.png';
+import ofabimage from '../../assets/ofab-ceremony.jpg';
+import ofabimage2 from '../../assets/ofab-cere.jpg';
+import ofabimage3 from '../../assets/anociata.jpg';
+import ofabimage4 from '../../assets/pacific.jpg';
+import ofabimage5 from '../../assets/award-2024.jpg';
 import dataimage from '../../assets/data.jpg';
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { MdGroups } from "react-icons/md";
@@ -80,8 +85,8 @@ function Omas() {
                     contributions of journalists who have reported insightful, accurate, and impactful stories on
                     the application of modern biotechnology in agriculture.</p>
                     <div className='omas-content-award'>
-                <img src={award} alt="" />
-                <img src={award} alt="" />
+                <img src={ofabimage} alt="" />
+                <img src={ofabimage2} alt="" />
                 </div>
                 <div className='change'>
                     <h2>since 2021</h2>
@@ -98,8 +103,8 @@ function Omas() {
                     worked collaboratively to foster responsible, accurate, and ethical reporting, recognizing journalists who
                     contribute to advancing public understanding of agricultural innovations. </p>
                 <div className='image-content'>
-                    <img src={award2} alt="" />
-                    <img src={award2} alt="" />
+                    <img src={ofabimage5} alt="" />
+                    <img src={ofabimage3} alt="" />
                     
                 </div>
                 <p>By uniting key stakeholders from media, science, and agriculture,the OMAs aim to elevate journalism that informs
@@ -184,7 +189,7 @@ function Omas() {
                 <div className='contest'>
                     <h1>Distribution of Contest Categories by Media House</h1>
                     <div className='contest-list'>
-                    <img src={dataimage} alt="" />
+                    <img src={ofabimage4} alt="" />
                     <img src={dataimage} alt="" />
                     </div>
                 </div>
