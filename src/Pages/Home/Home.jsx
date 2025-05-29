@@ -167,21 +167,9 @@ export default function Home() {
     GetBlogs();
   }, []);
 
-  const handleClosePopup = () => {
-    setShowPopup(false);
-  };
-
   return (
     <div className='home'>
-      {showPopup && (
-        <EventPopup
-          eventDate="September 27, 2024 15:00:00"
-          eventImage={event} 
-          onClose={handleClosePopup}
-        />
-      )}
       <SlideShow images={images} />
-       <AdButton />
       <div className='card-container'>
         <div className='card'>
           <div className='log'><FaFlask /></div>
