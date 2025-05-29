@@ -109,13 +109,6 @@ export default function Hub() {
       bio: "Eric Mbonigaba is a Project Coordinator and Director of Agriculture & Livestock at Private Sector Federation (PSF) in Rwanda. He coordinates agriculture and livestock projects, leads agribusiness activities for RCAL members, and organizes agribusiness associations within PSF.",
       image: mboni,
     },
-    {
-      name: 'Mr. Jean Claude Habimana',
-      Institution: ' Alliance for Science Rwanda (AfS-Rwanda)',
-      role: 'Programme Manager - Member',
-      bio: 'Jean Claude HABIMANA is a communications expert leading IUCN strategies in Rwanda, with extensive experience in international development since 2017. His work spans global issues like environment and agriculture, with a background in various international organizations and a focus on advancing his education in Agricultural Communications.',
-      image:claude,
-    },
 
   ];
 
@@ -126,13 +119,6 @@ export default function Hub() {
       role: 'Chapter coordinator',
       bio: 'Coordinator of Roots & Tubers Program/ Senior Scientist at Rwanda Agriculture and Animal Resource Development Board (RAB), VIRCA Plus Rwanda Project coordinator and OFAB Rwanda Chapter Chairperson',
       image: athanas,
-    },
-    {
-      name: 'Mr. Jean Claude Habimana',
-      Institution: ' Alliance for Science Rwanda (AfS-Rwanda)',
-      role: 'Communonications Specialist',
-      bio: 'Mr. Jean Claude is an award winning science communicator and alumnus of the Cornell University Global Leadership Program. Jean Claude supports the Forum in the capacity building of media personnel and advises on issues related to science and fact-based journalism.',
-      image:claude,
     },
     {
       name: 'Mr. Charles Semahoro ',

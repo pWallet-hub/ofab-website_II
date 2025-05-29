@@ -3,19 +3,17 @@ import './Home.css'
 import SlideShow from '../../components/Slide/Slide'
 import SuccessStoryCard from '../../components/SuccessStoryCard/SuccessStoryCard'
 import BlogCard from '../../components/Card/BlogCard'
-import AdButton from '../../components/AdButton/AdButton';
-import EventPopup from '../../components/EventPopUp/EventPopUp';
 
 
 import happy from '../../assets/slide2.jpeg'
 import woman from '../../assets/slide1.jpeg'
 import info from '../../assets/slide3.jpeg'
 import group from '../../assets/group.jpeg'
-import event from '../../assets/Poster.jpg'
 
-import suc1 from '../../assets/suc1.jpeg'
-import suc2 from '../../assets/suc2.jpeg'
-import suc3 from '../../assets/suc3.png'
+
+import suc1 from '../../assets/suc1.jpg'
+import suc2 from '../../assets/suc2.jpg'
+import suc3 from '../../assets/suc3.jpg'
 
 import { FaFlask } from "react-icons/fa";
 import { FaVideo } from "react-icons/fa";
@@ -28,39 +26,6 @@ import { FaPhone } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
 
 
-// const [timer, setTimer] = useState({
-//   days: 0,
-//   hours: 0,
-//   minutes: 0,
-//   seconds: 0,
-// });
-// useEffect(() => {
-//   const countdownDate = new Date('September 27, 2024 15:00:00').getTime();
-
-//   const interval = setInterval(() => {
-//     const now = new Date().getTime();
-//     const distance = countdownDate - now;
-
-//     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-//     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-//     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-//     setTimer({ days, hours, minutes, seconds });
-
-//     if (distance < 0) {
-//       clearInterval(interval);
-//       setTimer({
-//         days: 0,
-//         hours: 0,
-//         minutes: 0,
-//         seconds: 0,
-//       });
-//     }
-//   }, 1000);
-
-//   return () => clearInterval(interval);
-// }, []);
 
 const text1 = (
   <div className='style' >
@@ -114,34 +79,23 @@ const images = [
 const stories = [
   {
     image: suc1,
-    title: 'Jean Claude NIYOMUGABO',
-    description: '“The objective of @OfabRwanda is to enhance understanding and acceptance of agriculture-biotechnology and contribute to building an enabling environment for decision making” @nduwath , Roots and Tubers Program coordinator at @RwandaAgriBoard and @OfabRwanda chapter coordinator.',
+    title: 'Alex Nyandwi',
+    description: `According to the National Library of Medicine, the global population is projected to reach 9 billion. Feeding this population sustainably presents a significant challenge. While
+#EnhancedCrops or #GMOs offer promising solutions, they are just one part of a broader strategy. Meeting global food demands requires a holistic approach—leveraging conventional, organic, and biotech farming systems to achieve sustainable production, improved yields, and better nutritional outcomes.`,
+link: 'https://x.com/AlexisNyandwi12/status/1922208195281330600', 
   },
   {
     image: suc2,
-    title: 'Uwera DESANGE',
-    description: `Agriculture land will not increase,
-
-but people will. I'm excited to be a part of the National Youth Ambassadorship program, which aims to provide Rwandan youth with the knowledge and skills they need to embrace and integrate modern biotechnology in agriculture.
-
-@OfabRwanda`,
+    title: 'Patience Mumararungu',
+    description: `Through improved cassava varieties that are resistant to diseases and drought, Rwandan researcher Dr. @nduwath
+ is helping farmers increase their yields and reduce losses`,
+ link: 'https://x.com/M_Patience20/status/1927884597657833552', 
   },
   {
     image: suc3,
-    title: 'Mireille KAZUNGU',
-    description: `Exciting news! In partnership with
-
-@RwandaAgriBoard
-, and
-
-@aatfafrica
-, youth from different youth-led organizations such as
-
-@YEAN_Agro
-and
-
-@AGRIRESEARCHLtd
-are being empowered in the transformative world of biotechnology with training and workshop.`,
+    title: 'Anne Marie UWIMPUHWE',
+    description: `Ever wondered how we can make our crops more resilient? I recently visited RAB Rubona station, where they're tackling a critical issue: cassava diseases like Cassava Brown Streak Disease(kabore)`,
+    link:'https://x.com/UwimpuhweAnne/status/1923857158547849688'
   },
 ];
 
@@ -252,19 +206,7 @@ export default function Home() {
       )}
         </div>
       </div>
-      {/* <div className='media'>
-          <h1 className='section-title'>Update on our Social Media</h1>
-          <div className='media-view'>
-            <div>
-              <TwitterProfileCard username="OfabRwanda" />
-            </div>
-           <div>
-              <LinkedInProfileCard url="https://www.linkedin.com/posts/ofab-rwanda_google-forms-sign-in-activity-6942942714795540480-VhQ2/?trk=public_profile" />
-           </div>
-           
-          </div>
-          
-      </div> */}
+    
       <div className='c'>
         <h1 className='section-title'>Contact Us</h1>
         <div className='contact1'>
@@ -295,7 +237,7 @@ export default function Home() {
         <div className='address'>
           <div className='location'>
             <div className='icon'>
-              <a href="https://goo.gl/maps/YOUR_GOOGLE_MAPS_LOCATION">
+              <a href="https://goo.gl/maps/Kigali">
               <MdOutlineMyLocation />
 
               </a>
