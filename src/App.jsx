@@ -11,6 +11,7 @@ import Capacity from '../src/Pages/Capacity/Capacity';
 import Youth from '../src/Pages/Youth/Youth';
 import Media from '../src/Pages/Media/Media';
 import Omas from './Pages/Omas/Omas';
+import News from './Pages/News/News';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/Youth" element={<Youth/>} />
         <Route path="/Media" element={<Media/>} />
         <Route path="/Omas" element={<Omas/>} />
+        <Route path="/News" element={<News/>} />
       
       </Routes>
       <Footer />

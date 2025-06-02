@@ -1,12 +1,4 @@
-/* General reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif; /* Modern, clean font */
-}
-
-/* Header styling (unchanged as per request) */
+/* Header styling */
 .hub {
   display: grid;
   position: relative;
@@ -60,19 +52,47 @@
 /* Gallery container */
 .hub-info {
   max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
-  background: linear-gradient(135deg, #ffffff, #f1f5f9); /* Subtle, elegant gradient */
+  background: linear-gradient(135deg, #ffffff, #f1f5f9);
   border-radius: 24px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  column-count: 3; /* Masonry layout */
-  column-gap: 1.5rem;
   animation: fadeInUp 1s ease-in-out;
+}
+
+/* Carousel container */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Carousel track */
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Blog card (image) styling */
 .blog-card {
-  width: 100%;
+  flex: 0 0 auto;
+  width: 300px;
   height: auto;
   border-radius: 16px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -80,8 +100,7 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  margin-bottom: 1.5rem;
-  break-inside: avoid; /* Prevent images from breaking in masonry layout */
+  scroll-snap-align: start;
 }
 
 /* Hover effect with overlay */
@@ -98,7 +117,7 @@
 }
 
 .blog-card::after {
-  content: attr(alt); /* Use alt text for overlay */
+  content: attr(alt);
   position: absolute;
   bottom: 1rem;
   left: 1rem;
@@ -121,6 +140,38 @@
 .blog-card:hover::after {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Carousel controls */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 1rem;
+}
+
+.carousel-btn {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn:focus {
+  outline: 2px solid #1e90ff;
+  outline-offset: 2px;
 }
 
 /* Loading animation */
@@ -194,13 +245,14 @@
     font-size: 2.8rem;
   }
 
-  .hub-info {
-    column-count: 2;
-    padding: 1.5rem;
+  .blog-card {
+    width: 250px;
   }
 
-  .blog-card {
-    margin-bottom: 1rem;
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
   }
 }
 
@@ -210,9 +262,12 @@
     margin: 2rem 0;
   }
 
-  .hub-info {
-    column-count: 1;
-    padding: 1rem;
+  .blog-card {
+    width: 200px;
+  }
+
+  .carousel-controls {
+    padding: 0 0.5rem;
   }
 }
 
@@ -224,6 +279,16 @@
 
   .hub-info {
     padding: 0.5rem;
+  }
+
+  .blog-card {
+    width: 160px;
+  }
+
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
   }
 
   .blog-card::after {
