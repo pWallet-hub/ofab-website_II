@@ -59,7 +59,7 @@ function Header() {
           <li><Link to="/who-we-are">Who we are</Link></li>
           <li><Link to="/activities">Activities</Link></li>
           <li><Link to="/News">News</Link></li>
-          <li><Link to="/information-hub">Gallery</Link></li>
+          <li><Link to="/media">Gallery</Link></li>
         </ul>
         
       </nav>

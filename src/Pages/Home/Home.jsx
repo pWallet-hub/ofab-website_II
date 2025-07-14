@@ -4,12 +4,10 @@ import SlideShow from '../../components/Slide/Slide'
 import SuccessStoryCard from '../../components/SuccessStoryCard/SuccessStoryCard'
 import BlogCard from '../../components/Card/BlogCard'
 
-
 import happy from '../../assets/slide2.jpeg'
 import woman from '../../assets/slide1.jpeg'
 import info from '../../assets/slide3.jpeg'
 import group from '../../assets/group.jpeg'
-
 
 import suc1 from '../../assets/suc1.jpg'
 import suc2 from '../../assets/suc2.jpg'
@@ -100,10 +98,9 @@ link: 'https://x.com/AlexisNyandwi12/status/1922208195281330600',
 ];
 
 export default function Home() {
-
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
-   const [showPopup, setShowPopup] = useState(true); // State to control popup visibility
+  const [showPopup, setShowPopup] = useState(true); // State to control popup visibility
 
   const GetBlogs = async () => {
     try {
@@ -119,79 +116,105 @@ export default function Home() {
 
   useEffect(() => {
     GetBlogs();
+
+    // Modern scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections for animations
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(element => observer.observe(element));
+
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div className='home'>
       <SlideShow images={images} />
-      <div className='card-container'>
-        <div className='card'>
+      <div className='card-container animate-on-scroll'>
+        <div className='card animate-on-scroll' style={{ animationDelay: '0.1s' }}>
           <div className='log'><FaFlask /></div>
           <h1>Biotech Research Outreach</h1>
           <p>We play an important role in raising awareness and understanding of different Agricultural Biotechnology solutions.</p>
         </div>
-    
-        <div className='card1'>
+
+        <div className='card1 animate-on-scroll' style={{ animationDelay: '0.3s' }}>
           <div className='log1'><FaVideo /></div>
           <h1>Media Engagement</h1>
           <p>We work with the media to promote accurate, fact-based, and scientific reporting. The forum also demystifies misinformation about Agriculture Biotechnology.</p>
         </div>
-        <div className='card'>
+        <div className='card animate-on-scroll' style={{ animationDelay: '0.5s' }}>
           <div className='log'><HiOutlineSpeakerphone /></div>
           <h1>Public Engagement & Awareness</h1>
           <p>We engage stakeholders, including Policymakers, Farmers, Civil Society Organizations, and others, to raise awareness and appreciation of Agriculture Biotechnology's benefits to Rwanda's food system.</p>
         </div>
       </div>
-      <div className='about-goals'>
+      <div className='about-goals animate-on-scroll'>
         <h1 className='section-title'>ABOUT US</h1>
 
         <div className='about'>
 
-          <div className='about-text'>
+          <div className='about-text animate-on-scroll' style={{ animationDelay: '0.2s' }}>
             <p>OFAB is an informative platform that brings together  stakeholders in the field of Biotechnology  and the public to enable interactions, sharing, and exchange of knowledge, experiences, contacts, and exploring new avenues of bringing the  benefits of biotechnology to the Agricultural sector.</p>
           </div>
-           <div className="image-container">
+           <div className="image-container animate-on-scroll" style={{ animationDelay: '0.4s' }}>
             <img className='about-img' src={group} alt="Description of image" />
-            
+
           </div>
         </div >
       </div>
-      <div className='about1'>
+      <div className='about1 animate-on-scroll'>
         <h1 className='section-title'>OUR PROMISE</h1>
         <div className='about'>
           <iframe
-            className='about-video'
+            className='about-video animate-on-scroll'
+            style={{ animationDelay: '0.2s' }}
             src="https://www.youtube.com/embed/BBWriPCPzOA"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen>
           </iframe>
-          <div className='about-text'>
+          <div className='about-text animate-on-scroll' style={{ animationDelay: '0.4s' }}>
             <p className="justified-text">We believe that use of appropriate technology can improve agricultural productivity in Africa. We support farmers  in Africa and especially smallholder farmers in their  quest  for access to the best agricultural technology.  Better access to agricultural technologies will boost  the productivity of smallholder farmers</p>
           </div>
         </div>
       </div>
-      <div className='success-story'>
+      <div className='success-story animate-on-scroll'>
         <h1 className='success-title'>SUCCESS STORIES</h1>
         <div className='story-container'>
           {stories.map((story, index) => (
-            <SuccessStoryCard key={index} story={story} className={index % 2 === 0 ? 'white-background' : 'green-background'} />
+            <SuccessStoryCard
+              key={index}
+              story={story}
+              className={`${index % 2 === 0 ? 'white-background' : 'green-background'} animate-on-scroll`}
+              style={{ animationDelay: `${index * 0.2}s` }}
+            />
           ))}
         </div>
       </div>
-      <div className='success-story1'>
+      <div className='success-story1 animate-on-scroll'>
         <h1 className='section-title'>LATEST NEWS & UPDATES</h1>
         <div className='story-container12'>
         {loading ? (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-        <BeatLoader color="#0C9444" size={40} />
+        <div className='loading-container'>
+        <BeatLoader color="#239E36" size={40} />
       </div>
       ) : (
         <div className='active-info3'>
           {blogs && blogs
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-            .slice(0, 3)
+            .slice(0, 4)
             .map((blog, index) => (
               <BlogCard
                 key={index}
@@ -200,6 +223,8 @@ export default function Home() {
                 title={blog?.title}
                 excerpt={blog?.articleSummary}
                 link={`/blog-post/${blog?._id}`}
+                className="animate-on-scroll"
+                style={{ animationDelay: `${index * 0.1}s` }}
               />
             ))}
         </div>
@@ -207,10 +232,10 @@ export default function Home() {
         </div>
       </div>
     
-      <div className='c'>
+      <div className='c animate-on-scroll'>
         <h1 className='section-title'>Contact Us</h1>
         <div className='contact1'>
-        <div className='contact'>
+        <div className='contact animate-on-scroll' style={{ animationDelay: '0.2s' }}>
           <h4 className='contact-title'>Send Us A Message</h4>
           <form>
             <label>
@@ -234,7 +259,7 @@ export default function Home() {
         </div>
         <div className="vertical-line"></div>
 
-        <div className='address'>
+        <div className='address animate-on-scroll' style={{ animationDelay: '0.4s' }}>
           <div className='location'>
             <div className='icon'>
               <a href="https://goo.gl/maps/Kigali">
