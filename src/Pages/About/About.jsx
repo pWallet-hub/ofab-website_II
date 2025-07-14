@@ -9,7 +9,6 @@ import niragire from '../../assets/niragire.jpeg'
 import piere from '../../assets/jpierre.jpg'
 import pacy from '../../assets/pacy.jpg'
 import mboni from '../../assets/mboni.jpeg'
-import claude from '../../assets/claude.jpeg'
 import athanas from '../../assets/Athanase.jpeg'
 import nopic from '../../assets/nopic.jpg'
 import robert from '../../assets/Robert.jpg'
@@ -25,7 +24,6 @@ import Allance from '../../assets/alliance.jpg'
 import rab from '../../assets/Rab.jpg'
 import aatf from '../../assets/AATF.jpg';
 import rmc from '../../assets/rmc.jpg';
-import virca from '../../assets/virca.jpg';
 import { FaArrowCircleRight } from "react-icons/fa";
 import './About.css';
 
@@ -263,7 +261,6 @@ export default function Hub() {
           <Partner logo={Allance} link="https://allianceforscience.org/" />
           <Partner logo={aatf} link="https://www.aatf-africa.org/" />
           <Partner logo={rmc} link="http://rmc.org.rw/" />
-          <Partner logo={virca} link="https://example.com" />
         </div>
       </div>
     </>
