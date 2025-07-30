@@ -10,18 +10,10 @@ export default defineConfig({
       requireReturnsDefault: 'auto',
     })
   ],
-  optimizeDeps: {
-    include: ['react-twitter-embed']
-  },
   build: {
-    commonjsOptions: {
-      include: [/react-twitter-embed/, /node_modules/]
-    },
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-twitter-embed': ['react-twitter-embed']
-        }
+        manualChunks: {}
       }
     }
   }

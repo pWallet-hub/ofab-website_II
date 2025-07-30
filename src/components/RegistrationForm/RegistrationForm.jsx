@@ -8,8 +8,8 @@ import { User, Mail, Phone, Building, Briefcase, MapPin, FileText, Calendar, Use
 const RegistrationForm = ({ onClose, onSuccess }) => {
   const { user, profile, isAuthenticated } = useAuth();
   const [formData, setFormData] = useState({
-    // Personal Information (from profile)
-    full_name: profile?.full_name || '',
+    // Personal Information (from profile or user)
+    full_name: profile?.full_name || user?.user_metadata?.full_name || '',
     email: profile?.email || user?.email || '',
     phone_number: '',
     date_of_birth: '',
