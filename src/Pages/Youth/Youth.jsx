@@ -48,7 +48,8 @@ function Youth() {
         <div className='hero-overlay'></div>
         <div className='hero-content'>
           <h1 className='hero-title'>Youth & Women Empowerment</h1>
-          <p className='hero-subtitle'>Empowering the next generation of agricultural leaders through innovation and education</p>
+          <p className='hero-subtitle'>At OFAB Rwanda, we believe that the best way to understand agricultural biotechnology is to see it in action. That’s why we’ve launched “Seeing is Believing”—a hands-on field experience that takes you straight to the heart of Rwanda’s biotech research: the Confined Field Trials (CFTs) for cassava and potato.
+</p>
           <div className='hero-stats'>
             <div className='stat-item'>
               <span className='stat-number'>200+</span>
@@ -68,9 +69,8 @@ function Youth() {
           <div className='intro-section animate-on-scroll'>
             <h2 className='section-title'>Seeing is Believing</h2>
             <p className='section-description'>
-              Our youth and women empowerment programs focus on building capacity, providing hands-on experience,
-              and creating opportunities for the next generation to lead Rwanda's agricultural transformation through
-              biotechnology and sustainable farming practices.
+              These aren’t just ordinary visits. They’re carefully guided journeys that bring together journalists, young influencers, women leaders, and agri-entrepreneurs to witness groundbreaking science up close. From cassava that can resist deadly viruses and tolerate drought, to potatoes that fight off late blight—these innovations are real, and they’re growing in our test plots today.
+
             </p>
           </div>
 
@@ -97,6 +97,10 @@ function Youth() {
                 </div>
               ))}
             </div>
+              <p className='section-description'>
+              These aren’t just ordinary visits. They’re carefully guided journeys that bring together journalists, young influencers, women leaders, and agri-entrepreneurs to witness groundbreaking science up close. From cassava that can resist deadly viruses and tolerate drought, to potatoes that fight off late blight—these innovations are real, and they’re growing in our test plots today.
+
+            </p>
           </div>
 
           <div className='impact-section animate-on-scroll'>
