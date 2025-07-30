@@ -1,5 +1,3 @@
-import { LinkedInEmbed } from 'react-social-media-embed';
-
 const LinkedInProfileCard = ({ url }) => {
   return (
     <div style={{ width: '325px', margin: '20px auto' }}>
