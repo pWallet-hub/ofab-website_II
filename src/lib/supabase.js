@@ -197,7 +197,14 @@ export const createProfile = async (userId, email, fullName) => {
       .select()
       .single();
 
-    if (error) throw error;
+    if (error) {
+      // If profiles table doesn't exist, return gracefully
+      if (error.message.includes('relation "profiles" does not exist')) {
+        console.warn('Profiles table does not exist. Please run the database setup.');
+        return { success: false, error: 'Profiles table not found' };
+      }
+      throw error;
+    }
     return { success: true, data };
   } catch (error) {
     console.error('Profile creation error:', error);
@@ -213,7 +220,13 @@ export const getProfile = async (userId) => {
       .eq('user_id', userId)
       .single();
 
-    if (error) throw error;
+    if (error) {
+      // If profiles table doesn't exist or profile not found, return null gracefully
+      if (error.code === 'PGRST116' || error.message.includes('relation "profiles" does not exist')) {
+        return { success: true, data: null };
+      }
+      throw error;
+    }
     return { success: true, data };
   } catch (error) {
     console.error('Profile fetch error:', error);

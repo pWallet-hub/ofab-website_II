@@ -1,7 +1,21 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { supabase, getProfile, createProfile } from '../lib/supabase';
 
-const AuthContext = createContext();
+const AuthContext = createContext({
+  user: null,
+  profile: null,
+  isAuthenticated: false,
+  isLoading: true,
+  isAdmin: false,
+  signUp: () => {},
+  signIn: () => {},
+  signOut: () => {},
+  resetPassword: () => {},
+  loadUserProfile: () => {},
+  checkAdminStatus: () => {},
+  login: () => {},
+  logout: () => {}
+});
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -20,22 +34,17 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Get initial session
     const getInitialSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      setUser(session?.user ?? null);
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
 
-      if (session?.user) {
-        await loadUserProfile(session.user.id);
-        await checkAdminStatus(session.user.id);
-      }
+        if (error) {
+          console.error('Error getting session:', error);
+          setUser(null);
+          setProfile(null);
+          setIsLoading(false);
+          return;
+        }
 
-      setIsLoading(false);
-    };
-
-    getInitialSession();
-
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
         setUser(session?.user ?? null);
 
         if (session?.user) {
@@ -47,6 +56,36 @@ export const AuthProvider = ({ children }) => {
         }
 
         setIsLoading(false);
+      } catch (error) {
+        console.error('Error in getInitialSession:', error);
+        setUser(null);
+        setProfile(null);
+        setIsAdmin(false);
+        setIsLoading(false);
+      }
+    };
+
+    getInitialSession();
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        try {
+          setUser(session?.user ?? null);
+
+          if (session?.user) {
+            await loadUserProfile(session.user.id);
+            await checkAdminStatus(session.user.id);
+          } else {
+            setProfile(null);
+            setIsAdmin(false);
+          }
+
+          setIsLoading(false);
+        } catch (error) {
+          console.error('Error in auth state change:', error);
+          setIsLoading(false);
+        }
       }
     );
 
@@ -54,12 +93,18 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const loadUserProfile = async (userId) => {
+    if (!userId) {
+      setProfile(null);
+      return;
+    }
+
     try {
       const result = await getProfile(userId);
-      if (result.success) {
+      if (result.success && result.data) {
         setProfile(result.data);
       } else {
-        console.error('Failed to load profile:', result.error);
+        console.warn('Profile not found for user:', userId, result.error);
+        // Profile might not exist yet, this is okay
         setProfile(null);
       }
     } catch (error) {
