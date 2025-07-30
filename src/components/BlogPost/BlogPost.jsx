@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { HiArrowLeft } from "react-icons/hi";
 import './BlogPost.css';
+import { getBlogById } from '../../data/blogData';
 
 function BlogPost() {
   const [post, setPost] = useState(null);
@@ -13,9 +13,9 @@ function BlogPost() {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`https://ofab-bn.onrender.com/api/v1/posts/${id}`)
+    getBlogById(id)
       .then(response => {
-        setPost(response.data);
+        setPost(response);
         setLoading(false);
       })
       .catch(error => {
@@ -46,10 +46,13 @@ function BlogPost() {
       {post.mainPhoto && <img src={post.mainPhoto} alt={post.title} className="blog-image1" />}
       <div className="blog-meta">
         {post.author && <span>Author: {post.author}</span>}
-        {post.publicationDate && <span>Published: {post.publicationDate}</span>}
+        {post.publicationDate && <span>Published: {new Date(post.publicationDate).toLocaleDateString()}</span>}
         {post.activitySource && <span>Source: {post.activitySource}</span>}
       </div>
       {post.articleSummary && <p className="article-summary">{post.articleSummary}</p>}
+      {post.content && (
+        <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+      )}
       {post.link && (
         <a href={post.link} target="_blank" rel="noopener noreferrer" className="original-link">
           Read Original Article

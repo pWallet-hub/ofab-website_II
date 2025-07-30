@@ -17,11 +17,11 @@ import { FaFlask } from "react-icons/fa";
 import { FaVideo } from "react-icons/fa";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 import { MdOutlineMyLocation } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
+import { getRecentBlogs } from '../../data/blogData';
 
 
 
@@ -100,12 +100,10 @@ link: 'https://x.com/AlexisNyandwi12/status/1922208195281330600',
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showPopup, setShowPopup] = useState(true); // State to control popup visibility
 
   const GetBlogs = async () => {
     try {
-      const response = await axios.get('https://ofab-bn.onrender.com/api/v1/posts/');
-      const blogs = response.data;
+      const blogs = await getRecentBlogs(4);
       setBlogs(blogs);
     } catch (error) {
       console.error('Error fetching data:', error);

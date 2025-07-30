@@ -43,7 +43,7 @@ const activities = [
   {
     id: 3,
     title: 'Seeing is Believing',
-    description: ['Engaging young farmers in biotechnology education.', 'Workshops to inspire the next generation of agricultural innovators.'],
+    description: ['Seeing is Believing: Where Innovation Meets Reality in the Field.', 'Seeing is Believing is more than just a learning trip—it’s about building trust, sparking meaningful conversations, and inspiring new voices to share these stories across media platforms, communities, and generations.'],
     images: [ bul1, bul2, bul3],
     link: '/Youth',
     linkText: 'Join Now',
