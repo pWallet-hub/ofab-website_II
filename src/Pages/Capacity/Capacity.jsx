@@ -116,6 +116,72 @@ function Capacity() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Enhanced Workshop Description */}
+                    <div className='workshop-description-section animate-on-scroll'>
+                        <div className='workshop-header'>
+                            <h2 className='section-title'>Empowering Voices, Bridging Science and Society</h2>
+                            <p className='workshop-intro'>
+                                At the heart of Rwanda's agricultural transformation lies the power of communication.
+                                The Open Forum on Agricultural Biotechnology (OFAB) Rwanda Chapter is proud to spearhead
+                                a series of dynamic Consultative Engagement Workshops designed to strengthen the link
+                                between scientific innovation and public understanding.
+                            </p>
+                        </div>
+
+                        <div className='workshop-details'>
+                            <p className='workshop-text'>
+                                These interactive forums bring together senior media professionals, emerging digital influencers,
+                                women leaders, and young agri-entrepreneurs to build capacity, spark dialogue, and foster inclusive
+                                storytelling around agricultural biotechnology. Through tailored sessions and real-world experiences—including
+                                field visits to cutting-edge biotech research sites—participants gain the tools, knowledge, and confidence
+                                to engage their communities with clarity, credibility, and purpose.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Workshop Focus Areas */}
+                    <div className='workshop-focus-section animate-on-scroll'>
+                        <h2 className='section-title'>Who We Empower</h2>
+                        <div className='focus-grid'>
+                            <div className='focus-card'>
+                                <div className='focus-icon'>📰</div>
+                                <h3>Media Professionals</h3>
+                                <p>Journalists seeking to demystify science and communicate biotechnology stories with accuracy and impact</p>
+                            </div>
+                            <div className='focus-card'>
+                                <div className='focus-icon'>💡</div>
+                                <h3>Digital Influencers</h3>
+                                <p>Content creators passionate about development and agricultural innovation</p>
+                            </div>
+                            <div className='focus-card'>
+                                <div className='focus-icon'>👩‍💼</div>
+                                <h3>Women Leaders</h3>
+                                <p>Female leaders driving change in agricultural communities and biotechnology adoption</p>
+                            </div>
+                            <div className='focus-card'>
+                                <div className='focus-icon'>🌱</div>
+                                <h3>Young Agri-Entrepreneurs</h3>
+                                <p>Young farmers innovating on the ground and embracing modern agricultural technologies</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Mission Statement */}
+                    <div className='mission-statement animate-on-scroll'>
+                        <div className='mission-content'>
+                            <h2 className='mission-title'>Our Mission</h2>
+                            <p className='mission-text'>
+                                Whether you're a journalist seeking to demystify science, a content creator passionate about development,
+                                or a young farmer innovating on the ground, these workshops offer a collaborative platform where your voice
+                                meets Rwanda's vision for a science-driven, food-secure future.
+                            </p>
+                            <p className='mission-text'>
+                                Together, we're cultivating informed advocates for biotechnology—champions who are shaping narratives,
+                                shifting mindsets, and accelerating the journey toward sustainable agriculture across the continent.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
