@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Omas.css';
 import award from '../../assets/_72A2638.jpg';
 import award2 from '../../assets/_72A2747.jpg';
@@ -15,10 +16,19 @@ import ofabimage3 from '../../assets/anociata.jpg';
 import ofabimage4 from '../../assets/pacific.jpg';
 import ofabimage5 from '../../assets/award-2024.jpg';
 import dataimage from '../../assets/data.jpg';
+// Youth engagement images
+import look from '../../assets/look.jpg';
+import grace from '../../assets/grace.jpg';
+import gang from '../../assets/gang.jpg';
+import irrigate from '../../assets/irrigate.jpg';
+import white from '../../assets/white.jpg';
+import black from '../../assets/black.jpg';
+import hall from '../../assets/hall.jpg';
+import arm from '../../assets/arm.jpg';
 import { FaTrophy, FaBuildingUser } from "react-icons/fa6";
 import { MdGroups, MdOutlineEmojiEvents } from "react-icons/md";
 import { IoEyeOffOutline } from "react-icons/io5";
-import { Star, Calendar, Users, Target } from 'lucide-react';
+import { Star, Calendar, Users, Target, Eye, Sprout, Users2 } from 'lucide-react';
 
 function Omas() {
     useEffect(() => {
@@ -74,7 +84,7 @@ function Omas() {
                             <Star className="star-icon" />
                         </div>
                         <div className='awards-main'>
-                            <h1 className="edition-number">3<sup>rd</sup></h1>
+                            <h1 className="edition-number">4<sup>th</sup></h1>
                             <h2 className="awards-title">
                                 <span className="ofab-text">OFAB</span>
                                 <span className="media-text">MEDIA</span>
@@ -83,10 +93,43 @@ function Omas() {
                             <div className="event-date">
                                 <Calendar className="calendar-icon" />
                                 <div className="date-info">
-                                    <div className="day">27</div>
-                                    <div className="month">SEPTEMBER</div>
-                                    <div className="year">2024</div>
+                                    <div className="day">27/9</div>
+                                    <div className="month">EVENT</div>
+                                    <div className="year">DATE</div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Registration Call-to-Action */}
+                    <div className='registration-cta animate-on-scroll'>
+                        <div className='cta-content'>
+                            <h2 className='cta-title'>📢 Call for Applications: OFAB Media Awards 2025!</h2>
+                            <p className='cta-description'>
+                                Join the 4th Edition of the OFAB Media Awards – celebrating journalism that brings science
+                                closer to the people through fact-based storytelling on agricultural biotechnology.
+                            </p>
+                            <div className='cta-highlights'>
+                                <div className='cta-highlight'>
+                                    <span className='highlight-icon'>🏆</span>
+                                    <span>4 Award Categories</span>
+                                </div>
+                                <div className='cta-highlight'>
+                                    <span className='highlight-icon'>🌍</span>
+                                    <span>Continental Competition</span>
+                                </div>
+                                <div className='cta-highlight'>
+                                    <span className='highlight-icon'>📅</span>
+                                    <span>Deadline: 1/9</span>
+                                </div>
+                            </div>
+                            <div className='cta-buttons'>
+                                <Link to="/registration" className='register-btn primary'>
+                                    Register Now
+                                </Link>
+                                <a href="mailto:ofabrwanda@gmail.com" className='register-btn secondary'>
+                                    Ask Questions
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -168,6 +211,118 @@ function Omas() {
                         </p>
                     </div>
 
+                    {/* Seeing is Believing Section */}
+                    <div className='seeing-believing-section animate-on-scroll'>
+                        <div className='section-header'>
+                            <div className='section-badge'>
+                                <Eye className='badge-icon' />
+                                <span>Field Experience</span>
+                            </div>
+                            <h2 className='section-title'>Seeing is Believing: Where Innovation Meets Reality in the Field</h2>
+                            <p className='section-subtitle'>
+                                At OFAB Rwanda, we believe that the best way to understand agricultural biotechnology is to see it in action.
+                                That's why we've launched "Seeing is Believing"—a hands-on field experience that takes you straight to the
+                                heart of Rwanda's biotech research: the Confined Field Trials (CFTs) for cassava and potato.
+                            </p>
+                        </div>
+
+                        <div className='field-experience-content'>
+                            <div className='experience-description'>
+                                <div className='description-grid'>
+                                    <div className='description-block'>
+                                        <h3>Real Innovation in Action</h3>
+                                        <p className='section-description'>
+                                            These aren't just ordinary visits. They're carefully guided journeys that bring together journalists, young influencers, women leaders, and agri-entrepreneurs to witness groundbreaking science up close. From cassava that can resist deadly viruses and tolerate drought, to potatoes that fight off late blight—these innovations are real, and they're growing in our test plots today.
+                                        </p>
+                                    </div>
+
+                                    <div className='description-block'>
+                                        <h3>Hands-On Learning Experience</h3>
+                                        <p className='section-description'>
+                                            Participants walk the fields with the very scientists leading the work, ask tough questions, hear farmers' stories, and learn about the rigorous safety measures behind it all. It's a chance to move beyond headlines and myths—and discover how biotechnology is helping solve real challenges faced by Rwandan farmers.
+                                        </p>
+                                    </div>
+
+                                    <div className='description-block'>
+                                        <h3>Building Trust & Inspiring Stories</h3>
+                                        <p className='section-description'>
+                                            Seeing is Believing is more than just a learning trip—it's about building trust, sparking meaningful conversations, and inspiring new voices to share these stories across media platforms, communities, and generations. Come see what the future of agriculture looks like. Then help tell that story.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='field-gallery'>
+                                <div className='field-grid'>
+                                    <div className='field-item featured'>
+                                        <img src={look} alt="Young farmers inspecting crops and learning modern techniques" />
+                                        <div className='field-overlay'>
+                                            <div className='field-category'>Field Work</div>
+                                            <h3>Crop Inspection & Learning</h3>
+                                            <p>Young farmers learning modern biotechnology techniques</p>
+                                        </div>
+                                    </div>
+                                    <div className='field-item featured'>
+                                        <img src={grace} alt="Women empowerment in agricultural biotechnology" />
+                                        <div className='field-overlay'>
+                                            <div className='field-category'>Empowerment</div>
+                                            <h3>Women in Agriculture</h3>
+                                            <p>Empowering women leaders in biotechnology</p>
+                                        </div>
+                                    </div>
+                                    <div className='field-item'>
+                                        <img src={gang} alt="Youth collaboration and teamwork in agriculture" />
+                                        <div className='field-overlay'>
+                                            <div className='field-category'>Collaboration</div>
+                                            <h3>Youth Teamwork</h3>
+                                            <p>Building strong agricultural networks</p>
+                                        </div>
+                                    </div>
+                                    <div className='field-item'>
+                                        <img src={irrigate} alt="Modern irrigation systems training" />
+                                        <div className='field-overlay'>
+                                            <div className='field-category'>Training</div>
+                                            <h3>Modern Irrigation</h3>
+                                            <p>Advanced farming techniques training</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='impact-highlights'>
+                                <div className='highlight-grid'>
+                                    <div className='highlight-card'>
+                                        <div className='highlight-icon'>
+                                            <Users2 />
+                                        </div>
+                                        <div className='highlight-content'>
+                                            <h3>200+ Young Leaders</h3>
+                                            <p>Engaged in agricultural biotechnology programs</p>
+                                        </div>
+                                    </div>
+                                    <div className='highlight-card'>
+                                        <div className='highlight-icon'>
+                                            <Sprout />
+                                        </div>
+                                        <div className='highlight-content'>
+                                            <h3>60% Women Participation</h3>
+                                            <p>Leading the way in agricultural innovation</p>
+                                        </div>
+                                    </div>
+                                    <div className='highlight-card'>
+                                        <div className='highlight-icon'>
+                                            <Target />
+                                        </div>
+                                        <div className='highlight-content'>
+                                            <h3>Hands-on Experience</h3>
+                                            <p>Direct exposure to Confined Field Trials (CFTs)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className='impact-gallery animate-on-scroll'>
                         <div className='gallery-grid'>
                             <div className='gallery-item'>
@@ -184,10 +339,25 @@ function Omas() {
                                     <p>Dedicated journalists making a difference</p>
                                 </div>
                             </div>
+                            <div className='gallery-item'>
+                                <img src={white} alt="Agricultural innovation showcase" />
+                                <div className='image-overlay'>
+                                    <h3>Innovation Showcase</h3>
+                                    <p>Demonstrating cutting-edge agricultural technology</p>
+                                </div>
+                            </div>
+                            <div className='gallery-item'>
+                                <img src={hall} alt="Conference sessions and discussions" />
+                                <div className='image-overlay'>
+                                    <h3>Knowledge Sharing</h3>
+                                    <p>Interactive sessions and expert discussions</p>
+                                </div>
+                            </div>
                         </div>
                         <p className='impact-text'>
                             By uniting key stakeholders from media, science, and agriculture, the OMAs aim to elevate journalism that informs
                             policy discussions, educates the public, and supports Rwanda's goals for sustainable agricultural development.
+                            Through field visits and hands-on experiences, we bridge the gap between scientific innovation and public understanding.
                         </p>
                     </div>
                     <div className='features-section animate-on-scroll'>
@@ -198,7 +368,7 @@ function Omas() {
                                 </div>
                                 <div className='feature-content'>
                                     <h3>Shaping Rwanda's Agricultural Future</h3>
-                                    <p>By encouraging informed dialogue on biotechnology and sustainable farming practices</p>
+                                    <p>By encouraging informed dialogue on biotechnology and sustainable farming practices through youth engagement and women empowerment initiatives</p>
                                 </div>
                             </div>
                             <div className='feature-card'>
@@ -211,6 +381,17 @@ function Omas() {
                                         this year's OMA emphasizes the multi-stakeholder approach necessary
                                         to create an enabling environment for the commercialization of biotech
                                         products that are currently at advanced stages of research.</p>
+                                </div>
+                            </div>
+                            <div className='feature-card'>
+                                <div className='feature-icon'>
+                                    <Eye />
+                                </div>
+                                <div className='feature-content'>
+                                    <h3>Field Experience Programs</h3>
+                                    <p>Through our "Seeing is Believing" initiative, we provide hands-on field experiences
+                                        that bring together journalists, young influencers, women leaders, and agri-entrepreneurs
+                                        to witness groundbreaking science in Confined Field Trials (CFTs).</p>
                                 </div>
                             </div>
                             <div className='feature-card full-width'>
@@ -226,6 +407,50 @@ function Omas() {
                                         Thank you for being part of this journey. Let's take this opportunity to honor
                                         our journalists, celebrate their contributions, and commit to advancing agricultural
                                         innovation through media excellence.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Youth Engagement Statistics */}
+                    <div className='youth-stats-section animate-on-scroll'>
+                        <div className='stats-container'>
+                            <div className='stats-header'>
+                                <h2 className='section-title'>Youth & Women Engagement Impact</h2>
+                                <p className='stats-subtitle'>
+                                    Empowering the next generation of agricultural leaders through hands-on biotechnology experiences
+                                </p>
+                            </div>
+                            <div className='stats-grid'>
+                                <div className='stat-card'>
+                                    <div className='stat-visual'>
+                                        <img src={black} alt="Youth engagement in sustainable farming" />
+                                    </div>
+                                    <div className='stat-content'>
+                                        <div className='stat-number'>200+</div>
+                                        <div className='stat-label'>Young Leaders Engaged</div>
+                                        <p className='stat-description'>Active participants in agricultural biotechnology programs</p>
+                                    </div>
+                                </div>
+                                <div className='stat-card'>
+                                    <div className='stat-visual'>
+                                        <img src={arm} alt="Hands-on training with modern equipment" />
+                                    </div>
+                                    <div className='stat-content'>
+                                        <div className='stat-number'>60%</div>
+                                        <div className='stat-label'>Women Participation</div>
+                                        <p className='stat-description'>Leading the way in agricultural innovation and biotechnology</p>
+                                    </div>
+                                </div>
+                                <div className='stat-card'>
+                                    <div className='stat-visual'>
+                                        <img src={irrigate} alt="Modern irrigation training" />
+                                    </div>
+                                    <div className='stat-content'>
+                                        <div className='stat-number'>15+</div>
+                                        <div className='stat-label'>Field Visits Organized</div>
+                                        <p className='stat-description'>Hands-on experiences at Confined Field Trials (CFTs)</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -282,7 +507,7 @@ function Omas() {
                                     <Calendar className='info-icon' />
                                     <h3>Entry Period</h3>
                                 </div>
-                                <p>The entry period is for one year, from 31st August 2023 to 05th August 2024</p>
+                                <p>The entry period is for one year, check eligibility requirements for details</p>
                             </div>
                         </div>
                     </div>
@@ -338,15 +563,97 @@ function Omas() {
                     </div>
 
                     <div className='contest-section animate-on-scroll'>
-                        <h2 className='section-title'>Distribution of Contest Categories by Media House</h2>
-                        <div className='contest-gallery'>
-                            <div className='contest-image'>
-                                <img src={ofabimage4} alt="Contest Distribution Chart" />
-                                <div className='image-caption'>Contest category distribution</div>
+                        <h2 className='section-title'>Contest Analytics & Distribution</h2>
+
+                        {/* Award Categories Overview */}
+                        <div className='categories-overview'>
+                            <div className='categories-header'>
+                                <h3 className='categories-title'>Award Categories</h3>
+                                <p className='categories-description'>
+                                    The OFAB Media Awards recognize excellence across three main categories of media platforms
+                                </p>
                             </div>
-                            <div className='contest-image'>
-                                <img src={dataimage} alt="Media House Data" />
-                                <div className='image-caption'>Media house participation data</div>
+                            <div className='categories-list'>
+                                <div className='category-item'>
+                                    <div className='category-number'>1</div>
+                                    <div className='category-details'>
+                                        <h4>Print and Online Media</h4>
+                                        <p>Including newspapers, magazines, and online platforms</p>
+                                    </div>
+                                </div>
+                                <div className='category-item'>
+                                    <div className='category-number'>2</div>
+                                    <div className='category-details'>
+                                        <h4>Radio</h4>
+                                        <p>For radio journalists or broadcasters who report on biotech-related topics</p>
+                                    </div>
+                                </div>
+                                <div className='category-item'>
+                                    <div className='category-number'>3</div>
+                                    <div className='category-details'>
+                                        <h4>Television</h4>
+                                        <p>For TV journalists and stations covering biotechnology stories</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Contest Distribution Charts */}
+                        <div className='contest-analytics'>
+                            <div className='analytics-header'>
+                                <h3 className='analytics-title'>Distribution of Contest Categories by Media House</h3>
+                                <p className='analytics-subtitle'>
+                                    Comprehensive analysis of participant distribution across different media platforms and demographics
+                                </p>
+                            </div>
+
+                            <div className='charts-grid'>
+                                <div className='chart-section'>
+                                    <div className='chart-container'>
+                                        <img src={ofabimage4} alt="Contest Distribution Chart" />
+                                        <div className='chart-caption'>
+                                            <h4>Media House Participation</h4>
+                                            <p>Distribution of contestants across various media organizations</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='chart-section'>
+                                    <div className='chart-container'>
+                                        <img src={dataimage} alt="Gender and Rural vs Urban Distribution" />
+                                        <div className='chart-caption'>
+                                            <h4>Demographic Analysis</h4>
+                                            <p>Gender distribution and rural vs urban contestant comparison</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Key Statistics */}
+                            <div className='contest-stats'>
+                                <div className='stats-row'>
+                                    <div className='stat-highlight'>
+                                        <div className='stat-icon'>📊</div>
+                                        <div className='stat-info'>
+                                            <h4>Balanced Representation</h4>
+                                            <p>Equal participation across print, radio, and television categories</p>
+                                        </div>
+                                    </div>
+                                    <div className='stat-highlight'>
+                                        <div className='stat-icon'>👥</div>
+                                        <div className='stat-info'>
+                                            <h4>Gender Diversity</h4>
+                                            <p>Strong female participation in agricultural journalism</p>
+                                        </div>
+                                    </div>
+                                    <div className='stat-highlight'>
+                                        <div className='stat-icon'>🌍</div>
+                                        <div className='stat-info'>
+                                            <h4>Geographic Coverage</h4>
+                                            <p>Representation from both rural and urban media outlets</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
