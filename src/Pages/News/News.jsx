@@ -1,8 +1,8 @@
 // src/components/News.jsx
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './News.css';
 import BlogCard from '../../components/Card/BlogCard';
+import { getAllBlogs } from '../../data/blogData';
 
 // Mock subscription API
 const fakeSubscribe = (email) => {
@@ -20,8 +20,7 @@ export default function News() {
 
   const GetBlogs = async () => {
     try {
-      const response = await axios.get('https://ofab-bn.onrender.com/api/v1/posts/');
-      const blogs = response.data;
+      const blogs = await getAllBlogs();
       setBlogs(blogs);
     } catch (error) {
       console.error('Error fetching data:', error);

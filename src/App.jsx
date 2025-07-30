@@ -12,28 +12,44 @@ import Youth from '../src/Pages/Youth/Youth';
 import Media from '../src/Pages/Media/Media';
 import Omas from './Pages/Omas/Omas';
 import News from './Pages/News/News';
+import Registration from './Pages/Registration/Registration';
+import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
+import AdminLogin from './Pages/AdminLogin/AdminLogin';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import { AuthProvider } from './contexts/AuthContext';
+import OMAS2025Banner from './components/OMAS2025Banner/OMAS2025Banner';
 
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/who-we-are" element={<About/>} />
-        <Route path="/activities" element={<Activities/>} />
-        {/* <Route path="/outreachEvents" element={<Events/>} /> */}
-        <Route path="/information-hub" element={<Hub/>} />
-        <Route path="/blog-post/:id" element={<BlogPost/>} />
-        <Route path="/Capacity" element={<Capacity/>} />
-        <Route path="/Youth" element={<Youth/>} />
-        <Route path="/Media" element={<Media/>} />
-        <Route path="/Omas" element={<Omas/>} />
-        <Route path="/News" element={<News/>} />
-      
-      </Routes>
-      <Footer />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <OMAS2025Banner />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/who-we-are" element={<About/>} />
+          <Route path="/activities" element={<Activities/>} />
+          {/* <Route path="/outreachEvents" element={<Events/>} /> */}
+          <Route path="/information-hub" element={<Hub/>} />
+          <Route path="/blog-post/:id" element={<BlogPost/>} />
+          <Route path="/Capacity" element={<Capacity/>} />
+          <Route path="/Youth" element={<Youth/>} />
+          <Route path="/Media" element={<Media/>} />
+          <Route path="/Omas" element={<Omas/>} />
+          <Route path="/News" element={<News/>} />
+          <Route path="/register" element={<Registration/>} />
+          <Route path="/admin/login" element={<AdminLogin/>} />
+          <Route path="/admin" element={
+            <ProtectedRoute>
+              <AdminDashboard/>
+            </ProtectedRoute>
+          } />
+
+        </Routes>
+        <Footer />
+      </Router>
+    </AuthProvider>
   );
 }
 
