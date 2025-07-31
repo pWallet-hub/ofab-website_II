@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { supabase, getProfile, createProfile } from '../lib/supabase';
+import { supabase, getProfile } from '../lib/supabase';
 
 const AuthContext = createContext({
   user: null,
@@ -25,6 +25,7 @@ export const useAuth = () => {
   return context;
 };
 
+// eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);

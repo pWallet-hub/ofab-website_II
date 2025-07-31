@@ -1,12 +1,10 @@
 // Mock blog data to replace API calls
 import suc1 from '../assets/suc1.jpg';
 import suc2 from '../assets/suc2.jpg';
-import suc3 from '../assets/suc3.jpg';
 import group from '../assets/group.jpeg';
 import harvest from '../assets/harvest.jpg';
 import labo from '../assets/labo.jpg';
 import nutritio from '../assets/nutritio.jpg';
-import protection from '../assets/protection.jpg';
 
 export const blogData = [
   {

@@ -90,7 +90,7 @@ export const uploadFile = async (file, fileName, folder = '') => {
   try {
     const filePath = folder ? `${folder}/${fileName}` : fileName;
 
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('omas-2025-documents')
       .upload(filePath, file, {
         cacheControl: '3600',
