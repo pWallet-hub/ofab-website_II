@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import look from '../../assets/look.jpg';
 import grace from '../../assets/grace.jpg';
 import gang from '../../assets/gang.jpg';

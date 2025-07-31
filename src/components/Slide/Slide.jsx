@@ -2,6 +2,7 @@
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
+// eslint-disable-next-line react/prop-types
 const SlideShow = ({ images }) => {
   const slideImages = images;
 

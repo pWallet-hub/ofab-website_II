@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AdminLogin.css';
 import { Shield, Eye, EyeOff, Lock, User, AlertCircle } from 'lucide-react';
 
+// eslint-disable-next-line react/prop-types
 const AdminLogin = ({ onLogin }) => {
   const [formData, setFormData] = useState({
     username: '',

@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from 'react';
-import closeup from '../../assets/activity.jpg';
 import award from '../../assets/_72A2638.jpg';
 import award2 from '../../assets/_72A2747.jpg';
 import award3 from '../../assets/_72A2607.jpg';

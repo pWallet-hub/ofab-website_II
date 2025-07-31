@@ -1,5 +1,6 @@
 import './TeamCard.css';
 
+// eslint-disable-next-line react/prop-types
 const TeamCard = ({ name, Institution, role, bio, image }) => {
   return (
     <div className="team-card">

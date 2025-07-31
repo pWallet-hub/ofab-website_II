@@ -1,5 +1,5 @@
-import React from 'react';
 import './Goal.css';
+import PropTypes from 'prop-types';
 
 const Goal = ({ goal }) => {
   return (
@@ -7,6 +7,10 @@ const Goal = ({ goal }) => {
       <p>{goal}</p>
     </div>
   );
+};
+
+Goal.propTypes = {
+  goal: PropTypes.string.isRequired,
 };
 
 export default Goal;
