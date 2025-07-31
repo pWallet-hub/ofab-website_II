@@ -1,6 +1,5 @@
 
 import happy from '../../assets/newAsset.jpeg'
-import woman from '../../assets/fontView.jpg'
 import Ndabamye from '../../assets/NDABAMYE.jpg'
 import jean from '../../assets/jean1.jpeg'
 import esperance from '../../assets/esperance.jpeg'
@@ -163,32 +162,6 @@ export default function Hub() {
     
   ];
 
-  const workers = [
-    {
-      name: 'Sarah Thompson',
-      role: 'Project Manager',
-      bio: 'Sarah is a skilled project manager responsible for delivering successful projects.',
-      image: woman,
-    },
-    {
-      name: 'Robert Anderson',
-      role: 'Software Engineer',
-      bio: 'Robert is a software engineer with expertise in developing robust applications.',
-      image: woman,
-    },
-    {
-      name: 'Jessica Taylor',
-      role: 'Data Analyst',
-      bio: 'Jessica is a data analyst skilled in extracting insights from complex data sets.',
-      image: woman,
-    },
-    {
-      name: 'Christopher Brown',
-      role: 'Marketing Specialist',
-      bio: 'Christopher is a marketing specialist responsible for promoting our brand and products.',
-      image: woman,
-    },
-  ];
 
   return (
     <>

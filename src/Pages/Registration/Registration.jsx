@@ -1,13 +1,14 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
 import './Registration.css';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
-import { Calendar, Trophy, Users, Star, CheckCircle, Clock, Award, Target } from 'lucide-react';
+import {  Trophy, Users, Star, CheckCircle, Clock, Award, Target } from 'lucide-react';
 
 const Registration = () => {
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
-  const handleRegistrationSuccess = (data) => {
+  const handleRegistrationSuccess = () => {
     setRegistrationSuccess(true);
     setShowRegistrationForm(false);
   };

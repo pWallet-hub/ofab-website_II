@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import './Capacity.css'
 import group from '../../assets/DSC_2210.jpg'
 import buy from '../../assets/DSC_2072.jpg'
@@ -122,7 +122,7 @@ function Capacity() {
                         <div className='workshop-header'>
                             <h2 className='section-title'>Empowering Voices, Bridging Science and Society</h2>
                             <p className='workshop-intro'>
-                                At the heart of Rwanda's agricultural transformation lies the power of communication.
+                                At the heart of Rwanda`&apos`s agricultural transformation lies the power of communication.
                                 The Open Forum on Agricultural Biotechnology (OFAB) Rwanda Chapter is proud to spearhead
                                 a series of dynamic Consultative Engagement Workshops designed to strengthen the link
                                 between scientific innovation and public understanding.
@@ -172,12 +172,12 @@ function Capacity() {
                         <div className='mission-content'>
                             <h2 className='mission-title'>Our Mission</h2>
                             <p className='mission-text'>
-                                Whether you're a journalist seeking to demystify science, a content creator passionate about development,
+                                Whether you&#39re a journalist seeking to demystify science, a content creator passionate about development,
                                 or a young farmer innovating on the ground, these workshops offer a collaborative platform where your voice
-                                meets Rwanda's vision for a science-driven, food-secure future.
+                                meets Rwanda&#39s vision for a science-driven, food-secure future.
                             </p>
                             <p className='mission-text'>
-                                Together, we're cultivating informed advocates for biotechnology—champions who are shaping narratives,
+                                Together, we&#39re cultivating informed advocates for biotechnology—champions who are shaping narratives,
                                 shifting mindsets, and accelerating the journey toward sustainable agriculture across the continent.
                             </p>
                         </div>
