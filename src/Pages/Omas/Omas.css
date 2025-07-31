@@ -527,8 +527,22 @@ body {
   word-wrap: break-word;
 }
 
+<<<<<<< HEAD
 .partnership-text, .impact-text {
   font-size: clamp(1rem, 2vw, 1.125rem);
+=======
+.partnership-text {
+  font-size: 1.125rem;
+  color: #374151;
+  line-height: 1.7;
+  text-align: justify;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.impact-text {
+  font-size: 1.125rem;
+>>>>>>> f0d883f08482619f54083dcf0e0a936f2fd92a2f
   color: #374151;
   line-height: 1.7;
   text-align: center;
