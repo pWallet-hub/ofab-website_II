@@ -269,8 +269,8 @@
 }
 
 /* Section Titles */
-.section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+.section-title1 h2 {
+  font-size: clamp(1rem, 4vw, 1rem);
   font-weight: 700;
   color: #1e293b;
   margin-bottom: 2rem;
@@ -278,7 +278,7 @@
   position: relative;
 }
 
-.section-title::after {
+.section-title1::after {
   content: '';
   position: absolute;
   bottom: -10px;
@@ -293,7 +293,7 @@
 .section-subtitle {
   font-size: 1.25rem;
   color: #64748b;
-  text-align: center;
+  text-align: justify;
   margin-bottom: 3rem;
 }
 
@@ -313,7 +313,7 @@
   color: #1e293b;
   line-height: 1.7;
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: justify;
 }
 
 .content-paragraph {
@@ -321,7 +321,7 @@
   color: #374151;
   line-height: 1.8;
   margin-bottom: 1.5rem;
-  text-align: left;
+  text-align: justify;
 }
 
 /* Gallery Styles */
@@ -471,6 +471,7 @@
   font-size: 1.125rem;
   color: #374151;
   line-height: 1.7;
+  text-align: justify;
   max-width: 800px;
   margin: 0 auto;
 }
