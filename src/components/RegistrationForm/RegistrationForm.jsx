@@ -3,8 +3,9 @@ import './RegistrationForm.css';
 import { registerForOMAS2025, checkRegistrationExists, uploadFile, uploadMultipleFiles } from '../../lib/supabase';
 import { useAuth } from '../../contexts/AuthContext';
 import AuthModal from '../AuthModal/AuthModal';
-import { User, Mail, Phone, Building, Briefcase, MapPin, FileText, Calendar, Users } from 'lucide-react';
+import { User, Briefcase, MapPin, FileText } from 'lucide-react';
 
+// eslint-disable-next-line react/prop-types
 const RegistrationForm = ({ onClose, onSuccess }) => {
   const { user, profile, isAuthenticated } = useAuth();
   const [formData, setFormData] = useState({
@@ -81,7 +82,6 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const [submitMessage, setSubmitMessage] = useState('');
-  const [uploadProgress, setUploadProgress] = useState({});
   const [showAuthModal, setShowAuthModal] = useState(false);
 
   const totalSteps = 7;

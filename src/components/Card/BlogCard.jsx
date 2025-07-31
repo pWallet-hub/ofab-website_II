@@ -23,9 +23,10 @@
 
 // BlogCard.jsx
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './BlogCard.css';
 
-function BlogCard({ image, date, title, link, id, author }) {
+function BlogCard({ image, date, title, link, author }) {
   return (
     <div className='blog-card'>
       <div className='blog-card-images'>
@@ -46,5 +47,13 @@ function BlogCard({ image, date, title, link, id, author }) {
     </div>
   );
 }
+BlogCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+  title: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  author: PropTypes.string,
+};
 
 export default BlogCard;
