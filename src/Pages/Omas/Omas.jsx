@@ -219,7 +219,7 @@ function Omas() {
                                 <Eye className='badge-icon' />
                                 <span>Field Experience</span>
                             </div>
-                            <h2 className='section-title'>Seeing is Believing: Where Innovation Meets Reality in the Field</h2>
+                            <h2 className='section-title1'>Seeing is Believing: Where Innovation Meets Reality in the Field</h2>
                             <p className='section-subtitle'>
                                 At OFAB Rwanda, we believe that the best way to understand agricultural biotechnology is to see it in action.
                                 That's why we've launched "Seeing is Believing"—a hands-on field experience that takes you straight to the
