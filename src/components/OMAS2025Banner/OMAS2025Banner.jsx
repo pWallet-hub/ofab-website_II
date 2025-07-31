@@ -116,7 +116,7 @@ const OMAS2025Banner = () => {
                 <span className="minimized-title">OMAS 2025 • 27/9</span>
                 <Countdown
                   date={targetDate}
-                  renderer={({ days, hours, minutes, seconds, completed }) => {
+                  renderer={({ days, hours, minutes, completed }) => {
                     if (completed) return <span className="minimized-countdown">Event Started!</span>;
                     return <span className="minimized-countdown">{days}d {hours}h {minutes}m</span>;
                   }}
