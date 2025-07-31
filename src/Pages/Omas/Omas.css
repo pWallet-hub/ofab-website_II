@@ -336,7 +336,7 @@ body {
 .section-subtitle {
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: #64748b;
-  text-align: center;
+  text-align: justify;
   margin-bottom: 2rem;
   line-height: 1.6;
   padding: 0 1rem;
@@ -531,7 +531,7 @@ body {
   font-size: clamp(1rem, 2vw, 1.125rem);
   color: #374151;
   line-height: 1.7;
-  text-align: center;
+  text-align: justify;
   max-width: 800px;
   margin: 1.5rem auto 0;
   padding: 0 1rem;
@@ -1538,6 +1538,7 @@ body {
   color: #475569;
   font-weight: 400;
   margin: 0;
+  text-align: justify;
 }
 
 /* Field Gallery */
