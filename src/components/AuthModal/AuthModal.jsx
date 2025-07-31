@@ -3,6 +3,7 @@ import { X, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import './AuthModal.css';
 
+// eslint-disable-next-line react/prop-types
 const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
   const [mode, setMode] = useState(initialMode); // 'login', 'register', 'forgot'
   const [formData, setFormData] = useState({
@@ -243,7 +244,7 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
                   Forgot your password?
                 </button>
                 <p>
-                  Don't have an account?{' '}
+                  Don&#39t have an account?{' '}
                   <button type="button" onClick={() => switchMode('register')} className="link-btn">
                     Sign up
                   </button>
