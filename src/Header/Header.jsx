@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar'
 import { Phone, Mail, MapPin, Menu } from "lucide-react";
 import { FaFacebookF, FaTwitter, FaLinkedin } from "react-icons/fa";
-import image from "../assets/ofab.jpg";
+import image from "../assets/ofab new.jpg";
 
 import './Header.css';
 

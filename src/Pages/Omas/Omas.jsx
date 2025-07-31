@@ -535,6 +535,11 @@ function Omas() {
                                 <h3>Television</h3>
                                 <p>For TV journalists and stations covering biotechnology stories</p>
                             </div>
+                             <div className='category-card'>
+                                <div className='category-icon'>💻</div>
+                                <h3>Digital/Online Media</h3>
+                                <p>For digital content creators, online journalists, and influencers (Yes, influencers – you're included too!</p>
+                            </div>
                         </div>
                         <p className='category-note'>The overall winner from either category will combine the award for his/her category and the overall award.</p>
                     </div>

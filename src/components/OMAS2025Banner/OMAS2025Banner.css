@@ -1,6 +1,7 @@
-/* OMAS 2025 Professional Banner Styles */
+/* OMAS 2025 Professional Banner Styles - Fixed Expansion Direction */
 .omas-banner-container {
   position: fixed;
+ 
   bottom: 24px;
   right: 24px;
   z-index: 1000;
@@ -15,6 +16,8 @@
   width: calc(100vw - 48px);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Fixed positioning to ensure downward expansion */
+  transform-origin: bottom right;
 }
 
 .omas-banner-container:hover {
@@ -26,6 +29,34 @@
 
 .omas-banner-container.expanded {
   max-width: 420px;
+  /* Add specific bottom positioning to prevent upward growth */
+  bottom: 24px;
+  transform-origin: bottom right;
+  /* Add scroll functionality when expanded */
+  max-height: 80vh;
+  overflow-y: auto;
+  /* Custom scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.omas-banner-container.expanded::-webkit-scrollbar {
+  width: 6px;
+}
+
+.omas-banner-container.expanded::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.omas-banner-container.expanded::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.omas-banner-container.expanded::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 .omas-banner-container.minimized {
@@ -39,6 +70,9 @@
   position: relative;
   padding: 24px;
   color: #1f2937;
+  /* Ensure content flows downward */
+  display: flex;
+  flex-direction: column;
 }
 
 .omas-banner-container.minimized .omas-banner {
@@ -112,6 +146,8 @@
 .banner-main-content {
   position: relative;
   z-index: 2;
+  /* Ensure proper stacking order for downward flow */
+  order: 1;
 }
 
 .banner-header {
@@ -119,12 +155,47 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 16px;
+   margin-top: 2rem;
 }
 
 .banner-controls {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+/* Scroll to top button - only visible when expanded and scrolled */
+.scroll-to-top {
+  background: #239E36;
+  border: none;
+  color: white;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(35, 158, 54, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(35, 158, 54, 0.4);
 }
 
 .event-badge {
@@ -428,22 +499,29 @@
   height: 16px;
 }
 
-/* Expanded content */
+/* Expanded content - Fixed to appear below main content */
 .banner-expanded-content {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid #e5e7eb;
   animation: slideDown 0.3s ease-out;
+  /* Ensure this appears after main content in document flow */
+  order: 2;
+  /* Prevent any upward positioning */
+  position: relative;
+  top: 0;
 }
 
 @keyframes slideDown {
   from {
     opacity: 0;
     transform: translateY(-12px);
+    max-height: 0;
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    max-height: 500px;
   }
 }
 
@@ -558,6 +636,10 @@
 
   .omas-banner-container.expanded {
     max-width: none;
+    /* Maintain bottom positioning on mobile */
+    bottom: 16px;
+    /* Adjust max height for mobile */
+    max-height: 75vh;
   }
 
   .omas-banner-container.minimized {
@@ -650,6 +732,13 @@
     bottom: 12px;
     right: 12px;
     left: 12px;
+  }
+
+  .omas-banner-container.expanded {
+    /* Maintain bottom positioning on small mobile */
+    bottom: 12px;
+    /* Adjust max height for small mobile */
+    max-height: 70vh;
   }
 
   .omas-banner {
