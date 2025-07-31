@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './EventPopup.css'; // Import your CSS file for styling
 
 const EventPopup = ({ eventDate, eventImage, onClose }) => {
@@ -51,6 +52,14 @@ const EventPopup = ({ eventDate, eventImage, onClose }) => {
       </div>
     </div>
   );
+};
+EventPopup.propTypes = {
+  eventDate: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Date)
+  ]).isRequired,
+  eventImage: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default EventPopup;

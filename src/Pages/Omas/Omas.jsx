@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+/* eslint-disable react/no-unescaped-entities */
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Omas.css';
 import award from '../../assets/_72A2638.jpg';
@@ -25,8 +26,8 @@ import white from '../../assets/white.jpg';
 import black from '../../assets/black.jpg';
 import hall from '../../assets/hall.jpg';
 import arm from '../../assets/arm.jpg';
-import { FaTrophy, FaBuildingUser } from "react-icons/fa6";
-import { MdGroups, MdOutlineEmojiEvents } from "react-icons/md";
+import { FaBuildingUser } from "react-icons/fa6";
+import { MdGroups, } from "react-icons/md";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { Star, Calendar, Users, Target, Eye, Sprout, Users2 } from 'lucide-react';
 

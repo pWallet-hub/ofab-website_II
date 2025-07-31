@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const LinkedInProfileCard = ({ url }) => {
   return (
     <div style={{ width: '325px', margin: '20px auto' }}>
@@ -6,6 +8,10 @@ const LinkedInProfileCard = ({ url }) => {
       </a>
     </div>
   );
+};
+
+LinkedInProfileCard.propTypes = {
+  url: PropTypes.string.isRequired,
 };
 
 export default LinkedInProfileCard;

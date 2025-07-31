@@ -1,11 +1,11 @@
 // src/components/News.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './News.css';
 import BlogCard from '../../components/Card/BlogCard';
 import { getAllBlogs } from '../../data/blogData';
 
 // Mock subscription API
-const fakeSubscribe = (email) => {
+const fakeSubscribe = () => {
   return new Promise((resolve) =>
     setTimeout(() => resolve({ success: true, message: 'Subscribed successfully!' }), 1000)
   );
