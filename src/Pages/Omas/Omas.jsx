@@ -26,10 +26,10 @@ import white from '../../assets/innovation.jpg';
 import black from '../../assets/young.jpg';
 import hall from '../../assets/knowledge.jpg';
 import arm from '../../assets/speaker.jpg';
-import { FaBuildingUser } from "react-icons/fa6";
-import { MdGroups, } from "react-icons/md";
-import { IoEyeOffOutline } from "react-icons/io5";
-import { Star, Calendar, Users, Target, Eye, Sprout, Users2 } from 'lucide-react';
+import { FaBuildingUser, FaTrophy, FaAward, FaPen, FaMicrophone } from "react-icons/fa6";
+import { MdGroups, MdScience, MdOutlineAgriculture } from "react-icons/md";
+import { IoEyeOffOutline, IoNewspaper } from "react-icons/io5";
+import { Star, Calendar, Users, Target, Eye, Sprout, Users2, Award, Trophy, FileText, Video, Radio, Check } from 'lucide-react';
 
 function Omas() {
     useEffect(() => {
@@ -54,12 +54,12 @@ function Omas() {
 
     return (
         <div className='omas-container'>
-            {/* Modern Header Section */}
+            {/* Enhanced Hero Section */}
             <div className='omas-hero'>
                 <div className='hero-overlay'></div>
                 <div className='hero-content'>
                     <div className='official-header animate-on-scroll'>
-                        <div className='header-logos'>
+                        <div className='header-logos glass-effect'>
                             <img src={moto} alt="Rwanda Coat of Arms" className='official-logo' />
                             <div className='official-title'>
                                 <h1 className='republic-title'>REPUBLIC OF RWANDA</h1>
@@ -71,8 +71,8 @@ function Omas() {
                     </div>
 
                     <div className='partners-section animate-on-scroll'>
-                        <h3 className='partners-title'>In Partnership With</h3>
-                        <div className='partners-logos'>
+                        <h3 className='partners-title'>In Strategic Partnership With</h3>
+                        <div className='partners-logos glass-effect'>
                             <img src={aatf} alt="AATF Logo" className='partner-logo' />
                             <img src={alliance} alt="Alliance for Science Logo" className='partner-logo' />
                             <img src={rmc} alt="RMC Logo" className='partner-logo' />
@@ -82,34 +82,58 @@ function Omas() {
 
                     <div className='awards-showcase animate-on-scroll'>
                         <div className="star-decoration">
-                            <Star className="star-icon" />
+                            <Star className="star-icon pulse-animation" />
                         </div>
-                        <div className='awards-main'>
+                        <div className='awards-main glass-effect'>
                             <h1 className="edition-number">4<sup>th</sup></h1>
                             <h2 className="awards-title">
                                 <span className="ofab-text">OFAB</span>
                                 <span className="media-text">MEDIA</span>
                             </h2>
                             <h3 className="awards-label">Awards</h3>
-                            <div className="event-date">
+                            <div className="event-date glass-effect">
                                 <Calendar className="calendar-icon" />
                                 <div className="date-info">
                                     <div className="day">27/9</div>
                                     <div className="month">EVENT</div>
-                                    <div className="year">DATE</div>
+                                    <div className="year">2025</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Registration Call-to-Action */}
+                    {/* Enhanced Registration Call-to-Action */}
                     <div className='registration-cta animate-on-scroll'>
                         <div className='cta-content'>
-                            <h2 className='cta-title'>📢 Call for Applications: OFAB Media Awards 2025!</h2>
+                            <h2 className='cta-title'>🏆 Call for Applications: OFAB Media Awards 2025!</h2>
                             <p className='cta-description'>
-                                Join the 4th Edition of the OFAB Media Awards – celebrating journalism that brings science
-                                closer to the people through fact-based storytelling on agricultural biotechnology.
+                                We are honored to invite you to the 4<sup>th</sup> Edition of OFAB Media Awards.
+                                Are you a journalist or content creator telling powerful stories about Agricultural Biotechnology?
+                                We are looking for outstanding reporting in:
                             </p>
+                            
+                            {/* Award Categories */}
+                            <div className='award-categories'>
+                                <div className='category-grid'>
+                                    <div className='category-item'>
+                                        {/* <Check className='category-check' /> */}
+                                        <span>Print-Online Media</span>
+                                    </div>
+                                    <div className='category-item'>
+                                        {/* <Check className='category-check' /> */}
+                                        <span>Television</span>
+                                    </div>
+                                    <div className='category-item'>
+                                        {/* <Check className='category-check' /> */}
+                                        <span>Radio</span>
+                                    </div>
+                                    <div className='category-item'>
+                                        {/* <Check className='category-check' /> */}
+                                        <span>Digital Content</span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div className='cta-highlights'>
                                 <div className='cta-highlight'>
                                     <span className='highlight-icon'>🏆</span>
@@ -121,21 +145,50 @@ function Omas() {
                                 </div>
                                 <div className='cta-highlight'>
                                     <span className='highlight-icon'>📅</span>
-                                    <span>Deadline: 1/9</span>
+                                    <span>Deadline: August 31, 2025</span>
+                                </div>
+                                <div className='cta-highlight'>
+                                    <span className='highlight-icon'>💰</span>
+                                    <span>Recognition & Prizes</span>
                                 </div>
                             </div>
+
+                            <div className='submission-encouragement'>
+                                <Trophy className='trophy-icon' />
+                                <p className='submission-text'>
+                                    Submit your best work and get recognized!
+                                </p>
+                                <div className='deadline'>
+                                <h3>Deadline:August 31, 2025</h3>
+                                </div>
+                            </div>
+
+                            <div className='website-info'>
+                                <p className='apply-instruction'>Apply Now through our website</p>
+                                <a href="https://www.ofabrwanda.rw" className='website-link' target="_blank" rel="noopener noreferrer">
+                                    www.ofabrwanda.rw
+                                </a>
+                            </div>
+
+                            <div className='hashtags'>
+                                <span className='hashtag'>#OFABMediaAwards2025</span>
+                                <span className='hashtag'>#TalkBiotechRw</span>
+                                <span className='hashtag'>#Voices4AgriBiotech</span>
+                            </div>
+
                             <div className='cta-buttons'>
-                                <Link to="/registration" className='register-btn primary'>
-                                    Register Now
+                                <Link to="../Registration/Registration" className='register-btn primary'>
+                                    Apply Now
                                 </Link>
                                 <a href="mailto:ofabrwanda@gmail.com" className='register-btn secondary'>
-                                    Ask Questions
+                                    Get Information
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        
 
             {/* Main Content Section */}
             <div className='main-content'>
