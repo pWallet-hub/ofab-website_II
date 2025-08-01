@@ -26,10 +26,19 @@ import white from '../../assets/innovation.jpg';
 import black from '../../assets/young.jpg';
 import hall from '../../assets/knowledge.jpg';
 import arm from '../../assets/speaker.jpg';
-import { FaBuildingUser, FaTrophy, FaAward, FaPen, FaMicrophone } from "react-icons/fa6";
-import { MdGroups, MdScience, MdOutlineAgriculture } from "react-icons/md";
-import { IoEyeOffOutline, IoNewspaper } from "react-icons/io5";
-import { Star, Calendar, Users, Target, Eye, Sprout, Users2, Award, Trophy, FileText, Video, Radio, Check } from 'lucide-react';
+import { FaBuildingUser } from "react-icons/fa6";
+import { MdGroups } from "react-icons/md";
+import { IoEyeOffOutline } from "react-icons/io5";
+import {
+  FaStar as Star,
+  FaCalendarAlt as Calendar,
+  FaUsers as Users,
+  FaBullseye as Target,
+  FaEye as Eye,
+  FaSeedling as Sprout,
+  FaUserFriends as Users2,
+  FaTrophy as Trophy
+} from 'react-icons/fa';
 
 function Omas() {
     useEffect(() => {
@@ -177,7 +186,7 @@ function Omas() {
                             </div>
 
                             <div className='cta-buttons'>
-                                <Link to="../Registration/Registration" className='register-btn primary'>
+                                <Link to="/register" className='register-btn primary'>
                                     Apply Now
                                 </Link>
                                 <a href="mailto:ofabrwanda@gmail.com" className='register-btn secondary'>

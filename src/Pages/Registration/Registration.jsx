@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import './Registration.css';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
-import {  Trophy, Users, Star, CheckCircle, Clock, Award, Target } from 'lucide-react';
+import { FaTrophy as Trophy, FaUsers as Users, FaStar as Star, FaCheckCircle as CheckCircle, FaClock as Clock, FaAward as Award, FaBullseye as Target } from 'react-icons/fa';
 
 const Registration = () => {
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);

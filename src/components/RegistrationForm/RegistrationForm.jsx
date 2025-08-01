@@ -3,7 +3,7 @@ import './RegistrationForm.css';
 import { registerForOMAS2025, checkRegistrationExists, uploadFile, uploadMultipleFiles } from '../../lib/supabase';
 import { useAuth } from '../../contexts/AuthContext';
 import AuthModal from '../AuthModal/AuthModal';
-import { User, Briefcase, MapPin, FileText } from 'lucide-react';
+import { FaUser as User, FaBriefcase as Briefcase, FaMapMarkerAlt as MapPin, FaFileAlt as FileText } from 'react-icons/fa';
 
 // eslint-disable-next-line react/prop-types
 const RegistrationForm = ({ onClose, onSuccess }) => {
