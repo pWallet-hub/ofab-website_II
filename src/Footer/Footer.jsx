@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import image from "../assets/ofab new.jpg";
+import image from "../assets/ofab_new.jpg";
 import {
   Phone,
   Mail,

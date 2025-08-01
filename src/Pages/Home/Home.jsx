@@ -8,7 +8,7 @@ import BlogCard from '../../components/Card/BlogCard'
 import happy from '../../assets/slide2.jpeg'
 import woman from '../../assets/slide1.jpeg'
 import info from '../../assets/slide3.jpeg'
-import group from '../../assets/group.jpeg'
+import group from '../../assets/DSC_2210.jpg'
 
 import suc1 from '../../assets/suc1.jpg'
 import suc2 from '../../assets/suc2.jpg'
