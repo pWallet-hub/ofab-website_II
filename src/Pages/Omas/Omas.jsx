@@ -6,7 +6,7 @@ import award from '../../assets/_72A2638.jpg';
 import award2 from '../../assets/_72A2747.jpg';
 import award3 from '../../assets/_72A2607.jpg';
 import moto from '../../assets/moto.jpeg';
-import ofab from '../../assets/ofab-zerobg.png';
+import ofab from '../../assets/ofab_new.jpg';
 import aatf from '../../assets/AATF.jpg';
 import rab from '../../assets/Rab.jpg';
 import alliance from '../../assets/alliance.jpg';
