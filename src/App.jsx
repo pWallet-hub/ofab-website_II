@@ -41,7 +41,7 @@ function App() {
           <Route path="/register" element={<Registration/>} />
           <Route path="/admin/login" element={<AdminLogin/>} />
           <Route path="/admin" element={
-            <ProtectedRoute>
+            <ProtectedRoute requireAdmin={true}>
               <AdminDashboard/>
             </ProtectedRoute>
           } />

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
+import { FaTimes as X, FaEnvelope as Mail, FaLock as Lock, FaUser as User, FaEye as Eye, FaEyeSlash as EyeOff } from 'react-icons/fa';
 import { useAuth } from '../../contexts/AuthContext';
 import './AuthModal.css';
 

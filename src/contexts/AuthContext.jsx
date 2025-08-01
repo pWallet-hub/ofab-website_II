@@ -196,8 +196,16 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Legacy compatibility
-  const login = () => signIn();
-  const logout = () => signOut();
+  const login = signIn;
+  const logout = async () => {
+    const result = await signOut();
+    if (result.success) {
+      // Clear any localStorage admin tokens for backward compatibility
+      localStorage.removeItem('adminAuthenticated');
+      localStorage.removeItem('adminLoginTime');
+    }
+    return result;
+  };
   const isAuthenticated = !!user;
 
   const value = {
