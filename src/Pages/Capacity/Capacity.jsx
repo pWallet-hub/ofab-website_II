@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './Capacity.css'
 import group from '../../assets/DSC_2210.jpg'
-import buy from '../../assets/DSC_2072.jpg'
+import buy from '../../assets/tem.jpg'
 import busy from '../../assets/DSC_1850.jpg'
 import about1 from '../../assets/_72A2576.jpg'
 import info from '../../assets/DSC_2123 copy.jpg'
@@ -11,10 +11,10 @@ import hallowen from '../../assets/DSC_2083.jpg'
 import happy from '../../assets/DSC_3691 copy.jpg'
 import increase from '../../assets/_72A2607.jpg'
 import market from '../../assets/DSC_3699 copy.jpg'
-import pest from '../../assets/DSC_1826 copy.jpg'
+import pest from '../../assets/DSC_1826_copy.jpg'
 import truck from '../../assets/cap2.jpg'
 import girl from '../../assets/_72A2747.jpg'
-import boy from '../../assets/DSC_2077 copy.jpg'
+import boy from '../../assets/DSC_4997.jpg'
 
 const capacityImages = [
   { id: 1, src: buy, alt: 'Agricultural biotechnology research and development', category: 'research' },
