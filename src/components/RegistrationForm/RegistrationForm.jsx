@@ -1,6 +1,6 @@
-import { useState , useEffect } from 'react';
+import { useState } from 'react';
 import './RegistrationForm.css';
-import { registerForOMAS2025, checkRegistrationExists, uploadFile, listBuckets }from '../../lib/supabase';
+import { registerForOMAS2025, checkRegistrationExists } from '../../lib/supabase';
 import { User, Briefcase, MapPin, FileText } from 'lucide-react';
 
 // eslint-disable-next-line react/prop-types
@@ -21,83 +21,39 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
     story_1_summary: '',
     story_1_motivation: '',
     story_1_english: true,
-    story_1_transcript: null,
+    story_1_transcript: '', // URL input for transcript
     story_2: '',
     story_2_date: '',
     story_2_summary: '',
     story_2_motivation: '',
     story_2_english: true,
-    story_2_transcript: null,
+    story_2_transcript: '', // URL input for transcript
     story_3: '',
     story_3_date: '',
     story_3_summary: '',
     story_3_motivation: '',
     story_3_english: true,
-    story_3_transcript: null,
+    story_3_transcript: '', // URL input for transcript
     comments: '',
     terms_accepted: false,
   });
-
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const [submitMessage, setSubmitMessage] = useState('');
 
- const totalSteps = 5;
-
- useEffect(() => {
-  listBuckets().then(buckets => console.log('Buckets:', buckets));
-}, []);
-
-  const renderFileStatus = (fieldName, file) => {
-    if (!file) return null;
-
-    if (fieldName === 'additional_documents' && file.length > 0) {
-      return (
-        <div className="file-upload-status success">
-          <div className="multiple-files-info">
-            <span className="file-count">{file.length}</span> file(s) selected:
-            {Array.from(file).map((f, index) => (
-              <div key={index}>• {f.name} ({(f.size / 1024 / 1024).toFixed(2)} MB)</div>
-            ))}
-          </div>
-        </div>
-      );
-    }
-
-    return (
-      <div className="file-upload-status success">
-        ✓ {file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)
-      </div>
-    );
-  };
+  const totalSteps = 5;
 
   const handleInputChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
-    if (type === 'file') {
-      const file = files[0];
-      if (file) {
-        const maxSize = 10 * 1024 * 1024; 
-        if (file.size > maxSize) {
-          setErrors(prev => ({ ...prev, [name]: 'File size must be less than 10MB' }));
-          return;
-        }
-        const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/jpg', 'image/png'];
-        if (!allowedTypes.includes(file.type)) {
-          setErrors(prev => ({ ...prev, [name]: 'Invalid file type. Accepted: PDF, DOC, DOCX, JPG, PNG' }));
-          return;
-        }
-        setFormData(prev => ({ ...prev, [name]: file }));
-      }
-    } else {
-      setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-    }
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
   const isValidUrl = (url) => {
+    if (!url) return false; // Empty URLs are invalid for required fields
     try {
       new URL(url);
       return true;
@@ -124,7 +80,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
       case 1: // Personal Information
         if (!formData.full_name.trim()) newErrors.full_name = 'Full name is required';
         if (!formData.email.trim()) newErrors.email = 'Email is required';
-        // else if (!/\)S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
+        else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
         if (!formData.phone_number.trim()) newErrors.phone_number = 'Phone number is required';
         if (!formData.gender) newErrors.gender = 'Gender is required';
         if (!formData.date_of_birth) newErrors.date_of_birth = 'Date of birth is required';
@@ -145,21 +101,26 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         if (!formData.story_1_date) newErrors.story_1_date = 'Publication date is required';
         if (!formData.story_1_summary.trim()) newErrors.story_1_summary = 'Story summary is required';
         if (!formData.story_1_motivation.trim()) newErrors.story_1_motivation = 'Story motivation is required';
-        if (!formData.story_1_english && !formData.story_1_transcript) newErrors.story_1_transcript = 'Transcript is required for non-English stories';
+        if (!formData.story_1_english && !formData.story_1_transcript.trim()) newErrors.story_1_transcript = 'Transcript URL is required for non-English stories';
+        else if (!formData.story_1_english && !isValidUrl(formData.story_1_transcript)) newErrors.story_1_transcript = 'Invalid transcript URL';
+        
         if (!formData.story_2.trim()) newErrors.story_2 = '2nd story link is required';
         else if (!isValidUrl(formData.story_2)) newErrors.story_2 = 'Invalid URL';
         validateDate(formData.story_2_date, 'story_2_date');
         if (!formData.story_2_date) newErrors.story_2_date = 'Publication date is required';
         if (!formData.story_2_summary.trim()) newErrors.story_2_summary = 'Story summary is required';
         if (!formData.story_2_motivation.trim()) newErrors.story_2_motivation = 'Story motivation is required';
-        if (!formData.story_2_english && !formData.story_2_transcript) newErrors.story_2_transcript = 'Transcript is required for non-English stories';
+        if (!formData.story_2_english && !formData.story_2_transcript.trim()) newErrors.story_2_transcript = 'Transcript URL is required for non-English stories';
+        else if (!formData.story_2_english && !isValidUrl(formData.story_2_transcript)) newErrors.story_2_transcript = 'Invalid transcript URL';
+        
         if (!formData.story_3.trim()) newErrors.story_3 = '3rd story link is required';
         else if (!isValidUrl(formData.story_3)) newErrors.story_3 = 'Invalid URL';
         validateDate(formData.story_3_date, 'story_3_date');
         if (!formData.story_3_date) newErrors.story_3_date = 'Publication date is required';
         if (!formData.story_3_summary.trim()) newErrors.story_3_summary = 'Story summary is required';
         if (!formData.story_3_motivation.trim()) newErrors.story_3_motivation = 'Story motivation is required';
-        if (!formData.story_3_english && !formData.story_3_transcript) newErrors.story_3_transcript = 'Transcript is required for non-English stories';
+        if (!formData.story_3_english && !formData.story_3_transcript.trim()) newErrors.story_3_transcript = 'Transcript URL is required for non-English stories';
+        else if (!formData.story_3_english && !isValidUrl(formData.story_3_transcript)) newErrors.story_3_transcript = 'Invalid transcript URL';
         break;
       case 5: // Final Details
         if (!formData.terms_accepted) newErrors.terms_accepted = 'You must accept the terms and conditions';
@@ -170,8 +131,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-
- const nextStep = () => {
+  const nextStep = () => {
     if (validateStep(currentStep)) {
       setCurrentStep(prev => Math.min(prev + 1, totalSteps));
     }
@@ -197,23 +157,6 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         return;
       }
 
-      setSubmitMessage('Uploading files...');
-      const fileUploads = {};
-      const singleFileFields = ['story_1_transcript', 'story_2_transcript', 'story_3_transcript'];
-
-      for (const field of singleFileFields) {
-        if (formData[field]) {
-          const timestamp = Date.now();
-          const fileName = `${formData.email}/${timestamp}_${formData[field].name}`;
-          const result = await uploadFile(formData[field], fileName, 'transcripts');
-          if (result.success) {
-            fileUploads[`${field}_path`] = result.url;
-          } else {
-            throw new Error(`Failed to upload ${field}: ${result.error}`);
-          }
-        }
-      }
-
       setSubmitMessage('Saving application...');
       const submissionData = {
         email: formData.email,
@@ -231,19 +174,19 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         story_1_summary: formData.story_1_summary,
         story_1_motivation: formData.story_1_motivation,
         story_1_english: formData.story_1_english,
-        story_1_transcript_path: fileUploads.story_1_transcript_path || null,
+        story_1_transcript_path: formData.story_1_transcript || null,
         story_2: formData.story_2,
         story_2_date: formData.story_2_date,
         story_2_summary: formData.story_2_summary,
         story_2_motivation: formData.story_2_motivation,
         story_2_english: formData.story_2_english,
-        story_2_transcript_path: fileUploads.story_2_transcript_path || null,
+        story_2_transcript_path: formData.story_2_transcript || null,
         story_3: formData.story_3,
         story_3_date: formData.story_3_date,
         story_3_summary: formData.story_3_summary,
         story_3_motivation: formData.story_3_motivation,
         story_3_english: formData.story_3_english,
-        story_3_transcript_path: fileUploads.story_3_transcript_path || null,
+        story_3_transcript_path: formData.story_3_transcript || null,
         comments: formData.comments,
         terms_accepted: formData.terms_accepted,
         registration_status: 'pending',
@@ -260,13 +203,12 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         setSubmitMessage(`Submission failed: ${result.error}`);
       }
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error('Error during submission:', error);
       setSubmitMessage(`An error occurred: ${error.message}`);
     } finally {
       setIsSubmitting(false);
     }
   };
-
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -470,18 +412,18 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                 </div>
                 {!formData.story_1_english && (
                   <div className="form-group full-width">
-                    <label htmlFor="story_1_transcript">Upload Transcript *</label>
+                    <label htmlFor="story_1_transcript">Transcript URL *</label>
                     <input
-                      type="file"
+                      type="url"
                       id="story_1_transcript"
                       name="story_1_transcript"
+                      value={formData.story_1_transcript}
                       onChange={handleInputChange}
-                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                       className={errors.story_1_transcript ? 'error' : ''}
+                      placeholder="https://example.com/transcript"
                     />
-                    <small className="file-help">Accepted formats: PDF, DOC, DOCX, JPG, PNG (Max 10MB)</small>
+                    <small className="file-help">Provide a valid URL to the transcript (e.g., Google Drive, Dropbox)</small>
                     {errors.story_1_transcript && <span className="error-message">{errors.story_1_transcript}</span>}
-                    {renderFileStatus('story_1_transcript', formData.story_1_transcript)}
                   </div>
                 )}
                 <div className="form-group full-width">
@@ -553,18 +495,18 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                 </div>
                 {!formData.story_2_english && (
                   <div className="form-group full-width">
-                    <label htmlFor="story_2_transcript">Upload Transcript *</label>
+                    <label htmlFor="story_2_transcript">Transcript URL *</label>
                     <input
-                      type="file"
+                      type="url"
                       id="story_2_transcript"
                       name="story_2_transcript"
+                      value={formData.story_2_transcript}
                       onChange={handleInputChange}
-                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                       className={errors.story_2_transcript ? 'error' : ''}
+                      placeholder="https://example.com/transcript"
                     />
-                    <small className="file-help">Accepted formats: PDF, DOC, DOCX, JPG, PNG (Max 10MB)</small>
+                    <small className="file-help">Provide a valid URL to the transcript (e.g., Google Drive, Dropbox)</small>
                     {errors.story_2_transcript && <span className="error-message">{errors.story_2_transcript}</span>}
-                    {renderFileStatus('story_2_transcript', formData.story_2_transcript)}
                   </div>
                 )}
                 <div className="form-group full-width">
@@ -636,18 +578,18 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                 </div>
                 {!formData.story_3_english && (
                   <div className="form-group full-width">
-                    <label htmlFor="story_3_transcript">Upload Transcript *</label>
+                    <label htmlFor="story_3_transcript">Transcript URL *</label>
                     <input
-                      type="file"
+                      type="url"
                       id="story_3_transcript"
                       name="story_3_transcript"
+                      value={formData.story_3_transcript}
                       onChange={handleInputChange}
-                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                       className={errors.story_3_transcript ? 'error' : ''}
+                      placeholder="https://example.com/transcript"
                     />
-                    <small className="file-help">Accepted formats: PDF, DOC, DOCX, JPG, PNG (Max 10MB)</small>
+                    <small className="file-help">Provide a valid URL to the transcript (e.g., Google Drive, Dropbox)</small>
                     {errors.story_3_transcript && <span className="error-message">{errors.story_3_transcript}</span>}
-                    {renderFileStatus('story_3_transcript', formData.story_3_transcript)}
                   </div>
                 )}
                 <div className="form-group full-width">
@@ -700,7 +642,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                 <ul>
                   <li>Paste links to your articles, YouTube videos, SoundCloud clips, or social media content published between August 30, 2024, and August 30, 2025.</li>
                   <li>URLs should be from a media house, not personal blogs or channels (except for radio on SoundCloud).</li>
-                  <li>Upload transcripts for non-English stories.</li>
+                  <li>For non-English stories, provide a valid URL to the transcript (e.g., Google Drive, Dropbox).</li>
                 </ul>
               </div>
               <div className="form-group full-width">
