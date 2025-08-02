@@ -1,11 +1,80 @@
+
 import { createClient } from '@supabase/supabase-js'
 
-// These should be environment variables in a real application
-// For now, using placeholder values - you'll need to replace these with your actual Supabase credentials
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'YOUR_SUPABASE_URL'
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY'
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+const supabaseUrl = 'https://rmwtuddtiywfzvldpnlc.supabase.co'
+const supabaseKey = import.meta.env.SUPABASE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtd3R1ZGR0aXl3Znp2bGRwbmxjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQxMjE3MzYsImV4cCI6MjA2OTY5NzczNn0.7SuTlaCFMUYhPqv5loMrcWmrXrmrJn2dGftWli-72Go'
+
+export const supabase = createClient(supabaseUrl, supabaseKey);
+
+console.log('Supabase Key:', supabaseKey); 
+console.log('Supabase Client:', supabase);
+
+
+
+export const checkRegistrationExists = async (email) => {
+  try {
+    const { data, error } = await supabase
+      .from('submissions')
+      .select('id')
+      .eq('email', email)
+      .limit(1);
+    if (error) throw error;
+    return { exists: !!data.length };
+  } catch (error) {
+    return { exists: false, error: error.message };
+  }
+};
+
+export const listBuckets = async () => {
+  try {
+    const { data, error } = await supabase.storage.listBuckets();
+    if (error) throw error;
+    console.log('Available buckets:', data);
+    return data;
+  } catch (error) {
+    console.error('Error listing buckets:', error);
+    return [];
+  }
+};
+
+export const uploadFile = async (file, fileName, bucket = 'transcripts') => {
+  try {
+    const { data: buckets, error: bucketError } = await supabase.storage.listBuckets();
+    if (bucketError) throw bucketError;
+    const bucketExists = buckets.some(b => b.name === bucket);
+    if (!bucketExists) throw new Error(`Bucket '${bucket}' not found`);
+
+    const { error: uploadError } = await supabase.storage
+      .from(bucket)
+      .upload(`transcripts/${fileName}`, file, { upsert: true });
+    if (uploadError) throw uploadError;
+
+    const { data: { publicUrl } } = supabase.storage
+      .from(bucket)
+      .getPublicUrl(`transcripts/${fileName}`);
+    return { success: true, url: publicUrl };
+  } catch (error) {
+    console.error('File upload error:', error);
+    return { success: false, error: error.message };
+  }
+};
+
+export const registerForOMAS2025 = async (data) => {
+  try {
+    const { data: submission, error } = await supabase
+      .from('submissions')
+      .insert([data])
+      .select()
+      .single();
+    if (error) throw error;
+    return { success: true, data: submission };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+};
+
+
 
 // Database table structure for OMAS 2025 registrations
 /*
@@ -86,30 +155,6 @@ CREATE POLICY "Users can update own pending registration" ON omas_2025_registrat
 */
 
 // File upload function
-export const uploadFile = async (file, fileName, folder = '') => {
-  try {
-    const filePath = folder ? `${folder}/${fileName}` : fileName;
-
-    const { error } = await supabase.storage
-      .from('omas-2025-documents')
-      .upload(filePath, file, {
-        cacheControl: '3600',
-        upsert: false
-      });
-
-    if (error) throw error;
-
-    // Get public URL
-    const { data: { publicUrl } } = supabase.storage
-      .from('omas-2025-documents')
-      .getPublicUrl(filePath);
-
-    return { success: true, url: publicUrl, path: filePath };
-  } catch (error) {
-    console.error('File upload error:', error);
-    return { success: false, error: error.message };
-  }
-};
 
 // Upload multiple files
 export const uploadMultipleFiles = async (files, folder = '') => {
@@ -136,21 +181,7 @@ export const uploadMultipleFiles = async (files, folder = '') => {
   }
 };
 
-// Registration functions
-export const registerForOMAS2025 = async (registrationData) => {
-  try {
-    const { data, error } = await supabase
-      .from('omas_2025_registrations')
-      .insert([registrationData])
-      .select()
 
-    if (error) throw error
-    return { success: true, data }
-  } catch (error) {
-    console.error('Registration error:', error)
-    return { success: false, error: error.message }
-  }
-}
 
 export const getRegistrationByEmail = async (email) => {
   try {
@@ -251,33 +282,6 @@ export const updateProfile = async (userId, updates) => {
   }
 };
 
-// Check if user already has a registration
-export const checkRegistrationExists = async (userId = null, email = null) => {
-  try {
-    let query = supabase
-      .from('omas_2025_registrations')
-      .select('id');
-
-    // Check by user_id if provided and user is authenticated
-    if (userId) {
-      query = query.eq('user_id', userId);
-    }
-    // Otherwise check by email
-    else if (email) {
-      query = query.eq('email', email);
-    } else {
-      throw new Error('Either userId or email must be provided');
-    }
-
-    const { data, error } = await query.single();
-
-    if (error && error.code !== 'PGRST116') throw error // PGRST116 is "not found"
-    return { exists: !!data, data }
-  } catch (error) {
-    console.error('Registration check error:', error)
-    return { exists: false, error: error.message }
-  }
-}
 
 // Admin functions (require proper authentication)
 export const getAllRegistrations = async () => {
