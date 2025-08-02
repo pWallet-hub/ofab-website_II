@@ -243,9 +243,9 @@ const Registration = () => {
             <div className="eligibility-card">
               <h3>Who Can Apply?</h3>
               <ul>
-                <li>Rwandan journalists and media professionals</li>
+                <li>RMC Accredited Journalists and RMC Accredited Reporters. </li>
                 <li>Reporters covering agricultural biotechnology topics</li>
-                <li>Writers focusing on science, technology, and innovation</li>
+                <li>Digital Content Creators focusing on Agricultural Biotechnology and innovation in Rwanda .</li>
                 <li>Media practitioners with published work in the eligible period</li>
               </ul>
             </div>
