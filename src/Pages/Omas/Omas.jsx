@@ -103,7 +103,7 @@ function Omas() {
                             <div className="event-date glass-effect">
                                 <Calendar className="calendar-icon" />
                                 <div className="date-info">
-                                    <div className="day">27/9</div>
+                                    <div className="day">12/9</div>
                                     <div className="month">EVENT</div>
                                     <div className="year">2025</div>
                                 </div>
