@@ -94,7 +94,7 @@ function Omas() {
                             <Star className="star-icon pulse-animation" />
                         </div>
                         <div className='awards-main glass-effect'>
-                            <h1 className="edition-number">4<sup>th</sup></h1>
+                            <h1 className="edition-number">4<sup>th</sup></h1><h1>Edition</h1>
                             <h2 className="awards-title">
                                 <span className="ofab-text">OFAB</span>
                                 <span className="media-text">MEDIA</span>
@@ -103,7 +103,7 @@ function Omas() {
                             <div className="event-date glass-effect">
                                 <Calendar className="calendar-icon" />
                                 <div className="date-info">
-                                    <div className="day">27/9</div>
+                                    <div className="day">12/9</div>
                                     <div className="month">EVENT</div>
                                     <div className="year">2025</div>
                                 </div>
@@ -200,7 +200,7 @@ function Omas() {
                         <div className='intro-content'>
                             <p className='lead-paragraph'>
                                 Ladies and gentlemen, distinguished guests, and champions of agricultural innovation, we are
-                                thrilled to present to you the 3rd Edition of the OFAB Media Awards (OMA) 2024, an event
+                                thrilled to present to you the 4rd Edition of the OFAB Media Awards (OMA) 2024, an event
                                 designed to honor and elevate the voices of Rwandan journalists who have excelled in reporting on the transformative power of agricultural biotechnology.
                             </p>
                             <p className='content-paragraph'>
@@ -267,7 +267,7 @@ function Omas() {
                         </p>
                     </div>
 
-                    {/* Seeing is Believing Section */}
+                    {/* Seeing is Believing Section
                     <div className='seeing-believing-section animate-on-scroll'>
                         <div className='section-header'>
                             <div className='section-badge'>
@@ -377,7 +377,7 @@ function Omas() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className='impact-gallery animate-on-scroll'>
                         <div className='gallery-grid'>
