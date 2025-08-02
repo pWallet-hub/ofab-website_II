@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Countdown from 'react-countdown';
 import './OMAS2025Banner.css';
-import { Calendar, Trophy, Users, Star, Clock, ArrowRight } from 'lucide-react';
+import { FaCalendarAlt as Calendar, FaTrophy as Trophy, FaUsers as Users, FaStar as Star, FaClock as Clock, FaArrowRight as ArrowRight } from 'react-icons/fa';
 
 const OMAS2025Banner = () => {
   const [isVisible, setIsVisible] = useState(true);

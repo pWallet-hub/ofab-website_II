@@ -1,12 +1,21 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import './AdminLogin.css';
-import { Shield, Eye, EyeOff, Lock, User, AlertCircle } from 'lucide-react';
+import {
+  FaShieldAlt as Shield,
+  FaEye as Eye,
+  FaEyeSlash as EyeOff,
+  FaLock as Lock,
+  FaUser as User,
+  FaExclamationCircle as AlertCircle
+} from 'react-icons/fa';
 
 // eslint-disable-next-line react/prop-types
 const AdminLogin = ({ onLogin }) => {
+  const { signIn, isLoading: authLoading, isAuthenticated } = useAuth();
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
@@ -14,11 +23,11 @@ const AdminLogin = ({ onLogin }) => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Simple authentication - in production, this should be handled by a proper backend
-  const ADMIN_CREDENTIALS = {
-    username: 'admin',
-    password: 'omas2025admin'
-  };
+  // Redirect if already authenticated
+  if (isAuthenticated && !authLoading) {
+    navigate('/admin');
+    return null;
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,23 +43,21 @@ const AdminLogin = ({ onLogin }) => {
     setIsLoading(true);
     setError('');
 
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      const result = await signIn(formData.email, formData.password);
 
-    if (formData.username === ADMIN_CREDENTIALS.username && 
-        formData.password === ADMIN_CREDENTIALS.password) {
-      
-      // Store authentication in localStorage (in production, use secure tokens)
-      localStorage.setItem('adminAuthenticated', 'true');
-      localStorage.setItem('adminLoginTime', new Date().toISOString());
-      
-      if (onLogin) onLogin();
-      navigate('/admin');
-    } else {
-      setError('Invalid username or password');
+      if (result.success) {
+        if (onLogin) onLogin();
+        navigate('/admin');
+      } else {
+        setError(result.error || 'Invalid email or password');
+      }
+    } catch (err) {
+      setError('An error occurred during login. Please try again.');
+      console.error('Login error:', err);
+    } finally {
+      setIsLoading(false);
     }
-    
-    setIsLoading(false);
   };
 
   const togglePasswordVisibility = () => {
@@ -81,18 +88,18 @@ const AdminLogin = ({ onLogin }) => {
           )}
 
           <div className="form-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="email">Email</label>
             <div className="input-wrapper">
               <User className="input-icon" />
               <input
-                type="text"
-                id="username"
-                name="username"
-                value={formData.username}
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
                 onChange={handleInputChange}
-                placeholder="Enter your username"
+                placeholder="Enter your email"
                 required
-                disabled={isLoading}
+                disabled={isLoading || authLoading}
               />
             </div>
           </div>
@@ -109,13 +116,13 @@ const AdminLogin = ({ onLogin }) => {
                 onChange={handleInputChange}
                 placeholder="Enter your password"
                 required
-                disabled={isLoading}
+                disabled={isLoading || authLoading}
               />
               <button
                 type="button"
                 className="password-toggle"
                 onClick={togglePasswordVisibility}
-                disabled={isLoading}
+                disabled={isLoading || authLoading}
               >
                 {showPassword ? <EyeOff className="eye-icon" /> : <Eye className="eye-icon" />}
               </button>
@@ -125,7 +132,7 @@ const AdminLogin = ({ onLogin }) => {
           <button
             type="submit"
             className="login-button"
-            disabled={isLoading || !formData.username || !formData.password}
+            disabled={isLoading || authLoading || !formData.email || !formData.password}
           >
             {isLoading ? (
               <>
@@ -148,9 +155,9 @@ const AdminLogin = ({ onLogin }) => {
           </div>
           
           <div className="demo-credentials">
-            <h4>Demo Credentials:</h4>
-            <p><strong>Username:</strong> admin</p>
-            <p><strong>Password:</strong> omas2025admin</p>
+            <h4>Admin Access:</h4>
+            <p>Please use your registered admin email and password</p>
+            <p><small>Contact system administrator for access</small></p>
           </div>
         </div>
       </div>
