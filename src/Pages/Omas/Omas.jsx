@@ -556,14 +556,14 @@ function Omas() {
                                     <Users className='info-icon' />
                                     <h3>Eligibility</h3>
                                 </div>
-                                <p>Rwandan journalists who have been reporting on agricultural biotechnology and innovation.</p>
+                                <p> the stories or articles must have been published between 31st August 2024 and 31st August 2025. </p>
                             </div>
                             <div className='info-card'>
                                 <div className='info-header'>
                                     <Calendar className='info-icon' />
                                     <h3>Entry Period</h3>
                                 </div>
-                                <p>The entry period is for one year, check eligibility requirements for details</p>
+                                <p>The entry period for applying is one month</p>
                             </div>
                         </div>
                     </div>
