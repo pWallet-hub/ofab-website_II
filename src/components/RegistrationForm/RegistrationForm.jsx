@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import './RegistrationForm.css';
 import { registerForOMAS2025, checkRegistrationExists, uploadFile, uploadMultipleFiles } from '../../lib/supabase';
-import { useAuth } from '../../contexts/AuthContext';
-import AuthModal from '../AuthModal/AuthModal';
 import { FaUser as User, FaBriefcase as Briefcase, FaMapMarkerAlt as MapPin, FaFileAlt as FileText } from 'react-icons/fa';
 
 // eslint-disable-next-line react/prop-types
 const RegistrationForm = ({ onClose, onSuccess }) => {
-  const { user, profile, isAuthenticated } = useAuth();
   const [formData, setFormData] = useState({
-    // Personal Information (from profile or user)
-    full_name: profile?.full_name || user?.user_metadata?.full_name || '',
-    email: profile?.email || user?.email || '',
+    // Personal Information
+    full_name: '',
+    email: '',
     phone_number: '',
     date_of_birth: '',
     gender: '',
@@ -82,7 +79,6 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const [submitMessage, setSubmitMessage] = useState('');
-  const [showAuthModal, setShowAuthModal] = useState(false);
 
   const totalSteps = 7;
 
@@ -231,22 +227,17 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if user is authenticated
-    if (!isAuthenticated || !user) {
-      setShowAuthModal(true);
-      return;
-    }
-
+    // Validate current step first
     if (!validateStep(currentStep)) return;
 
     setIsSubmitting(true);
     setSubmitMessage('');
 
     try {
-      // Check if user already has a registration
-      const registrationCheck = await checkRegistrationExists(user.id);
+      // Check if email already has a registration
+      const registrationCheck = await checkRegistrationExists(null, formData.email);
       if (registrationCheck.exists) {
-        setSubmitMessage('You have already registered for OMAS 2025. You can only submit one registration per account.');
+        setSubmitMessage('This email address has already been used to register for OMAS 2025. Each email can only be used once.');
         setIsSubmitting(false);
         return;
       }
@@ -292,10 +283,11 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
       const submissionData = {
         ...formData,
         ...fileUploads,
-        user_id: user.id,
+        user_id: null, // No user authentication required
         portfolio_links: formData.portfolio_links ? formData.portfolio_links.split('\n').filter(link => link.trim()) : [],
         years_of_experience: parseInt(formData.years_of_experience) || 0,
-        registration_status: 'pending'
+        registration_status: 'pending',
+        submitted_at: new Date().toISOString()
       };
 
       const result = await registerForOMAS2025(submissionData);
@@ -344,11 +336,12 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   id="email"
                   name="email"
                   value={formData.email}
-                  readOnly
-                  className="readonly-field"
-                  title="Email is linked to your account and cannot be changed"
+                  onChange={handleInputChange}
+                  placeholder="Enter your email address"
+                  required
                 />
-                <small className="field-note">Email is linked to your account</small>
+                <small className="field-note">Please enter a valid email address</small>
+                {errors.email && <span className="error-message">{errors.email}</span>}
               </div>
 
               <div className="form-group">
@@ -936,9 +929,9 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         <div className="modal-header">
           <div>
             <h2>OMAS 2025 Registration</h2>
-            {!isAuthenticated && (
-              <p className="auth-notice">Please sign in or create an account to register</p>
-            )}
+            <p className="form-description">
+              Complete the application form below to register for the OFAB Media Awards 2025.
+            </p>
           </div>
           <button className="close-button" onClick={onClose}>×</button>
         </div>
@@ -983,13 +976,6 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
           </div>
         </form>
       </div>
-
-      {/* Authentication Modal */}
-      <AuthModal
-        isOpen={showAuthModal}
-        onClose={() => setShowAuthModal(false)}
-        initialMode="register"
-      />
     </div>
   );
 };

@@ -252,13 +252,24 @@ export const updateProfile = async (userId, updates) => {
 };
 
 // Check if user already has a registration
-export const checkRegistrationExists = async (userId) => {
+export const checkRegistrationExists = async (userId = null, email = null) => {
   try {
-    const { data, error } = await supabase
+    let query = supabase
       .from('omas_2025_registrations')
-      .select('id')
-      .eq('user_id', userId)
-      .single()
+      .select('id');
+
+    // Check by user_id if provided and user is authenticated
+    if (userId) {
+      query = query.eq('user_id', userId);
+    }
+    // Otherwise check by email
+    else if (email) {
+      query = query.eq('email', email);
+    } else {
+      throw new Error('Either userId or email must be provided');
+    }
+
+    const { data, error } = await query.single();
 
     if (error && error.code !== 'PGRST116') throw error // PGRST116 is "not found"
     return { exists: !!data, data }
