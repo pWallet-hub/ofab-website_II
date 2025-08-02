@@ -991,6 +991,7 @@ body {
   line-height: 1.6;
   margin: 0;
   font-size: clamp(0.875rem, 1.5vw, 1rem);
+  text-align: justify;
 }
 
 /* Mission Section */
@@ -1038,6 +1039,7 @@ body {
   line-height: 1.7;
   max-width: 800px;
   margin: 0 auto;
+  text-align: justify;
 }
 
 /* Objectives Section */
@@ -1101,6 +1103,7 @@ body {
   line-height: 1.6;
   margin: 0;
   font-size: clamp(0.875rem, 1.5vw, 1rem);
+  text-align: justify;
 }
 
 /* Info Cards */
@@ -1227,6 +1230,7 @@ body {
   line-height: 1.6;
   margin: 0;
   font-size: clamp(0.875rem, 1.5vw, 1rem);
+  text-align: justify;
 }
 
 .category-note {
@@ -1422,6 +1426,7 @@ body {
   color: #64748b;
   line-height: 1.5;
   margin: 0;
+  text-align: justify;
 }
 
 /* Contest Analytics */
@@ -1703,6 +1708,7 @@ body {
   line-height: 1.6;
   margin: 0;
   font-size: clamp(0.875rem, 1.5vw, 1rem);
+  text-align: justify;
 }
 
 /* Compact Registration Call-to-Action */
