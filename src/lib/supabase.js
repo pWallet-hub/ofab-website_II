@@ -7,8 +7,8 @@ const supabaseKey = import.meta.env.SUPABASE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
-console.log('Supabase Key:', supabaseKey); 
-console.log('Supabase Client:', supabase);
+//console.log('Supabase Key:', supabaseKey); 
+//console.log('Supabase Client:', supabase);
 
 
 
@@ -26,39 +26,9 @@ export const checkRegistrationExists = async (email) => {
   }
 };
 
-export const listBuckets = async () => {
-  try {
-    const { data, error } = await supabase.storage.listBuckets();
-    if (error) throw error;
-    console.log('Available buckets:', data);
-    return data;
-  } catch (error) {
-    console.error('Error listing buckets:', error);
-    return [];
-  }
-};
 
-export const uploadFile = async (file, fileName, bucket = 'transcripts') => {
-  try {
-    const { data: buckets, error: bucketError } = await supabase.storage.listBuckets();
-    if (bucketError) throw bucketError;
-    const bucketExists = buckets.some(b => b.name === bucket);
-    if (!bucketExists) throw new Error(`Bucket '${bucket}' not found`);
 
-    const { error: uploadError } = await supabase.storage
-      .from(bucket)
-      .upload(`transcripts/${fileName}`, file, { upsert: true });
-    if (uploadError) throw uploadError;
 
-    const { data: { publicUrl } } = supabase.storage
-      .from(bucket)
-      .getPublicUrl(`transcripts/${fileName}`);
-    return { success: true, url: publicUrl };
-  } catch (error) {
-    console.error('File upload error:', error);
-    return { success: false, error: error.message };
-  }
-};
 
 export const registerForOMAS2025 = async (data) => {
   try {
@@ -73,114 +43,6 @@ export const registerForOMAS2025 = async (data) => {
     return { success: false, error: error.message };
   }
 };
-
-
-
-// Database table structure for OMAS 2025 registrations
-/*
-CREATE TABLE omas_2025_registrations (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
-  
-  -- Personal Information
-  full_name TEXT NOT NULL,
-  email TEXT UNIQUE NOT NULL,
-  phone_number TEXT NOT NULL,
-  date_of_birth DATE,
-  gender TEXT CHECK (gender IN ('male', 'female', 'other', 'prefer_not_to_say')),
-  
-  -- Professional Information
-  organization TEXT NOT NULL,
-  job_title TEXT NOT NULL,
-  years_of_experience INTEGER,
-  media_category TEXT NOT NULL CHECK (media_category IN ('print_online', 'radio', 'television')),
-  
-  -- Address Information
-  country TEXT NOT NULL DEFAULT 'Rwanda',
-  city TEXT NOT NULL,
-  address TEXT,
-  
-  -- Portfolio/Work Samples
-  portfolio_links TEXT[], -- Array of URLs to work samples
-  bio TEXT, -- Professional bio
-  
-  -- Event-specific Information
-  previous_omas_participant BOOLEAN DEFAULT false,
-  dietary_requirements TEXT,
-  accessibility_needs TEXT,
-  
-  -- Registration Status
-  registration_status TEXT DEFAULT 'pending' CHECK (registration_status IN ('pending', 'approved', 'rejected', 'waitlist')),
-  payment_status TEXT DEFAULT 'not_required' CHECK (payment_status IN ('not_required', 'pending', 'completed')),
-  
-  -- Additional fields
-  how_did_you_hear TEXT,
-  expectations TEXT,
-  additional_comments TEXT,
-  
-  -- Consent and agreements
-  terms_accepted BOOLEAN DEFAULT false NOT NULL,
-  marketing_consent BOOLEAN DEFAULT false,
-  
-  -- Admin fields
-  admin_notes TEXT,
-  reviewed_by TEXT,
-  reviewed_at TIMESTAMP WITH TIME ZONE
-);
-
--- Create indexes for better performance
-CREATE INDEX idx_omas_2025_email ON omas_2025_registrations(email);
-CREATE INDEX idx_omas_2025_status ON omas_2025_registrations(registration_status);
-CREATE INDEX idx_omas_2025_category ON omas_2025_registrations(media_category);
-CREATE INDEX idx_omas_2025_created_at ON omas_2025_registrations(created_at);
-
--- Enable Row Level Security (RLS)
-ALTER TABLE omas_2025_registrations ENABLE ROW LEVEL SECURITY;
-
--- Create policies for RLS
--- Allow anyone to insert (register)
-CREATE POLICY "Anyone can register" ON omas_2025_registrations
-  FOR INSERT WITH CHECK (true);
-
--- Allow users to view their own registration
-CREATE POLICY "Users can view own registration" ON omas_2025_registrations
-  FOR SELECT USING (auth.jwt() ->> 'email' = email);
-
--- Allow users to update their own registration (before approval)
-CREATE POLICY "Users can update own pending registration" ON omas_2025_registrations
-  FOR UPDATE USING (
-    auth.jwt() ->> 'email' = email AND 
-    registration_status = 'pending'
-  );
-*/
-
-// File upload function
-
-// Upload multiple files
-export const uploadMultipleFiles = async (files, folder = '') => {
-  try {
-    const uploadPromises = Array.from(files).map(async (file, index) => {
-      const timestamp = Date.now();
-      const fileName = `${timestamp}_${index}_${file.name}`;
-      return uploadFile(file, fileName, folder);
-    });
-
-    const results = await Promise.all(uploadPromises);
-    const successfulUploads = results.filter(result => result.success);
-    const failedUploads = results.filter(result => !result.success);
-
-    return {
-      success: failedUploads.length === 0,
-      urls: successfulUploads.map(result => result.url),
-      paths: successfulUploads.map(result => result.path),
-      errors: failedUploads.map(result => result.error)
-    };
-  } catch (error) {
-    console.error('Multiple file upload error:', error);
-    return { success: false, error: error.message };
-  }
-};
-
 
 
 export const getRegistrationByEmail = async (email) => {

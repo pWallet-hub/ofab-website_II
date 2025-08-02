@@ -1,227 +1,61 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import { supabase, getProfile } from '../lib/supabase';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { supabase } from '../lib/supabase';
 
-const AuthContext = createContext({
-  user: null,
-  profile: null,
-  isAuthenticated: false,
-  isLoading: true,
-  isAdmin: false,
-  signUp: () => {},
-  signIn: () => {},
-  signOut: () => {},
-  resetPassword: () => {},
-  loadUserProfile: () => {},
-  checkAdminStatus: () => {},
-  login: () => {},
-  logout: () => {}
-});
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-};
+const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get initial session
-    const getInitialSession = async () => {
-      try {
-        const { data: { session }, error } = await supabase.auth.getSession();
-
-        if (error) {
-          console.error('Error getting session:', error);
-          setUser(null);
-          setProfile(null);
-          setIsLoading(false);
-          return;
-        }
-
-        setUser(session?.user ?? null);
-
-        if (session?.user) {
-          await loadUserProfile(session.user.id);
-          await checkAdminStatus(session.user.id);
-        } else {
-          setProfile(null);
-          setIsAdmin(false);
-        }
-
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error in getInitialSession:', error);
-        setUser(null);
-        setProfile(null);
-        setIsAdmin(false);
-        setIsLoading(false);
-      }
+    const getSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+      setLoading(false);
     };
+    getSession();
 
-    getInitialSession();
+    
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      const newUser = session?.user ?? null;
+      setUser(newUser);
 
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        try {
-          setUser(session?.user ?? null);
-
-          if (session?.user) {
-            await loadUserProfile(session.user.id);
-            await checkAdminStatus(session.user.id);
-          } else {
-            setProfile(null);
-            setIsAdmin(false);
-          }
-
-          setIsLoading(false);
-        } catch (error) {
-          console.error('Error in auth state change:', error);
-          setIsLoading(false);
-        }
+      if (newUser) {
+        const { data, error } = await supabase
+          .from('manager')
+          .select('email')
+          .eq('email', newUser.email)
+          .single();
+        setIsAdmin(!!data && !error);
+      } else {
+        setIsAdmin(false);
       }
-    );
+      setLoading(false);
+    });
 
     return () => subscription.unsubscribe();
   }, []);
 
-  const loadUserProfile = async (userId) => {
-    if (!userId) {
-      setProfile(null);
-      return;
-    }
-
-    try {
-      const result = await getProfile(userId);
-      if (result.success && result.data) {
-        setProfile(result.data);
-      } else {
-        console.warn('Profile not found for user:', userId, result.error);
-        // Profile might not exist yet, this is okay
-        setProfile(null);
-      }
-    } catch (error) {
-      console.error('Error loading profile:', error);
-      setProfile(null);
-    }
+  const login = async (email, password) => {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) throw new Error(`Login failed: ${error.message}`);
+    return data;
   };
 
-  const checkAdminStatus = async (userId) => {
-    try {
-      const { data, error } = await supabase
-        .from('admin_users')
-        .select('role')
-        .eq('user_id', userId)
-        .single();
-
-      if (!error && data) {
-        setIsAdmin(true);
-      } else {
-        setIsAdmin(false);
-      }
-    } catch (error) {
-      console.error('Error checking admin status:', error);
-      setIsAdmin(false);
-    }
-  };
-
-  const signUp = async (email, password, userData = {}) => {
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: userData
-        }
-      });
-
-      if (error) throw error;
-
-      // Profile will be created automatically by the database trigger
-      // But we can also create it manually if needed
-      if (data.user && !data.user.email_confirmed_at) {
-        // User needs to confirm email first
-        console.log('User created, email confirmation required');
-      }
-
-      return { success: true, data };
-    } catch (error) {
-      return { success: false, error: error.message };
-    }
-  };
-
-  const signIn = async (email, password) => {
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-
-      if (error) throw error;
-      return { success: true, data };
-    } catch (error) {
-      return { success: false, error: error.message };
-    }
-  };
-
-  const signOut = async () => {
-    try {
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
-      return { success: true };
-    } catch (error) {
-      return { success: false, error: error.message };
-    }
-  };
-
-  const resetPassword = async (email) => {
-    try {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/reset-password`
-      });
-
-      if (error) throw error;
-      return { success: true };
-    } catch (error) {
-      return { success: false, error: error.message };
-    }
-  };
-
-  // Legacy compatibility
-  const login = () => signIn();
-  const logout = () => signOut();
-  const isAuthenticated = !!user;
-
-  const value = {
-    user,
-    profile,
-    isAuthenticated,
-    isLoading,
-    isAdmin,
-    signUp,
-    signIn,
-    signOut,
-    resetPassword,
-    loadUserProfile,
-    checkAdminStatus,
-    // Legacy compatibility
-    login,
-    logout
+  const logout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) throw new Error(`Logout failed: ${error.message}`);
+    setUser(null);
+    setIsAdmin(false);
   };
 
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={{ user, isAdmin, loading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export default AuthContext;
+export const useAuth = () => useContext(AuthContext);
