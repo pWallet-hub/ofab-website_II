@@ -9,7 +9,7 @@ const OMAS2025Banner = () => {
   const [isMinimized, setIsMinimized] = useState(false);
 
   // Target date: September 26, 2025, 09:00:00 (assuming similar date to 2024)
-  const targetDate = new Date('2025-09-27T06:00:00');
+  const targetDate = new Date('2025-09-12T06:00:00');
 
   const handleRegisterClick = () => {
     window.location.href = '/register';
@@ -113,7 +113,7 @@ const OMAS2025Banner = () => {
           {isMinimized ? (
             <div className="banner-minimized-content">
               <div className="minimized-info">
-                <span className="minimized-title">OMAS 2025 • 27/9</span>
+                <span className="minimized-title">OMAS 2025 • 12/9</span>
                 <Countdown
                   date={targetDate}
                   renderer={({ days, hours, minutes, completed }) => {
@@ -148,7 +148,7 @@ const OMAS2025Banner = () => {
                 </h2>
                 <div className="event-date-info">
                   <Clock className="clock-icon" />
-                  <span>27/9</span>
+                  <span>12/9</span>
                 </div>
               </div>
 
