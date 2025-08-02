@@ -4,22 +4,22 @@ import { getAllRegistrations, updateRegistrationStatus } from '../../lib/supabas
 import { useAuth } from '../../contexts/AuthContext';
 import * as XLSX from 'xlsx';
 import {
-  Users,
-  Search,
-  Filter,
-  Download,
-  Eye,
-  Check,
-  X,
-  Clock,
-  Building,
-  FileText,
-  LogOut,
-  RefreshCw,
-  FileSpreadsheet,
-  SortAsc,
-  SortDesc
-} from 'lucide-react';
+  FaUsers as Users,
+  FaSearch as Search,
+  FaFilter as Filter,
+  FaDownload as Download,
+  FaEye as Eye,
+  FaCheck as Check,
+  FaTimes as X,
+  FaClock as Clock,
+  FaBuilding as Building,
+  FaFileAlt as FileText,
+  FaSignOutAlt as LogOut,
+  FaSyncAlt as RefreshCw,
+  FaFileExcel as FileSpreadsheet,
+  FaSortUp as SortAsc,
+  FaSortDown as SortDesc
+} from 'react-icons/fa';
 
 const AdminDashboard = () => {
   const { logout } = useAuth();
