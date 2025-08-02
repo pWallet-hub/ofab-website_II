@@ -11,7 +11,7 @@ import aatf from '../../assets/AATF.jpg';
 import rab from '../../assets/Rab.jpg';
 import alliance from '../../assets/alliance.jpg';
 import rmc from '../../assets/rmc.png';
-import ofabimage from '../../assets/ofab-ceremony.jpg';
+import ofabimage from '../../assets/award6.jpg';
 import ofabimage2 from '../../assets/ofab-cere.jpg';
 import ofabimage3 from '../../assets/anociata.jpg';
 import ofabimage4 from '../../assets/pacific.jpg';
@@ -154,7 +154,7 @@ function Omas() {
                                 </div>
                                 <div className='cta-highlight'>
                                     <span className='highlight-icon'>📅</span>
-                                    <span>Deadline: August 31, 2025</span>
+                                    <span>Deadline: 2nd September, 2025</span>
                                 </div>
                                 <div className='cta-highlight'>
                                     <span className='highlight-icon'>💰</span>
@@ -168,15 +168,8 @@ function Omas() {
                                     Submit your best work and get recognized!
                                 </p>
                                 <div className='deadline'>
-                                <h3>Deadline:August 31, 2025</h3>
+                                <h3>Deadline:2nd September, 2025</h3>
                                 </div>
-                            </div>
-
-                            <div className='website-info'>
-                                <p className='apply-instruction'>Apply Now through our website</p>
-                                <a href="https://www.ofabrwanda.rw" className='website-link' target="_blank" rel="noopener noreferrer">
-                                    www.ofabrwanda.rw
-                                </a>
                             </div>
 
                             <div className='hashtags'>
@@ -563,7 +556,7 @@ function Omas() {
                                     <Users className='info-icon' />
                                     <h3>Eligibility</h3>
                                 </div>
-                                <p>Rwandan journalists who have been reporting on agricultural biotechnology and other important stories in the area of science, technology, and innovation.</p>
+                                <p>Rwandan journalists who have been reporting on agricultural biotechnology and innovation.</p>
                             </div>
                             <div className='info-card'>
                                 <div className='info-header'>
@@ -599,8 +592,8 @@ function Omas() {
                             </div>
                              <div className='category-card'>
                                 <div className='category-icon'>💻</div>
-                                <h3>Digital/Online Media</h3>
-                                <p>For digital content creators, online journalists, and influencers (Yes, influencers – you're included too!</p>
+                                <h3>Digital Content</h3>
+                                <p>This category recognizes digital content creators and social media influencers who are using the internet to share powerful stories on agriculture biotechnology.</p>
                             </div>
                         </div>
                         <p className='category-note'>The overall winner from either category will combine the award for his/her category and the overall award.</p>
@@ -661,6 +654,13 @@ function Omas() {
                                     <div className='category-details'>
                                         <h4>Television</h4>
                                         <p>For TV journalists and stations covering biotechnology stories</p>
+                                    </div>
+                                </div>
+                                <div className='category-item'>
+                                    <div className='category-number'>3</div>
+                                    <div className='category-details'>
+                                        <h4>Digital Content</h4>
+                                        <p>This category recognizes digital content creators and social media influencers who are using the internet to share powerful stories on agriculture biotechnology.</p>
                                     </div>
                                 </div>
                             </div>

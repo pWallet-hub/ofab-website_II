@@ -6,9 +6,8 @@ import { User, Briefcase, MapPin, FileText } from 'lucide-react';
 // eslint-disable-next-line react/prop-types
 const RegistrationForm = ({ onClose, onSuccess }) => {
   const [formData, setFormData] = useState({
-    // Personal Information (from profile or user)
-    full_name: profile?.full_name || user?.user_metadata?.full_name || '',
-    email: profile?.email || user?.email || '',
+    email: '',
+    full_name: '',
     phone_number: '',
     date_of_birth: '',
     gender: '',
@@ -144,35 +143,53 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Check if user is authenticated
-    if (!isAuthenticated || !user) {
-      setShowAuthModal(true);
-      return;
-    }
-
     if (!validateStep(currentStep)) return;
 
     setIsSubmitting(true);
     setSubmitMessage('');
 
     try {
-      // Check if user already has a registration
-      const registrationCheck = await checkRegistrationExists(user.id);
+      // Check for duplicate submission by email
+      const registrationCheck = await checkRegistrationExists(formData.email);
       if (registrationCheck.exists) {
-        setSubmitMessage('You have already registered for OMAS 2025. You can only submit one registration per account.');
+        setSubmitMessage('An application with this email already exists.');
         setIsSubmitting(false);
         return;
       }
 
       setSubmitMessage('Saving application...');
       const submissionData = {
-        ...formData,
-        ...fileUploads,
-        user_id: user.id,
-        portfolio_links: formData.portfolio_links ? formData.portfolio_links.split('\n').filter(link => link.trim()) : [],
-        years_of_experience: parseInt(formData.years_of_experience) || 0,
-        registration_status: 'pending'
+        email: formData.email,
+        full_name: formData.full_name,
+        gender: formData.gender,
+        date_of_birth: formData.date_of_birth,
+        phone_number: formData.phone_number,
+        id_passport: formData.id_passport,
+        organization: formData.organization,
+        organization_address: formData.organization_address,
+        media_category: formData.media_category,
+        address: formData.address,
+        story_1: formData.story_1,
+        story_1_date: formData.story_1_date,
+        story_1_summary: formData.story_1_summary,
+        story_1_motivation: formData.story_1_motivation,
+        story_1_english: formData.story_1_english,
+        story_1_transcript_path: formData.story_1_transcript || null,
+        story_2: formData.story_2,
+        story_2_date: formData.story_2_date,
+        story_2_summary: formData.story_2_summary,
+        story_2_motivation: formData.story_2_motivation,
+        story_2_english: formData.story_2_english,
+        story_2_transcript_path: formData.story_2_transcript || null,
+        story_3: formData.story_3,
+        story_3_date: formData.story_3_date,
+        story_3_summary: formData.story_3_summary,
+        story_3_motivation: formData.story_3_motivation,
+        story_3_english: formData.story_3_english,
+        story_3_transcript_path: formData.story_3_transcript || null,
+        comments: formData.comments,
+        terms_accepted: formData.terms_accepted,
+        registration_status: 'pending',
       };
 
       const result = await registerForOMAS2025(submissionData);
@@ -219,11 +236,10 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   id="email"
                   name="email"
                   value={formData.email}
-                  readOnly
-                  className="readonly-field"
-                  title="Email is linked to your account and cannot be changed"
+                  onChange={handleInputChange}
+                  className={errors.email ? 'error' : ''}
                 />
-                <small className="field-note">Email is linked to your account</small>
+                {errors.email && <span className="error-message">{errors.email}</span>}
               </div>
               <div className="form-group">
                 <label htmlFor="phone_number">Phone Number *</label>
@@ -653,12 +669,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
     <div className="registration-modal-overlay">
       <div className="registration-modal">
         <div className="modal-header">
-          <div>
-            <h2>OMAS 2025 Registration</h2>
-            {!isAuthenticated && (
-              <p className="auth-notice">Please sign in or create an account to register</p>
-            )}
-          </div>
+          <h2>OMAS 2025 Application</h2>
           <button className="close-button" onClick={onClose}>×</button>
         </div>
         <div className="progress-bar">

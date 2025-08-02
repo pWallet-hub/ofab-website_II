@@ -53,8 +53,8 @@ const Registration = () => {
       icon: "📺"
     },
     {
-      title: "Digital/Online Media",
-      description: "For digital content creators, online journalists, and influencers (Yes, influencers – you're included too!)",
+      title: "Digital Content",
+      description: "This category recognizes digital content creators and social media influencers who are using the internet to share powerful stories on agriculture biotechnology.",
       icon: "💻"
     }
   ];
