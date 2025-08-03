@@ -3,7 +3,7 @@ import './OFABMediaAwardsFlyer.css';
 import rab from '../../assets/Rab.jpg';
 import rmc from '../../assets/rmc.png';
 import aatf from '../../assets/AATF.jpg';
-import alliance from '../../assets/alliance.jpg';
+import alliance from '../../assets/alliance-new.png';
 import ofab from '../../assets/ofab_new.jpg';
 import moto from '../../assets/moto.jpeg';
 import celebration from '../../assets/celebration.png';
@@ -13,15 +13,15 @@ const OFABMediaAwardsFlyer = () => {
     <div className="flyer-container">
       {/* Header Section */}
       <div className="header-section">
-        <div className="header-content">
+        <div className="header-content1">
           {/* Left Logo Placeholder */}
           <div className="logo-placeholder">
             <img src={moto} alt="moto" />
           </div>
           
           {/* Center Text */}
-          <div className="header-text">
-            <h1 className="header-title">REPUBLIC OF RWANDA</h1>
+          <div className="header-text1">
+            <h1>REPUBLIC OF RWANDA</h1>
             <h2 className="header-subtitle">RWANDA AGRICULTURE</h2>
             <h2 className="header-subtitle">AND ANIMAL RESOURCES</h2>
             <h2 className="header-subtitle">DEVELOPMENT BOARD</h2>
@@ -34,7 +34,7 @@ const OFABMediaAwardsFlyer = () => {
           </div>
         </div>
         
-        {/* Partner Logos Row */}
+        
         <div className="partner-logos">
           <div className="partner-logos-container">
             <div className="partner-logo">
