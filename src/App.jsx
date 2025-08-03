@@ -43,10 +43,11 @@ function App() {
           <Route path="/admin/login" element={<AdminLogin/>} />
           <Route path="/OFABMediaAwardsFlyer" element={<OFABMediaAwardsFlyer/>} />
           <Route path="/admin" element={
-            <ProtectedRoute requireAdmin={true}>
+            <ProtectedRoute>
               <AdminDashboard/>
             </ProtectedRoute>
           } />
+          <Route path='/admin' element={<AdminDashboard/>}/>
 
         </Routes>
         <Footer />
