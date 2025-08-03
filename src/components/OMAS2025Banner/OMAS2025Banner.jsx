@@ -9,7 +9,7 @@ const OMAS2025Banner = () => {
   const [isMinimized, setIsMinimized] = useState(false);
 
   // Target date: September 26, 2025, 09:00:00 (assuming similar date to 2024)
-  const targetDate = new Date('2025-09-12T06:00:00');
+  const targetDate = new Date('2025-09-02T06:00:00');
 
   const handleRegisterClick = () => {
     window.location.href = '/register';

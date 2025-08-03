@@ -18,6 +18,7 @@ import AdminLogin from './Pages/AdminLogin/AdminLogin';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { AuthProvider } from './contexts/AuthContext';
 import OMAS2025Banner from './components/OMAS2025Banner/OMAS2025Banner';
+import OFABMediaAwardsFlyer from './components/OFABMediaAwardsFlyer/OFABMediaAwardsFlyer';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/News" element={<News/>} />
           <Route path="/register" element={<Registration/>} />
           <Route path="/admin/login" element={<AdminLogin/>} />
+          <Route path="/OFABMediaAwardsFlyer" element={<OFABMediaAwardsFlyer/>} />
           <Route path="/admin" element={
             <ProtectedRoute requireAdmin={true}>
               <AdminDashboard/>
