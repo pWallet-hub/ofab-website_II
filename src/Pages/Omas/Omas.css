@@ -70,16 +70,16 @@ body {
   animation: fadeInUp 1s ease-out forwards;
 }
 
-.header-logos {
+/* .header-logos {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: white;
   backdrop-filter: blur(10px);
   border-radius: 1rem;
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
-}
+} */
 
 .official-logo {
   width: 60px;
@@ -95,15 +95,30 @@ body {
   text-align: center;
   flex: 1;
   margin: 0 1rem;
+  font-size: 10px;
+  
+}
+.official-title h3{
+ color: #000;
+  font-size: 13px;
+}
+.official-title h4{
+  color: #000;
+  font-size: 13px;
+}
+.official-title h2{
+  color: #000000c2;
+  font-size: 18px;
 }
 
-.republic-title {
+/* .republic-title {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   letter-spacing: 0.05em;
   line-height: 1.2;
-}
+ 
+} */
 
 .ministry-title {
   font-size: 1rem;
@@ -130,23 +145,17 @@ body {
 
 .partners-logos {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: white;
   backdrop-filter: blur(10px);
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.partner-logo {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 0.75rem;
-  padding: 0.5rem;
+  width: 80%;
+  margin-left: 5rem;
+  margin-top: -2.5rem;
 }
 
 /* Awards Showcase */
@@ -167,6 +176,7 @@ body {
   overflow: hidden;
   width: 100%;
 }
+
 
 .cta-content {
   position: relative;
@@ -467,7 +477,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: #f8fafc;
   backdrop-filter: blur(15px);
   border-radius: 1rem;
   padding: 1.5rem;
@@ -528,7 +538,7 @@ body {
   opacity: 0.9;
 }
 
-.partners-logos {
+/* .partners-logos {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -539,15 +549,15 @@ body {
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   flex-wrap: wrap;
-}
+} */
 
-.partner-logo {
-  width: 50px;
-  height: 50px;
+.partner-logo1 {
+    width: 23%;
+    height: 46px;
   object-fit: contain;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 0.75rem;
-  padding: 0.5rem;
+  padding: 0rem;
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -678,7 +688,7 @@ body {
 .content-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: 0rem 1rem;
   width: 100%;
 }
 
@@ -1107,8 +1117,9 @@ body {
 }
 
 /* Info Cards */
-.eligibility-section {
+.eligibility-section1 {
   margin: 3rem 0;
+  margin-top: 0rem;
   padding: 0 1rem;
 }
 
@@ -1134,6 +1145,7 @@ body {
 
 .info-header {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1rem;
@@ -1619,7 +1631,7 @@ body {
 .awards-recognition {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   padding: 3rem 0;
-  margin: 2rem 0;
+  margin: -4rem 0;
   overflow: hidden;
 }
 

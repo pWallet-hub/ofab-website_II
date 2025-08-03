@@ -75,8 +75,8 @@ function Header() {
             <Link to="/" className='logo-link'>
               <img src={image} alt="OFAB Rwanda" className='logo-image' />
               <div className='logo-text'>
-                <span className='logo-title'>OFAB Rwanda</span>
-                <span className='logo-subtitle'>Open Forum on Agricultural Biotechnology</span>
+                <span className='logo-title'>Open Forum on Agricultural <br />Biotechnology</span>
+                <span className='logo-subtitle'>(OFAB RWANDA) CHAPTER</span>
               </div>
             </Link>
           </div>
