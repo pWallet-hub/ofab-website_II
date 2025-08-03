@@ -43,7 +43,7 @@ const ProtectedRoute = ({ children, requireAdmin = false }) => {
               Refresh Page
             </button>
             <button 
-              onClick={() => window.location.href = 'admin/login'} 
+              onClick={() => window.location.href = '/admin'} 
               className="login-button"
             >
               Go to Login
@@ -68,7 +68,7 @@ const ProtectedRoute = ({ children, requireAdmin = false }) => {
 
   // Redirect to login if no user
   if (!user) {
-    return <Navigate to="/admin/login" state={{ from: location }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   // Check admin requirements
