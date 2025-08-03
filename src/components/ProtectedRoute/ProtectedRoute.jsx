@@ -43,7 +43,7 @@ const ProtectedRoute = ({ children, requireAdmin = false }) => {
               Refresh Page
             </button>
             <button 
-              onClick={() => window.location.href = '/login'} 
+              onClick={() => window.location.href = 'admin/login'} 
               className="login-button"
             >
               Go to Login
