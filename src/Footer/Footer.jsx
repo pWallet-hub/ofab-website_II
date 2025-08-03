@@ -26,7 +26,8 @@ const Footer = () => {
     { path: '/activities', label: 'Activities' },
     { path: '/News', label: 'News' },
     { path: '/media', label: 'Gallery' },
-    { path: '/omas', label: 'OMAS 2025' }
+    { path: '/omas', label: 'OMAS 2025' },
+    { path: '/admin/login', label:'admin' }
   ];
 
   const programs = [
