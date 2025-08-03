@@ -1,31 +1,35 @@
 import { useState, useEffect } from 'react';
-import './AdminDashboard.css';
-import { getAllRegistrations, updateRegistrationStatus } from '../../lib/supabase';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { supabase } from '../../lib/supabase';
 import * as XLSX from 'xlsx';
+import './AdminDashboard.css';
 import {
-  FaUsers as Users,
-  FaSearch as Search,
-  FaFilter as Filter,
-  FaDownload as Download,
-  FaEye as Eye,
-  FaCheck as Check,
-  FaTimes as X,
-  FaClock as Clock,
-  FaBuilding as Building,
-  FaFileAlt as FileText,
-  FaSignOutAlt as LogOut,
-  FaSyncAlt as RefreshCw,
-  FaFileExcel as FileSpreadsheet,
-  FaSortUp as SortAsc,
-  FaSortDown as SortDesc
+  FaUsers,
+  FaSearch,
+  FaFilter,
+  FaDownload,
+  FaEye,
+  FaCheck,
+  FaTimes,
+  FaClock,
+  FaBuilding,
+  FaFileAlt,
+  FaSignOutAlt,
+  FaSyncAlt,
+  FaFileExcel,
+  FaSortUp,
+  FaSortDown,
 } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5';
 
 const AdminDashboard = () => {
-  const { logout } = useAuth();
+  const { user, isAdmin, loading: authLoading, logout } = useAuth();
+  const navigate = useNavigate();
   const [registrations, setRegistrations] = useState([]);
   const [filteredRegistrations, setFilteredRegistrations] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [categoryFilter, setCategoryFilter] = useState('all');
@@ -36,99 +40,92 @@ const AdminDashboard = () => {
   const [sortDirection, setSortDirection] = useState('desc');
 
   useEffect(() => {
-    loadRegistrations();
-  }, []);
+    if (!authLoading && (!user || !isAdmin)) {
+      navigate('admin/login');
+    }
+  }, [user, isAdmin, authLoading, navigate]);
 
   useEffect(() => {
-    filterRegistrations();
-  }, [registrations, searchTerm, statusFilter, categoryFilter]);
-
-  const loadRegistrations = async () => {
-    setLoading(true);
-    try {
-      const result = await getAllRegistrations();
-      if (result.success) {
-        setRegistrations(result.data);
-      } else {
-        console.error('Failed to load registrations:', result.error);
+    const loadRegistrations = async () => {
+      if (!isAdmin) return;
+      setLoading(true);
+      try {
+        const { data, error } = await supabase
+          .from('submissions')
+          .select('*')
+          .order('created_at', { ascending: false });
+        if (error) throw new Error(`Failed to load registrations: ${error.message}`);
+        setRegistrations(data || []);
+      } catch (error) {
+        setError(error.message);
+        console.error('Error loading registrations:', error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error('Error loading registrations:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
+    loadRegistrations();
+  }, [isAdmin]);
 
-  const filterRegistrations = () => {
+  useEffect(() => {
     let filtered = registrations;
 
-    // Search filter
     if (searchTerm) {
-      filtered = filtered.filter(reg =>
-        reg.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        reg.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        reg.organization.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        reg.job_title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        reg.city.toLowerCase().includes(searchTerm.toLowerCase())
+      filtered = filtered.filter((reg) =>
+        [
+          reg.full_name,
+          reg.email,
+          reg.organization,
+          reg.job_title,
+          reg.city,
+        ].some((field) => field?.toLowerCase().includes(searchTerm.toLowerCase()))
       );
     }
 
-    // Status filter
     if (statusFilter !== 'all') {
-      filtered = filtered.filter(reg => reg.registration_status === statusFilter);
+      filtered = filtered.filter((reg) => reg.registration_status === statusFilter);
     }
 
-    // Category filter
     if (categoryFilter !== 'all') {
-      filtered = filtered.filter(reg => reg.media_category === categoryFilter);
+      filtered = filtered.filter((reg) => reg.media_category === categoryFilter);
     }
 
-    // Sort
     filtered.sort((a, b) => {
-      let aValue = a[sortField];
-      let bValue = b[sortField];
+      let aValue = a[sortField] || '';
+      let bValue = b[sortField] || '';
 
       if (sortField === 'created_at') {
         aValue = new Date(aValue);
         bValue = new Date(bValue);
       }
 
-      if (sortDirection === 'asc') {
-        return aValue > bValue ? 1 : -1;
-      } else {
-        return aValue < bValue ? 1 : -1;
-      }
+      return sortDirection === 'asc' ? (aValue > bValue ? 1 : -1) : (aValue < bValue ? 1 : -1);
     });
 
     setFilteredRegistrations(filtered);
-  };
+  }, [registrations, searchTerm, statusFilter, categoryFilter, sortField, sortDirection]);
 
   const handleStatusUpdate = async (id, newStatus, notes = '') => {
     setUpdating(true);
     try {
-      const result = await updateRegistrationStatus(id, newStatus, notes);
-      if (result.success) {
-        // Update local state
-        setRegistrations(prev => 
-          prev.map(reg => 
-            reg.id === id 
-              ? { ...reg, registration_status: newStatus, admin_notes: notes }
-              : reg
-          )
-        );
-        
-        if (selectedRegistration && selectedRegistration.id === id) {
-          setSelectedRegistration(prev => ({
-            ...prev,
-            registration_status: newStatus,
-            admin_notes: notes
-          }));
-        }
-      } else {
-        alert('Failed to update status: ' + result.error);
+      const { error } = await supabase
+        .from('submissions')
+        .update({ registration_status: newStatus, admin_notes: notes })
+        .eq('id', id);
+      if (error) throw new Error(`Failed to update status: ${error.message}`);
+      setRegistrations((prev) =>
+        prev.map((reg) =>
+          reg.id === id ? { ...reg, registration_status: newStatus, admin_notes: notes } : reg
+        )
+      );
+      if (selectedRegistration && selectedRegistration.id === id) {
+        setSelectedRegistration((prev) => ({
+          ...prev,
+          registration_status: newStatus,
+          admin_notes: notes,
+        }));
       }
     } catch (error) {
-      alert('Error updating status: ' + error.message);
+      setError(`Error updating status: ${error.message}`);
     } finally {
       setUpdating(false);
     }
@@ -136,40 +133,55 @@ const AdminDashboard = () => {
 
   const exportToExcel = () => {
     const workbook = XLSX.utils.book_new();
-
-    // Main registrations sheet
-    const mainData = filteredRegistrations.map(reg => ({
-      'Full Name': reg.full_name,
-      'Email': reg.email,
-      'Phone': reg.phone_number,
+    const mainData = filteredRegistrations.map((reg) => ({
+      'Full Name': reg.full_name || '',
+      Email: reg.email || '',
+      Phone: reg.phone_number || '',
       'Date of Birth': reg.date_of_birth ? new Date(reg.date_of_birth).toLocaleDateString() : '',
-      'Gender': reg.gender || '',
-      'Organization': reg.organization,
-      'Job Title': reg.job_title,
-      'Years of Experience': reg.years_of_experience,
-      'Media Category': reg.media_category.replace('_', ' & '),
-      'Country': reg.country,
-      'City': reg.city,
-      'Address': reg.address || '',
-      'Portfolio Links': reg.portfolio_links ? reg.portfolio_links.join('; ') : '',
-      'Professional Bio': reg.bio || '',
-      'Previous OMAS Participant': reg.previous_omas_participant ? 'Yes' : 'No',
-      'Dietary Requirements': reg.dietary_requirements || '',
-      'Accessibility Needs': reg.accessibility_needs || '',
-      'How Did You Hear': reg.how_did_you_hear || '',
-      'Expectations': reg.expectations || '',
-      'Additional Comments': reg.additional_comments || '',
+      Gender: reg.gender || '',
+      'ID/Passport': reg.id_passport || '',
+      Organization: reg.organization || '',
+      'Organization Address': reg.organization_address || '',
+      'Job Title': reg.job_title || '',
+      'Years of Experience': reg.years_of_experience || '',
+      'Media Category': reg.media_category?.replace('_', ' & ') || '',
+      Address: reg.address || '',
+      'Story 1': reg.story_1 || '',
+      'Story 1 Date': reg.story_1_date ? new Date(reg.story_1_date).toLocaleDateString() : '',
+      'Story 1 Summary': reg.story_1_summary || '',
+      'Story 1 Motivation': reg.story_1_motivation || '',
+      'Story 1 English': reg.story_1_english ? 'Yes' : 'No',
+      'Story 1 Transcript': reg.story_1_transcript || '',
+      'Story 2': reg.story_2 || '',
+      'Story 2 Date': reg.story_2_date ? new Date(reg.story_2_date).toLocaleDateString() : '',
+      'Story 2 Summary': reg.story_2_summary || '',
+      'Story 2 Motivation': reg.story_2_motivation || '',
+      'Story 2 English': reg.story_2_english ? 'Yes' : 'No',
+      'Story 2 Transcript': reg.story_2_transcript || '',
+      'Story 3': reg.story_3 || '',
+      'Story 3 Date': reg.story_3_date ? new Date(reg.story_3_date).toLocaleDateString() : '',
+      'Story 3 Summary': reg.story_3_summary || '',
+      'Story 3 Motivation': reg.story_3_motivation || '',
+      'Story 3 English': reg.story_3_english ? 'Yes' : 'No',
+      'Story 3 Transcript': reg.story_3_transcript || '',
+      Comments: reg.comments || '',
       'Terms Accepted': reg.terms_accepted ? 'Yes' : 'No',
-      'Marketing Consent': reg.marketing_consent ? 'Yes' : 'No',
-      'Registration Status': reg.registration_status,
+      'Registration Status': reg.registration_status || 'Pending',
       'Registration Date': new Date(reg.created_at).toLocaleDateString(),
-      'Admin Notes': reg.admin_notes || ''
+      'Admin Notes': reg.admin_notes || '',
     }));
 
     const mainSheet = XLSX.utils.json_to_sheet(mainData);
     XLSX.utils.book_append_sheet(workbook, mainSheet, 'Registrations');
 
-    // Summary sheet
+    const stats = {
+      total: registrations.length,
+      pending: registrations.filter((r) => r.registration_status === 'pending').length,
+      approved: registrations.filter((r) => r.registration_status === 'approved').length,
+      rejected: registrations.filter((r) => r.registration_status === 'rejected').length,
+      waitlist: registrations.filter((r) => r.registration_status === 'waitlist').length,
+    };
+
     const summaryData = [
       { Metric: 'Total Applications', Value: stats.total },
       { Metric: 'Pending Review', Value: stats.pending },
@@ -177,42 +189,63 @@ const AdminDashboard = () => {
       { Metric: 'Rejected', Value: stats.rejected },
       { Metric: 'Waitlisted', Value: stats.waitlist },
       { Metric: '', Value: '' },
-      { Metric: 'Print & Online Media', Value: registrations.filter(r => r.media_category === 'print_online').length },
-      { Metric: 'Radio', Value: registrations.filter(r => r.media_category === 'radio').length },
-      { Metric: 'Television', Value: registrations.filter(r => r.media_category === 'television').length },
+      {
+        Metric: 'Print & Online Media',
+        Value: registrations.filter((r) => r.media_category === 'print_online').length,
+      },
+      { Metric: 'Radio', Value: registrations.filter((r) => r.media_category === 'radio').length },
+      { Metric: 'Television', Value: registrations.filter((r) => r.media_category === 'television').length },
       { Metric: '', Value: '' },
       { Metric: 'Export Date', Value: new Date().toLocaleDateString() },
-      { Metric: 'Export Time', Value: new Date().toLocaleTimeString() }
+      { Metric: 'Export Time', Value: new Date().toLocaleTimeString() },
     ];
 
     const summarySheet = XLSX.utils.json_to_sheet(summaryData);
     XLSX.utils.book_append_sheet(workbook, summarySheet, 'Summary');
-
-    // Write file
     XLSX.writeFile(workbook, `OMAS-2025-Registrations-${new Date().toISOString().split('T')[0]}.xlsx`);
   };
 
   const exportToCSV = () => {
     const headers = [
-      'Name', 'Email', 'Phone', 'Organization', 'Job Title', 'Category',
-      'Experience', 'City', 'Status', 'Registration Date'
+      'Name',
+      'Email',
+      'Phone',
+      'Organization',
+      'Job Title',
+      'Category',
+      'Experience',
+      'Address',
+      'Status',
+      'Registration Date',
+      'Story 1',
+      'Story 1 Transcript',
+      'Story 2',
+      'Story 2 Transcript',
+      'Story 3',
+      'Story 3 Transcript',
     ];
 
-    const csvData = filteredRegistrations.map(reg => [
-      reg.full_name,
-      reg.email,
-      reg.phone_number,
-      reg.organization,
-      reg.job_title,
-      reg.media_category.replace('_', ' & '),
-      reg.years_of_experience,
-      reg.city,
-      reg.registration_status,
-      new Date(reg.created_at).toLocaleDateString()
+    const csvData = filteredRegistrations.map((reg) => [
+      reg.full_name || '',
+      reg.email || '',
+      reg.phone_number || '',
+      reg.organization || '',
+      reg.job_title || '',
+      reg.media_category?.replace('_', ' & ') || '',
+      reg.years_of_experience || '',
+      reg.address || '',
+      reg.registration_status || 'Pending',
+      new Date(reg.created_at).toLocaleDateString(),
+      reg.story_1 || '',
+      reg.story_1_transcript || '',
+      reg.story_2 || '',
+      reg.story_2_transcript || '',
+      reg.story_3 || '',
+      reg.story_3_transcript || '',
     ]);
 
     const csvContent = [headers, ...csvData]
-      .map(row => row.map(field => `"${field}"`).join(','))
+      .map((row) => row.map((field) => `"${field}"`).join(','))
       .join('\n');
 
     const blob = new Blob([csvContent], { type: 'text/csv' });
@@ -233,15 +266,20 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     if (window.confirm('Are you sure you want to logout?')) {
-      logout();
+      try {
+        await logout();
+        navigate('admin/login');
+      } catch (error) {
+        setError(`Logout failed: ${error.message}`);
+      }
     }
   };
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'approved': return '#10b981';
+      case 'approved': return '#22c55e';
       case 'rejected': return '#ef4444';
       case 'waitlist': return '#f59e0b';
       default: return '#6b7280';
@@ -250,22 +288,22 @@ const AdminDashboard = () => {
 
   const getStatusIcon = (status) => {
     switch (status) {
-      case 'approved': return <Check className="status-icon" />;
-      case 'rejected': return <X className="status-icon" />;
-      case 'waitlist': return <Clock className="status-icon" />;
-      default: return <Clock className="status-icon" />;
+      case 'approved': return <FaCheck className="status-icon" />;
+      case 'rejected': return <FaTimes className="status-icon" />;
+      case 'waitlist': return <FaClock className="status-icon" />;
+      default: return <FaClock className="status-icon" />;
     }
   };
 
   const stats = {
     total: registrations.length,
-    pending: registrations.filter(r => r.registration_status === 'pending').length,
-    approved: registrations.filter(r => r.registration_status === 'approved').length,
-    rejected: registrations.filter(r => r.registration_status === 'rejected').length,
-    waitlist: registrations.filter(r => r.registration_status === 'waitlist').length
+    pending: registrations.filter((r) => r.registration_status === 'pending').length,
+    approved: registrations.filter((r) => r.registration_status === 'approved').length,
+    rejected: registrations.filter((r) => r.registration_status === 'rejected').length,
+    waitlist: registrations.filter((r) => r.registration_status === 'waitlist').length,
   };
 
-  if (loading) {
+  if (authLoading || loading) {
     return (
       <div className="admin-dashboard">
         <div className="loading-container">
@@ -278,52 +316,49 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard">
+      {error && (
+        <div className="error-alert">
+          <span>{error}</span>
+        </div>
+      )}
       <div className="dashboard-header">
         <div className="header-content">
           <div className="header-text">
-            <h1>OMAS 2025 - Registration Dashboard</h1>
+            <h1>OMAS 2025 Admin Dashboard</h1>
             <p>Manage and review applications for the 4th OFAB Media Awards</p>
           </div>
           <div className="header-actions">
-            <button className="refresh-btn" onClick={loadRegistrations} disabled={loading}>
-              <RefreshCw className={`btn-icon ${loading ? 'spinning' : ''}`} />
+            <button className="refresh-btn" onClick={() => window.location.reload()} disabled={loading}>
+              <FaSyncAlt className={`btn-icon ${loading ? 'spinning' : ''}`} />
               Refresh
             </button>
             <button className="logout-btn" onClick={handleLogout}>
-              <LogOut className="btn-icon" />
+              <FaSignOutAlt className="btn-icon" />
               Logout
             </button>
           </div>
         </div>
-        
+
         <div className="stats-grid">
-          <div className="stat-card">
-            <div className="stat-number">{stats.total}</div>
-            <div className="stat-label">Total Applications</div>
-          </div>
-          <div className="stat-card pending">
-            <div className="stat-number">{stats.pending}</div>
-            <div className="stat-label">Pending Review</div>
-          </div>
-          <div className="stat-card approved">
-            <div className="stat-number">{stats.approved}</div>
-            <div className="stat-label">Approved</div>
-          </div>
-          <div className="stat-card rejected">
-            <div className="stat-number">{stats.rejected}</div>
-            <div className="stat-label">Rejected</div>
-          </div>
-          <div className="stat-card waitlist">
-            <div className="stat-number">{stats.waitlist}</div>
-            <div className="stat-label">Waitlisted</div>
-          </div>
+          {[
+            { label: 'Total Applications', value: stats.total, color: '#3b82f6' },
+            { label: 'Pending Review', value: stats.pending, color: '#f59e0b' },
+            { label: 'Approved', value: stats.approved, color: '#22c55e' },
+            { label: 'Rejected', value: stats.rejected, color: '#ef4444' },
+            { label: 'Waitlisted', value: stats.waitlist, color: '#8b5cf6' },
+          ].map((stat) => (
+            <div key={stat.label} className="stat-card" style={{ borderColor: stat.color }}>
+              <div className="stat-number">{stat.value}</div>
+              <div className="stat-label">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="dashboard-controls">
         <div className="search-section">
           <div className="search-box">
-            <Search className="search-icon" />
+            <FaSearch className="search-icon" />
             <input
               type="text"
               placeholder="Search by name, email, or organization..."
@@ -335,12 +370,9 @@ const AdminDashboard = () => {
 
         <div className="filter-section">
           <div className="filter-group">
-            <Filter className="filter-icon" />
-            <select
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value)}
-            >
-              <option value="all">All Status</option>
+            <FaFilter className="filter-icon" />
+            <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+              <option value="all">All Statuses</option>
               <option value="pending">Pending</option>
               <option value="approved">Approved</option>
               <option value="rejected">Rejected</option>
@@ -349,10 +381,7 @@ const AdminDashboard = () => {
           </div>
 
           <div className="filter-group">
-            <select
-              value={categoryFilter}
-              onChange={(e) => setCategoryFilter(e.target.value)}
-            >
+            <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
               <option value="all">All Categories</option>
               <option value="print_online">Print & Online</option>
               <option value="radio">Radio</option>
@@ -362,12 +391,12 @@ const AdminDashboard = () => {
 
           <div className="export-buttons">
             <button className="export-btn excel" onClick={exportToExcel}>
-              <FileSpreadsheet className="btn-icon" />
-              Export Excel
+              <FaFileExcel className="btn-icon" />
+              Excel
             </button>
             <button className="export-btn csv" onClick={exportToCSV}>
-              <Download className="btn-icon" />
-              Export CSV
+              <FaDownload className="btn-icon" />
+              CSV
             </button>
           </div>
         </div>
@@ -380,7 +409,7 @@ const AdminDashboard = () => {
 
         {filteredRegistrations.length === 0 ? (
           <div className="empty-state">
-            <Users className="empty-icon" />
+            <FaUsers className="empty-icon" />
             <h3>No registrations found</h3>
             <p>No applications match your current filters.</p>
           </div>
@@ -389,60 +418,25 @@ const AdminDashboard = () => {
             <table>
               <thead>
                 <tr>
-                  <th
-                    className={`sortable ${sortField === 'full_name' ? 'active' : ''}`}
-                    onClick={() => handleSort('full_name')}
-                  >
-                    Applicant
-                    {sortField === 'full_name' && (
-                      sortDirection === 'asc' ? <SortAsc className="sort-icon" /> : <SortDesc className="sort-icon" />
-                    )}
-                  </th>
-                  <th
-                    className={`sortable ${sortField === 'organization' ? 'active' : ''}`}
-                    onClick={() => handleSort('organization')}
-                  >
-                    Organization
-                    {sortField === 'organization' && (
-                      sortDirection === 'asc' ? <SortAsc className="sort-icon" /> : <SortDesc className="sort-icon" />
-                    )}
-                  </th>
-                  <th
-                    className={`sortable ${sortField === 'media_category' ? 'active' : ''}`}
-                    onClick={() => handleSort('media_category')}
-                  >
-                    Category
-                    {sortField === 'media_category' && (
-                      sortDirection === 'asc' ? <SortAsc className="sort-icon" /> : <SortDesc className="sort-icon" />
-                    )}
-                  </th>
-                  <th
-                    className={`sortable ${sortField === 'years_of_experience' ? 'active' : ''}`}
-                    onClick={() => handleSort('years_of_experience')}
-                  >
-                    Experience
-                    {sortField === 'years_of_experience' && (
-                      sortDirection === 'asc' ? <SortAsc className="sort-icon" /> : <SortDesc className="sort-icon" />
-                    )}
-                  </th>
-                  <th
-                    className={`sortable ${sortField === 'registration_status' ? 'active' : ''}`}
-                    onClick={() => handleSort('registration_status')}
-                  >
-                    Status
-                    {sortField === 'registration_status' && (
-                      sortDirection === 'asc' ? <SortAsc className="sort-icon" /> : <SortDesc className="sort-icon" />
-                    )}
-                  </th>
-                  <th
-                    className={`sortable ${sortField === 'created_at' ? 'active' : ''}`}
-                    onClick={() => handleSort('created_at')}
-                  >
-                    Date
-                    {sortField === 'created_at' && (
-                      sortDirection === 'asc' ? <SortAsc className="sort-icon" /> : <SortDesc className="sort-icon" />
-                    )}
-                  </th>
+                  {[
+                    { field: 'full_name', label: 'Applicant' },
+                    { field: 'organization', label: 'Organization' },
+                    { field: 'media_category', label: 'Category' },
+                    { field: 'years_of_experience', label: 'Experience' },
+                    { field: 'registration_status', label: 'Status' },
+                    { field: 'created_at', label: 'Date' },
+                  ].map(({ field, label }) => (
+                    <th
+                      key={field}
+                      className={`sortable ${sortField === field ? 'active' : ''}`}
+                      onClick={() => handleSort(field)}
+                    >
+                      {label}
+                      {sortField === field &&
+                        (sortDirection === 'asc' ? <FaSortUp /> : <FaSortDown />)}
+                    </th>
+                  ))}
+                  <th>Stories</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -451,59 +445,84 @@ const AdminDashboard = () => {
                   <tr key={registration.id}>
                     <td>
                       <div className="applicant-info">
-                        <div className="applicant-name">{registration.full_name}</div>
-                        <div className="applicant-email">{registration.email}</div>
+                        <div className="applicant-name">{registration.full_name || '-'}</div>
+                        <div className="applicant-email">{registration.email || '-'}</div>
                       </div>
                     </td>
                     <td>
                       <div className="organization-info">
-                        <div className="org-name">{registration.organization}</div>
-                        <div className="job-title">{registration.job_title}</div>
+                        <div className="org-name">{registration.organization || '-'}</div>
+                        <div className="job-title">{registration.job_title || '-'}</div>
                       </div>
                     </td>
                     <td>
-                      <span className="category-badge">
-                        {registration.media_category.replace('_', ' & ')}
-                      </span>
+                      <span className="category-badge">{registration.media_category?.replace('_', ' & ') || '-'}</span>
                     </td>
-                    <td>{registration.years_of_experience} years</td>
+                    <td>{registration.years_of_experience ? `${registration.years_of_experience} years` : '-'}</td>
                     <td>
-                      <div 
+                      <div
                         className="status-badge"
                         style={{ backgroundColor: getStatusColor(registration.registration_status) }}
                       >
                         {getStatusIcon(registration.registration_status)}
-                        {registration.registration_status}
+                        {registration.registration_status || 'Pending'}
                       </div>
                     </td>
-                    <td>{new Date(registration.created_at).toLocaleDateString()}</td>
+                    <td>{registration.created_at ? new Date(registration.created_at).toLocaleDateString() : '-'}</td>
+                    <td>
+                      <div className="story-links">
+                        {['story_1', 'story_2', 'story_3'].map((story, idx) => (
+                          registration[story] && (
+                            <div key={idx}>
+                              <a href={registration[story]} target="_blank" rel="noopener noreferrer">
+                                Story {idx + 1}
+                              </a>
+                              {!registration[`${story}_english`] && registration[`${story}_transcript`] && (
+                                <span>
+                                  {' | '}
+                                  <a
+                                    href={registration[`${story}_transcript`]}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    Transcript
+                                  </a>
+                                </span>
+                              )}
+                            </div>
+                          )
+                        ))}
+                      </div>
+                    </td>
                     <td>
                       <div className="action-buttons">
                         <button
-                          className="view-btn"
+                          className="action-btn view-btn"
                           onClick={() => {
                             setSelectedRegistration(registration);
                             setShowDetails(true);
                           }}
+                          title="View Details"
                         >
-                          <Eye className="btn-icon" />
+                          <FaEye />
                         </button>
-                        
                         {registration.registration_status === 'pending' && (
                           <>
                             <button
-                              className="approve-btn"
+                              className="action-btn approve-btn"
                               onClick={() => handleStatusUpdate(registration.id, 'approved')}
                               disabled={updating}
+                              title="Approve"
                             >
-                              <Check className="btn-icon" />
+                              <FaCheck />
                             </button>
                             <button
-                              className="reject-btn"
+                              className="action-btn reject-btn"
                               onClick={() => handleStatusUpdate(registration.id, 'rejected')}
                               disabled={updating}
+                              title="Reject"
                             >
-                              <X className="btn-icon" />
+                              <FaTimes />
                             </button>
                           </>
                         )}
@@ -517,124 +536,138 @@ const AdminDashboard = () => {
         )}
       </div>
 
-      {/* Registration Details Modal */}
       {showDetails && selectedRegistration && (
         <div className="modal-overlay" onClick={() => setShowDetails(false)}>
           <div className="registration-details-modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h2>Application Details</h2>
-              <button 
-                className="close-btn"
-                onClick={() => setShowDetails(false)}
-              >
-                ×
+              <button className="close-btn" onClick={() => setShowDetails(false)}>
+                <IoClose />
               </button>
             </div>
 
             <div className="modal-content">
               <div className="details-grid">
                 <div className="detail-section">
-                  <h3><Users className="section-icon" /> Personal Information</h3>
-                  <div className="detail-item">
-                    <label>Full Name:</label>
-                    <span>{selectedRegistration.full_name}</span>
-                  </div>
-                  <div className="detail-item">
-                    <label>Email:</label>
-                    <span>{selectedRegistration.email}</span>
-                  </div>
-                  <div className="detail-item">
-                    <label>Phone:</label>
-                    <span>{selectedRegistration.phone_number}</span>
-                  </div>
-                  <div className="detail-item">
-                    <label>Gender:</label>
-                    <span>{selectedRegistration.gender}</span>
-                  </div>
-                  {selectedRegistration.date_of_birth && (
-                    <div className="detail-item">
-                      <label>Date of Birth:</label>
-                      <span>{new Date(selectedRegistration.date_of_birth).toLocaleDateString()}</span>
+                  <h3><FaUsers className="section-icon" /> Personal Information</h3>
+                  {[
+                    { label: 'Full Name', value: selectedRegistration.full_name },
+                    { label: 'Email', value: selectedRegistration.email },
+                    { label: 'Phone', value: selectedRegistration.phone_number },
+                    { label: 'Gender', value: selectedRegistration.gender },
+                    { label: 'ID/Passport', value: selectedRegistration.id_passport },
+                    {
+                      label: 'Date of Birth',
+                      value: selectedRegistration.date_of_birth
+                        ? new Date(selectedRegistration.date_of_birth).toLocaleDateString()
+                        : '-',
+                    },
+                  ].map(({ label, value }) => (
+                    <div key={label} className="detail-item">
+                      <label>{label}:</label>
+                      <span>{value || '-'}</span>
                     </div>
-                  )}
+                  ))}
                 </div>
 
                 <div className="detail-section">
-                  <h3><Building className="section-icon" /> Professional Information</h3>
-                  <div className="detail-item">
-                    <label>Organization:</label>
-                    <span>{selectedRegistration.organization}</span>
-                  </div>
-                  <div className="detail-item">
-                    <label>Job Title:</label>
-                    <span>{selectedRegistration.job_title}</span>
-                  </div>
-                  <div className="detail-item">
-                    <label>Experience:</label>
-                    <span>{selectedRegistration.years_of_experience} years</span>
-                  </div>
-                  <div className="detail-item">
-                    <label>Category:</label>
-                    <span>{selectedRegistration.media_category.replace('_', ' & ')}</span>
-                  </div>
+                  <h3><FaBuilding className="section-icon" /> Professional Information</h3>
+                  {[
+                    { label: 'Organization', value: selectedRegistration.organization },
+                    { label: 'Job Title', value: selectedRegistration.job_title },
+                    {
+                      label: 'Experience',
+                      value: selectedRegistration.years_of_experience
+                        ? `${selectedRegistration.years_of_experience} years`
+                        : '-',
+                    },
+                    { label: 'Category', value: selectedRegistration.media_category?.replace('_', ' & ') },
+                    { label: 'Organization Address', value: selectedRegistration.organization_address },
+                  ].map(({ label, value }) => (
+                    <div key={label} className="detail-item">
+                      <label>{label}:</label>
+                      <span>{value || '-'}</span>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="detail-section">
-                  <h3><FileText className="section-icon" /> Additional Information</h3>
-                  {selectedRegistration.bio && (
+                  <h3><FaFileAlt className="section-icon" /> Additional Information</h3>
+                  {selectedRegistration.comments && (
                     <div className="detail-item full-width">
-                      <label>Professional Bio:</label>
-                      <p>{selectedRegistration.bio}</p>
+                      <label>Comments:</label>
+                      <p>{selectedRegistration.comments}</p>
                     </div>
                   )}
-                  {selectedRegistration.portfolio_links && selectedRegistration.portfolio_links.length > 0 && (
-                    <div className="detail-item full-width">
-                      <label>Portfolio Links:</label>
-                      <ul>
-                        {selectedRegistration.portfolio_links.map((link, index) => (
-                          <li key={index}>
-                            <a href={link} target="_blank" rel="noopener noreferrer">{link}</a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {selectedRegistration.expectations && (
-                    <div className="detail-item full-width">
-                      <label>Expectations:</label>
-                      <p>{selectedRegistration.expectations}</p>
-                    </div>
-                  )}
+                  {['story_1', 'story_2', 'story_3'].map((story, idx) => (
+                    selectedRegistration[story] && (
+                      <div key={idx} className="detail-item full-width">
+                        <label>Story {idx + 1} Details:</label>
+                        <div className="story-details">
+                          <p>
+                            <strong>Link:</strong>{' '}
+                            <a href={selectedRegistration[story]} target="_blank" rel="noopener noreferrer">
+                              Story {idx + 1}
+                            </a>
+                          </p>
+                          {selectedRegistration[`${story}_date`] && (
+                            <p>
+                              <strong>Date:</strong>{' '}
+                              {new Date(selectedRegistration[`${story}_date`]).toLocaleDateString()}
+                            </p>
+                          )}
+                          {selectedRegistration[`${story}_summary`] && (
+                            <p>
+                              <strong>Summary:</strong> {selectedRegistration[`${story}_summary`]}
+                            </p>
+                          )}
+                          {selectedRegistration[`${story}_motivation`] && (
+                            <p>
+                              <strong>Motivation:</strong> {selectedRegistration[`${story}_motivation`]}
+                            </p>
+                          )}
+                          {!selectedRegistration[`${story}_english`] && selectedRegistration[`${story}_transcript`] && (
+                            <p>
+                              <strong>Transcript:</strong>{' '}
+                              <a
+                                href={selectedRegistration[`${story}_transcript`]}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                View Transcript
+                              </a>
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    )
+                  ))}
+                  <div className="detail-item">
+                    <label>Terms Accepted:</label>
+                    <span>{selectedRegistration.terms_accepted ? 'Yes' : 'No'}</span>
+                  </div>
                 </div>
               </div>
 
               <div className="status-update-section">
                 <h3>Update Status</h3>
                 <div className="status-buttons">
-                  <button
-                    className="status-btn approve"
-                    onClick={() => handleStatusUpdate(selectedRegistration.id, 'approved')}
-                    disabled={updating}
-                  >
-                    <Check className="btn-icon" />
-                    Approve
-                  </button>
-                  <button
-                    className="status-btn waitlist"
-                    onClick={() => handleStatusUpdate(selectedRegistration.id, 'waitlist')}
-                    disabled={updating}
-                  >
-                    <Clock className="btn-icon" />
-                    Waitlist
-                  </button>
-                  <button
-                    className="status-btn reject"
-                    onClick={() => handleStatusUpdate(selectedRegistration.id, 'rejected')}
-                    disabled={updating}
-                  >
-                    <X className="btn-icon" />
-                    Reject
-                  </button>
+                  {[
+                    { status: 'approved', label: 'Approve', icon: <FaCheck />, color: '#22c55e' },
+                    { status: 'waitlist', label: 'Waitlist', icon: <FaClock />, color: '#f59e0b' },
+                    { status: 'rejected', label: 'Reject', icon: <FaTimes />, color: '#ef4444' },
+                  ].map(({ status, label, icon, color }) => (
+                    <button
+                      key={status}
+                      className={`status-btn ${status}`}
+                      onClick={() => handleStatusUpdate(selectedRegistration.id, status)}
+                      disabled={updating}
+                      style={{ backgroundColor: color }}
+                    >
+                      {icon}
+                      {label}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
