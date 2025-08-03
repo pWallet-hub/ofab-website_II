@@ -41,10 +41,11 @@ function App() {
           <Route path="/register" element={<Registration/>} />
           <Route path="/admin/login" element={<AdminLogin/>} />
           <Route path="/admin" element={
-            <ProtectedRoute requireAdmin={true}>
+            <ProtectedRoute>
               <AdminDashboard/>
             </ProtectedRoute>
           } />
+          <Route path='/admin' element={<AdminDashboard/>}/>
 
         </Routes>
         <Footer />
