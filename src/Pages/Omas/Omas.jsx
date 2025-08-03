@@ -17,10 +17,6 @@ import ofabimage3 from '../../assets/anociata.jpg';
 import ofabimage4 from '../../assets/pacific.jpg';
 import ofabimage5 from '../../assets/award-2024.jpg';
 import dataimage from '../../assets/data.jpg';
-// Youth engagement images
-import look from '../../assets/insepection1.jpg';
-import grace from '../../assets/women.jpg';
-import gang from '../../assets/youth.jpg';
 import irrigate from '../../assets/irrigation.jpg';
 import white from '../../assets/innovation.jpg';
 import black from '../../assets/young.jpg';
@@ -29,6 +25,7 @@ import arm from '../../assets/speaker.jpg';
 import { FaBuildingUser } from "react-icons/fa6";
 import { MdGroups } from "react-icons/md";
 import { IoEyeOffOutline } from "react-icons/io5";
+import OFABMediaAwardsFlyer from '../../components/OFABMediaAwardsFlyer/OFABMediaAwardsFlyer';
 import {
   FaStar as Star,
   FaCalendarAlt as Calendar,
@@ -63,157 +60,25 @@ function Omas() {
 
     return (
         <div className='omas-container'>
-            {/* Enhanced Hero Section */}
-            <div className='omas-hero'>
-                <div className='hero-overlay'></div>
-                <div className='hero-content'>
-                    <div className='official-header animate-on-scroll'>
-                        <div className='header-logos glass-effect'>
-                            <img src={moto} alt="Rwanda Coat of Arms" className='official-logo' />
-                            <div className='official-title'>
-                                <h1 className='republic-title'>REPUBLIC OF RWANDA</h1>
-                                <h2 className='ministry-title'>RWANDA AGRICULTURE AND ANIMAL</h2>
-                                <h2 className='ministry-title'>RESOURCES DEVELOPMENT BOARD (RAB)</h2>
-                            </div>
-                            <img src={rab} alt="RAB Logo" className='official-logo' />
-                        </div>
-                    </div>
+            <OFABMediaAwardsFlyer />
 
-                    <div className='partners-section animate-on-scroll'>
-                        <h3 className='partners-title'>In Strategic Partnership With</h3>
-                        <div className='partners-logos glass-effect'>
-                            <img src={aatf} alt="AATF Logo" className='partner-logo' />
-                            <img src={alliance} alt="Alliance for Science Logo" className='partner-logo' />
-                            <img src={rmc} alt="RMC Logo" className='partner-logo' />
-                            <img src={ofab} alt="OFAB Logo" className='partner-logo' />
-                        </div>
-                    </div>
-
-                    <div className='awards-showcase animate-on-scroll'>
-                        <div className="star-decoration">
-                            <Star className="star-icon pulse-animation" />
-                        </div>
-                        <div className='awards-main glass-effect'>
-                            <h1 className="edition-number">4<sup>th</sup></h1><h1>Edition</h1>
-                            <h2 className="awards-title">
-                                <span className="ofab-text">OFAB</span>
-                                <span className="media-text">MEDIA</span>
-                            </h2>
-                            <h3 className="awards-label">Awards</h3>
-                            <div className="event-date glass-effect">
-                                <Calendar className="calendar-icon" />
-                                <div className="date-info">
-                                    <div className="day">12/9</div>
-                                    <div className="month">EVENT</div>
-                                    <div className="year">2025</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Enhanced Registration Call-to-Action */}
-                    <div className='registration-cta animate-on-scroll'>
-                        <div className='cta-content'>
-                            <h2 className='cta-title'>🏆 Call for Applications: OFAB Media Awards 2025!</h2>
-                            <p className='cta-description'>
-                                We are honored to invite you to the 4<sup>th</sup> Edition of OFAB Media Awards.
-                                Are you a journalist or content creator telling powerful stories about Agricultural Biotechnology?
-                                We are looking for outstanding reporting in:
-                            </p>
-                            
-                            {/* Award Categories */}
-                            <div className='award-categories'>
-                                <div className='category-grid'>
-                                    <div className='category-item'>
-                                        {/* <Check className='category-check' /> */}
-                                        <span>Print-Online Media</span>
-                                    </div>
-                                    <div className='category-item'>
-                                        {/* <Check className='category-check' /> */}
-                                        <span>Television</span>
-                                    </div>
-                                    <div className='category-item'>
-                                        {/* <Check className='category-check' /> */}
-                                        <span>Radio</span>
-                                    </div>
-                                    <div className='category-item'>
-                                        {/* <Check className='category-check' /> */}
-                                        <span>Digital Content</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className='cta-highlights'>
-                                <div className='cta-highlight'>
-                                    <span className='highlight-icon'>🏆</span>
-                                    <span>4 Award Categories</span>
-                                </div>
-                                <div className='cta-highlight'>
-                                    <span className='highlight-icon'>🌍</span>
-                                    <span>Continental Competition</span>
-                                </div>
-                                <div className='cta-highlight'>
-                                    <span className='highlight-icon'>📅</span>
-                                    <span>Deadline: 2nd September, 2025</span>
-                                </div>
-                                <div className='cta-highlight'>
-                                    <span className='highlight-icon'>💰</span>
-                                    <span>Recognition & Prizes</span>
-                                </div>
-                            </div>
-
-                            <div className='submission-encouragement'>
-                                <Trophy className='trophy-icon' />
-                                <p className='submission-text'>
-                                    Submit your best work and get recognized!
-                                </p>
-                                <div className='deadline'>
-                                <h3>Deadline:2nd September, 2025</h3>
-                                </div>
-                            </div>
-
-                            <div className='hashtags'>
-                                <span className='hashtag'>#OFABMediaAwards2025</span>
-                                <span className='hashtag'>#TalkBiotechRw</span>
-                                <span className='hashtag'>#Voices4AgriBiotech</span>
-                            </div>
-
-                            <div className='cta-buttons'>
-                                <Link to="/register" className='register-btn primary'>
-                                    Apply Now
-                                </Link>
-                                <a href="mailto:ofabrwanda@gmail.com" className='register-btn secondary'>
-                                    Get Information
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-
-            {/* Main Content Section */}
             <div className='main-content'>
                 <div className='content-container'>
                     <div className='intro-section animate-on-scroll'>
                         <h1 className='section-title'>OFAB Media Awards</h1>
                         <div className='intro-content'>
                             <p className='lead-paragraph'>
-                                Ladies and gentlemen, distinguished guests, and champions of agricultural innovation, we are
-                                thrilled to present to you the 4rd Edition of the OFAB Media Awards (OMA) 2024, an event
-                                designed to honor and elevate the voices of Rwandan journalists who have excelled in reporting on the transformative power of agricultural biotechnology.
+                              Since its global inception in September 2006, the Open Forum on Agricultural Biotechnology in Africa (OFAB) 
+                              project has played a pivotal role in advancing knowledge-sharing, raising awareness, and fostering constructive dialogue on agricultural biotechnology across Africa. As a collaborative initiative between the African Agricultural Technology Foundation (AATF) 
+                              and like-minded organizations, OFAB operates through country-level chapters, primarily facilitated by government bodies serving as secretariats.
                             </p>
                             <p className='content-paragraph'>
-                                As you know, journalism plays a pivotal role in shaping public understanding and driving conversations on key issues like food security, sustainable farming, and the technological
-                                advancements critical to Rwanda's agricultural development. These awards recognize credible
-                                and ethical journalism that fosters constructive dialogue, promotes science-based reporting,
-                                and ultimately supports Rwanda's mission to build a thriving, tech-driven agricultural sector.
+                               Currently active in Kenya, Uganda, Tanzania, Ethiopia, Nigeria, Ghana, Burkina Faso, Rwanda, Mozambique, and Malawi, OFAB continues to promote informed discussions on the safety and benefits of modern agricultural biotechnology among key stakeholders.
+The OFAB Media Awards (OMAs) were established to recognize and celebrate outstanding journalism that demonstrates excellence in agricultural biotechnology reporting. By honoring accurate, ethical, and impactful reporting, the awards aim to enhance public understanding and acceptance of agricultural innovations essential for food security, sustainable development, and poverty eradication in Africa.
+
                             </p>
                             <p className='content-paragraph'>
-                                This invitation-only event brings together Rwandan media professionals, business leaders,
-                                government officials, and civil society stakeholders. Together, we celebrate the exceptional
-                                contributions of journalists who have reported insightful, accurate, and impactful stories on
-                                the application of modern biotechnology in agriculture.
+                               Each year, the OMAs highlight the critical role of the media in shaping informed debates on agricultural biotechnology through responsible, professional, and evidence-based reporting on modern biotechnology. These awards underscore OFAB’s commitment to fostering a well-informed society that embraces science, technology, and innovation for agricultural transformation. 
                             </p>
                         </div>
                     </div>
@@ -267,118 +132,6 @@ function Omas() {
                         </p>
                     </div>
 
-                    {/* Seeing is Believing Section
-                    <div className='seeing-believing-section animate-on-scroll'>
-                        <div className='section-header'>
-                            <div className='section-badge'>
-                                <Eye className='badge-icon' />
-                                <span>Field Experience</span>
-                            </div>
-                            <h2 className='section-title1'>Seeing is Believing: Where Innovation Meets Reality in the Field</h2>
-                            <p className='section-subtitle'>
-                                At OFAB Rwanda, we believe that the best way to understand agricultural biotechnology is to see it in action.
-                                That's why we've launched "Seeing is Believing"—a hands-on field experience that takes you straight to the
-                                heart of Rwanda's biotech research: the Confined Field Trials (CFTs) for cassava and potato.
-                            </p>
-                        </div>
-
-                        <div className='field-experience-content'>
-                            <div className='experience-description'>
-                                <div className='description-grid'>
-                                    <div className='description-block'>
-                                        <h3>Real Innovation in Action</h3>
-                                        <p className='section-description'>
-                                            These aren't just ordinary visits. They're carefully guided journeys that bring together journalists, young influencers, women leaders, and agri-entrepreneurs to witness groundbreaking science up close. From cassava that can resist deadly viruses and tolerate drought, to potatoes that fight off late blight—these innovations are real, and they're growing in our test plots today.
-                                        </p>
-                                    </div>
-
-                                    <div className='description-block'>
-                                        <h3>Hands-On Learning Experience</h3>
-                                        <p className='section-description'>
-                                            Participants walk the fields with the very scientists leading the work, ask tough questions, hear farmers' stories, and learn about the rigorous safety measures behind it all. It's a chance to move beyond headlines and myths—and discover how biotechnology is helping solve real challenges faced by Rwandan farmers.
-                                        </p>
-                                    </div>
-
-                                    <div className='description-block'>
-                                        <h3>Building Trust & Inspiring Stories</h3>
-                                        <p className='section-description'>
-                                            Seeing is Believing is more than just a learning trip—it's about building trust, sparking meaningful conversations, and inspiring new voices to share these stories across media platforms, communities, and generations. Come see what the future of agriculture looks like. Then help tell that story.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className='field-gallery'>
-                                <div className='field-grid'>
-                                    <div className='field-item featured'>
-                                        <img src={look} alt="Young farmers inspecting crops and learning modern techniques" />
-                                        <div className='field-overlay'>
-                                            <div className='field-category'>Field Work</div>
-                                            <h3>Crop Inspection & Learning</h3>
-                                            <p>Young farmers learning modern biotechnology techniques</p>
-                                        </div>
-                                    </div>
-                                    <div className='field-item featured'>
-                                        <img src={grace} alt="Women empowerment in agricultural biotechnology" />
-                                        <div className='field-overlay'>
-                                            <div className='field-category'>Empowerment</div>
-                                            <h3>Women in Agriculture</h3>
-                                            <p>Empowering women leaders in biotechnology</p>
-                                        </div>
-                                    </div>
-                                    <div className='field-item'>
-                                        <img src={gang} alt="Youth collaboration and teamwork in agriculture" />
-                                        <div className='field-overlay'>
-                                            <div className='field-category'>Collaboration</div>
-                                            <h3>Youth Teamwork</h3>
-                                            <p>Building strong agricultural networks</p>
-                                        </div>
-                                    </div>
-                                    <div className='field-item'>
-                                        <img src={irrigate} alt="Modern irrigation systems training" />
-                                        <div className='field-overlay'>
-                                            <div className='field-category'>Training</div>
-                                            <h3>Modern Irrigation</h3>
-                                            <p>Advanced farming techniques training</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className='impact-highlights'>
-                                <div className='highlight-grid'>
-                                    <div className='highlight-card'>
-                                        <div className='highlight-icon'>
-                                            <Users2 />
-                                        </div>
-                                        <div className='highlight-content'>
-                                            <h3>200+ Young Leaders</h3>
-                                            <p>Engaged in agricultural biotechnology programs</p>
-                                        </div>
-                                    </div>
-                                    <div className='highlight-card'>
-                                        <div className='highlight-icon'>
-                                            <Sprout />
-                                        </div>
-                                        <div className='highlight-content'>
-                                            <h3>60% Women Participation</h3>
-                                            <p>Leading the way in agricultural innovation</p>
-                                        </div>
-                                    </div>
-                                    <div className='highlight-card'>
-                                        <div className='highlight-icon'>
-                                            <Target />
-                                        </div>
-                                        <div className='highlight-content'>
-                                            <h3>Hands-on Experience</h3>
-                                            <p>Direct exposure to Confined Field Trials (CFTs)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
-
                     <div className='impact-gallery animate-on-scroll'>
                         <div className='gallery-grid'>
                             <div className='gallery-item'>
@@ -416,7 +169,8 @@ function Omas() {
                             Through field visits and hands-on experiences, we bridge the gap between scientific innovation and public understanding.
                         </p>
                     </div>
-                    <div className='features-section animate-on-scroll'>
+
+                    {/* <div className='features-section animate-on-scroll'>
                         <div className='features-grid'>
                             <div className='feature-card'>
                                 <div className='feature-icon'>
@@ -466,10 +220,9 @@ function Omas() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
-                    {/* Youth Engagement Statistics */}
-                    <div className='youth-stats-section animate-on-scroll'>
+                    {/* <div className='youth-stats-section animate-on-scroll'>
                         <div className='stats-container'>
                             <div className='stats-header'>
                                 <h2 className='section-title'>Youth & Women Engagement Impact</h2>
@@ -510,7 +263,7 @@ function Omas() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className='mission-section animate-on-scroll'>
                         <div className='mission-card'>
@@ -519,7 +272,7 @@ function Omas() {
                                 <h2>Mission</h2>
                             </div>
                             <p className='mission-text'>
-                                OMA 2024 aims to recognize and promote Rwandan-based journalists who are creating and reporting on the use, benefits, and other constructive information on agricultural biotechnology. The awards seek to highlight the critical roles played by the media in promoting constructive dialogue on modern biotechnology through responsible, professional, ethical, and effective reporting.
+                                OMAs aims to recognize and promote Rwandan-based journalists who are creating and reporting on the use, benefits, and other constructive information on agricultural biotechnology. The awards seek to highlight the critical roles played by the media in promoting constructive dialogue on modern biotechnology through responsible, professional, ethical, and effective reporting.
                             </p>
                         </div>
                     </div>
@@ -549,127 +302,32 @@ function Omas() {
                         </div>
                     </div>
 
-                    <div className='eligibility-section animate-on-scroll'>
+                    <div className='eligibility-section1 animate-on-scroll'>
                         <div className='info-cards-grid'>
                             <div className='info-card'>
                                 <div className='info-header'>
                                     <Users className='info-icon' />
                                     <h3>Eligibility</h3>
                                 </div>
-                                <p> the stories or articles must have been published between 31st August 2024 and 31st August 2025. </p>
+                                <p> The stories or articles must have been published between 31st August 2024 and 31st August 2025. </p>
                             </div>
                             <div className='info-card'>
                                 <div className='info-header'>
                                     <Calendar className='info-icon' />
                                     <h3>Entry Period</h3>
                                 </div>
-                                <p>The entry period for applying is one month</p>
+                                <p>The entry period for applying is from 4th August to 2nd September 2025.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className='categories-section animate-on-scroll'>
-                        <h2 className='section-title'>Award Categories & Contestants</h2>
-                        <div className='stats-highlight'>
-                            <div className='stat-number'>37</div>
-                            <div className='stat-text'>contestants from different media houses applied in this competition</div>
-                        </div>
-                        <div className='categories-grid'>
-                            <div className='category-card'>
-                                <div className='category-icon'>📰</div>
-                                <h3>Print and Online Media</h3>
-                                <p>Including newspapers, magazines, and online platforms</p>
-                            </div>
-                            <div className='category-card'>
-                                <div className='category-icon'>📻</div>
-                                <h3>Radio</h3>
-                                <p>For radio journalists or broadcasters who report on biotech-related topics</p>
-                            </div>
-                            <div className='category-card'>
-                                <div className='category-icon'>📺</div>
-                                <h3>Television</h3>
-                                <p>For TV journalists and stations covering biotechnology stories</p>
-                            </div>
-                             <div className='category-card'>
-                                <div className='category-icon'>💻</div>
-                                <h3>Digital Content</h3>
-                                <p>This category recognizes digital content creators and social media influencers who are using the internet to share powerful stories on agriculture biotechnology.</p>
-                            </div>
-                        </div>
-                        <p className='category-note'>The overall winner from either category will combine the award for his/her category and the overall award.</p>
-                    </div>
 
-                    <div className='participants-section animate-on-scroll'>
-                        <h2 className='section-title'>Event Participants</h2>
-                        <p className='participants-intro'>The awards event was attended by different stakeholders, including:</p>
-                        <div className='participants-grid'>
-                            <div className='participant-group'>
-                                <h4>Agricultural Biotechnology sector players</h4>
-                            </div>
-                            <div className='participant-group'>
-                                <h4>Central government officials</h4>
-                                <p>(MINAGRI, MoE, RAB, REMA, etc)</p>
-                            </div>
-                            <div className='participant-group'>
-                                <h4>Journalists/Media practitioners</h4>
-                                <p>(mainly agricultural biotechnology)</p>
-                            </div>
-                        </div>
-                        <div className='attendance-info'>
-                            <div className='attendance-number'>70</div>
-                            <div className='attendance-text'>
-                                <p>Participants were limited to seventy attendees and were encouraged to share their experiences in agricultural biotechnology reporting.</p>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <div className='contest-section animate-on-scroll'>
-                        <h2 className='section-title'>Contest Analytics & Distribution</h2>
-
-                        {/* Award Categories Overview */}
-                        <div className='categories-overview'>
-                            <div className='categories-header'>
-                                <h3 className='categories-title'>Award Categories</h3>
-                                <p className='categories-description'>
-                                    The OFAB Media Awards recognize excellence across three main categories of media platforms
-                                </p>
-                            </div>
-                            <div className='categories-list'>
-                                <div className='category-item'>
-                                    <div className='category-number'>1</div>
-                                    <div className='category-details'>
-                                        <h4>Print and Online Media</h4>
-                                        <p>Including newspapers, magazines, and online platforms</p>
-                                    </div>
-                                </div>
-                                <div className='category-item'>
-                                    <div className='category-number'>2</div>
-                                    <div className='category-details'>
-                                        <h4>Radio</h4>
-                                        <p>For radio journalists or broadcasters who report on biotech-related topics</p>
-                                    </div>
-                                </div>
-                                <div className='category-item'>
-                                    <div className='category-number'>3</div>
-                                    <div className='category-details'>
-                                        <h4>Television</h4>
-                                        <p>For TV journalists and stations covering biotechnology stories</p>
-                                    </div>
-                                </div>
-                                <div className='category-item'>
-                                    <div className='category-number'>3</div>
-                                    <div className='category-details'>
-                                        <h4>Digital Content</h4>
-                                        <p>This category recognizes digital content creators and social media influencers who are using the internet to share powerful stories on agriculture biotechnology.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Contest Distribution Charts */}
                         <div className='contest-analytics'>
                             <div className='analytics-header'>
-                                <h3 className='analytics-title'>Distribution of Contest Categories by Media House</h3>
+                                <h3 className='analytics-title'>HIGHLIGHTS ON PREVIOUS OMAs</h3>
                                 <p className='analytics-subtitle'>
                                     Comprehensive analysis of participant distribution across different media platforms and demographics
                                 </p>
@@ -697,7 +355,6 @@ function Omas() {
                                 </div>
                             </div>
 
-                            {/* Key Statistics */}
                             <div className='contest-stats'>
                                 <div className='stats-row'>
                                     <div className='stat-highlight'>
@@ -728,7 +385,6 @@ function Omas() {
                 </div>
             </div>
 
-            {/* Awards & Recognition Section */}
             <div className='awards-recognition'>
                 <div className='recognition-container'>
                     <h2 className='section-title'>Awards & Recognition</h2>
