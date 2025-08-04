@@ -165,7 +165,7 @@ export default function Hub() {
 
   return (
     <>
-      <div className='About'>
+      <div className='About-white'>
         <img className='About-img' src={happy} alt="Description of image" />
         <h1 className='story-head'>Transformed Agriculture</h1>
         <p className='story-text'>
