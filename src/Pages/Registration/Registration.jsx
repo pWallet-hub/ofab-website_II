@@ -195,7 +195,7 @@ const Registration = () => {
         <div className="container">
           <h2 className="section-title">Award Categories</h2>
           <p className="section-subtitle">
-            Compete in one of three media categories based on your area of expertise
+            Compete in one of four media categories based on your area of expertise
           </p>
           <div className="categories-grid">
             {categories.map((category, index) => (

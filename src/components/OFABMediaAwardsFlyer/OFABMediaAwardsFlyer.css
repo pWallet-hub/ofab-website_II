@@ -133,7 +133,7 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
-  width: clamp(90%, 85vw, 80%);
+  width:   60%;
   margin: 0 auto;
   padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem);
   background: #ffffff;
@@ -421,10 +421,6 @@ body {
   .header-content1 {
     gap: clamp(1.25rem, 3vw, 2.5rem);
   }
-  
-  .partner-logos-container {
-    width: 85%;
-  }
 }
 
 /* Tablets */
@@ -441,7 +437,7 @@ body {
   }
   
   .partner-logos-container {
-    width: 90%;
+    width: 60%;
     flex-wrap: wrap;
     gap: 0.5rem;
   }

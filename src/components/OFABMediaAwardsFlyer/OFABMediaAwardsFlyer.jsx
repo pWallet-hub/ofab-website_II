@@ -22,9 +22,9 @@ const OFABMediaAwardsFlyer = () => {
           {/* Center Text */}
           <div className="header-text1">
             <h1>REPUBLIC OF RWANDA</h1>
-            <h2 className="header-subtitle">RWANDA AGRICULTURE</h2>
-            <h2 className="header-subtitle">AND ANIMAL RESOURCES</h2>
-            <h2 className="header-subtitle">DEVELOPMENT BOARD</h2>
+            <h2 className="header-subtitle">RWANDA AGRICULTURE AND ANIMAL </h2>
+            <h2 className="header-subtitle"></h2>
+            <h2 className="header-subtitle"> RESOURCEs DEVELOPMENT BOARD</h2>
             <h3 className="header-rab">(RAB)</h3>
           </div>
           

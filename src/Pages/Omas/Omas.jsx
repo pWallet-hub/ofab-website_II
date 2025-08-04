@@ -18,9 +18,9 @@ import ofabimage4 from '../../assets/pacific.jpg';
 import ofabimage5 from '../../assets/award-2024.jpg';
 import dataimage from '../../assets/data.jpg';
 import irrigate from '../../assets/irrigation.jpg';
-import white from '../../assets/innovation.jpg';
+import white from '../../assets/ofab-award.jpg';
 import black from '../../assets/young.jpg';
-import hall from '../../assets/knowledge.jpg';
+import hall from '../../assets/ofab-award1.jpg';
 import arm from '../../assets/speaker.jpg';
 import { FaBuildingUser } from "react-icons/fa6";
 import { MdGroups } from "react-icons/md";
@@ -75,10 +75,9 @@ function Omas() {
                             <p className='content-paragraph'>
                                Currently active in Kenya, Uganda, Tanzania, Ethiopia, Nigeria, Ghana, Burkina Faso, Rwanda, Mozambique, and Malawi, OFAB continues to promote informed discussions on the safety and benefits of modern agricultural biotechnology among key stakeholders.
 The OFAB Media Awards (OMAs) were established to recognize and celebrate outstanding journalism that demonstrates excellence in agricultural biotechnology reporting. By honoring accurate, ethical, and impactful reporting, the awards aim to enhance public understanding and acceptance of agricultural innovations essential for food security, sustainable development, and poverty eradication in Africa.
-
                             </p>
                             <p className='content-paragraph'>
-                               Each year, the OMAs highlight the critical role of the media in shaping informed debates on agricultural biotechnology through responsible, professional, and evidence-based reporting on modern biotechnology. These awards underscore OFAB’s commitment to fostering a well-informed society that embraces science, technology, and innovation for agricultural transformation. 
+                               Each year, the OMAs highlight the critical role of the media in shaping informed debates on agricultural biotechnology through responsible, professional, and evidence-based reporting on modern biotechnology. These awards underscore OFAB's commitment to fostering a well-informed society that embraces science, technology, and innovation for agricultural transformation. 
                             </p>
                         </div>
                     </div>
@@ -170,101 +169,6 @@ The OFAB Media Awards (OMAs) were established to recognize and celebrate outstan
                         </p>
                     </div>
 
-                    {/* <div className='features-section animate-on-scroll'>
-                        <div className='features-grid'>
-                            <div className='feature-card'>
-                                <div className='feature-icon'>
-                                    <MdGroups />
-                                </div>
-                                <div className='feature-content'>
-                                    <h3>Shaping Rwanda's Agricultural Future</h3>
-                                    <p>By encouraging informed dialogue on biotechnology and sustainable farming practices through youth engagement and women empowerment initiatives</p>
-                                </div>
-                            </div>
-                            <div className='feature-card'>
-                                <div className='feature-icon'>
-                                    <FaBuildingUser />
-                                </div>
-                                <div className='feature-content'>
-                                    <h3>Engaging the Private Sector and Civil Society</h3>
-                                    <p>With the participation of government, business leaders, and civil society,
-                                        this year's OMA emphasizes the multi-stakeholder approach necessary
-                                        to create an enabling environment for the commercialization of biotech
-                                        products that are currently at advanced stages of research.</p>
-                                </div>
-                            </div>
-                            <div className='feature-card'>
-                                <div className='feature-icon'>
-                                    <Eye />
-                                </div>
-                                <div className='feature-content'>
-                                    <h3>Field Experience Programs</h3>
-                                    <p>Through our "Seeing is Believing" initiative, we provide hands-on field experiences
-                                        that bring together journalists, young influencers, women leaders, and agri-entrepreneurs
-                                        to witness groundbreaking science in Confined Field Trials (CFTs).</p>
-                                </div>
-                            </div>
-                            <div className='feature-card full-width'>
-                                <div className='feature-icon'>
-                                    <IoEyeOffOutline />
-                                </div>
-                                <div className='feature-content'>
-                                    <h3>Our Commitment</h3>
-                                    <p>Let us continue fostering a community that supports innovative journalism and,
-                                        in turn, transforms the future of agriculture in Rwanda. We look forward to your
-                                        continued collaboration and support as we celebrate Rwanda's agricultural
-                                        revolution through biotechnology—one story at a time!
-                                        Thank you for being part of this journey. Let's take this opportunity to honor
-                                        our journalists, celebrate their contributions, and commit to advancing agricultural
-                                        innovation through media excellence.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
-
-                    {/* <div className='youth-stats-section animate-on-scroll'>
-                        <div className='stats-container'>
-                            <div className='stats-header'>
-                                <h2 className='section-title'>Youth & Women Engagement Impact</h2>
-                                <p className='stats-subtitle'>
-                                    Empowering the next generation of agricultural leaders through hands-on biotechnology experiences
-                                </p>
-                            </div>
-                            <div className='stats-grid'>
-                                <div className='stat-card'>
-                                    <div className='stat-visual'>
-                                        <img src={black} alt="Youth engagement in sustainable farming" />
-                                    </div>
-                                    <div className='stat-content'>
-                                        <div className='stat-number'>200+</div>
-                                        <div className='stat-label'>Young Leaders Engaged</div>
-                                        <p className='stat-description'>Active participants in agricultural biotechnology programs</p>
-                                    </div>
-                                </div>
-                                <div className='stat-card'>
-                                    <div className='stat-visual'>
-                                        <img src={arm} alt="Hands-on training with modern equipment" />
-                                    </div>
-                                    <div className='stat-content'>
-                                        <div className='stat-number'>60%</div>
-                                        <div className='stat-label'>Women Participation</div>
-                                        <p className='stat-description'>Leading the way in agricultural innovation and biotechnology</p>
-                                    </div>
-                                </div>
-                                <div className='stat-card'>
-                                    <div className='stat-visual'>
-                                        <img src={irrigate} alt="Modern irrigation training" />
-                                    </div>
-                                    <div className='stat-content'>
-                                        <div className='stat-number'>15+</div>
-                                        <div className='stat-label'>Field Visits Organized</div>
-                                        <p className='stat-description'>Hands-on experiences at Confined Field Trials (CFTs)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
-
                     <div className='mission-section animate-on-scroll'>
                         <div className='mission-card'>
                             <div className='mission-header'>
@@ -320,9 +224,6 @@ The OFAB Media Awards (OMAs) were established to recognize and celebrate outstan
                             </div>
                         </div>
                     </div>
-
-
-                    
 
                     <div className='contest-section animate-on-scroll'>
                         <div className='contest-analytics'>
