@@ -373,7 +373,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
               <div className="story-section">
                 <h4>First Story</h4>
                 <div className="form-group full-width">
-                  <label htmlFor="story_1">Story Link *</label>
+                  <label htmlFor="story_1">Story Link (Original Publication Link)*</label>
                   <input
                     type="url"
                     id="story_1"
@@ -456,7 +456,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
               <div className="story-section">
                 <h4>Second Story</h4>
                 <div className="form-group full-width">
-                  <label htmlFor="story_2">Story Link *</label>
+                  <label htmlFor="story_2">Story Link(Original Publication Link) *</label>
                   <input
                     type="url"
                     id="story_2"
@@ -539,7 +539,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
               <div className="story-section">
                 <h4>Third Story</h4>
                 <div className="form-group full-width">
-                  <label htmlFor="story_3">Story Link *</label>
+                  <label htmlFor="story_3">Story Link (Original Publication Link) *</label>
                   <input
                     type="url"
                     id="story_3"
