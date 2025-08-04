@@ -1,9 +1,9 @@
 /* Modern Compact Styles */
-body {
+/* body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
   scroll-behavior: smooth;
-}
+} */
 
 .home {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
