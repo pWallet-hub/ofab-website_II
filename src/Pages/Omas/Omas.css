@@ -9,16 +9,7 @@ html {
   overflow-x: hidden;
 }
 
-/* body {
-  margin: 0;
-  margin-top: 2rem;
-  padding: 0;
-  overflow-x: hidden;
-  width: 100%;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-} */
-
-/* Main Container */
+/* Main Container - Add top padding to account for system header */
 .omas-container {
   display: flex;
   flex-direction: column;
@@ -26,6 +17,8 @@ html {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  padding-top: 80px; /* Add space for typical header height */
+  margin-top: 0; /* Remove any top margin */
 }
 
 /* Main Content */
@@ -34,12 +27,13 @@ html {
   position: relative;
   width: 100%;
   overflow-x: hidden;
+  margin-top: 0; /* Ensure content starts immediately after the flyer */
 }
 
 .content-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0rem 1rem;
+  padding: 2rem 1rem; /* Add top padding to create space */
   width: 100%;
 }
 
@@ -619,11 +613,11 @@ html {
   margin: 0;
 }
 
-/* Awards Recognition Section */
+/* Awards Recognition Section - Remove negative margin */
 .awards-recognition {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   padding: 3rem 0;
-  margin: -4rem 0;
+  margin: 3rem 0 0 0; /* Changed from negative margin to positive */
   overflow: hidden;
 }
 
@@ -717,6 +711,10 @@ html {
 
 /* Mobile-Specific Responsive Design */
 @media (max-width: 768px) {
+  .omas-container {
+    padding-top: 70px; /* Smaller header on mobile */
+  }
+
   .content-container {
     padding: 2rem 0.75rem;
   }
@@ -760,6 +758,10 @@ html {
 }
 
 @media (max-width: 480px) {
+  .omas-container {
+    padding-top: 60px; /* Even smaller header on small mobile */
+  }
+
   .content-container {
     padding: 2rem 0.75rem;
   }
