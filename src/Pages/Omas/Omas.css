@@ -712,7 +712,7 @@ html {
 /* Mobile-Specific Responsive Design */
 @media (max-width: 768px) {
   .omas-container {
-    padding-top: 70px; /* Smaller header on mobile */
+    padding-top: 1px; /* Smaller header on mobile */
   }
 
   .content-container {
@@ -759,7 +759,7 @@ html {
 
 @media (max-width: 480px) {
   .omas-container {
-    padding-top: 60px; /* Even smaller header on small mobile */
+    padding-top: 1px; /* Even smaller header on small mobile */
   }
 
   .content-container {
