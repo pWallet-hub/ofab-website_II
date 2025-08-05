@@ -101,17 +101,17 @@ const OFABMediaAwardsFlyer = () => {
             </div>
           </div>
 
-          {/* Star Trophy Image Placeholder */}
+          
           <div className="trophy-section">
             <div className="trophy-placeholder">
               <img  src={celebration} alt="" />
             </div>
           </div>
 
-          {/* Call to Action */}
+          
           <p className="cta-text">Submit your best work and get recognized!</p>
           <p className="deadline-text">
-            <span className="deadline-highlight">Deadline:</span> August 31, 2025
+            <span className="deadline-highlight">Deadline:</span> 2nd September 2025
           </p>
         </div>
       </div>
