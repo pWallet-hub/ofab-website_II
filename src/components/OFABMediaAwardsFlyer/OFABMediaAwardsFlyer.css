@@ -1,4 +1,4 @@
-/* OFABMediaAwards.css - Professional Responsive Version */
+/* OFABMediaAwards.css - Professional Responsive Version with Fixed Header Support */
 
 /* CSS Reset and Base Styles */
 *, *::before, *::after {
@@ -12,19 +12,22 @@ html {
   scroll-behavior: smooth;
 }
 
-/* body {
+/* Body with padding to account for fixed header */
+body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
   background: #228B22;
-} */
+  /* Add top padding to account for fixed header */
+  padding-top: 120px; /* Default for desktop */
+}
 
 /* Container and Layout */
 .flyer-container {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 120px); /* Subtract header height */
   background: #228B22;
   display: flex;
   flex-direction: column;
@@ -34,7 +37,7 @@ html {
 /* Header Section */
 .header-section {
   background: #228B22;
-  padding: clamp(1rem, 3vw, 2rem);
+  /* padding: clamp(1rem, 3vw, 2rem); */
   width: 100%;
   flex-shrink: 0;
 }
@@ -46,12 +49,11 @@ html {
   justify-content: center;
   gap: clamp(1.5rem, 4vw, 3rem);
   max-width: 1200px;
-  margin-top: 6.8rem;
+  margin: 0 auto;
   background: #ffffff;
   padding: clamp(1rem, 3vw, 1.5rem);
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  /* backdrop-filter: blur(10px); */
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -101,7 +103,6 @@ html {
   font-size: 13px;
   font-weight: 600;
   color: #1e293b;
-  /* margin: 0 0 0.25rem 0; */
   line-height: 1.3;
 }
 
@@ -109,7 +110,6 @@ html {
   font-size: 18px;
   font-weight: 700;
   color: #1e293b;
-  /* margin: 0 0 0.25rem 0; */
   line-height: 1;
 }
 
@@ -123,7 +123,7 @@ html {
 
 /* Partner Logos Section */
 .partner-logos {
-  margin-top: clamp(-0.25rem, -0.5vw, -0.25rem);
+  margin-top: clamp(1rem, 2vw, 1.5rem);
   padding: 0;
   width: 100%;
 }
@@ -133,13 +133,13 @@ html {
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
-  width:   60%;
+  width: 60%;
   margin: 0 auto;
+  margin-top: -2rem;
   padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem);
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  /* backdrop-filter: blur(15px); */
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -414,10 +414,23 @@ html {
   color: #fcd34d;
 }
 
+/* Additional utility class for spacing from fixed header */
+.content-below-header {
+  padding-top: 120px;
+}
+
 /* Responsive Breakpoints */
 
 /* Large tablets and small desktops */
 @media (max-width: 1024px) {
+  body {
+    padding-top: 110px;
+  }
+  
+  .flyer-container {
+    min-height: calc(100vh - 110px);
+  }
+  
   .header-content1 {
     gap: clamp(1.25rem, 3vw, 2.5rem);
   }
@@ -425,6 +438,18 @@ html {
 
 /* Tablets */
 @media (max-width: 768px) {
+  body {
+    padding-top: 80px;
+  }
+  
+  .flyer-container {
+    min-height: calc(100vh - 80px);
+  }
+  
+  .content-below-header {
+    padding-top: 80px;
+  }
+  
   .header-content1 {
     flex-direction: column;
     gap: 1rem;
@@ -459,12 +484,24 @@ html {
 
 /* Mobile devices */
 @media (max-width: 480px) {
+  body {
+    padding-top: 70px;
+  }
+  
+  .flyer-container {
+    min-height: calc(100vh - 70px);
+  }
+  
+  .content-below-header {
+    padding-top: 70px;
+  }
+  
   .header-section {
     padding: 1rem;
   }
   
   .header-content1 {
-    margin-top: 1rem;
+    margin: 0 auto;
     padding: 1rem;
     gap: 0.75rem;
   }
@@ -507,6 +544,14 @@ html {
 
 /* Extra small devices */
 @media (max-width: 360px) {
+  body {
+    padding-top: 65px;
+  }
+  
+  .flyer-container {
+    min-height: calc(100vh - 65px);
+  }
+  
   .header-content1 {
     padding: 0.75rem;
     gap: 0.5rem;
@@ -538,8 +583,9 @@ html {
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .header-content1 {
-  background: #ffffff;
-  margin-top: 3.1rem;
+    background: #ffffff;
+    margin: 0 auto;
+    margin-top: -1rem;
   }
   
   .partner-logos-container {
