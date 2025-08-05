@@ -21,7 +21,7 @@ body {
   overflow-x: hidden;
   background: #228B22;
   /* Add top padding to account for fixed header */
-  padding-top: 120px; /* Default for desktop */
+  padding-top: 44px; 
 }
 
 /* Container and Layout */
