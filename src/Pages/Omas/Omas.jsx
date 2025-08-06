@@ -147,7 +147,10 @@ The OFAB Media Awards (OMAs) were established to recognize and celebrate outstan
                                     <p>Dedicated journalists making a difference</p>
                                 </div>
                             </div>
-                            <div className='gallery-item'>
+                           
+                        </div>
+                        <div className='gallery-grid'>
+                             <div className='gallery-item'>
                                 <img src={white} alt="Agricultural innovation showcase" />
                                 <div className='image-overlay'>
                                     <h3>Innovation Showcase</h3>
