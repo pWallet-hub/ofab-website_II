@@ -95,6 +95,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         if (!formData.address.trim()) newErrors.address = 'Physical address is required';
         break;
       case 4: // Story Submissions
+        // First Story (Mandatory)
         if (!formData.story_1.trim()) newErrors.story_1 = '1st story link is required';
         else if (!isValidUrl(formData.story_1)) newErrors.story_1 = 'Invalid URL';
         validateDate(formData.story_1_date, 'story_1_date');
@@ -103,24 +104,28 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         if (!formData.story_1_motivation.trim()) newErrors.story_1_motivation = 'Story motivation is required';
         if (!formData.story_1_english && !formData.story_1_transcript.trim()) newErrors.story_1_transcript = 'Transcript URL is required for non-English stories';
         else if (!formData.story_1_english && !isValidUrl(formData.story_1_transcript)) newErrors.story_1_transcript = 'Invalid transcript URL';
-        
-        if (!formData.story_2.trim()) newErrors.story_2 = '2nd story link is required';
-        else if (!isValidUrl(formData.story_2)) newErrors.story_2 = 'Invalid URL';
-        validateDate(formData.story_2_date, 'story_2_date');
-        if (!formData.story_2_date) newErrors.story_2_date = 'Publication date is required';
-        if (!formData.story_2_summary.trim()) newErrors.story_2_summary = 'Story summary is required';
-        if (!formData.story_2_motivation.trim()) newErrors.story_2_motivation = 'Story motivation is required';
-        if (!formData.story_2_english && !formData.story_2_transcript.trim()) newErrors.story_2_transcript = 'Transcript URL is required for non-English stories';
-        else if (!formData.story_2_english && !isValidUrl(formData.story_2_transcript)) newErrors.story_2_transcript = 'Invalid transcript URL';
-        
-        if (!formData.story_3.trim()) newErrors.story_3 = '3rd story link is required';
-        else if (!isValidUrl(formData.story_3)) newErrors.story_3 = 'Invalid URL';
-        validateDate(formData.story_3_date, 'story_3_date');
-        if (!formData.story_3_date) newErrors.story_3_date = 'Publication date is required';
-        if (!formData.story_3_summary.trim()) newErrors.story_3_summary = 'Story summary is required';
-        if (!formData.story_3_motivation.trim()) newErrors.story_3_motivation = 'Story motivation is required';
-        if (!formData.story_3_english && !formData.story_3_transcript.trim()) newErrors.story_3_transcript = 'Transcript URL is required for non-English stories';
-        else if (!formData.story_3_english && !isValidUrl(formData.story_3_transcript)) newErrors.story_3_transcript = 'Invalid transcript URL';
+
+        // Second Story (Optional)
+        if (formData.story_2.trim()) {
+          if (!isValidUrl(formData.story_2)) newErrors.story_2 = 'Invalid URL';
+          validateDate(formData.story_2_date, 'story_2_date');
+          if (!formData.story_2_date) newErrors.story_2_date = 'Publication date is required';
+          if (!formData.story_2_summary.trim()) newErrors.story_2_summary = 'Story summary is required';
+          if (!formData.story_2_motivation.trim()) newErrors.story_2_motivation = 'Story motivation is required';
+          if (!formData.story_2_english && !formData.story_2_transcript.trim()) newErrors.story_2_transcript = 'Transcript URL is required for non-English stories';
+          else if (!formData.story_2_english && formData.story_2_transcript && !isValidUrl(formData.story_2_transcript)) newErrors.story_2_transcript = 'Invalid transcript URL';
+        }
+
+        // Third Story (Optional)
+        if (formData.story_3.trim()) {
+          if (!isValidUrl(formData.story_3)) newErrors.story_3 = 'Invalid URL';
+          validateDate(formData.story_3_date, 'story_3_date');
+          if (!formData.story_3_date) newErrors.story_3_date = 'Publication date is required';
+          if (!formData.story_3_summary.trim()) newErrors.story_3_summary = 'Story summary is required';
+          if (!formData.story_3_motivation.trim()) newErrors.story_3_motivation = 'Story motivation is required';
+          if (!formData.story_3_english && !formData.story_3_transcript.trim()) newErrors.story_3_transcript = 'Transcript URL is required for non-English stories';
+          else if (!formData.story_3_english && formData.story_3_transcript && !isValidUrl(formData.story_3_transcript)) newErrors.story_3_transcript = 'Invalid transcript URL';
+        }
         break;
       case 5: // Final Details
         if (!formData.terms_accepted) newErrors.terms_accepted = 'You must accept the terms and conditions';
@@ -373,7 +378,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
               <div className="story-section">
                 <h4>First Story</h4>
                 <div className="form-group full-width">
-                  <label htmlFor="story_1">Story Link (Original Publication Link)*</label>
+                  <label htmlFor="story_1">Story Link (Original Publication Link) *</label>
                   <input
                     type="url"
                     id="story_1"
@@ -454,9 +459,9 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
               </div>
               {/* Story 2 */}
               <div className="story-section">
-                <h4>Second Story</h4>
+                <h4>Second Story (Optional)</h4>
                 <div className="form-group full-width">
-                  <label htmlFor="story_2">Story Link(Original Publication Link) *</label>
+                  <label htmlFor="story_2">Story Link (Original Publication Link)</label>
                   <input
                     type="url"
                     id="story_2"
@@ -469,7 +474,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   {errors.story_2 && <span className="error-message">{errors.story_2}</span>}
                 </div>
                 <div className="form-group">
-                  <label htmlFor="story_2_date">Date of Publication *</label>
+                  <label htmlFor="story_2_date">Date of Publication</label>
                   <input
                     type="date"
                     id="story_2_date"
@@ -495,7 +500,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                 </div>
                 {!formData.story_2_english && (
                   <div className="form-group full-width">
-                    <label htmlFor="story_2_transcript">Transcript URL *</label>
+                    <label htmlFor="story_2_transcript">Transcript URL</label>
                     <input
                       type="url"
                       id="story_2_transcript"
@@ -510,7 +515,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   </div>
                 )}
                 <div className="form-group full-width">
-                  <label htmlFor="story_2_summary">200-word Summary *</label>
+                  <label htmlFor="story_2_summary">200-word Summary</label>
                   <textarea
                     id="story_2_summary"
                     name="story_2_summary"
@@ -523,7 +528,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   {errors.story_2_summary && <span className="error-message">{errors.story_2_summary}</span>}
                 </div>
                 <div className="form-group full-width">
-                  <label htmlFor="story_2_motivation">Motivation for Story *</label>
+                  <label htmlFor="story_2_motivation">Motivation for Story</label>
                   <textarea
                     id="story_2_motivation"
                     name="story_2_motivation"
@@ -537,9 +542,9 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
               </div>
               {/* Story 3 */}
               <div className="story-section">
-                <h4>Third Story</h4>
+                <h4>Third Story (Optional)</h4>
                 <div className="form-group full-width">
-                  <label htmlFor="story_3">Story Link (Original Publication Link) *</label>
+                  <label htmlFor="story_3">Story Link (Original Publication Link)</label>
                   <input
                     type="url"
                     id="story_3"
@@ -552,7 +557,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   {errors.story_3 && <span className="error-message">{errors.story_3}</span>}
                 </div>
                 <div className="form-group">
-                  <label htmlFor="story_3_date">Date of Publication *</label>
+                  <label htmlFor="story_3_date">Date of Publication</label>
                   <input
                     type="date"
                     id="story_3_date"
@@ -578,7 +583,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                 </div>
                 {!formData.story_3_english && (
                   <div className="form-group full-width">
-                    <label htmlFor="story_3_transcript">Transcript URL *</label>
+                    <label htmlFor="story_3_transcript">Transcript URL</label>
                     <input
                       type="url"
                       id="story_3_transcript"
@@ -593,7 +598,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   </div>
                 )}
                 <div className="form-group full-width">
-                  <label htmlFor="story_3_summary">200-word Summary *</label>
+                  <label htmlFor="story_3_summary">200-word Summary</label>
                   <textarea
                     id="story_3_summary"
                     name="story_3_summary"
@@ -606,7 +611,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   {errors.story_3_summary && <span className="error-message">{errors.story_3_summary}</span>}
                 </div>
                 <div className="form-group full-width">
-                  <label htmlFor="story_3_motivation">Motivation for Story *</label>
+                  <label htmlFor="story_3_motivation">Motivation for Story</label>
                   <textarea
                     id="story_3_motivation"
                     name="story_3_motivation"
