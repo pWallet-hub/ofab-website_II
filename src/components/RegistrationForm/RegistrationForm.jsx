@@ -44,6 +44,41 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
 
   const totalSteps = 5;
 
+  // Helper function to check if a story section has any content
+  const hasStoryContent = (storyNumber) => {
+    return formData[`story_${storyNumber}`].trim() || 
+           formData[`story_${storyNumber}_date`] || 
+           formData[`story_${storyNumber}_summary`].trim() || 
+           formData[`story_${storyNumber}_motivation`].trim();
+  };
+
+  // Helper function to clean optional story data
+  const cleanOptionalStoryData = (storyNumber) => {
+    const hasContent = hasStoryContent(storyNumber);
+    
+    if (!hasContent) {
+      // Return meaningful default values for completely empty optional stories
+      return {
+        [`story_${storyNumber}`]: 'N/A', // Default for empty story links
+        [`story_${storyNumber}_date`]: '1900-01-01', // Default date for empty dates
+        [`story_${storyNumber}_summary`]: 'No summary provided', // Default summary
+        [`story_${storyNumber}_motivation`]: 'No motivation provided', // Default motivation
+        [`story_${storyNumber}_english`]: true, // Default to true
+        [`story_${storyNumber}_transcript_path`]: 'N/A', // Default for empty transcript paths
+      };
+    }
+    
+    // Return actual values for stories with content, with defaults for any empty fields
+    return {
+      [`story_${storyNumber}`]: formData[`story_${storyNumber}`] || 'N/A',
+      [`story_${storyNumber}_date`]: formData[`story_${storyNumber}_date`] || '1900-01-01',
+      [`story_${storyNumber}_summary`]: formData[`story_${storyNumber}_summary`] || 'No summary provided',
+      [`story_${storyNumber}_motivation`]: formData[`story_${storyNumber}_motivation`] || 'No motivation provided',
+      [`story_${storyNumber}_english`]: formData[`story_${storyNumber}_english`],
+      [`story_${storyNumber}_transcript_path`]: formData[`story_${storyNumber}_transcript`] || 'N/A',
+    };
+  };
+
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
@@ -106,7 +141,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         else if (!formData.story_1_english && !isValidUrl(formData.story_1_transcript)) newErrors.story_1_transcript = 'Invalid transcript URL';
         
         // Story 2 is optional - only validate if any field is filled
-        const hasStory2Content = formData.story_2.trim() || formData.story_2_date || formData.story_2_summary.trim() || formData.story_2_motivation.trim();
+        const hasStory2Content = hasStoryContent(2);
         if (hasStory2Content) {
           if (!formData.story_2.trim()) newErrors.story_2 = '2nd story link is required when story 2 information is provided';
           else if (!isValidUrl(formData.story_2)) newErrors.story_2 = 'Invalid URL';
@@ -119,7 +154,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         }
         
         // Story 3 is optional - only validate if any field is filled
-        const hasStory3Content = formData.story_3.trim() || formData.story_3_date || formData.story_3_summary.trim() || formData.story_3_motivation.trim();
+        const hasStory3Content = hasStoryContent(3);
         if (hasStory3Content) {
           if (!formData.story_3.trim()) newErrors.story_3 = '3rd story link is required when story 3 information is provided';
           else if (!isValidUrl(formData.story_3)) newErrors.story_3 = 'Invalid URL';
@@ -167,6 +202,11 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
       }
 
       setSubmitMessage('Saving application...');
+      
+      // Clean optional story data before submission
+      const story2Data = cleanOptionalStoryData(2);
+      const story3Data = cleanOptionalStoryData(3);
+      
       const submissionData = {
         email: formData.email,
         full_name: formData.full_name,
@@ -178,28 +218,27 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         organization_address: formData.organization_address,
         media_category: formData.media_category,
         address: formData.address,
+        
+        // Story 1 (mandatory)
         story_1: formData.story_1,
         story_1_date: formData.story_1_date,
         story_1_summary: formData.story_1_summary,
         story_1_motivation: formData.story_1_motivation,
         story_1_english: formData.story_1_english,
-        story_1_transcript_path: formData.story_1_transcript || null,
-        story_2: formData.story_2 || null,
-        story_2_date: formData.story_2_date || null,
-        story_2_summary: formData.story_2_summary || null,
-        story_2_motivation: formData.story_2_motivation || null,
-        story_2_english: formData.story_2_english,
-        story_2_transcript_path: formData.story_2_transcript || null,
-        story_3: formData.story_3 || null,
-        story_3_date: formData.story_3_date || null,
-        story_3_summary: formData.story_3_summary || null,
-        story_3_motivation: formData.story_3_motivation || null,
-        story_3_english: formData.story_3_english,
-        story_3_transcript_path: formData.story_3_transcript || null,
-        comments: formData.comments,
+        story_1_transcript_path: formData.story_1_transcript || 'N/A',
+        
+        // Story 2 (optional - cleaned)
+        ...story2Data,
+        
+        // Story 3 (optional - cleaned)
+        ...story3Data,
+        
+        comments: formData.comments || 'No additional comments provided',
         terms_accepted: formData.terms_accepted,
         registration_status: 'pending',
       };
+
+      console.log('Clean submission data:', submissionData); // Debug log
 
       const result = await registerForOMAS2025(submissionData);
       if (result.success) {
