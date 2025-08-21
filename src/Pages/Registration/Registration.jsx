@@ -1,3 +1,4 @@
+
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
 import './Registration.css';
@@ -54,7 +55,7 @@ const Registration = () => {
     },
     {
       title: "Digital Content",
-      description: "This category recognizes digital content creators and social media influencers who are using the internet to share powerful stories on agriculture biotechnology.",
+      description: "This category recognizes digital content creators and social media influencers who are using the internet to share powerful stories on agriculture biotechnology.",
       icon: "💻"
     }
   ];
@@ -243,7 +244,7 @@ const Registration = () => {
               <ul>
                 <li>RMC Accredited Journalists and RMC Accredited Reporters. </li>
                 <li>Reporters covering agricultural biotechnology topics</li>
-                <li>Digital Content Creators focusing on Agricultural Biotechnology and innovation in Rwanda .</li>
+                <li>Digital Content Creators focusing on Agricultural Biotechnology and innovation in Rwanda .</li>
                 <li>Media practitioners with published work in the eligible period (stories published from August 2024 to August 2025)</li>
               </ul>
             </div>

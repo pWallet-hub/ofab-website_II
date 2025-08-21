@@ -95,7 +95,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         if (!formData.address.trim()) newErrors.address = 'Physical address is required';
         break;
       case 4: // Story Submissions
-        // First Story (Mandatory)
+        // Story 1 is mandatory
         if (!formData.story_1.trim()) newErrors.story_1 = '1st story link is required';
         else if (!isValidUrl(formData.story_1)) newErrors.story_1 = 'Invalid URL';
         validateDate(formData.story_1_date, 'story_1_date');
@@ -104,27 +104,31 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         if (!formData.story_1_motivation.trim()) newErrors.story_1_motivation = 'Story motivation is required';
         if (!formData.story_1_english && !formData.story_1_transcript.trim()) newErrors.story_1_transcript = 'Transcript URL is required for non-English stories';
         else if (!formData.story_1_english && !isValidUrl(formData.story_1_transcript)) newErrors.story_1_transcript = 'Invalid transcript URL';
-
-        // Second Story (Optional)
-        if (formData.story_2.trim()) {
-          if (!isValidUrl(formData.story_2)) newErrors.story_2 = 'Invalid URL';
+        
+        // Story 2 is optional - only validate if any field is filled
+        const hasStory2Content = formData.story_2.trim() || formData.story_2_date || formData.story_2_summary.trim() || formData.story_2_motivation.trim();
+        if (hasStory2Content) {
+          if (!formData.story_2.trim()) newErrors.story_2 = '2nd story link is required when story 2 information is provided';
+          else if (!isValidUrl(formData.story_2)) newErrors.story_2 = 'Invalid URL';
           validateDate(formData.story_2_date, 'story_2_date');
-          if (!formData.story_2_date) newErrors.story_2_date = 'Publication date is required';
-          if (!formData.story_2_summary.trim()) newErrors.story_2_summary = 'Story summary is required';
-          if (!formData.story_2_motivation.trim()) newErrors.story_2_motivation = 'Story motivation is required';
+          if (!formData.story_2_date) newErrors.story_2_date = 'Publication date is required for story 2';
+          if (!formData.story_2_summary.trim()) newErrors.story_2_summary = 'Story summary is required for story 2';
+          if (!formData.story_2_motivation.trim()) newErrors.story_2_motivation = 'Story motivation is required for story 2';
           if (!formData.story_2_english && !formData.story_2_transcript.trim()) newErrors.story_2_transcript = 'Transcript URL is required for non-English stories';
-          else if (!formData.story_2_english && formData.story_2_transcript && !isValidUrl(formData.story_2_transcript)) newErrors.story_2_transcript = 'Invalid transcript URL';
+          else if (!formData.story_2_english && !isValidUrl(formData.story_2_transcript)) newErrors.story_2_transcript = 'Invalid transcript URL';
         }
-
-        // Third Story (Optional)
-        if (formData.story_3.trim()) {
-          if (!isValidUrl(formData.story_3)) newErrors.story_3 = 'Invalid URL';
+        
+        // Story 3 is optional - only validate if any field is filled
+        const hasStory3Content = formData.story_3.trim() || formData.story_3_date || formData.story_3_summary.trim() || formData.story_3_motivation.trim();
+        if (hasStory3Content) {
+          if (!formData.story_3.trim()) newErrors.story_3 = '3rd story link is required when story 3 information is provided';
+          else if (!isValidUrl(formData.story_3)) newErrors.story_3 = 'Invalid URL';
           validateDate(formData.story_3_date, 'story_3_date');
-          if (!formData.story_3_date) newErrors.story_3_date = 'Publication date is required';
-          if (!formData.story_3_summary.trim()) newErrors.story_3_summary = 'Story summary is required';
-          if (!formData.story_3_motivation.trim()) newErrors.story_3_motivation = 'Story motivation is required';
+          if (!formData.story_3_date) newErrors.story_3_date = 'Publication date is required for story 3';
+          if (!formData.story_3_summary.trim()) newErrors.story_3_summary = 'Story summary is required for story 3';
+          if (!formData.story_3_motivation.trim()) newErrors.story_3_motivation = 'Story motivation is required for story 3';
           if (!formData.story_3_english && !formData.story_3_transcript.trim()) newErrors.story_3_transcript = 'Transcript URL is required for non-English stories';
-          else if (!formData.story_3_english && formData.story_3_transcript && !isValidUrl(formData.story_3_transcript)) newErrors.story_3_transcript = 'Invalid transcript URL';
+          else if (!formData.story_3_english && !isValidUrl(formData.story_3_transcript)) newErrors.story_3_transcript = 'Invalid transcript URL';
         }
         break;
       case 5: // Final Details
@@ -180,16 +184,16 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
         story_1_motivation: formData.story_1_motivation,
         story_1_english: formData.story_1_english,
         story_1_transcript_path: formData.story_1_transcript || null,
-        story_2: formData.story_2,
-        story_2_date: formData.story_2_date,
-        story_2_summary: formData.story_2_summary,
-        story_2_motivation: formData.story_2_motivation,
+        story_2: formData.story_2 || null,
+        story_2_date: formData.story_2_date || null,
+        story_2_summary: formData.story_2_summary || null,
+        story_2_motivation: formData.story_2_motivation || null,
         story_2_english: formData.story_2_english,
         story_2_transcript_path: formData.story_2_transcript || null,
-        story_3: formData.story_3,
-        story_3_date: formData.story_3_date,
-        story_3_summary: formData.story_3_summary,
-        story_3_motivation: formData.story_3_motivation,
+        story_3: formData.story_3 || null,
+        story_3_date: formData.story_3_date || null,
+        story_3_summary: formData.story_3_summary || null,
+        story_3_motivation: formData.story_3_motivation || null,
         story_3_english: formData.story_3_english,
         story_3_transcript_path: formData.story_3_transcript || null,
         comments: formData.comments,
@@ -374,11 +378,11 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
           <div className="form-step">
             <h3><FileText className="step-icon" /> Story Submissions</h3>
             <div className="form-grid">
-              {/* Story 1 */}
+              {/* Story 1 - Mandatory */}
               <div className="story-section">
-                <h4>First Story</h4>
+                <h4>First Story (Required)</h4>
                 <div className="form-group full-width">
-                  <label htmlFor="story_1">Story Link (Original Publication Link) *</label>
+                  <label htmlFor="story_1">Story Link (Original Publication Link)*</label>
                   <input
                     type="url"
                     id="story_1"
@@ -457,7 +461,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   {errors.story_1_motivation && <span className="error-message">{errors.story_1_motivation}</span>}
                 </div>
               </div>
-              {/* Story 2 */}
+              {/* Story 2 - Optional */}
               <div className="story-section">
                 <h4>Second Story (Optional)</h4>
                 <div className="form-group full-width">
@@ -540,7 +544,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   {errors.story_2_motivation && <span className="error-message">{errors.story_2_motivation}</span>}
                 </div>
               </div>
-              {/* Story 3 */}
+              {/* Story 3 - Optional */}
               <div className="story-section">
                 <h4>Third Story (Optional)</h4>
                 <div className="form-group full-width">
@@ -648,6 +652,7 @@ const RegistrationForm = ({ onClose, onSuccess }) => {
                   <li>Paste links to your articles, YouTube videos, SoundCloud clips, or social media content published between August 30, 2024, and August 30, 2025.</li>
                   <li>URLs should be from a media house, not personal blogs or channels (except for radio on SoundCloud).</li>
                   <li>For non-English stories, provide a valid URL to the transcript (e.g., Google Drive, Dropbox).</li>
+                  <li><strong>At least one story is required, but you can submit up to three stories.</strong></li>
                 </ul>
               </div>
               <div className="form-group full-width">

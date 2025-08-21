@@ -14,7 +14,6 @@
   overflow-y: auto;
 }
 
-
 .registration-modal {
   background: white;
   border-radius: 12px;
@@ -57,7 +56,6 @@
   color: #f59e0b;
   font-size: 0.9rem;
   font-weight: 500;
- 
 }
 
 .close-button {
