@@ -16,7 +16,7 @@ function Sidebar({ className, setSidebarOpen }) {
     { path: '/activities', label: 'Activities', icon: Activity },
     { path: '/News', label: 'News', icon: Newspaper },
     { path: '/media', label: 'Gallery', icon: Image },
-    { path: '/omas', label: 'OMAS 2025', icon: Award },
+    { path: '/register', label: 'OMAS 2025', icon: Award },
   ];
 
   return (

@@ -1,3 +1,4 @@
+
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
 import './Registration.css';
@@ -38,46 +39,46 @@ const Registration = () => {
 
   const categories = [
     {
-      title: "Print Media (Newspapers, Magazines)",
-      description: "For journalists working in traditional print media covering biotechnology stories",
+      title: "Print Media and Online Media",
+      description: "This category recognizes RMC accredited journalists working in traditional print media covering biotechnology stories",
       icon: "📰"
     },
     {
       title: "Radio",
-      description: "For radio journalists and broadcasters covering biotechnology topics",
+      description: "This category recognizes RMC accredited radio journalists working in the broadcasting industry covering agricultural biotechnology topics",
       icon: "📻"
     },
     {
       title: "Television",
-      description: "For TV journalists and stations producing biotechnology content",
+      description: "This category recognizes RMC accredited TV journalists and stations producing stories on agricultural biotechnology contents",
       icon: "📺"
     },
     {
       title: "Digital Content",
-      description: "This category recognizes digital content creators and social media influencers who are using the internet to share powerful stories on agriculture biotechnology.",
+      description: "This category recognizes digital content creators and social media influencers who are using the internet to share powerful stories on agriculture biotechnology.",
       icon: "💻"
     }
   ];
 
   const timeline = [
     {
-      date: "1/8",
-      event: "Registration Opens",
+      date: "4th August 2025",
+      event: "Application Opens",
       status: "active"
     },
     {
-      date: "1/9",
-      event: "Registration Deadline",
+      date: "2nd September 2025",
+      event: "Application Deadline",
       status: "upcoming"
     },
     {
-      date: "8/9",
+      date: "8th September 2025",
       event: "Participant Confirmation",
       status: "upcoming"
     },
     {
-      date: "27/9",
-      event: "OMAS 2025 Event",
+      date: "12th September 2025",
+      event: "OMAs 2025 Celebration & Gala Dinner",
       status: "upcoming"
     }
   ];
@@ -86,16 +87,14 @@ const Registration = () => {
     <div className="registration-page">
       {/* Hero Section */}
       <div className="registration-hero">
-        <div className="hero-content">
+        <div className="hero-content1">
 
           
-          <h1 className="hero-title">
-            OFAB Rwanda Media Awards Edition <span className="highlight">2025</span>
+          <h1 className="hero-title1">
+            OFAB Rwanda Media Awards Edition 2025
           </h1>
 
           <p className="hero-description">
-            📢 Call for Applications: OFAB Media Awards (OMAs) – 2025 Edition! 🎤📸📺💻
-            <br /><br />
             Welcome to the 4th Edition of the OFAB Media Awards (OMAs) – a unique platform celebrating
             journalism that brings science closer to the people through fact-based and impactful
             storytelling on agricultural biotechnology.
@@ -115,11 +114,11 @@ const Registration = () => {
               onClick={() => setShowRegistrationForm(true)}
             >
               <Users className="btn-icon" />
-              Register Now - It's Free!
+              Start Your Application Now!
             </button>
           )}
 
-          <div className="hero-stats">
+          {/* <div className="hero-stats">
             <div className="stat">
               <div className="stat-number">4th</div>
               <div className="stat-label">Edition</div>
@@ -132,7 +131,7 @@ const Registration = () => {
               <div className="stat-number">$500</div>
               <div className="stat-label">Top Prize</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -193,11 +192,11 @@ const Registration = () => {
       </div>
 
       {/* Categories Section */}
-      <div className="categories-section">
+      <div className="categories-section1">
         <div className="container">
           <h2 className="section-title">Award Categories</h2>
           <p className="section-subtitle">
-            Compete in one of three media categories based on your area of expertise
+            Compete in one of four media categories based on your area of expertise
           </p>
           <div className="categories-grid">
             {categories.map((category, index) => (
@@ -245,8 +244,8 @@ const Registration = () => {
               <ul>
                 <li>RMC Accredited Journalists and RMC Accredited Reporters. </li>
                 <li>Reporters covering agricultural biotechnology topics</li>
-                <li>Digital Content Creators focusing on Agricultural Biotechnology and innovation in Rwanda .</li>
-                <li>Media practitioners with published work in the eligible period</li>
+                <li>Digital Content Creators focusing on Agricultural Biotechnology and innovation in Rwanda .</li>
+                <li>Media practitioners with published work in the eligible period (stories published from August 2024 to August 2025)</li>
               </ul>
             </div>
             <div className="eligibility-card">
@@ -283,7 +282,7 @@ const Registration = () => {
                 onClick={() => setShowRegistrationForm(true)}
               >
                 <Users className="btn-icon" />
-                Start Your Registration
+                Start Your Application Now!
               </button>
             )}
           </div>

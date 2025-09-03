@@ -1,7 +1,7 @@
 
 import happy from '../../assets/newAsset.jpeg'
 import Ndabamye from '../../assets/NDABAMYE.jpg'
-import jean from '../../assets/jean1.jpeg'
+import jean from '../../assets/jean.jpeg'
 import esperance from '../../assets/esperance.jpeg'
 import pazzo from '../../assets/pazzo.jpg'
 import niragire from '../../assets/niragire.jpeg'
@@ -165,7 +165,7 @@ export default function Hub() {
 
   return (
     <>
-      <div className='About'>
+      <div className='About-white'>
         <img className='About-img' src={happy} alt="Description of image" />
         <h1 className='story-head'>Transformed Agriculture</h1>
         <p className='story-text'>

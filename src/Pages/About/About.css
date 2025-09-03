@@ -10,7 +10,19 @@
   font-family: 'Inter', sans-serif;
 }
 
-.About img {
+/* New class for white background */
+.About-white {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+  background: #ffffff !important;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.About img,
+.About-white img {
   width: 100%;
   height: 70vh;
   object-fit: cover;
@@ -59,7 +71,7 @@
 }
 
 .mission {
-  background: rgba(34, 34, 34, 0.9); /* Darker, modern background */
+  background: #184710fa;
   color: #ffffff;
   padding: 2rem;
   border-radius: 12px;
@@ -89,7 +101,7 @@
 
 .team-section-title {
   color: #fff;
-  background: linear-gradient(90deg, #00d56d, #239e36);
+  /* background: linear-gradient(90deg, #00d56d, #239e36); */
   font-size: 2.5rem;
   font-weight: 700;
   padding: 1.5rem;
@@ -115,7 +127,6 @@
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
-
 
 .TeamCard {
   background: rgba(255, 255, 255, 0.9);
@@ -270,6 +281,7 @@
     font-size: 1.2rem;
   }
 }
+
 .partener {
   display: flex;
   flex-wrap: wrap;
@@ -311,7 +323,8 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .About img {
+  .About img,
+  .About-white img {
     height: 50vh;
   }
 
@@ -334,7 +347,8 @@
 }
 
 @media (max-width: 768px) {
-  .About img {
+  .About img,
+  .About-white img {
     height: 40vh;
   }
 
