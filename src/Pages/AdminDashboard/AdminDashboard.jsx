@@ -24,7 +24,7 @@ import {
 import { IoClose } from 'react-icons/io5';
 
 const AdminDashboard = () => {
-  const { user, isAdmin, loading: authLoading, logout } = useAuth();
+  const { isAuthenticated, loading: authLoading, logout } = useAuth();
   const navigate = useNavigate();
   const [registrations, setRegistrations] = useState([]);
   const [filteredRegistrations, setFilteredRegistrations] = useState([]);
@@ -39,15 +39,17 @@ const AdminDashboard = () => {
   const [sortField, setSortField] = useState('created_at');
   const [sortDirection, setSortDirection] = useState('desc');
 
+  // Redirect to login if not authenticated
   useEffect(() => {
-    if (!authLoading && (!user || !isAdmin)) {
-      navigate('admin/login');
+    if (!authLoading && !isAuthenticated) {
+      navigate('/admin/login');
     }
-  }, [user, isAdmin, authLoading, navigate]);
+  }, [isAuthenticated, authLoading, navigate]);
 
+  // Load all registration data without authentication filters
   useEffect(() => {
     const loadRegistrations = async () => {
-      if (!isAdmin) return;
+      if (!isAuthenticated) return;
       setLoading(true);
       try {
         const { data, error } = await supabase
@@ -64,7 +66,7 @@ const AdminDashboard = () => {
       }
     };
     loadRegistrations();
-  }, [isAdmin]);
+  }, [isAuthenticated]);
 
   useEffect(() => {
     let filtered = registrations;
@@ -269,8 +271,12 @@ const AdminDashboard = () => {
   const handleLogout = async () => {
     if (window.confirm('Are you sure you want to logout?')) {
       try {
-        await logout();
-        navigate('admin/login');
+        const result = logout();
+        if (result.success) {
+          navigate('/admin/login');
+        } else {
+          setError(`Logout failed: ${result.error}`);
+        }
       } catch (error) {
         setError(`Logout failed: ${error.message}`);
       }
