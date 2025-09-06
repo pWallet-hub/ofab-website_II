@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Persistence Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .test-title {
+            color: #333;
+            border-bottom: 2px solid #239E36;
+            padding-bottom: 10px;
+        }
+        .test-step {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #239E36;
+            margin: 10px 0;
+        }
+        .test-result {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .btn {
+            background: #239E36;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #1e7e2e;
+        }
+        .btn-danger {
+            background: #dc3545;
+        }
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        .session-info {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="test-title">🔐 OFAB Admin Session Persistence Test</h1>
+        <p>This page tests the session persistence functionality of the new security key authentication system.</p>
+        
+        <div class="test-step">
+            <h3>Current Session Status:</h3>
+            <div id="session-status" class="session-info">Checking...</div>
+            <button class="btn" onclick="checkSession()">Refresh Session Status</button>
+        </div>
+
+        <div class="test-step">
+            <h3>Test 1: Manual Authentication Simulation</h3>
+            <p>Simulate logging in with the security key.</p>
+            <button class="btn" onclick="simulateLogin()">Simulate Login</button>
+            <button class="btn btn-danger" onclick="simulateLogout()">Simulate Logout</button>
+            <div id="auth-result" class="test-result info">Click a button to test authentication.</div>
+        </div>
+
+        <div class="test-step">
+            <h3>Test 2: Session Storage Verification</h3>
+            <p>Test if session data persists and can be retrieved correctly.</p>
+            <button class="btn" onclick="testSessionStorage()">Test Session Storage</button>
+            <div id="storage-result" class="test-result info">Click to test session storage functionality.</div>
+        </div>
+
+        <div class="test-step">
+            <h3>Test 3: Browser Close Simulation</h3>
+            <p>Test session behavior when simulating browser close (clearing sessionStorage).</p>
+            <button class="btn" onclick="simulateBrowserClose()">Simulate Browser Close</button>
+            <div id="close-result" class="test-result info">Click to simulate browser close behavior.</div>
+        </div>
+
+        <div class="test-step">
+            <h3>Test 4: Authentication Persistence Check</h3>
+            <p>Verify that authentication state is correctly maintained across page interactions.</p>
+            <button class="btn" onclick="testAuthPersistence()">Test Auth Persistence</button>
+            <div id="persistence-result" class="test-result info">Click to test authentication persistence.</div>
+        </div>
+
+        <div class="test-step">
+            <h3>Navigation Test</h3>
+            <p>Test navigation to admin pages based on authentication state.</p>
+            <button class="btn" onclick="testAdminNavigation()">Test Admin Navigation</button>
+            <div id="nav-result" class="test-result info">Click to test navigation behavior.</div>
+        </div>
+    </div>
+
+    <script>
+        // Security key from environment (for testing)
+        const ADMIN_SECURITY_KEY = 'ofab-admin-2025-secure-key';
+        const SESSION_KEY = 'ofab_admin_authenticated';
+
+        function updateSessionStatus() {
+            const authState = sessionStorage.getItem(SESSION_KEY);
+            const status = document.getElementById('session-status');
+            
+            status.innerHTML = `
+                <strong>Authentication State:</strong> ${authState === 'true' ? '✅ Authenticated' : '❌ Not Authenticated'}<br>
+                <strong>Session Storage Value:</strong> ${authState || 'null'}<br>
+                <strong>Timestamp:</strong> ${new Date().toLocaleString()}
+            `;
+        }
+
+        function checkSession() {
+            updateSessionStatus();
+        }
+
+        function simulateLogin() {
+            try {
+                // Simulate the login process
+                sessionStorage.setItem(SESSION_KEY, 'true');
+                updateSessionStatus();
+                
+                document.getElementById('auth-result').innerHTML = 
+                    '<div class="success">✅ Login simulation successful! Session storage updated.</div>';
+            } catch (error) {
+                document.getElementById('auth-result').innerHTML = 
+                    `<div class="error">❌ Login simulation failed: ${error.message}</div>`;
+            }
+        }
+
+        function simulateLogout() {
+            try {
+                // Simulate the logout process
+                sessionStorage.removeItem(SESSION_KEY);
+                updateSessionStatus();
+                
+                document.getElementById('auth-result').innerHTML = 
+                    '<div class="success">✅ Logout simulation successful! Session storage cleared.</div>';
+            } catch (error) {
+                document.getElementById('auth-result').innerHTML = 
+                    `<div class="error">❌ Logout simulation failed: ${error.message}</div>`;
+            }
+        }
+
+        function testSessionStorage() {
+            const results = [];
+            
+            try {
+                // Test 1: Set and retrieve authentication state
+                sessionStorage.setItem(SESSION_KEY, 'true');
+                const retrieved = sessionStorage.getItem(SESSION_KEY);
+                
+                if (retrieved === 'true') {
+                    results.push('✅ Session storage set/get works correctly');
+                } else {
+                    results.push('❌ Session storage set/get failed');
+                }
+
+                // Test 2: Test with different values
+                sessionStorage.setItem(SESSION_KEY, 'false');
+                const retrievedFalse = sessionStorage.getItem(SESSION_KEY);
+                
+                if (retrievedFalse === 'false') {
+                    results.push('✅ Session storage handles different values correctly');
+                } else {
+                    results.push('❌ Session storage value handling failed');
+                }
+
+                // Test 3: Test removal
+                sessionStorage.removeItem(SESSION_KEY);
+                const retrievedNull = sessionStorage.getItem(SESSION_KEY);
+                
+                if (retrievedNull === null) {
+                    results.push('✅ Session storage removal works correctly');
+                } else {
+                    results.push('❌ Session storage removal failed');
+                }
+
+                // Reset to clean state
+                sessionStorage.removeItem(SESSION_KEY);
+                updateSessionStatus();
+
+                document.getElementById('storage-result').innerHTML = 
+                    `<div class="success">${results.join('<br>')}</div>`;
+                    
+            } catch (error) {
+                document.getElementById('storage-result').innerHTML = 
+                    `<div class="error">❌ Session storage test failed: ${error.message}</div>`;
+            }
+        }
+
+        function simulateBrowserClose() {
+            try {
+                // Simulate what happens when browser closes
+                // First, set authentication
+                sessionStorage.setItem(SESSION_KEY, 'true');
+                
+                let result = '🔄 Before browser close simulation:<br>';
+                result += `Authentication state: ${sessionStorage.getItem(SESSION_KEY)}<br><br>`;
+                
+                // Simulate browser close by clearing session storage
+                sessionStorage.clear();
+                
+                result += '🔄 After browser close simulation:<br>';
+                result += `Authentication state: ${sessionStorage.getItem(SESSION_KEY) || 'null'}<br><br>`;
+                result += '✅ Browser close simulation successful - session cleared as expected';
+                
+                updateSessionStatus();
+                
+                document.getElementById('close-result').innerHTML = 
+                    `<div class="success">${result}</div>`;
+                    
+            } catch (error) {
+                document.getElementById('close-result').innerHTML = 
+                    `<div class="error">❌ Browser close simulation failed: ${error.message}</div>`;
+            }
+        }
+
+        function testAuthPersistence() {
+            const results = [];
+            
+            try {
+                // Test persistence over multiple operations
+                sessionStorage.setItem(SESSION_KEY, 'true');
+                results.push('1. ✅ Initial authentication set');
+                
+                // Simulate some operations
+                for (let i = 0; i < 5; i++) {
+                    const state = sessionStorage.getItem(SESSION_KEY);
+                    if (state === 'true') {
+                        results.push(`${i + 2}. ✅ Authentication persisted through operation ${i + 1}`);
+                    } else {
+                        results.push(`${i + 2}. ❌ Authentication lost during operation ${i + 1}`);
+                        break;
+                    }
+                }
+                
+                // Test that it survives page interactions
+                const finalState = sessionStorage.getItem(SESSION_KEY);
+                if (finalState === 'true') {
+                    results.push('7. ✅ Authentication state maintained throughout test');
+                } else {
+                    results.push('7. ❌ Authentication state lost');
+                }
+                
+                updateSessionStatus();
+                
+                document.getElementById('persistence-result').innerHTML = 
+                    `<div class="success">${results.join('<br>')}</div>`;
+                    
+            } catch (error) {
+                document.getElementById('persistence-result').innerHTML = 
+                    `<div class="error">❌ Persistence test failed: ${error.message}</div>`;
+            }
+        }
+
+        function testAdminNavigation() {
+            const results = [];
+            
+            try {
+                // Test navigation behavior based on auth state
+                
+                // Test 1: No authentication
+                sessionStorage.removeItem(SESSION_KEY);
+                const noAuthState = sessionStorage.getItem(SESSION_KEY);
+                results.push(`Unauthenticated state: ${noAuthState === null ? '✅ Correctly null' : '❌ Unexpected value'}`);
+                
+                // Test 2: With authentication
+                sessionStorage.setItem(SESSION_KEY, 'true');
+                const authState = sessionStorage.getItem(SESSION_KEY);
+                results.push(`Authenticated state: ${authState === 'true' ? '✅ Correctly authenticated' : '❌ Authentication failed'}`);
+                
+                // Test 3: Navigation decision simulation
+                const shouldAllowAdminAccess = sessionStorage.getItem(SESSION_KEY) === 'true';
+                results.push(`Admin access decision: ${shouldAllowAdminAccess ? '✅ Would allow access' : '❌ Would block access'}`);
+                
+                // Test 4: Redirect simulation
+                if (!shouldAllowAdminAccess) {
+                    results.push('🔄 Would redirect to /admin/login');
+                } else {
+                    results.push('🔄 Would allow access to /admin dashboard');
+                }
+                
+                updateSessionStatus();
+                
+                document.getElementById('nav-result').innerHTML = 
+                    `<div class="success">${results.join('<br>')}</div>`;
+                    
+            } catch (error) {
+                document.getElementById('nav-result').innerHTML = 
+                    `<div class="error">❌ Navigation test failed: ${error.message}</div>`;
+            }
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSessionStatus();
+            
+            // Add a note about the test environment
+            console.log('OFAB Admin Session Persistence Test loaded');
+            console.log('This page tests the session management functionality');
+        });
+
+        // Listen for storage events (won't fire for same-tab changes, but good for multi-tab testing)
+        window.addEventListener('storage', function(e) {
+            if (e.key === SESSION_KEY) {
+                updateSessionStatus();
+                console.log('Storage event detected:', e);
+            }
+        });
+    </script>
+</body>
+</html>

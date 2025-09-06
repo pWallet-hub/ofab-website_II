@@ -144,7 +144,7 @@
 
 .input-wrapper input {
   width: 100%;
-  padding: 1rem 1rem 1rem 3rem;
+  padding: 1rem 3rem 1rem 3rem;
   border: 2px solid #e5e7eb;
   border-radius: 12px;
   font-size: 1rem;
@@ -161,6 +161,28 @@
 
 .input-wrapper input:disabled {
   opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.toggle-visibility {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  z-index: 2;
+}
+
+.toggle-visibility:hover {
+  background: #f3f4f6;
+}
+
+.toggle-visibility:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
 }
 

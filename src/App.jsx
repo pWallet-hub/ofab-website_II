@@ -49,7 +49,6 @@ function App() {
               <AdminDashboard/>
             </ProtectedRoute>
           } />
-          <Route path='/admin' element={<AdminDashboard/>}/>
 
         </Routes>
         <Footer />
