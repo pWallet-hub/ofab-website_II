@@ -17,7 +17,7 @@ import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
 import AdminLogin from './Pages/AdminLogin/AdminLogin';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { AuthProvider } from './contexts/AuthContext';
-import OMAS2025Banner from './components/OMAS2025Banner/OMAS2025Banner';
+//import OMAS2025Banner from './components/OMAS2025Banner/OMAS2025Banner';
 import OFABMediaAwardsFlyer from './components/OFABMediaAwardsFlyer/OFABMediaAwardsFlyer';
 import ScrollToTop from './components/ScrollToTop' 
 
@@ -27,7 +27,7 @@ function App() {
     <AuthProvider>
       <Router>
         <ScrollToTop />
-        <OMAS2025Banner />
+        {/* <OMAS2025Banner /> */}
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
