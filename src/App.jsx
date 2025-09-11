@@ -27,7 +27,7 @@ function App() {
     <AuthProvider>
       <Router>
         <ScrollToTop />
-        <OMAS2025Banner />
+        {/* <OMAS2025Banner /> */}
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
