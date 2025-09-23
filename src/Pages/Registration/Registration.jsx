@@ -117,9 +117,9 @@ const Registration = () => {
               <span className="edition-number">4<sup>th</sup></span>
               <span className="ofab-text">OFAB</span>
               <span className="media-text">MEDIA</span>
-              <span className="awards-text">AWARDS</span>
+              <span className="awards-text">AWARDs</span>
               <span className="year-text">2025</span>
-              <span className="winners-text">WINNERS</span>
+              <span className="winners-text">WINNERs</span>
             </h1>
             
             <p className="ceremony-info">

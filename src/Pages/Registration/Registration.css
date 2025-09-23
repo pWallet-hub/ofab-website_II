@@ -491,7 +491,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .registration-page {
-    padding-top: 70px;
+    padding-top: 00px;
   }
   
   .hero-title {
@@ -780,6 +780,9 @@
   font-weight: 900;
   line-height: 1.1;
   margin: 0 0 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
   background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
