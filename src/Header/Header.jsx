@@ -111,7 +111,7 @@ function Header() {
               </li>
               <li className='nav-item'>
                 <Link to="/register" className={`nav-link ${location.pathname === '/register' ? 'active' : ''}`}>
-                  OMAS 2025
+                  OMAs
                 </Link>
               </li>
             </ul>

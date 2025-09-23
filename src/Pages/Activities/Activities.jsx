@@ -20,11 +20,11 @@ const activities = [
     title: 'OFAB Media Awards (OMAs)',
     description: [
       'The OFAB Media Awards (OMAs) celebrate exemplary journalism that promotes credible science reporting, enhancing public understanding of agricultural biotechnology for food security and sustainable development.',
-      'The 1st and 2nd editions were a success, with two journalists recognized continentally. The 3rd Edition is now open for Rwandan journalists to submit entries showcasing the benefits of biotechnology.',
+      // 'The 1st and 2nd editions were a success, with two journalists recognized continentally. The 3rd Edition is now open for Rwandan journalists to submit entries showcasing the benefits of biotechnology.',
     ],
     images: [award, award2, award3],
-    link: '/Omas',
-    linkText: 'Learn More and Apply',
+    link: '/register',
+    linkText: 'Learn More',
     background: 'omas-bg',
   },
   {

@@ -101,27 +101,10 @@ const Registration = () => {
     }
   ];
 
-  // If event is expired, show expired message and winners content
+  // If event is expired, show winners content
   if (isEventExpired) {
     return (
       <div className="registration-page">
-        {/* Expired Message Section */}
-        <div className="registration-hero">
-          <div className="hero-content1 expired-content">
-            <div className="expired-message">
-              <Warning className="expired-icon" />
-              <h1 className="expired-title">Registration Closed</h1>
-              <p className="expired-description">
-                The OFAB Rwanda Media Awards Edition 2025 registration period has expired. 
-                The event took place on September 12, 2025.
-              </p>
-              <p className="expired-description">
-                Thank you for your interest. Please stay tuned for future OFAB Media Awards events.
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Winners Content Section */}
         <div className="winners-hero">
           <div className="winners-header-content">
@@ -134,9 +117,9 @@ const Registration = () => {
               <span className="edition-number">4<sup>th</sup></span>
               <span className="ofab-text">OFAB</span>
               <span className="media-text">MEDIA</span>
-              <span className="awards-text">AWARDS</span>
+              <span className="awards-text">AWARDs</span>
               <span className="year-text">2025</span>
-              <span className="winners-text">WINNERS</span>
+              <span className="winners-text">WINNERs</span>
             </h1>
             
             <p className="ceremony-info">
