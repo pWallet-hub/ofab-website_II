@@ -1,13 +1,31 @@
 
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Registration.css';
+import pio from '../../assets/pio.jpg';
+import kwizera from '../../assets/kwizera.jpg';
+import nyandwi from '../../assets/nyandwi.jpg';
+import shimo from '../../assets/shimo.jpg';
+import elias from '../../assets/elias.jpg';
+import celebrant from '../../assets/celebrant.jpg';
+import winner from '../../assets/winner.jpg';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
-import { FaTrophy as Trophy, FaUsers as Users, FaStar as Star, FaCheckCircle as CheckCircle, FaClock as Clock, FaAward as Award, FaBullseye as Target } from 'react-icons/fa';
+import { FaTrophy as Trophy, FaUsers as Users, FaStar as Star, FaCheckCircle as CheckCircle, FaClock as Clock, FaAward as Award, FaBullseye as Target, FaExclamationTriangle as Warning } from 'react-icons/fa';
 
 const Registration = () => {
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [isEventExpired, setIsEventExpired] = useState(false);
+
+  // Target date: September 2, 2025 - Event has expired
+  const targetDate = new Date('2025-09-02T06:00:00');
+
+  useEffect(() => {
+    const now = new Date();
+    if (now > targetDate) {
+      setIsEventExpired(true);
+    }
+  }, [targetDate]);
 
   const handleRegistrationSuccess = () => {
     setRegistrationSuccess(true);
@@ -82,6 +100,340 @@ const Registration = () => {
       status: "upcoming"
     }
   ];
+
+  // If event is expired, show expired message and winners content
+  if (isEventExpired) {
+    return (
+      <div className="registration-page">
+        {/* Expired Message Section */}
+        <div className="registration-hero">
+          <div className="hero-content1 expired-content">
+            <div className="expired-message">
+              <Warning className="expired-icon" />
+              <h1 className="expired-title">Registration Closed</h1>
+              <p className="expired-description">
+                The OFAB Rwanda Media Awards Edition 2025 registration period has expired. 
+                The event took place on September 12, 2025.
+              </p>
+              <p className="expired-description">
+                Thank you for your interest. Please stay tuned for future OFAB Media Awards events.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Winners Content Section */}
+        <div className="winners-hero">
+          <div className="winners-header-content">
+            <div className="event-completed-badge">
+              <Trophy className="badge-icon" />
+              <span>EVENT COMPLETED</span>
+            </div>
+            
+            <h1 className="winners-main-title">
+              <span className="edition-number">4<sup>th</sup></span>
+              <span className="ofab-text">OFAB</span>
+              <span className="media-text">MEDIA</span>
+              <span className="awards-text">AWARDS</span>
+              <span className="year-text">2025</span>
+              <span className="winners-text">WINNERS</span>
+            </h1>
+            
+            <p className="ceremony-info">
+              <strong>Kigali, 19 September 2025</strong> — The Rwanda Agriculture and Animal Resources Development Board (RAB), 
+              in partnership with the Open Forum on Agricultural Biotechnology (OFAB) Rwanda Chapter, celebrated outstanding 
+              journalists and digital influencers for their excellence in reporting on agricultural biotechnology at the 
+              4th Edition of the OFAB Media Awards (OMA 2025), held at Urban Park Hotel in Kigali.
+            </p>
+          </div>
+        </div>
+
+        <div className="winners-main-content">
+          {/* Overall Winner Section */}
+          <div className="overall-winner-section">
+            <div className="section-header">
+              <Trophy className="section-icon" />
+              <h2>Overall Winner</h2>
+            </div>
+            
+            <div className="overall-winner-card">
+              <div className="winner-photo-container">
+                <img src={pio} alt="Pio Mbarushimana" className="overall-winner-photo" />
+                <div className="winner-badge">
+                  <Award className="badge-icon" />
+                  <span>OVERALL CHAMPION</span>
+                </div>
+              </div>
+              <div className="winner-details">
+                <h3>Pio Mbarushimana</h3>
+                <p className="winner-organization">Rwanda Broadcasting Agency</p>
+                <p className="winner-description">
+                  Recognized for exceptional journalism in agricultural biotechnology reporting across multiple media platforms.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Category Winners Grid */}
+          <div className="category-winners-section">
+            <div className="section-header">
+              <Star className="section-icon" />
+              <h2>Category Winners</h2>
+            </div>
+            
+            <div className="categories-grid">
+              {/* Radio Category */}
+              <div className="category-card">
+                <div className="category-header">
+                  <span className="category-icon">📻</span>
+                  <h3>Radio Category</h3>
+                </div>
+                <div className="category-winners-container">
+                  {/* Winner */}
+                  <div className="winner-card-item">
+                    <div className="position-badge winner-badge">
+                      <Trophy className="position-icon" />
+                      <span>1st PLACE</span>
+                    </div>
+                    <div className="winner-profile">
+                      <img src={kwizera} alt="Prudence Kwizera" className="category-winner-photo" />
+                      <div className="winner-info">
+                        <h4>Prudence Kwizera</h4>
+                        <p className="winner-organization">Radio Salus</p>
+                        <div className="winner-achievement">
+                          <Star className="achievement-icon" />
+                          <span>Best Radio Coverage</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Runner-up */}
+                  <div className="runnerup-card-item">
+                    <div className="position-badge runnerup-badge">
+                      <Award className="position-icon" />
+                      <span>2nd PLACE</span>
+                    </div>
+                    <div className="runnerup-profile">
+                      <img src="/src/assets/nopic.jpg" alt="Florentine Mukarubayiza" className="category-runnerup-photo" />
+                      <div className="runnerup-info">
+                        <h4>Florentine Mukarubayiza</h4>
+                        <p className="runnerup-organization">Radio Huguka</p>
+                        <div className="runnerup-achievement">
+                          <CheckCircle className="achievement-icon" />
+                          <span>Outstanding Contribution</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Television Category */}
+              <div className="category-card">
+                <div className="category-header">
+                  <span className="category-icon">📺</span>
+                  <h3>Television Category</h3>
+                </div>
+                <div className="category-winners-container">
+                  {/* Winner */}
+                  <div className="winner-card-item">
+                    <div className="position-badge winner-badge">
+                      <Trophy className="position-icon" />
+                      <span>1st PLACE</span>
+                    </div>
+                    <div className="winner-profile">
+                      <img src={pio} alt="Pio Mbarushimana" className="category-winner-photo" />
+                      <div className="winner-info">
+                        <h4>Pio Mbarushimana</h4>
+                        <p className="winner-organization">Rwanda Broadcasting Agency</p>
+                        <div className="winner-achievement">
+                          <Star className="achievement-icon" />
+                          <span>Excellence in TV Reporting</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Runner-up */}
+                  <div className="runnerup-card-item">
+                    <div className="position-badge runnerup-badge">
+                      <Award className="position-icon" />
+                      <span>2nd PLACE</span>
+                    </div>
+                    <div className="runnerup-profile">
+                      <img src="/src/assets/nopic.jpg" alt="Bihoyiki Kevin" className="category-runnerup-photo" />
+                      <div className="runnerup-info">
+                        <h4>Bihoyiki Kevin</h4>
+                        <p className="runnerup-organization">BTN TV</p>
+                        <div className="runnerup-achievement">
+                          <CheckCircle className="achievement-icon" />
+                          <span>Outstanding Storytelling</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Print & Online Media Category */}
+              <div className="category-card">
+                <div className="category-header">
+                  <span className="category-icon">📰</span>
+                  <h3>Print & Online Media</h3>
+                </div>
+                <div className="category-winners-container">
+                  {/* Winner */}
+                  <div className="winner-card-item">
+                    <div className="position-badge winner-badge">
+                      <Trophy className="position-icon" />
+                      <span>1st PLACE</span>
+                    </div>
+                    <div className="winner-profile">
+                      <img src="/src/assets/nopic.jpg" alt="Michel Nkurunziza" className="category-winner-photo" />
+                      <div className="winner-info">
+                        <h4>Michel Nkurunziza</h4>
+                        <p className="winner-organization">The New Times</p>
+                        <div className="winner-achievement">
+                          <Star className="achievement-icon" />
+                          <span>Best Print & Digital Story</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Runner-up */}
+                  <div className="runnerup-card-item">
+                    <div className="position-badge runnerup-badge">
+                      <Award className="position-icon" />
+                      <span>2nd PLACE</span>
+                    </div>
+                    <div className="runnerup-profile">
+                      <img src={elias} alt="Elias Hakizimana" className="category-runnerup-photo" />
+                      <div className="runnerup-info">
+                        <h4>Elias Hakizimana</h4>
+                        <p className="runnerup-organization">The Inspirer</p>
+                        <div className="runnerup-achievement">
+                          <CheckCircle className="achievement-icon" />
+                          <span>Inspiring Journalism</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Digital Content & Social Media Category */}
+              <div className="category-card">
+                <div className="category-header">
+                  <span className="category-icon">💻</span>
+                  <h3>Digital Content & Social Media</h3>
+                </div>
+                <div className="category-winners-container">
+                  {/* Winner */}
+                  <div className="winner-card-item">
+                    <div className="position-badge winner-badge">
+                      <Trophy className="position-icon" />
+                      <span>1st PLACE</span>
+                    </div>
+                    <div className="winner-profile">
+                      <img src={nyandwi} alt="Alexis Nyandwi" className="category-winner-photo" />
+                      <div className="winner-info">
+                        <h4>Alexis Nyandwi</h4>
+                        <p className="winner-organization">Digital Content Creator</p>
+                        <div className="winner-achievement">
+                          <Star className="achievement-icon" />
+                          <span>Digital Innovation Leader</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Runner-up */}
+                  <div className="runnerup-card-item">
+                    <div className="position-badge runnerup-badge">
+                      <Award className="position-icon" />
+                      <span>2nd PLACE</span>
+                    </div>
+                    <div className="runnerup-profile">
+                      <img src={shimo} alt="Yvette Shimo Umurerwa" className="category-runnerup-photo" />
+                      <div className="runnerup-info">
+                        <h4>Yvette Shimo Umurerwa</h4>
+                        <p className="runnerup-organization">Social Media Influencer</p>
+                        <div className="runnerup-achievement">
+                          <CheckCircle className="achievement-icon" />
+                          <span>Engaging Content Creator</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* About the Awards */}
+          <div className="about-awards-section">
+            <div className="section-header">
+              <CheckCircle className="section-icon" />
+              <h2>About the Awards</h2>
+            </div>
+            
+            <div className="about-content">
+              <div className="about-history">
+                <div className="about-history-content">
+                  <h3>Excellence in Agricultural Biotechnology Journalism</h3>
+                  <p>
+                    Since its launch in 2006, <span className="highlight">OFAB has promoted science-based dialogue on biotechnology</span> through 
+                    its chapters across Africa, including Rwanda. The OFAB Media Awards were established to 
+                    recognize ethical, professional, and impactful journalism that strengthens public understanding 
+                    of biotechnology's role in food security, economic growth, and sustainable development.
+                  </p>
+                  
+                  <p>
+                    This year's event introduced a <span className="highlight">new category—Digital & Social Media Influencers</span>—reflecting the 
+                    growing role of digital platforms in countering misinformation, amplifying accurate narratives, 
+                    and engaging younger audiences in conversations about biotechnology.
+                  </p>
+                </div>
+
+                <div className="about-history-images">
+                  <img src={celebrant} alt="Award ceremony moments" />
+                  <img src={winner} alt="Award winners celebration" />
+                </div>
+              </div>
+              
+              <div className="about-text">
+                <blockquote>
+                  <p>
+                    "By promoting responsible journalism, we ensure that biotechnology is understood as a driver 
+                    of agricultural transformation, food security, and sustainable development in Rwanda and beyond."
+                  </p>
+                  <cite>— Dr Florence Uwamahoro, Deputy Director General in charge of Agriculture Development at RAB</cite>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div className="winners-navigation">
+            <button 
+              className="back-home-btn"
+              onClick={() => window.location.href = '/'}
+            >
+              Return to Home
+            </button>
+            <button 
+              className="view-gallery-btn"
+              onClick={() => window.open('https://widestudio55.pixieset.com/rabgaladinner4theditionofofab', '_blank')}
+            >
+              View Event Gallery
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="registration-page">

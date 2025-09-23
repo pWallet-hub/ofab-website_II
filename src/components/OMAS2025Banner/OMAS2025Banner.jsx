@@ -4,14 +4,19 @@ import './OMAS2025Banner.css';
 import { FaCalendarAlt as Calendar, FaTrophy as Trophy, FaUsers as Users, FaStar as Star, FaClock as Clock, FaArrowRight as ArrowRight } from 'react-icons/fa';
 
 const OMAS2025Banner = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false); // Start as hidden
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
 
-  // Target date: September 26, 2025, 09:00:00 (assuming similar date to 2024)
+  // Target date: September 2, 2025 - Event has expired
   const targetDate = new Date('2025-09-02T06:00:00');
 
   const handleRegisterClick = () => {
+    const now = new Date();
+    if (now > targetDate) {
+      alert('Registration is closed. The OFAB Media Awards 2025 event has expired.');
+      return;
+    }
     window.location.href = '/register';
   };
 
@@ -58,12 +63,15 @@ const OMAS2025Banner = () => {
     );
   };
 
-  // Auto-hide after event date
+  // Check if event is expired and keep banner hidden
   useEffect(() => {
     const now = new Date();
     if (now > targetDate) {
-      const timer = setTimeout(() => setIsVisible(false), 10000); // Hide after 10 seconds if event is over
-      return () => clearTimeout(timer);
+      // Event has expired, keep banner hidden
+      setIsVisible(false);
+    } else {
+      // Event is still upcoming, show banner
+      setIsVisible(true);
     }
   }, [targetDate]);
 
