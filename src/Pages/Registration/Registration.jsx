@@ -7,6 +7,8 @@ import kwizera from '../../assets/kwizera.jpg';
 import nyandwi from '../../assets/nyandwi.jpg';
 import shimo from '../../assets/shimo.jpg';
 import elias from '../../assets/elias.jpg';
+import florentine from '../../assets/florentine.jpg'
+import kevin from '../../assets/kevin1.jpg'
 import celebrant from '../../assets/celebrant.jpg';
 import winner from '../../assets/winner.jpg';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
@@ -198,7 +200,7 @@ const Registration = () => {
                       <span>2nd PLACE</span>
                     </div>
                     <div className="runnerup-profile">
-                      <img src="/src/assets/nopic.jpg" alt="Florentine Mukarubayiza" className="category-runnerup-photo" />
+                      <img src={florentine} alt="Florentine Mukarubayiza" className="category-runnerup-photo" />
                       <div className="runnerup-info">
                         <h4>Florentine Mukarubayiza</h4>
                         <p className="runnerup-organization">Radio Huguka</p>
@@ -245,7 +247,7 @@ const Registration = () => {
                       <span>2nd PLACE</span>
                     </div>
                     <div className="runnerup-profile">
-                      <img src="/src/assets/nopic.jpg" alt="Bihoyiki Kevin" className="category-runnerup-photo" />
+                      <img src={kevin} alt="Bihoyiki Kevin" className="category-runnerup-photo" />
                       <div className="runnerup-info">
                         <h4>Bihoyiki Kevin</h4>
                         <p className="runnerup-organization">BTN TV</p>
