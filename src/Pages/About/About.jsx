@@ -14,7 +14,7 @@ import robert from '../../assets/Robert.jpg'
 import agape from '../../assets/agape.jpg'
 import gisele from '../../assets/gisele.jpg'
 import emmanuel from '../../assets/emmanuel.jpeg'
-import mediatrice from '../../assets/mediatrice.jpg'
+import mediatrice from '../../assets/media.jpg'
 
 
 import TeamCard from '../../components/TeamCard/TeamCard'
